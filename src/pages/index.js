@@ -12,15 +12,15 @@ const headingStyles = {
   maxWidth: 320,
 }
 const headingAccentStyles = {
-  color: "#663399",
+  color: "#e7000e",
 }
 const paragraphStyles = {
   marginBottom: 48,
 }
 const codeStyles = {
-  color: "#8A6534",
+  color: "#e7000e",
   padding: 4,
-  backgroundColor: "#FFF4DB",
+  backgroundColor: "#fb9096",
   fontSize: "1.25rem",
   borderRadius: 4,
 }
@@ -36,7 +36,7 @@ const listItemStyles = {
 }
 
 const linkStyle = {
-  color: "#8954A8",
+  color: "#e7000e",
   fontWeight: "bold",
   fontSize: 16,
   verticalAlign: "5%",
@@ -81,7 +81,7 @@ const badgeStyle = {
 // data
 const links = [
   {
-    text: "Tutorial",
+    text: "gfdgf",
     url: "https://www.gatsbyjs.com/docs/tutorial/",
     description:
       "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
