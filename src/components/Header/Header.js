@@ -1,20 +1,41 @@
 import React from "react"
 import { Link } from "gatsby"
 import { useMenuQuery } from "../../hooks/useMenuQuery"
-import Navigation from "../Navigation/Navigation"
+// import Navigation from "../Navigation/Navigation"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Logo from "../../images/logo.svg"
+
+// Import CSS
+import "./Header.scss"
 
 const Header = ({ isHomePage }) => {
   const { wp, wpMenu } = useMenuQuery()
   return (
-    <header className="container mx-auto">
+    <header>
+      <div className="container mx-auto flex flex-row">
+      <div className="branding">
       {isHomePage ? (
-        <h1 className="main-heading">{wp.generalSettings.title}</h1>
+        <img src={Logo} alt={wp.generalSettings.title} />
       ) : (
         <Link className="header-link-home" to="/">
-          {wp.generalSettings.title}
+          <img src={Logo} alt={wp.generalSettings.title} />
         </Link>
       )}
-      <Navigation menu={wpMenu.menuItems.nodes} />
+      </div>
+      {/* <Navigation menu={wpMenu.menuItems.nodes} /> */}
+      </div>
+        <div className="controls flex justify-between items-center">
+          <div className="controls__socials flex flex-col">
+            <FontAwesomeIcon icon={["fab", "facebook"]} />
+            <FontAwesomeIcon icon={["fab", "instagram"]} />
+            <FontAwesomeIcon icon={["fab", "linkedin"]} />
+          </div>
+          <div className="controls__menuButton">
+            <div className="controls__menuButton__inner">
+              MENU
+            </div>
+          </div>
+        </div>
     </header>
   )
 }

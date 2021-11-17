@@ -2,6 +2,7 @@ import React from "react"
 import { Button } from "react-bootstrap"
 import { Link } from "gatsby"
 import { useHeroQuery } from "../hooks/useHeroQuery"
+import { GatsbyImage } from "gatsby-plugin-image"
 import parse from "html-react-parser"
 
 const Hero = props => {
@@ -12,14 +13,24 @@ const Hero = props => {
   var sectionStyle = {
     backgroundImage: `url(${background})`,
   }
+  
+  console.log(props.image);
 
   return (
     <div className="hero">
-      <div className="hero__images" style={sectionStyle}></div>
       <div className="container mx-auto">
-        <h1 className="text-7xl">{wpPage.homepage.blockHero.title}</h1>
-        {wpPage.homepage.blockHero.content && (
-          <div>{parse(wpPage.homepage.blockHero.content)}</div>
+        <h4 className="text-xl md:text-3xl font-medium text-secondary mb-3">{props.subtitle}</h4>
+        <h1 className="text-4xl md:text-7xl font-black mb-10">{props.title}</h1>
+    
+        <GatsbyImage
+              image={props.image}
+              alt="image"
+              style={{ marginBottom: 50 }}
+              className="hero__image"
+            />
+
+        {props.content && (
+          <div>{parse(props.content)}</div>
         )}{" "}
         <Link to={"/contact"}>
           <Button

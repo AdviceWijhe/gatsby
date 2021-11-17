@@ -1,0 +1,43 @@
+@import '../../css/globals/variables';
+
+header {
+  height: 100px;
+}
+
+.branding {
+  max-width: 150px;
+
+  img {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    max-width: 250px;
+  }
+}
+
+.controls {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  z-index: 2;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+
+  &__menuButton {
+    background-color: $color-secondary;
+    border-radius: 50%;
+
+     &__inner {
+       width: 75px;
+       height: 75px;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       font-weight: 600;
+       color: #fff;
+     }
+  }
+}

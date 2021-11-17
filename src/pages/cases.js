@@ -83,8 +83,8 @@ export const pageQuery = graphql`
   query {
     post: wpPage {
       id
-      content
       title
+      content
       date(formatString: "MMMM DD, YYYY")
       featuredImage {
         node {
