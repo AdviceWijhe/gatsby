@@ -1,41 +1,36 @@
-import * as React from 'react'
-import {Link, useStaticQuery, graphql} from 'gatsby'
-import {
-    container,
-    heading,
-    navLinks,
-    navLinkItem,
-    navLinkText,
-    siteTitle
-  } from './layout.module.css'
+import React from "react"
+import {useStaticQuery, graphql } from "gatsby"
+import Header from "./Header/Header"
 
-const Layout = ({pageTitle, children}) => {
-    const data = useStaticQuery(graphql`
-        query {
-            site {
-                siteMetadata {
-                    title
-                }
-            }
+const Layout = ({ isHomePage, children }) => {
+  const {
+  } = useStaticQuery(graphql`
+    query LayoutQuery {
+      wp {
+        generalSettings {
+          title
+          description
         }
-    `)
-    return (
-        <div className={container}>
-            <title>{pageTitle} | {data.site.siteMetadata.title}</title>
-            <header className={siteTitle}>{data.site.siteMetadata.title}</header>
-            <nav>
-                <ul className={navLinks}>
-                    <li className={navLinkItem}><Link to="/" className={navLinkText}>Home</Link></li>
-                    <li className={navLinkItem}><Link to="/about" className={navLinkText}>About</Link></li>
-                    <li className={navLinkItem}><Link to="/blog" className={navLinkText}>Blog</Link></li>
-                </ul>
-            </nav>
-            <main>
-                <h1 className={heading}>{pageTitle}</h1>
-                {children}
-            </main>
+      }
+    }
+  `)
+
+  return (
+    <div className="global-wrapper" data-is-root-path={isHomePage}>
+      <Header></Header>
+      <main>{children}</main>
+
+      <footer>
+        <div className="container mx-auto text-sm">
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          <a href="https://www.gatsbyjs.com">Gatsby</a>
+          {` `}
+          And <a href="https://wordpress.org/">WordPress</a>
         </div>
-    )
+      </footer>
+    </div>
+  )
 }
 
 export default Layout
