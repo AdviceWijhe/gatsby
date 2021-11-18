@@ -25,6 +25,15 @@ header {
   z-index: 2;
   padding-right: 1rem;
   padding-bottom: 1rem;
+  padding-left: 0.5rem;
+
+  &__socials {
+    i {
+      font-size: 1.5rem;
+      color: #B1B1B1;
+      line-height: 1.5;
+    }
+  }
 
   &__menuButton {
     background-color: $color-secondary;

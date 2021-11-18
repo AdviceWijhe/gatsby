@@ -26,13 +26,13 @@ const Header = ({ isHomePage }) => {
       </div>
         <div className="controls flex justify-between items-center">
           <div className="controls__socials flex flex-col">
-            <FontAwesomeIcon icon={["fab", "facebook"]} />
-            <FontAwesomeIcon icon={["fab", "instagram"]} />
-            <FontAwesomeIcon icon={["fab", "linkedin"]} />
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-linkedin-in"></i>
           </div>
           <div className="controls__menuButton">
             <div className="controls__menuButton__inner">
-              MENU
+              <p>MENU</p>
             </div>
           </div>
         </div>

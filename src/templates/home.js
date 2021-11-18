@@ -14,27 +14,34 @@ import "../css/@wordpress/block-library/build-style/theme.css"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const HomePageTemplate = ({ data: {post} }) => {
+const HomePageTemplate = ({ data: { post, diensten } }) => {
   console.log(post)
   const featuredImage = {
     data: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
     alt: post.featuredImage?.node?.alt || ``,
   }
 
-  const heroBlock = post.homepage.blockHero;
+  const heroBlock = post.homepage.blockHero
+
+  console.log("Diensten: " + diensten)
 
   return (
     <Layout>
       <Seo title={post.title} description={post.excerpt} />
-      <Hero title={heroBlock.title} subtitle={heroBlock.subtitle} content={heroBlock.content} image={heroBlock.image?.localFile?.childImageSharp?.gatsbyImageData} />
-        
+      <Hero
+        title={heroBlock.title}
+        subtitle={heroBlock.subtitle}
+        content={heroBlock.content}
+        image={heroBlock.image?.localFile?.childImageSharp?.gatsbyImageData}
+        slideshow={diensten.nodes}
+      />
     </Layout>
   )
 }
 
 export const pageQuery = graphql`
   query homePageQuery($id: String) {
-    post: wpPage(id: {eq: $id}) {
+    post: wpPage(id: { eq: $id }) {
       id
       content
       title
@@ -54,23 +61,28 @@ export const pageQuery = graphql`
         }
       }
       homepage {
-      blockHero {
-        title
-        subtitle
-        content
-        image {
-          localFile {
-            childImageSharp {
-              gatsbyImageData
+        blockHero {
+          title
+          subtitle
+          content
+          image {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
         }
       }
     }
+    diensten: allWpCase {
+      nodes {
+        title
+        excerpt
+        uri
+      }
     }
   }
 `
 
 export default HomePageTemplate
-
-
