@@ -1,22 +1,9 @@
 import React from "react"
-import { Button } from "react-bootstrap"
-import { Link } from "gatsby"
-import { useHeroQuery } from "../hooks/useHeroQuery"
 import { GatsbyImage } from "gatsby-plugin-image"
 import parse from "html-react-parser"
 import Flickity from "react-flickity-component"
 
 const Hero = props => {
-  const { wpPage } = useHeroQuery(props.pageID)
-
-  var background = wpPage.homepage.blockHero.image.sourceUrl
-
-  var sectionStyle = {
-    backgroundImage: `url(${background})`,
-  }
-
-  console.log(props.slideshow)
-
   const flickityOptions = {
     initialIndex: 1,
     cellAlign: "left",

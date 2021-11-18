@@ -36,20 +36,13 @@ const Slideshow = props => {
       }
 
       var elem = document.querySelector(".carousel")
-      var flkty = new Flickity(elem, {
+      new Flickity(elem, {
         initialIndex: 1,
         prevNextButtons: false,
         pageDots: false,
         wrapAround: true,
         contain: true,
       })
-
-      console.log(flkty)
-    }
-
-    myCustomNext = () => {
-      // You can use Flickity API
-      this.flkty.next()
     }
 
     render() {

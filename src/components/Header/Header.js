@@ -2,14 +2,13 @@ import React from "react"
 import { Link } from "gatsby"
 import { useMenuQuery } from "../../hooks/useMenuQuery"
 // import Navigation from "../Navigation/Navigation"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Logo from "../../images/logo.svg"
 
 // Import CSS
 import "./Header.scss"
 
 const Header = ({ isHomePage }) => {
-  const { wp, wpMenu } = useMenuQuery()
+  const { wp } = useMenuQuery()
 
   return (
     <header>
