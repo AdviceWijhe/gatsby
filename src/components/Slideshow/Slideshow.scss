@@ -3,11 +3,20 @@
 .slideshow {
   &__item {
     width: 75%;
-    transform: scale(0.9);
+    transform: scale(0.8);
     transition: 0.5s ease-in-out transform;
+    transform-origin: center;
 
     &.is-selected {
+      transform: scale(0.9);
+    }
+
+    &.is-previous {
       transform: scale(1);
+    }
+
+    &.is-next {
+      transform: scale(0.8) translateX(-12%);
     }
   }
 }
