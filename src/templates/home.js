@@ -34,7 +34,7 @@ const HomePageTemplate = ({ data: { post, diensten, cases } }) => {
         <div className="pageContent mt-14">{parse(post.content)}</div>
       </div>
 
-      <Slideshow items={cases.nodes} />
+      {/* <Slideshow items={cases.nodes} /> */}
 
       <Marquee text="Synergie Aandacht Inspiratie" />
     </Layout>
