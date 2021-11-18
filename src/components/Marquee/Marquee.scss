@@ -1,0 +1,11 @@
+@import "../../css/globals/variables";
+
+.marquee {
+  marquee {
+    font-size: 4rem;
+    font-weight: 800;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    color: transparent;
+  }
+}

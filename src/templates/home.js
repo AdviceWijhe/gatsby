@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import parse from "html-react-parser"
 import Hero from "../components/hero"
+import Marquee from "../components/Marquee/Marquee"
 
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
@@ -39,6 +40,8 @@ const HomePageTemplate = ({ data: { post, diensten } }) => {
       <div className="container">
         <div className="pageContent mt-14">{parse(post.content)}</div>
       </div>
+
+      <Marquee text="Synergie Aandacht Inspiratie" />
     </Layout>
   )
 }
