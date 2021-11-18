@@ -1,10 +1,9 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { graphql } from "gatsby"
 import parse from "html-react-parser"
 import Hero from "../components/hero"
 import Marquee from "../components/Marquee/Marquee"
-
+import Slideshow from "../components/Slideshow/Slideshow"
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
 // version used by the Gatsby and @wordpress packages that causes build
@@ -15,13 +14,7 @@ import "../css/@wordpress/block-library/build-style/theme.css"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const HomePageTemplate = ({ data: { post, diensten } }) => {
-  console.log(post)
-  const featuredImage = {
-    data: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: post.featuredImage?.node?.alt || ``,
-  }
-
+const HomePageTemplate = ({ data: { post, diensten, cases } }) => {
   const heroBlock = post.homepage.blockHero
 
   console.log("Diensten: " + diensten)
@@ -40,6 +33,8 @@ const HomePageTemplate = ({ data: { post, diensten } }) => {
       <div className="container">
         <div className="pageContent mt-14">{parse(post.content)}</div>
       </div>
+
+      <Slideshow items={cases.nodes} />
 
       <Marquee text="Synergie Aandacht Inspiratie" />
     </Layout>
@@ -82,11 +77,29 @@ export const pageQuery = graphql`
         }
       }
     }
-    diensten: allWpCase {
+    diensten: allWpDienst {
       nodes {
         title
         excerpt
         uri
+      }
+    }
+
+    cases: allWpCase {
+      nodes {
+        title
+        excerpt
+        uri
+        id
+        featuredImage {
+          node {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+        }
       }
     }
   }

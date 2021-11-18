@@ -1,0 +1,13 @@
+@import "../../css/globals/variables";
+
+.slideshow {
+  &__item {
+    width: 75%;
+    transform: scale(0.9);
+    transition: 0.5s ease-in-out transform;
+
+    &.is-selected {
+      transform: scale(1);
+    }
+  }
+}
