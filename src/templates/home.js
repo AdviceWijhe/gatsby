@@ -35,6 +35,10 @@ const HomePageTemplate = ({ data: { post, diensten } }) => {
         image={heroBlock.image?.localFile?.childImageSharp?.gatsbyImageData}
         slideshow={diensten.nodes}
       />
+
+      <div className="container">
+        <div className="pageContent mt-14">{parse(post.content)}</div>
+      </div>
     </Layout>
   )
 }

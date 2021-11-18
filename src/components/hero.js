@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import { useHeroQuery } from "../hooks/useHeroQuery"
 import { GatsbyImage } from "gatsby-plugin-image"
 import parse from "html-react-parser"
+import Flickity from "react-flickity-component"
 
 const Hero = props => {
   const { wpPage } = useHeroQuery(props.pageID)
@@ -15,6 +16,14 @@ const Hero = props => {
   }
 
   console.log(props.slideshow)
+
+  const flickityOptions = {
+    initialIndex: 1,
+    cellAlign: "left",
+    contain: true,
+    prevNextButtons: true,
+    pageDots: false,
+  }
 
   return (
     <div className="hero">
@@ -29,30 +38,46 @@ const Hero = props => {
           style={{ marginBottom: 50 }}
           className="hero__image"
         />
-        <div className="hero__slideshow">
+        <Flickity
+          className={"hero__slideshow"} // default ''
+          elementType={"div"} // default 'div'
+          options={flickityOptions} // takes flickity options {}
+          disableImagesLoaded={false} // default false
+          reloadOnUpdate // default false
+          static // default false
+        >
           {props.slideshow &&
             props.slideshow.map(post => {
               const title = post.title
 
               return (
-                <div className="hero__slideshow__item">
-                  <div className="her__slideshow__item--inner">
-                    <h2 className="text-2xl font-bold">{title}</h2>
-                    {parse(post.excerpt)}
+                <div
+                  key={title}
+                  className="hero__slideshow__item carousel-cell"
+                >
+                  <div className="hero__slideshow__item--inner">
+                    <h2 className="hero__slideshow__item--title text-2xl font-bold">
+                      {title}
+                    </h2>
+                    <div className="hero__slideshow__item--excerpt">
+                      {parse(post.excerpt)}
+                    </div>
                   </div>
                 </div>
               )
             })}{" "}
-        </div>
-        {props.content && <div>{parse(props.content)}</div>}{" "}
-        <Link to={"/contact"}>
+        </Flickity>
+        {props.content && (
+          <div className="hero__content">{parse(props.content)}</div>
+        )}{" "}
+        {/* <Link to={"/contact"}>
           <Button
             className="flex items-center justify-center rounded-md bg-black text-white"
             type="submit"
           >
             Dit is een button
           </Button>
-        </Link>
+        </Link> */}
       </div>
     </div>
   )
