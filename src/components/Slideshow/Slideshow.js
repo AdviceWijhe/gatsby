@@ -8,12 +8,13 @@ import "./Slideshow.scss"
 
 const Slideshow = props => {
   const flickityOptions = {
-    initialIndex: 3,
+    initialIndex: 1,
     prevNextButtons: false,
     pageDots: false,
     wrapAround: true,
     contain: true,
   }
+
   return (
     <section className="slideshow">
       <div className="md:container">
@@ -21,7 +22,7 @@ const Slideshow = props => {
           className={"slideshow"} // default ''
           elementType={"div"} // default 'div'
           options={flickityOptions} // takes flickity options {}
-          disableImagesLoaded={false} // default false
+          disableImagesLoaded={true} // default false
           reloadOnUpdate // default false
           static // default false
         >
