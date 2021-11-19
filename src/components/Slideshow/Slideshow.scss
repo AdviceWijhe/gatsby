@@ -1,5 +1,9 @@
 @import "../../css/globals/variables";
 
+.slideshow {
+  padding: 50px 0;
+}
+
 .swiper {
   &-slide {
     transform: scale(0.9);

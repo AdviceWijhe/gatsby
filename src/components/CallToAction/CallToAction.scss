@@ -1,0 +1,44 @@
+@import "../../css/globals/variables";
+
+.CallToAction {
+  padding: 50px 0;
+
+  > .container {
+    position: relative;
+    padding-left: 4rem;
+    padding-top: 2rem;
+
+    &::before {
+      content: "";
+      width: 1px;
+      height: 100%;
+      background-color: $color-secondary;
+      position: absolute;
+      left: 2rem;
+      top: 0;
+      z-index: 2;
+    }
+  }
+
+  &__title {
+    margin-left: -2rem;
+    margin-right: -2rem;
+
+    &--inner {
+      padding: 2rem;
+      padding-bottom: 3rem;
+      position: relative;
+
+      * {
+        position: relative;
+      }
+    }
+  }
+
+  &__image {
+    margin-left: -4rem;
+    margin-right: -2rem;
+    margin-top: -2rem;
+    mix-blend-mode: multiply;
+  }
+}

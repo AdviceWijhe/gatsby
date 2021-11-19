@@ -4,6 +4,7 @@ import parse from "html-react-parser"
 import Hero from "../components/hero"
 import Marquee from "../components/Marquee/Marquee"
 import Slideshow from "../components/Slideshow/Slideshow"
+import CallToAction from "../components/CallToAction/CallToAction"
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
 // version used by the Gatsby and @wordpress packages that causes build
@@ -35,6 +36,9 @@ const HomePageTemplate = ({ data: { post, diensten, cases } }) => {
       </div>
       <Slideshow items={cases.nodes} />
       <Marquee text="Synergie Aandacht Inspiratie" />
+      <CallToAction
+        image={heroBlock.image?.localFile?.childImageSharp?.gatsbyImageData}
+      />
     </Layout>
   )
 }
