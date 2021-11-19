@@ -9,7 +9,7 @@ import "./Marquee.scss"
 const MarqueeSlide = props => {
   return (
     <section className="marquee">
-      <Marquee loop="0" gradient="false" speed="150">
+      <Marquee gradient="false" speed="100">
         {parse(props.text)}
       </Marquee>
     </section>
