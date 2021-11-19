@@ -20,4 +20,20 @@
       transform: scale(0.8) translateX(-12%);
     }
   }
+
+  &-android {
+    .swiper-slide {
+      transform: scale(0.9) translateZ(0) !important;
+
+      &-prev,
+      &-duplicate-prev {
+        transform: scale(1) translateZ(0) !important;
+      }
+
+      &-next,
+      &-duplicate-next {
+        transform: scale(0.8) translateX(-12%) translateZ(0) !important;
+      }
+    }
+  }
 }
