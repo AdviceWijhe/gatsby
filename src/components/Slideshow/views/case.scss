@@ -45,6 +45,12 @@
       &::before {
         background-color: $color-secondary;
       }
+
+      &__content {
+        &--title {
+          color: #fff;
+        }
+      }
     }
   }
 }
