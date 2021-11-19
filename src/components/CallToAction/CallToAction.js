@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 // import Navigation from "../Navigation/Navigation"
 
@@ -11,35 +12,18 @@ const CallToAction = props => {
       <div className="container">
         <div className="CallToAction__title">
           <div className="CallToAction__title--inner bg-primary pb-8 text-white">
-            <h3 className="text-l">Onze cultuur</h3>
-            <h2 className="text-2xl font-bold">
-              Club van creatieve specialisten.
-            </h2>
-            <a href="#" className="mt-5 block">
-              Lees meer
-            </a>
+            <h3 className="text-l">{props.subtitle}</h3>
+            <h2 className="text-2xl font-bold">{props.title}</h2>
+            <Link to={props.link.url} className="mt-5 block">
+              {props.link.title}
+            </Link>
           </div>
         </div>
         <GatsbyImage
           image={props.image}
           alt="image"
-          style={{ marginBottom: 50 }}
           className="CallToAction__image"
         />
-
-        <div className="CallToAction__content">
-          <h2 className="text-2xl font-bold mb-4">Samen aan de slag?</h2>
-          <p>
-            Heb je een project of een samenwerking in gedachten? Of wil jij aan
-            de slag met je merk? Laat dan van je horen!
-          </p>
-          <a href="#" className="mt-5 block text-secondary">
-            Bellen
-          </a>
-          <a href="#" className="mt-5 block text-secondary">
-            Mail
-          </a>
-        </div>
       </div>
     </section>
   )

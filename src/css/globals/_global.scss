@@ -24,7 +24,7 @@ button {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(255, 0, 0, 1);
+    background-color: $color-primary;
     background-blend-mode: multiply;
   }
 }

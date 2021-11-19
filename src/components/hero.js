@@ -8,8 +8,11 @@ const Hero = props => {
     initialIndex: 1,
     cellAlign: "left",
     contain: true,
+    wrapAround: true,
     prevNextButtons: true,
     pageDots: false,
+    autoPlay: true,
+    fade: true,
   }
 
   return (

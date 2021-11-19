@@ -5,6 +5,8 @@ import Hero from "../components/hero"
 import MarqueeSlide from "../components/Marquee/Marquee"
 import Slideshow from "../components/Slideshow/Slideshow"
 import CallToAction from "../components/CallToAction/CallToAction"
+import { useCaseQuery } from "../hooks/useCaseQuery"
+import { useDienstQuery } from "../hooks/useDienstQuery"
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
 // version used by the Gatsby and @wordpress packages that causes build
@@ -15,8 +17,12 @@ import "../css/@wordpress/block-library/build-style/theme.css"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const HomePageTemplate = ({ data: { post, diensten, cases } }) => {
+const HomePageTemplate = ({ data: { post } }) => {
+  const { cases } = useCaseQuery()
+  const { diensten } = useDienstQuery()
   const heroBlock = post.homepage.blockHero
+  const CTA = post.homepage.callToAction
+  const MarqueeBlock = post.homepage.marquee
 
   console.log("Diensten: " + diensten)
 
@@ -35,9 +41,12 @@ const HomePageTemplate = ({ data: { post, diensten, cases } }) => {
         <div className="pageContent mt-14">{parse(post.content)}</div>
       </div>
       <Slideshow items={cases.nodes} />
-      <MarqueeSlide text="<span>Synergie</span> <span>Aandacht</span> <span>Inspiratie</span> <span>Text</span>" />
+      <MarqueeSlide text={MarqueeBlock.text} />
       <CallToAction
-        image={heroBlock.image?.localFile?.childImageSharp?.gatsbyImageData}
+        title={CTA.title}
+        subtitle={CTA.subtitle}
+        link={CTA.link}
+        image={CTA.image?.localFile?.childImageSharp?.gatsbyImageData}
       />
     </Layout>
   )
@@ -77,30 +86,23 @@ export const pageQuery = graphql`
             }
           }
         }
-      }
-    }
-    diensten: allWpDienst {
-      nodes {
-        title
-        excerpt
-        uri
-      }
-    }
-
-    cases: allWpCase {
-      nodes {
-        title
-        excerpt
-        uri
-        id
-        featuredImage {
-          node {
+        callToAction {
+          title
+          subtitle
+          image {
             localFile {
               childImageSharp {
                 gatsbyImageData
               }
             }
           }
+          link {
+            url
+            title
+          }
+        }
+        marquee {
+          text
         }
       }
     }
