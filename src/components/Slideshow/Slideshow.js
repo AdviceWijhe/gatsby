@@ -1,6 +1,5 @@
 import React from "react"
 // import Navigation from "../Navigation/Navigation"
-import { A11y } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import CaseItem from "./views/case"
 
@@ -17,7 +16,6 @@ const Slideshow = props => {
     <section className="slideshow">
       <div className="md:container">
         <Swiper
-          modules={[A11y]}
           spaceBetween={20}
           slidesPerView={1.5}
           centeredSlides={true}

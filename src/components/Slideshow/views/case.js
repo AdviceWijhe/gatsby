@@ -1,6 +1,5 @@
 import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { SwiperSlide } from "swiper/react"
 // import Navigation from "../Navigation/Navigation"
 
 const CaseItem = props => {
