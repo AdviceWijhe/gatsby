@@ -1,10 +1,10 @@
 import React from "react"
-import {useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import Header from "./Header/Header"
+import Footer from "./Footer/Footer"
 
 const Layout = ({ isHomePage, children }) => {
-  const {
-  } = useStaticQuery(graphql`
+  const {} = useStaticQuery(graphql`
     query LayoutQuery {
       wp {
         generalSettings {
@@ -20,15 +20,7 @@ const Layout = ({ isHomePage, children }) => {
       <Header></Header>
       <main>{children}</main>
 
-      <footer>
-        <div className="container mx-auto text-sm">
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-          {` `}
-          And <a href="https://wordpress.org/">WordPress</a>
-        </div>
-      </footer>
+      <Footer></Footer>
     </div>
   )
 }
