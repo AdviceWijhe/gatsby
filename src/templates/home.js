@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import parse from "html-react-parser"
 import Hero from "../components/hero"
-// import Marquee from "../components/Marquee/Marquee"
+import MarqueeSlide from "../components/Marquee/Marquee"
 import Slideshow from "../components/Slideshow/Slideshow"
 import CallToAction from "../components/CallToAction/CallToAction"
 // We're using Gutenberg so we need the block styles
@@ -35,7 +35,7 @@ const HomePageTemplate = ({ data: { post, diensten, cases } }) => {
         <div className="pageContent mt-14">{parse(post.content)}</div>
       </div>
       <Slideshow items={cases.nodes} />
-      {/* <Marquee text="<span>Synergie</span> <span>Aandacht</span> <span>Inspiratie</span> <span>Text</span>" /> */}
+      <MarqueeSlide text="<span>Synergie</span> <span>Aandacht</span> <span>Inspiratie</span> <span>Text</span>" />
       <CallToAction
         image={heroBlock.image?.localFile?.childImageSharp?.gatsbyImageData}
       />

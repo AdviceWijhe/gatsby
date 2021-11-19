@@ -1,16 +1,22 @@
 @import "../../css/globals/variables";
 
 .marquee {
-  &__slide {
-    font-size: 4rem;
-    font-weight: 800;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-    color: transparent;
-    overflow: hidden;
+  font-size: 4rem;
+  font-weight: 800;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  color: transparent;
+  overflow: hidden;
 
-    span:nth-child(even) {
-      color: #000;
-    }
+  span {
+    padding: 0 25px;
+  }
+
+  span:nth-child(even) {
+    color: #000;
+  }
+
+  .overlay {
+    display: none;
   }
 }
