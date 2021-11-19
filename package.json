@@ -47,6 +47,8 @@
     "gatsby-source-wordpress": "^6.1.0",
     "gatsby-transformer-sharp": "^4.0.0",
     "html-react-parser": "^1.1.1",
+    "jquery": "^3.6.0",
+    "jquery.marquee": "^1.6.0",
     "lodash": "^4.17.20",
     "react": "^17.0.1",
     "react-bootstrap": "^2.0.2",

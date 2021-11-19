@@ -26,6 +26,20 @@ const CallToAction = props => {
           style={{ marginBottom: 50 }}
           className="CallToAction__image"
         />
+
+        <div className="CallToAction__content">
+          <h2 className="text-2xl font-bold mb-4">Samen aan de slag?</h2>
+          <p>
+            Heb je een project of een samenwerking in gedachten? Of wil jij aan
+            de slag met je merk? Laat dan van je horen!
+          </p>
+          <a href="#" className="mt-5 block text-secondary">
+            Bellen
+          </a>
+          <a href="#" className="mt-5 block text-secondary">
+            Mail
+          </a>
+        </div>
       </div>
     </section>
   )

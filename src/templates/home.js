@@ -35,7 +35,7 @@ const HomePageTemplate = ({ data: { post, diensten, cases } }) => {
         <div className="pageContent mt-14">{parse(post.content)}</div>
       </div>
       <Slideshow items={cases.nodes} />
-      <Marquee text="Synergie Aandacht Inspiratie" />
+      <Marquee text="<span>Synergie</span> <span>Aandacht</span> <span>Inspiratie</span> <span>Text</span>" />
       <CallToAction
         image={heroBlock.image?.localFile?.childImageSharp?.gatsbyImageData}
       />
