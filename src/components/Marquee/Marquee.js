@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React from "react"
 import parse from "html-react-parser"
 import Marquee from "react-fast-marquee"
 // import Navigation from "../Navigation/Navigation"
@@ -9,7 +9,7 @@ import "./Marquee.scss"
 const MarqueeSlide = props => {
   return (
     <section className="marquee">
-      <Marquee loop="1" gradient="false" speed="150">
+      <Marquee loop="0" gradient="false" speed="150">
         {parse(props.text)}
       </Marquee>
     </section>
