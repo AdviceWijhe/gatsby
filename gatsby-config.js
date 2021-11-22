@@ -32,14 +32,14 @@ module.exports = {
       },
 
       includedRoutes: [
-          "**/categories",
-          "**/posts",
-          "**/pages",
-          "**/media",
-          "**/tags",
-          "**/taxonomies",
-          "**/users",
-        ],
+        "**/categories",
+        "**/posts",
+        "**/pages",
+        "**/media",
+        "**/tags",
+        "**/taxonomies",
+        "**/users",
+      ],
     },
 
     /**
@@ -61,7 +61,7 @@ module.exports = {
      * See https://www.gatsbyjs.com/docs/gatsby-image/#setting-up-gatsby-image
      * if you're curious about it.
      */
-    'gatsby-plugin-postcss',
+    "gatsby-plugin-postcss",
     `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -74,12 +74,11 @@ module.exports = {
         short_name: `GatsbyJS & WP`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#e7000e`,
         display: `minimal-ui`,
         icon: `content/assets/gatsby-icon.png`,
       },
     },
-    
 
     // See https://www.gatsbyjs.com/plugins/gatsby-plugin-react-helmet/?=gatsby-plugin-react-helmet
     `gatsby-plugin-react-helmet`,
@@ -89,7 +88,5 @@ module.exports = {
      * To learn more, visit: https://gatsby.dev/offline
      */
     // `gatsby-plugin-offline`,
-
-    
   ],
 }
