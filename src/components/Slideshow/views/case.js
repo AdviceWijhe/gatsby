@@ -21,7 +21,7 @@ const CaseItem = props => {
           <div className="slideshow__item--case--inner__content--subtitle">
             <p>hier komt nog een subtitle</p>
           </div>
-          <i class="fal fa-long-arrow-right"></i>
+          <i className="fal fa-long-arrow-right"></i>
         </div>
       </div>
     </div>

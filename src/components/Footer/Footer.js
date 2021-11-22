@@ -23,7 +23,7 @@ const Footer = () => {
           </div>
           <div className="bg-black text-white -mr-8 p-8 footer__contactInfo">
             <div className="triangle triangle-arrow">
-              <i class="fal fa-long-arrow-down"></i>
+              <i className="fal fa-long-arrow-down"></i>
             </div>
             <h3 className="text-2xl font-bold">
               Contact
@@ -55,7 +55,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex items-center py-9 pr-14">
-          <i class="fal fa-long-arrow-left text-3xl text-primary mr-10"></i>
+          <i className="fal fa-long-arrow-left text-3xl text-primary mr-10"></i>
           <p className="font-bold m-0">
             Op de hoogte blijven van ons bureau? Volg onze socials.
           </p>
