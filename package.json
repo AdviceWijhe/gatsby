@@ -51,6 +51,7 @@
     "jquery.marquee": "^1.6.0",
     "lodash": "^4.17.20",
     "react": "^17.0.1",
+    "react-block-reveal-animation": "^1.0.1",
     "react-bootstrap": "^2.0.2",
     "react-dom": "^17.0.1",
     "react-fast-marquee": "^1.2.1",
