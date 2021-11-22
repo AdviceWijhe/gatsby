@@ -39,9 +39,11 @@ const Slideshow = props => {
               return <SwiperSlide key={post.id}>{getLayout(post)}</SwiperSlide>
             })}{" "}
         </Swiper>
-        <div className="triangle triangle-arrow triangle-bottom">
-          <i className="fal fa-long-arrow-down"></i>
-        </div>
+        {props.layout === "KernItem" && (
+          <div className="triangle triangle-arrow triangle-bottom">
+            <i className="fal fa-long-arrow-down"></i>
+          </div>
+        )}
       </div>
     </section>
   )
