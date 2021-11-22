@@ -1,4 +1,5 @@
 import React from "react"
+import { useState } from "react"
 import { Link } from "gatsby"
 import { useMenuQuery } from "../../hooks/useMenuQuery"
 // import Navigation from "../Navigation/Navigation"
@@ -6,9 +7,23 @@ import Logo from "../../images/logo.svg"
 
 // Import CSS
 import "./Header.scss"
+import FullMenu from "../FullMenu/FullMenu"
 
 const Header = ({ isHomePage }) => {
   const { wp } = useMenuQuery()
+  const [openMenu, setOpenMenu] = useState(false)
+
+  const toggleOpenMenu = () => {
+    setOpenMenu(!openMenu)
+  }
+
+  let classes = ""
+
+  if (openMenu) {
+    classes = "menuOpen"
+  } else {
+    classes = ""
+  }
 
   return (
     <header>
@@ -26,16 +41,20 @@ const Header = ({ isHomePage }) => {
       </div>
       <div className="controls flex justify-between items-center">
         <div className="controls__socials flex flex-col justify-center">
-          <i class="fab fa-facebook-f"></i>
-          <i class="fab fa-instagram"></i>
-          <i class="fab fa-linkedin-in"></i>
+          <i className="fab fa-facebook-f"></i>
+          <i className="fab fa-instagram"></i>
+          <i className="fab fa-linkedin-in"></i>
         </div>
         <div className="controls__menuButton">
-          <div className="controls__menuButton__inner">
+          <button
+            className={`controls__menuButton__inner ${classes}`}
+            onClick={toggleOpenMenu}
+          >
             <p>MENU</p>
-          </div>
+          </button>
         </div>
       </div>
+      <FullMenu toggle={classes}></FullMenu>
     </header>
   )
 }

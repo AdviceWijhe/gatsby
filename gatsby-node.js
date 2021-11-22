@@ -23,11 +23,11 @@ exports.createPages = async gatsbyUtilities => {
     return
   }
 
-  if(!pages.length) {
+  if (!pages.length) {
     return
   }
 
-   if(!diensten.length) {
+  if (!diensten.length) {
     return
   }
 
@@ -37,7 +37,6 @@ exports.createPages = async gatsbyUtilities => {
   await createIndividualDienstPages({ diensten, gatsbyUtilities })
   // And a paginated archive
   await createBlogPostArchive({ posts, gatsbyUtilities })
-  
 }
 
 /**
@@ -72,7 +71,7 @@ const createIndividualBlogPostPages = async ({ posts, gatsbyUtilities }) =>
     )
   )
 
-  const createIndividualDienstPages = async ({ diensten, gatsbyUtilities }) =>
+const createIndividualDienstPages = async ({ diensten, gatsbyUtilities }) =>
   Promise.all(
     diensten.map(({ previous, dienst, next }) =>
       // createPage is an action passed to createPages
@@ -162,7 +161,6 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
     })
   )
 }
-
 
 async function createDienstArchive({ posts, gatsbyUtilities }) {
   const graphqlResult = await gatsbyUtilities.graphql(/* GraphQL */ `
@@ -303,7 +301,7 @@ async function getDiensten({ graphql, reporter }) {
   return graphqlResult.data.allWpCase.edges
 }
 
-async function getPages({graphql, reporter}) {
+async function getPages({ graphql, reporter }) {
   const graphqlResult = await graphql(
     `
       query WpPages {
@@ -347,39 +345,38 @@ const createIndividualPages = async ({ pages, gatsbyUtilities }) =>
       // createPage is an action passed to createPages
       // See https://www.gatsbyjs.com/docs/actions#createPage for more info
       {
+        let template = path.resolve(`./src/templates/standard-page.js`)
+        let templatePath = `./src/templates/${page.pages.weergave}.js`
 
-      let template = path.resolve(`./src/templates/standard-page.js`)
-      let templatePath = `./src/templates/${page.pages.weergave}.js`
-
-      try {
-        if(fs.existsSync(templatePath)) {
-          template = require.resolve(templatePath)
+        try {
+          if (fs.existsSync(templatePath)) {
+            template = require.resolve(templatePath)
+          }
+        } catch (err) {
+          console.error(err)
         }
-      } catch (err) {
-        console.error(err)
-      }
 
-      gatsbyUtilities.actions.createPage({
-        // Use the WordPress uri as the Gatsby page path
-        // This is a good idea so that internal links and menus work 👍
-        path: page.uri,
+        gatsbyUtilities.actions.createPage({
+          // Use the WordPress uri as the Gatsby page path
+          // This is a good idea so that internal links and menus work 👍
+          path: page.uri,
 
-        // use the blog post template as the page component
-        component: template,
+          // use the blog post template as the page component
+          component: template,
 
-        // `context` is available in the template as a prop and
-        // as a variable in GraphQL.
-        context: {
-          // we need to add the post id here
-          // so our blog post template knows which blog post
-          // the current page is (when you open it in a browser)
-          id: page.id,
+          // `context` is available in the template as a prop and
+          // as a variable in GraphQL.
+          context: {
+            // we need to add the post id here
+            // so our blog post template knows which blog post
+            // the current page is (when you open it in a browser)
+            id: page.id,
 
-          // We also use the next and previous id's to query them and add links!
-          previousPostId: previous ? previous.id : null,
-          nextPostId: next ? next.id : null,
-        },
-      })
+            // We also use the next and previous id's to query them and add links!
+            previousPostId: previous ? previous.id : null,
+            nextPostId: next ? next.id : null,
+          },
+        })
       }
     )
   )

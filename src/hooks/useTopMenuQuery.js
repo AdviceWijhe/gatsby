@@ -1,15 +1,15 @@
 import { useStaticQuery, graphql } from "gatsby"
 
-export const useMenuQuery = () => {
+export const useTopMenuQuery = () => {
   const data = useStaticQuery(graphql`
-    query menuQuery {
+    query topMenuQuery {
       wp {
         generalSettings {
           title
           description
         }
       }
-      wpMenu(name: { eq: "mainMenu" }) {
+      topMenu: wpMenu(name: { eq: "topMenu" }) {
         id
         name
         menuItems {
