@@ -4,7 +4,7 @@ import Header from "./Header/Header"
 import Footer from "./Footer/Footer"
 
 const Layout = ({ isHomePage, children }) => {
-  const {} = useStaticQuery(graphql`
+  const { siteInfo } = useStaticQuery(graphql`
     query LayoutQuery {
       wp {
         generalSettings {
@@ -17,7 +17,7 @@ const Layout = ({ isHomePage, children }) => {
 
   return (
     <div className="global-wrapper" data-is-root-path={isHomePage}>
-      <Header></Header>
+      <Header siteTitle={siteInfo}></Header>
       <main>{children}</main>
 
       <Footer></Footer>

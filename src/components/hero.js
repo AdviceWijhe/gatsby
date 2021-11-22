@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import parse from "html-react-parser"
 import Flickity from "react-flickity-component"
-import { padStart } from "lodash"
 
 const Hero = props => {
   const flickityOptions = {

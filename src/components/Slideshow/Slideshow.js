@@ -27,7 +27,7 @@ const Slideshow = props => {
           {props.items &&
             props.items.map(post => {
               return (
-                <SwiperSlide>
+                <SwiperSlide key={post.id}>
                   <CaseItem item={post}></CaseItem>
                 </SwiperSlide>
               )
