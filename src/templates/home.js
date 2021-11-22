@@ -12,8 +12,6 @@ import { useDienstQuery } from "../hooks/useDienstQuery"
 // version used by the Gatsby and @wordpress packages that causes build
 // failures.
 // @todo update this once @wordpress upgrades their postcss version
-import "../css/@wordpress/block-library/build-style/style.css"
-import "../css/@wordpress/block-library/build-style/theme.css"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 

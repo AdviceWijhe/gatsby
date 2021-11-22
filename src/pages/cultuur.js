@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import parse from "html-react-parser"
 import Hero from "../components/hero"
+import Slideshow from "../components/Slideshow/Slideshow"
 import { useKernwaardeQuery } from "../hooks/useKernwaardeQuery"
 
 // We're using Gutenberg so we need the block styles
@@ -11,7 +12,6 @@ import { useKernwaardeQuery } from "../hooks/useKernwaardeQuery"
 // @todo update this once @wordpress upgrades their postcss version
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import Slideshow from "../components/Slideshow/Slideshow"
 
 const CultuurTemplate = ({ data: { post } }) => {
   const featuredImage = {
