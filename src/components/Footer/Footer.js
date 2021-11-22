@@ -1,12 +1,13 @@
 import React from "react"
 import { Link } from "gatsby"
+import { useFooterMenuQuery } from "../../hooks/useFooterMenuQuery"
 // import Navigation from "../Navigation/Navigation"
-import Logo from "../../images/logo.svg"
 
 // Import CSS
 import "./Footer.scss"
 
-const Footer = ({ isHomePage }) => {
+const Footer = () => {
+  var menu = useFooterMenuQuery()
   return (
     <footer>
       <div className="container">
@@ -20,13 +21,37 @@ const Footer = ({ isHomePage }) => {
               aan de slag met je merk? Laat dan van je horen!
             </p>
           </div>
-          <div className="bg-black text-white -mr-8 p-8">
+          <div className="bg-black text-white -mr-8 p-8 footer__contactInfo">
+            <div className="triangle triangle-arrow">
+              <i class="fal fa-long-arrow-down"></i>
+            </div>
             <h3 className="text-2xl font-bold">
               Contact
               <br />
               gegevens
             </h3>
-            © {new Date().getFullYear()}
+            <div className="footer__info my-7">
+              <div className="flex justify-between">
+                <span className="font-medium">
+                  <span className="font-light">T</span> 0570 52 11 52
+                </span>
+                <span className="font-medium">
+                  <span className="font-light">E</span> info@advice.nl
+                </span>
+              </div>
+            </div>
+            <div className="footer__menu">
+              <ul>
+                {menu.wpMenu.menuItems.nodes &&
+                  menu.wpMenu.menuItems.nodes.map(post => {
+                    return (
+                      <li key={post.id}>
+                        <Link to={post.url}>{post.label}</Link>
+                      </li>
+                    )
+                  })}{" "}
+              </ul>
+            </div>
           </div>
         </div>
         <div className="flex items-center py-9 pr-14">

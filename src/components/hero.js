@@ -1,7 +1,9 @@
 import React from "react"
+import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import parse from "html-react-parser"
 import Flickity from "react-flickity-component"
+import { padStart } from "lodash"
 
 const Hero = props => {
   const flickityOptions = {
@@ -49,9 +51,12 @@ const Hero = props => {
                     <h2 className="hero__slideshow__item--title text-2xl font-bold">
                       {title}
                     </h2>
-                    <div className="hero__slideshow__item--excerpt">
+                    <div className="hero__slideshow__item--excerpt font-light">
                       {parse(post.excerpt)}
                     </div>
+                    <Link to={post.uri} className="block mt-7 font-light">
+                      Lees meer
+                    </Link>
                   </div>
                 </div>
               )

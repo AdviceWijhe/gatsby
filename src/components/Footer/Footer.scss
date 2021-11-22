@@ -1,1 +1,35 @@
 @import "../../css/globals/variables";
+
+footer {
+  .footer {
+    &__menu {
+      ul {
+        li {
+          a {
+            line-height: 2.5;
+          }
+        }
+      }
+    }
+
+    &__contactInfo {
+      position: relative;
+    }
+  }
+
+  .triangle {
+    width: 125px;
+    height: 125px;
+    background-color: $color-secondary;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 20px;
+    font-size: 2.2rem;
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    position: absolute;
+    right: 2rem;
+    top: 0;
+    transform: translateY(-50%);
+  }
+}
