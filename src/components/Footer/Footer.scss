@@ -16,20 +16,28 @@ footer {
       position: relative;
     }
   }
+}
 
-  .triangle {
-    width: 125px;
-    height: 125px;
-    background-color: $color-secondary;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    padding: 20px;
-    font-size: 2.2rem;
-    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-    position: absolute;
-    right: 2rem;
-    top: 0;
-    transform: translateY(-50%);
+.triangle {
+  width: 125px;
+  height: 125px;
+  background-color: $color-secondary;
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 20px;
+  font-size: 2.2rem;
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+  position: absolute;
+  right: 2rem;
+  top: 0;
+  transform: translateY(-50%);
+
+  &-bottom {
+    top: auto;
+    bottom: 0;
+    transform: translateY(30%);
+    z-index: 3;
   }
 }

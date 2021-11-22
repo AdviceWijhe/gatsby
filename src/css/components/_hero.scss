@@ -9,7 +9,7 @@
     margin: 2.5rem -2rem 0 -4rem !important;
   }
 
-  &__content {
+  &__description {
     font-size: 1.45rem;
     font-weight: 800;
     -webkit-text-stroke-width: 1px;
@@ -82,6 +82,20 @@
       left: 2rem;
       top: 0;
       z-index: 1;
+    }
+  }
+
+  &.noSlideshow {
+    .hero__content {
+      order: 1;
+    }
+
+    .hero__image {
+      order: 3;
+    }
+
+    .hero__description {
+      order: 2;
     }
   }
 }

@@ -21,6 +21,7 @@ const HomePageTemplate = ({ data: { post } }) => {
   const { cases } = useCaseQuery()
   const { diensten } = useDienstQuery()
   const heroBlock = post.homepage.blockHero
+  const slideShow = post.homepage.slideshow
   const CTA = post.homepage.callToAction
   const MarqueeBlock = post.homepage.marquee
 
@@ -40,7 +41,7 @@ const HomePageTemplate = ({ data: { post } }) => {
       <div className="container">
         <div className="pageContent mt-14">{parse(post.content)}</div>
       </div>
-      <Slideshow items={cases.nodes} />
+      <Slideshow items={cases.nodes} layout={slideShow.layout} />
       <MarqueeSlide text={MarqueeBlock.text} />
       <CallToAction
         title={CTA.title}
@@ -103,6 +104,11 @@ export const pageQuery = graphql`
         }
         marquee {
           text
+        }
+        slideshow {
+          layout
+          spaceBetween
+          sliderPerView
         }
       }
     }

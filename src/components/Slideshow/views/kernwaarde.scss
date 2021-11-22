@@ -1,0 +1,61 @@
+@import "../../../css/globals/variables";
+
+.slideshow__item--kernwaarde {
+  background-color: $color-primary;
+  height: 100%;
+
+  &--inner {
+    position: relative;
+
+    &__content {
+      position: relative;
+      bottom: 0;
+      left: 0;
+      text-align: center;
+      width: 100%;
+      padding: 1rem;
+      z-index: 2;
+      color: #fff;
+
+      &--title {
+        font-size: 2rem;
+        font-weight: 800;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: white;
+        color: transparent;
+      }
+
+      i {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  &:hover {
+    .slideshow__item--case--inner {
+      &::before {
+        background-color: $color-secondary;
+      }
+
+      &__content {
+        &--title {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.swiper-slide-active {
+  .slideshow__item--case--inner {
+    &::before {
+      background-color: $color-secondary;
+    }
+
+    &__content {
+      &--title {
+        color: #fff;
+      }
+    }
+  }
+}

@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import parse from "html-react-parser"
 import Hero from "../components/hero"
+import { useKernwaardeQuery } from "../hooks/useKernwaardeQuery"
 
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
@@ -10,14 +11,16 @@ import Hero from "../components/hero"
 // @todo update this once @wordpress upgrades their postcss version
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Slideshow from "../components/Slideshow/Slideshow"
 
 const CultuurTemplate = ({ data: { post } }) => {
   const featuredImage = {
     data: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
     alt: post.featuredImage?.node?.alt || ``,
   }
-
+  const { kernwaarden } = useKernwaardeQuery()
   const heroBlock = post.cultuur.blockHero
+  const slideShow = post.cultuur.slideshow
 
   return (
     <Layout>
@@ -27,14 +30,26 @@ const CultuurTemplate = ({ data: { post } }) => {
         subtitle={heroBlock.subtitle}
         content={heroBlock.content}
         image={heroBlock.image?.localFile?.childImageSharp?.gatsbyImageData}
+        layout="noSlideshow"
       />
+
+      <div className="container">
+        <div className="pageContent mt-14">{parse(post.content)}</div>
+      </div>
+
+      <Slideshow
+        items={kernwaarden.nodes}
+        layout={slideShow.layout}
+        spv={slideShow.sliderPerView}
+        spaceBetween={slideShow.spaceBetween}
+      ></Slideshow>
     </Layout>
   )
 }
 
-export const cultuurPageQuery = graphql`
+export const pageQuery = graphql`
   query {
-    post: wpPage {
+    post: wpPage(id: { eq: "cG9zdDozOA==" }) {
       id
       title
       content
@@ -65,6 +80,11 @@ export const cultuurPageQuery = graphql`
               }
             }
           }
+        }
+        slideshow {
+          layout
+          spaceBetween
+          sliderPerView
         }
       }
     }

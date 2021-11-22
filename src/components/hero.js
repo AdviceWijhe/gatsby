@@ -17,52 +17,58 @@ const Hero = props => {
   }
 
   return (
-    <div className="hero">
-      <div className="container mx-auto">
-        <h4 className="text-xl md:text-3xl font-medium text-secondary mb-3">
-          {props.subtitle}
-        </h4>
-        <h1 className="text-4xl md:text-7xl font-black mb-10">{props.title}</h1>
+    <div className={`hero ${props.layout}`}>
+      <div className="container mx-auto flex flex-col">
+        <div className="hero__content">
+          <h4 className="text-xl md:text-3xl font-medium text-secondary mb-3">
+            {props.subtitle}
+          </h4>
+          <h1 className="text-4xl md:text-7xl font-black mb-10">
+            {props.title}
+          </h1>
+        </div>
         <GatsbyImage
           image={props.image}
           alt="image"
           style={{ marginBottom: 50 }}
           className="hero__image"
         />
-        <Flickity
-          className={"hero__slideshow"} // default ''
-          elementType={"div"} // default 'div'
-          options={flickityOptions} // takes flickity options {}
-          disableImagesLoaded={false} // default false
-          reloadOnUpdate // default false
-          static // default false
-        >
-          {props.slideshow &&
-            props.slideshow.map(post => {
-              const title = post.title
+        {props.slideshow && (
+          <Flickity
+            className={"hero__slideshow"} // default ''
+            elementType={"div"} // default 'div'
+            options={flickityOptions} // takes flickity options {}
+            disableImagesLoaded={false} // default false
+            reloadOnUpdate // default false
+            static // default false
+          >
+            {props.slideshow &&
+              props.slideshow.map(post => {
+                const title = post.title
 
-              return (
-                <div
-                  key={title}
-                  className="hero__slideshow__item carousel-cell"
-                >
-                  <div className="hero__slideshow__item--inner">
-                    <h2 className="hero__slideshow__item--title text-2xl font-bold">
-                      {title}
-                    </h2>
-                    <div className="hero__slideshow__item--excerpt font-light">
-                      {parse(post.excerpt)}
+                return (
+                  <div
+                    key={title}
+                    className="hero__slideshow__item carousel-cell"
+                  >
+                    <div className="hero__slideshow__item--inner">
+                      <h2 className="hero__slideshow__item--title text-2xl font-bold">
+                        {title}
+                      </h2>
+                      <div className="hero__slideshow__item--excerpt font-light">
+                        {parse(post.excerpt)}
+                      </div>
+                      <Link to={post.uri} className="block mt-7 font-light">
+                        Lees meer
+                      </Link>
                     </div>
-                    <Link to={post.uri} className="block mt-7 font-light">
-                      Lees meer
-                    </Link>
                   </div>
-                </div>
-              )
-            })}{" "}
-        </Flickity>
+                )
+              })}{" "}
+          </Flickity>
+        )}
         {props.content && (
-          <div className="hero__content">{parse(props.content)}</div>
+          <div className="hero__description">{parse(props.content)}</div>
         )}{" "}
         {/* <Link to={"/contact"}>
           <Button

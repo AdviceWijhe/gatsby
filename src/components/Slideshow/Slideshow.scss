@@ -2,37 +2,78 @@
 
 .slideshow {
   padding: 50px 0;
-}
 
-.swiper {
-  &-slide {
-    transform: scale(0.9);
-    transition: 0.5s ease-in-out transform;
-    transform-origin: center;
+  .md\:container {
+    position: relative;
+  }
 
-    &-prev,
-    &-duplicate-prev {
-      transform: scale(1);
-    }
+  .swiper-slide {
+    height: auto !important;
+    align-self: stretch;
+  }
 
-    &-next,
-    &-duplicate-next {
-      transform: scale(0.8) translateX(-12%);
+  &.CaseItem {
+    .swiper {
+      &-slide {
+        transform: scale(0.9);
+        transition: 0.5s ease-in-out transform;
+        transform-origin: center;
+
+        &-prev,
+        &-duplicate-prev {
+          transform: scale(1);
+        }
+
+        &-next,
+        &-duplicate-next {
+          transform: scale(0.8) translateX(-12%);
+        }
+      }
+
+      &-android {
+        .swiper-slide {
+          transform: scale(0.9) translateZ(0) !important;
+
+          &-prev,
+          &-duplicate-prev {
+            transform: scale(1) translateZ(0) !important;
+          }
+
+          &-next,
+          &-duplicate-next {
+            transform: scale(0.8) translateX(-12%) translateZ(0) !important;
+          }
+        }
+      }
     }
   }
 
-  &-android {
-    .swiper-slide {
-      transform: scale(0.9) translateZ(0) !important;
+  &.KernItem {
+    .swiper {
+      &-slide {
+        transform: scale(1);
+        transition: 0.5s ease-in-out transform;
+        transform-origin: center;
 
-      &-prev,
-      &-duplicate-prev {
-        transform: scale(1) translateZ(0) !important;
+        &-prev,
+        &-duplicate-prev,
+        &-next,
+        &-duplicate-next {
+          transform: scale(0.9);
+        }
       }
 
-      &-next,
-      &-duplicate-next {
-        transform: scale(0.8) translateX(-12%) translateZ(0) !important;
+      &-android {
+        .swiper-slide {
+          transform: scale(1) translateZ(0) !important;
+
+          &-prev,
+          &-duplicate-prev,
+          &-next,
+          &-duplicate-next {
+            transform: scale(0.9) translateZ(0) !important;
+          }
+        }
       }
     }
   }
