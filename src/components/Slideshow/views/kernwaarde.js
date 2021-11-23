@@ -1,5 +1,4 @@
 import React from "react"
-import { GatsbyImage } from "gatsby-plugin-image"
 import parse from "html-react-parser"
 import "./kernwaarde.scss"
 // import Navigation from "../Navigation/Navigation"

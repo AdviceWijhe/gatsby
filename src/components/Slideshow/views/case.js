@@ -1,6 +1,5 @@
 import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
-import BlockRevealAnimation from "react-block-reveal-animation"
 import "./case.scss"
 // import Navigation from "../Navigation/Navigation"
 

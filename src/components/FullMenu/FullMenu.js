@@ -1,5 +1,4 @@
 import React from "react"
-import parse from "html-react-parser"
 import Navigation from "../Navigation/Navigation"
 import { useMenuQuery } from "../../hooks/useMenuQuery"
 import { useTopMenuQuery } from "../../hooks/useTopMenuQuery"

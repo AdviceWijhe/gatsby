@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import parse from "html-react-parser"
 import Hero from "../components/hero"
 import Slideshow from "../components/Slideshow/Slideshow"
@@ -15,10 +15,6 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const CultuurTemplate = ({ data: { post } }) => {
-  const featuredImage = {
-    data: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: post.featuredImage?.node?.alt || ``,
-  }
   const { kernwaarden } = useKernwaardeQuery()
   const { team } = useTeamQuery()
   const heroBlock = post.cultuur.blockHero

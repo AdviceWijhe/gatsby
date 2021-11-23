@@ -1,34 +1,22 @@
-import React, { useRef, useState, useEffect } from "react"
+import React, { useRef } from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import "../../components/Slideshow/views/case.scss"
+import useIntersection from "../../hooks/useIntersection"
 // import Navigation from "../Navigation/Navigation"
 
 const CaseItem = props => {
-  function useOnScreen(ref) {
-    const [isIntersecting, setIntersecting] = useState(false)
+  const ref = useRef() // Trigger as soon as the element becomes visible
+  const inViewport = useIntersection(ref, "-200px") // Trigger if 200px is visible from the element
 
-    const observer = new IntersectionObserver(([entry]) =>
-      setIntersecting(entry.isIntersecting)
-    )
-
-    useEffect(() => {
-      observer.observe(ref.current)
-      // Remove the observer as soon as the component is unmounted
-      return () => {
-        observer.disconnect()
-      }
-    }, [])
-
-    return isIntersecting
+  if (inViewport) {
+    console.log("in viewport:", ref.current)
   }
-  const ref = useRef()
-  const isVisible = useOnScreen(ref)
   return (
     <div
       ref={ref}
       key={props.item.title}
       className={`slideshow__item--case mb-8 animate ${
-        isVisible && `isVisible`
+        inViewport && `isVisible`
       }`}
     >
       <div className="block"></div>
