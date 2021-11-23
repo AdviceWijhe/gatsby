@@ -57,6 +57,7 @@
     "react-fast-marquee": "^1.2.1",
     "react-flickity-component": "^3.6.2",
     "react-helmet": "^5.2.1",
+    "react-in-viewport": "^1.0.0-alpha.20",
     "sass": "^1.43.4",
     "swiper": "^7.3.0",
     "typeface-merriweather": "1.1.13",

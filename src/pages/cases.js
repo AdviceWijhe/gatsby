@@ -3,6 +3,8 @@ import { Link, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import parse from "html-react-parser"
 import Hero from "../components/hero"
+import CaseItem from "../templates/archives/case"
+import { useCaseQuery } from "../hooks/useCaseQuery"
 
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
@@ -14,8 +16,8 @@ import "../css/@wordpress/block-library/build-style/theme.css"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const BlogPostTemplate = ({ data: {post, cases} }) => {
-  console.log(cases)
+const BlogPostTemplate = ({ data: { post } }) => {
+  var { cases } = useCaseQuery()
   const featuredImage = {
     data: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
     alt: post.featuredImage?.node?.alt || ``,
@@ -31,10 +33,6 @@ const BlogPostTemplate = ({ data: {post, cases} }) => {
         itemType="http://schema.org/Article"
       >
         <header>
-          <h1 itemProp="headline">{post.title}</h1>
-
-          <p>{post.date}</p>
-
           {/* if we have a featured image for this post let's display it */}
           {featuredImage?.data && (
             <GatsbyImage
@@ -46,34 +44,23 @@ const BlogPostTemplate = ({ data: {post, cases} }) => {
         </header>
 
         {!!post.content && (
-          <section itemProp="articleBody">{parse(post.content)}</section>
+          <section itemProp="articleBody">
+            <div className={`container`}>
+              <h1 itemProp="headline">{post.title}</h1>
+
+              <p>{post.date}</p>
+              {parse(post.content)}
+            </div>
+          </section>
         )}
 
-        <hr />
-
-        {cases.nodes.map(post => {
-          const title = post.title
-
-          return (
-            <li key={post.uri}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.uri} itemProp="url">
-                      <span itemProp="headline">{parse(title)}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.date}</small>
-                </header>
-                <section itemProp="description">{parse(post.excerpt)}</section>
-              </article>
-            </li>
-          )
-        })}
+        <div className={`container`}>
+          <div className={`grid grid-cols-1 md:grid-cols-2`}>
+            {cases.nodes.map(post => {
+              return <CaseItem item={post} />
+            })}
+          </div>
+        </div>
       </article>
     </Layout>
   )
@@ -81,7 +68,7 @@ const BlogPostTemplate = ({ data: {post, cases} }) => {
 
 export const pageQuery = graphql`
   query {
-    post: wpPage {
+    post: wpPage(id: { eq: "cG9zdDoxMTQ=" }) {
       id
       title
       content
@@ -101,18 +88,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    cases: allWpCase {
-    nodes {
-      title
-      uri
-      id
-      date
-      excerpt
-    }
-  }
   }
 `
 
 export default BlogPostTemplate
-
-

@@ -1,9 +1,10 @@
 @import "../../../css/globals/variables";
 
 .slideshow__item--case {
-  &--inner {
-    position: relative;
+  position: relative;
 
+  &--inner {
+    opacity: 0;
     &__content {
       position: absolute;
       bottom: 0;
@@ -53,6 +54,31 @@
       }
     }
   }
+
+  .block {
+    width: 0%;
+    height: 100%;
+    background: $color-primary;
+    position: absolute;
+    display: flex;
+    z-index: 3;
+  }
+
+  &.isVisible {
+    animation: mainFadeIn 0s forwards;
+    animation-delay: 1.6s;
+
+    .block {
+      animation: mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+    }
+
+    & {
+      .slideshow__item--case--inner {
+        animation: secFadeIn 0s forwards;
+        animation-delay: 1s;
+      }
+    }
+  }
 }
 
 .swiper-slide-active {
@@ -66,5 +92,36 @@
         color: #fff;
       }
     }
+  }
+}
+
+@keyframes mainBlock {
+  0% {
+    width: 0%;
+    left: 0;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+@keyframes mainFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes secFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
