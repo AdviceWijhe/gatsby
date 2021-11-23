@@ -1,10 +1,26 @@
-import React, { useRef } from "react"
+import React, { useRef, useState, useEffect } from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import "../../components/Slideshow/views/case.scss"
-import useOnScreen from "../../hooks/useOnScreen"
 // import Navigation from "../Navigation/Navigation"
 
 const CaseItem = props => {
+  function useOnScreen(ref) {
+    const [isIntersecting, setIntersecting] = useState(false)
+
+    const observer = new IntersectionObserver(([entry]) =>
+      setIntersecting(entry.isIntersecting)
+    )
+
+    useEffect(() => {
+      observer.observe(ref.current)
+      // Remove the observer as soon as the component is unmounted
+      return () => {
+        observer.disconnect()
+      }
+    }, [])
+
+    return isIntersecting
+  }
   const ref = useRef()
   const isVisible = useOnScreen(ref)
   return (
