@@ -17,13 +17,13 @@ const Hero = props => {
   }
 
   return (
-    <div className={`hero ${props.layout}`}>
+    <section className={`hero ${props.layout}`}>
       <div className="container mx-auto flex flex-col">
-        <div className="hero__content">
-          <h4 className="text-xl md:text-3xl font-medium text-secondary mb-3">
+        <div className="hero__content lg:w-2/4 xl:w-1/3">
+          <h4 className="text-xl md:text-2xl font-medium text-secondary mb-3">
             {props.subtitle}
           </h4>
-          <h1 className="text-4xl md:text-7xl font-black mb-10">
+          <h1 className="text-4xl md:text-6xl font-black mb-10">
             {props.title}
           </h1>
         </div>
@@ -51,14 +51,14 @@ const Hero = props => {
                     key={title}
                     className="hero__slideshow__item carousel-cell"
                   >
-                    <div className="hero__slideshow__item--inner">
-                      <h2 className="hero__slideshow__item--title text-2xl font-bold">
+                    <div className="hero__slideshow__item--inner lg:p-8 lg:pr-20">
+                      <h2 className="hero__slideshow__item--title text-2xl lg:text-4xl font-bold">
                         {title}
                       </h2>
                       <div className="hero__slideshow__item--excerpt font-light">
                         {parse(post.excerpt)}
                       </div>
-                      <Link to={post.uri} className="block mt-7 font-light">
+                      <Link to={post.uri} className="block mt-12 font-light">
                         Lees meer
                       </Link>
                     </div>
@@ -132,7 +132,7 @@ const Hero = props => {
           ></polygon>
         </svg>
       </div>
-    </div>
+    </section>
   )
 }
 

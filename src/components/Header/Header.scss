@@ -19,16 +19,30 @@
   bottom: 0;
   width: 100%;
   left: 0;
-  z-index: 3;
+  z-index: 5;
   padding-right: 1rem;
   padding-bottom: 0.6rem;
   padding-left: 0.5rem;
+
+  @media (min-width: $breakpoint-laptop) {
+    padding-left: 1rem;
+    width: 6.5rem;
+    height: 100%;
+  }
 
   &__socials {
     i {
       font-size: 1.3rem;
       color: #b1b1b1;
       line-height: 2;
+
+      @media (min-width: $breakpoint-laptop) {
+        font-size: 2rem;
+        width: 6.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
 
     &.menuOpen {
@@ -57,6 +71,35 @@
       p {
         margin: 0;
       }
+    }
+
+    @media (min-width: $breakpoint-laptop) {
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      background-color: transparent;
+      border: 1px solid $color-primary;
+
+      &__inner {
+        color: $color-primary;
+      }
+    }
+
+    &.menuOpen {
+      @media (min-width: $breakpoint-laptop) {
+        border: 1px solid #fff;
+
+        .controls__menuButton__inner {
+          color: #fff !important;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-laptop) {
+    .lg\:container {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
     }
   }
 }

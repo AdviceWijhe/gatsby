@@ -36,14 +36,15 @@ const HomePageTemplate = ({ data: { post } }) => {
         slideshow={diensten.nodes}
       />
 
-      <div className="container">
-        <div className="pageContent mt-14">{parse(post.content)}</div>
-      </div>
+      <section className="wrapper">
+        <div className="pageContent mt-14 lg:w-3/4">{parse(post.content)}</div>
+      </section>
       <Slideshow
         items={cases.nodes}
         layout={slideShow.layout}
         spv={slideShow.sliderPerView}
         spaceBetween={slideShow.spaceBetween}
+        container={false}
       />
       <MarqueeSlide text={MarqueeBlock.text} />
       <CallToAction

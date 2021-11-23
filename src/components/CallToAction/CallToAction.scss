@@ -5,7 +5,6 @@
 
   > .container {
     position: relative;
-    padding-left: 4rem;
     padding-top: 2rem;
     padding-bottom: 3rem;
 
@@ -15,7 +14,7 @@
       height: 100%;
       background-color: $color-secondary;
       position: absolute;
-      left: 2rem;
+      left: 0;
       top: 0;
       z-index: 2;
     }
@@ -26,8 +25,6 @@
     margin-right: -2rem;
 
     &--inner {
-      padding: 2rem;
-      padding-bottom: 3rem;
       position: relative;
 
       * {
@@ -37,9 +34,13 @@
   }
 
   &__image {
-    margin-left: -4rem;
+    margin-left: -2rem;
     margin-right: -2rem;
     margin-top: -2rem;
     mix-blend-mode: multiply;
+
+    @media (min-width: $breakpoint-laptop) {
+      margin-top: 4rem;
+    }
   }
 }

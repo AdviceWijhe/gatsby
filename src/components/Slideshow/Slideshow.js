@@ -28,7 +28,7 @@ const Slideshow = props => {
   var rand = Math.floor(Math.random() * 100)
   return (
     <section className={`slideshow ${props.layout}`}>
-      <div className="md:container">
+      <div className="">
         {props.title && (
           <h2 className="slideshow__title text-2xl px-11 my-8 font-bold">
             {props.title}
@@ -37,7 +37,7 @@ const Slideshow = props => {
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={props.spaceBetween}
-          slidesPerView={props.spv}
+          slidesPerView="3.5"
           centeredSlides={true}
           pagination={{
             type: "fraction",
@@ -47,6 +47,23 @@ const Slideshow = props => {
           onSwiper={swiper => console.log(swiper)}
           onSlideChange={() => console.log("slide change")}
           className={`swiper-${rand}`}
+          breakpoints={{
+            // when window width is <= 499px
+            499: {
+              slidesPerView: 1.5,
+              spaceBetweenSlides: 50,
+            },
+            // when window width is <= 999px
+            999: {
+              slidesPerView: 2,
+              spaceBetweenSlides: 50,
+            },
+
+            1366: {
+              slidesPerView: 2.5,
+              spaceBetweenSlides: 50,
+            },
+          }}
         >
           {" "}
           {props.items &&

@@ -6,11 +6,15 @@ import useIntersection from "../../hooks/useIntersection"
 
 const CaseItem = props => {
   const ref = useRef() // Trigger as soon as the element becomes visible
-  const inViewport = useIntersection(ref, "-200px") // Trigger if 200px is visible from the element
+  const inViewport = useIntersection(ref, "-50px") // Trigger if 200px is visible from the element
 
   if (inViewport) {
     console.log("in viewport:", ref.current)
   }
+
+  let image =
+    props.item.postTypeCases?.archiveImage?.localFile?.childImageSharp
+      ?.gatsbyImageData
   return (
     <div
       ref={ref}
@@ -19,15 +23,9 @@ const CaseItem = props => {
         inViewport && `isVisible`
       }`}
     >
-      <div className="block"></div>
       <div className={`slideshow__item--case--inner`}>
-        <GatsbyImage
-          image={
-            props.item.featuredImage?.node?.localFile?.childImageSharp
-              ?.gatsbyImageData
-          }
-          alt="image"
-        />
+        <div className="block"></div>
+        <GatsbyImage image={image} alt="image" />
         <div className="slideshow__item--case--inner__content">
           <div className="slideshow__item--case--inner__content--title">
             {props.item.title}

@@ -9,11 +9,11 @@ import "./CallToAction.scss"
 const CallToAction = props => {
   return (
     <section className="CallToAction">
-      <div className="container">
-        <div className="CallToAction__title">
-          <div className="CallToAction__title--inner bg-primary pb-8 text-white">
-            <h3 className="text-l">{props.subtitle}</h3>
-            <h2 className="text-2xl font-bold">{props.title}</h2>
+      <div className="container lg:flex">
+        <div className="CallToAction__title lg:w-2/4">
+          <div className="CallToAction__title--inner bg-primary pb-8 lg:p-20 text-white">
+            <h3 className="text-l lg:text-xl">{props.subtitle}</h3>
+            <h2 className="text-2xl lg:text-5xl font-bold">{props.title}</h2>
             <Link to={props.link.url} className="mt-5 block">
               {props.link.title}
             </Link>
@@ -22,7 +22,7 @@ const CallToAction = props => {
         <GatsbyImage
           image={props.image}
           alt="image"
-          className="CallToAction__image"
+          className="CallToAction__image lg:w-2/3 lg:mt-6"
         />
       </div>
     </section>

@@ -32,9 +32,9 @@ const CultuurTemplate = ({ data: { post } }) => {
         layout="noSlideshow"
       />
 
-      <div className="container">
+      <section className="">
         <div className="pageContent mt-14">{parse(post.content)}</div>
-      </div>
+      </section>
 
       <Slideshow
         items={kernwaarden.nodes}

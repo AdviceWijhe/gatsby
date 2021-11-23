@@ -4,16 +4,14 @@ import "./case.scss"
 // import Navigation from "../Navigation/Navigation"
 
 const CaseItem = props => {
+  var image =
+    props.item.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData
+
+  console.log(image)
   return (
-    <div key={props.item.title} className="slideshow__item--case mb-8">
+    <div key={props.item.title} className="slideshow__item--case">
       <div className="slideshow__item--case--inner">
-        <GatsbyImage
-          image={
-            props.item.featuredImage?.node?.localFile?.childImageSharp
-              ?.gatsbyImageData
-          }
-          alt="image"
-        />
+        <GatsbyImage image={image} alt="image" />
         <div className="slideshow__item--case--inner__content">
           <div className="slideshow__item--case--inner__content--title">
             {props.item.title}

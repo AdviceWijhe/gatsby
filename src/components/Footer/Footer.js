@@ -9,11 +9,11 @@ import "./Footer.scss"
 const Footer = () => {
   var menu = useFooterMenuQuery()
   return (
-    <footer>
+    <section className={`footer`}>
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 w-full">
-          <div className="py-8">
-            <h3 className="text-2xl font-bold text-primary mb-5">
+          <div className="py-8  lg:py-10 lg:pr-20 lg:border-t lg:border-b border-black">
+            <h3 className="text-2xl lg:text-4xl font-bold text-primary mb-5">
               Samen aan de slag?
             </h3>
             <p>
@@ -21,13 +21,13 @@ const Footer = () => {
               aan de slag met je merk? Laat dan van je horen!
             </p>
           </div>
-          <div className="bg-black text-white -mr-8 p-8 footer__contactInfo">
+          <div className="bg-black text-white -mr-8 p-8 lg:px-20 footer__contactInfo">
             <div className="triangle triangle-arrow">
               <i className="fal fa-long-arrow-down"></i>
             </div>
-            <h3 className="text-2xl font-bold">
+            <h3 className="text-2xl lg:text-4xl font-bold">
               Contact
-              <br />
+              <br className="lg:hidden" />
               gegevens
             </h3>
             <div className="footer__info my-7">
@@ -61,7 +61,7 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>
+    </section>
   )
 }
 

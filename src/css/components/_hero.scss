@@ -6,7 +6,11 @@
   align-items: center;
 
   &__image {
-    margin: 2.5rem -2rem 0 -4rem !important;
+    margin: 2.5rem -4.4rem 0 -4.4rem !important;
+
+    @media (min-width: $breakpoint-laptop) {
+      margin: 2.5rem -6.4rem 0 -2rem !important;
+    }
   }
 
   &__description {
@@ -18,6 +22,12 @@
 
     p {
       margin: 0;
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+      margin-top: 4rem;
+      font-size: 2.5rem;
+      line-height: 1;
     }
   }
 
@@ -48,6 +58,12 @@
       &--title {
         margin-bottom: 25px;
       }
+
+      &--inner {
+        @media (min-width: $breakpoint-laptop) {
+          padding-top: 1.5rem;
+        }
+      }
     }
 
     .flickity-prev-next-button {
@@ -67,11 +83,18 @@
         right: 4rem;
       }
     }
+
+    @media (min-width: $breakpoint-laptop) {
+      position: absolute;
+      top: 150px;
+      right: 2rem;
+      width: 45%;
+      margin: 0;
+    }
   }
 
   > .container {
     position: relative;
-    padding-left: 4rem;
 
     &::before {
       content: "";
@@ -79,7 +102,7 @@
       height: 100%;
       background-color: $color-secondary;
       position: absolute;
-      left: 2rem;
+      left: 0;
       top: 0;
       z-index: 1;
     }
@@ -110,6 +133,10 @@
       fill: transparent;
       outline: #000;
       stroke: #0a00fb;
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+      width: 35%;
     }
   }
 }

@@ -18,6 +18,15 @@ export const useCaseQuery = () => {
               }
             }
           }
+          postTypeCases {
+            archiveImage {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+          }
         }
       }
     }

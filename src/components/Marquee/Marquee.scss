@@ -8,6 +8,12 @@
   color: transparent;
   overflow: hidden;
 
+  @media (min-width: $breakpoint-laptop) {
+    font-size: 7rem;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
   span {
     padding: 0 25px;
   }

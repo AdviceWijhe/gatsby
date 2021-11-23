@@ -1,7 +1,19 @@
 @import "../../css/globals/variables";
 
 .slideshow {
-  padding: 50px 0;
+  position: relative;
+  @media (max-width: 767px) {
+    padding: 50px 0 !important;
+  }
+
+  @media (min-width: $breakpoint-laptop) {
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+  }
+
+  &.CaseItem {
+    padding: 0 !important;
+  }
 
   .md\:container {
     position: relative;
@@ -111,6 +123,32 @@
           &-next,
           &-duplicate-next {
             transform: scale(0.9) translateZ(0) !important;
+          }
+        }
+      }
+    }
+  }
+
+  &.KernItem {
+    @media (min-width: $breakpoint-laptop) {
+      .swiper-slide {
+        &.swiper-slide-prev,
+        &.swiper-slide-next,
+        &.swiper-slide-duplicate-next,
+        &.swiper-slide-duplicate-prev {
+          .slideshow__item--kernwaarde {
+            background-color: #fff;
+            border: 1px solid $color-primary;
+
+            &--inner {
+              &__content {
+                color: $color-primary;
+
+                &--title {
+                  -webkit-text-stroke-color: $color-primary;
+                }
+              }
+            }
           }
         }
       }

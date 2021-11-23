@@ -1,20 +1,18 @@
 @import "../../css/globals/variables";
 
-footer {
-  .footer {
-    &__menu {
-      ul {
-        li {
-          a {
-            line-height: 2.5;
-          }
+.footer {
+  &__menu {
+    ul {
+      li {
+        a {
+          line-height: 2.5;
         }
       }
     }
+  }
 
-    &__contactInfo {
-      position: relative;
-    }
+  &__contactInfo {
+    position: relative;
   }
 }
 
@@ -34,11 +32,19 @@ footer {
   top: 0;
   transform: translateY(-50%);
 
+  @media (min-width: $breakpoint-laptop) {
+    right: auto;
+    left: 0;
+    top: 2rem;
+    transform: translateY(0) translateX(-75%) rotate(-90deg);
+  }
+
   &-bottom {
-    top: auto;
-    bottom: 0;
-    transform: translateY(30%);
-    z-index: 3;
-    right: 4rem;
+    top: auto !important;
+    bottom: 0 !important;
+    left: auto !important;
+    transform: translateY(30%) !important;
+    z-index: 3 !important;
+    right: 4rem !important;
   }
 }

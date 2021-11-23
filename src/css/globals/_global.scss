@@ -2,6 +2,18 @@ button {
   padding: 0.225rem 0.5rem;
 }
 
+section {
+  padding: 0 2.4rem !important;
+  @media (min-width: $breakpoint-tablet) {
+    padding: 0 6.5rem !important;
+  }
+}
+
+.container {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
 .text-primary {
   color: $color-primary !important;
 }

@@ -18,6 +18,7 @@ import Seo from "../components/seo"
 
 const BlogPostTemplate = ({ data: { post } }) => {
   var { cases } = useCaseQuery()
+  const heroBlock = post.cases.blockHero
   const featuredImage = {
     data: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
     alt: post.featuredImage?.node?.alt || ``,
@@ -26,42 +27,32 @@ const BlogPostTemplate = ({ data: { post } }) => {
   return (
     <Layout>
       <Seo title={post.title} description={post.excerpt} />
-      <Hero />
-      <article
-        className="blog-post"
-        itemScope
-        itemType="http://schema.org/Article"
-      >
-        <header>
-          {/* if we have a featured image for this post let's display it */}
-          {featuredImage?.data && (
-            <GatsbyImage
-              image={featuredImage.data}
-              alt={featuredImage.alt}
-              style={{ marginBottom: 50 }}
-            />
-          )}
-        </header>
+      <Hero
+        title={heroBlock.title}
+        subtitle={heroBlock.subtitle}
+        content={heroBlock.content}
+        image={heroBlock.image?.localFile?.childImageSharp?.gatsbyImageData}
+        layout="noSlideshow"
+      />
 
-        {!!post.content && (
-          <section itemProp="articleBody">
-            <div className={`container`}>
-              <h1 itemProp="headline">{post.title}</h1>
+      {!!post.content && (
+        <section itemProp="articleBody">
+          <div className={`container`}>
+            <h1 itemProp="headline">{post.title}</h1>
 
-              <p>{post.date}</p>
-              {parse(post.content)}
-            </div>
-          </section>
-        )}
-
-        <div className={`container`}>
-          <div className={`grid grid-cols-1 md:grid-cols-2`}>
-            {cases.nodes.map(post => {
-              return <CaseItem item={post} />
-            })}
+            <p>{post.date}</p>
+            {parse(post.content)}
           </div>
+        </section>
+      )}
+
+      <section className={`container`}>
+        <div className={`grid grid-cols-1 md:grid-cols-2`}>
+          {cases.nodes.map(post => {
+            return <CaseItem item={post} />
+          })}
         </div>
-      </article>
+      </section>
     </Layout>
   )
 }
@@ -83,6 +74,20 @@ export const pageQuery = graphql`
                 placeholder: TRACED_SVG
                 layout: FULL_WIDTH
               )
+            }
+          }
+        }
+      }
+      cases {
+        blockHero {
+          title
+          subtitle
+          content
+          image {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
             }
           }
         }
