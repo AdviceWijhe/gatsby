@@ -40,7 +40,9 @@ const Header = ({ isHomePage }) => {
         {/* <Navigation menu={wpMenu.menuItems.nodes} /> */}
       </div>
       <div className="controls flex justify-between items-center">
-        <div className="controls__socials flex flex-col justify-center">
+        <div
+          className={`controls__socials flex flex-col justify-center ${classes}`}
+        >
           <i className="fab fa-facebook-f"></i>
           <i className="fab fa-instagram"></i>
           <i className="fab fa-linkedin-in"></i>
