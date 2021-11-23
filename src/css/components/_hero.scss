@@ -98,4 +98,18 @@
       order: 2;
     }
   }
+
+  &__svgLogo {
+    position: absolute;
+    right: 0;
+    top: -120px;
+    width: 50%;
+    z-index: -1;
+
+    #adviceLetters {
+      fill: transparent;
+      outline: #000;
+      stroke: #0a00fb;
+    }
+  }
 }

@@ -12,7 +12,7 @@ const Footer = () => {
     <footer>
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 w-full">
-          <div className="p-8">
+          <div className="py-8">
             <h3 className="text-2xl font-bold text-primary mb-5">
               Samen aan de slag?
             </h3>
@@ -54,8 +54,8 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex items-center py-9 pr-14">
-          <i className="fal fa-long-arrow-left text-3xl text-primary mr-10"></i>
+        <div className="flex items-center py-9 pr-20">
+          <i className="fal fa-long-arrow-left text-3xl text-primary mr-10 ml-2"></i>
           <p className="font-bold m-0">
             Op de hoogte blijven van ons bureau? Volg onze socials.
           </p>

@@ -30,7 +30,7 @@ const Slideshow = props => {
     <section className={`slideshow ${props.layout}`}>
       <div className="md:container">
         {props.title && (
-          <h2 className="slideshow__title text-2xl px-8 my-8 font-bold">
+          <h2 className="slideshow__title text-2xl px-11 my-8 font-bold">
             {props.title}
           </h2>
         )}
