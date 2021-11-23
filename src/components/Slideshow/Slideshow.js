@@ -37,7 +37,7 @@ const Slideshow = props => {
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={props.spaceBetween}
-          slidesPerView="3.5"
+          slidesPerView={props.spv}
           centeredSlides={true}
           pagination={{
             type: "fraction",
@@ -47,23 +47,18 @@ const Slideshow = props => {
           onSwiper={swiper => console.log(swiper)}
           onSlideChange={() => console.log("slide change")}
           className={`swiper-${rand}`}
-          breakpoints={{
-            // when window width is <= 499px
-            499: {
-              slidesPerView: 1.5,
-              spaceBetweenSlides: 50,
-            },
-            // when window width is <= 999px
-            999: {
-              slidesPerView: 2,
-              spaceBetweenSlides: 50,
-            },
+          // breakpoints={{
+          //   // when window width is <= 999px
+          //   768: {
+          //     slidesPerView: 2,
+          //     spaceBetweenSlides: 50,
+          //   },
 
-            1366: {
-              slidesPerView: 2.5,
-              spaceBetweenSlides: 50,
-            },
-          }}
+          //   1366: {
+          //     slidesPerView: 2.5,
+          //     spaceBetweenSlides: 50,
+          //   },
+          // }}
         >
           {" "}
           {props.items &&
