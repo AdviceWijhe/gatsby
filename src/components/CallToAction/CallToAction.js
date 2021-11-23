@@ -11,7 +11,7 @@ const CallToAction = props => {
     <section className="CallToAction">
       <div className="container lg:flex">
         <div className="CallToAction__title lg:w-2/4">
-          <div className="CallToAction__title--inner bg-primary pb-8 lg:p-20 text-white">
+          <div className="CallToAction__title--inner bg-primary p-8 lg:p-20 text-white">
             <h3 className="text-l lg:text-xl">{props.subtitle}</h3>
             <h2 className="text-2xl lg:text-5xl font-bold">{props.title}</h2>
             <Link to={props.link.url} className="mt-5 block">

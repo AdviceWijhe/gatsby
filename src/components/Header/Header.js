@@ -27,7 +27,7 @@ const Header = ({ isHomePage }) => {
 
   return (
     <section className="header">
-      <div className="container mx-auto flex flex-row">
+      <div className="flex flex-row">
         <div className="branding">
           {isHomePage ? (
             <img src={Logo} alt={wp.generalSettings.title} />

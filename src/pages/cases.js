@@ -46,7 +46,7 @@ const BlogPostTemplate = ({ data: { post } }) => {
         </section>
       )}
 
-      <section className={`container`}>
+      <section className={`container mt-20`}>
         <div className={`grid grid-cols-1 md:grid-cols-2`}>
           {cases.nodes.map(post => {
             return <CaseItem item={post} />
