@@ -4,16 +4,17 @@
   position: fixed;
   height: 100vh;
   width: 100vw;
-  top: 0;
-  left: -100%;
+  bottom: 0;
+  max-height: 0;
+  left: 0;
   z-index: 2;
-  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) left 0.5s;
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) max-height 1s;
 
   .container {
     padding-top: 5rem;
   }
 
   &.menuOpen {
-    left: 0;
+    max-height: 300vh;
   }
 }

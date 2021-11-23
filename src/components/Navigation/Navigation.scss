@@ -15,7 +15,7 @@
           justify-content: flex-start;
           font-weight: 800;
           color: #fff;
-          font-size: 35px;
+          font-size: 3rem;
 
           &.nav-active {
             -webkit-text-stroke-width: 1px;
@@ -38,7 +38,7 @@
     > ul {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: flex-end;
       margin-top: 4rem;
 
       > li {
