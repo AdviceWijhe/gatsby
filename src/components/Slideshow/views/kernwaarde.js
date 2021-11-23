@@ -7,15 +7,14 @@ import "./kernwaarde.scss"
 const KernItem = props => {
   return (
     <div key={props.item.title} className="slideshow__item--kernwaarde">
-      <div className="slideshow__item--kernwaarde--inner">
+      <div className="slideshow__item--kernwaarde--inner py-8">
         <div className="slideshow__item--kernwaarde--inner__content">
-          <div className="slideshow__item--kernwaarde--inner__content--title">
+          <div className="slideshow__item--kernwaarde--inner__content--title mb-7">
             {props.item.title}
           </div>
           <div className="slideshow__item--kernwaarde--inner__content--subtitle">
             {parse(props.item.content)}
           </div>
-          <i className="fal fa-long-arrow-right"></i>
         </div>
       </div>
     </div>

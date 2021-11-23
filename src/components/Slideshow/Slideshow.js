@@ -1,15 +1,15 @@
 import React from "react"
 // import Navigation from "../Navigation/Navigation"
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import CaseItem from "./views/case"
 import KernItem from "./views/kernwaarde"
+import TeamItem from "./views/team"
 
 // Import CSS
 import "swiper/css"
-import "swiper/css/navigation"
 import "swiper/css/pagination"
-import "swiper/css/scrollbar"
-import "swiper/css/a11y"
+import "swiper/css/navigation"
 import "./Slideshow.scss"
 
 const Slideshow = props => {
@@ -20,18 +20,33 @@ const Slideshow = props => {
       return <CaseItem item={post}></CaseItem>
     } else if (props.layout === "KernItem") {
       return <KernItem item={post}></KernItem>
+    } else if (props.layout === "TeamItem") {
+      return <TeamItem item={post}></TeamItem>
     }
   }
+
+  var rand = Math.floor(Math.random() * 100)
   return (
     <section className={`slideshow ${props.layout}`}>
       <div className="md:container">
+        {props.title && (
+          <h2 className="slideshow__title text-2xl px-8 my-8 font-bold">
+            {props.title}
+          </h2>
+        )}
         <Swiper
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={props.spaceBetween}
           slidesPerView={props.spv}
           centeredSlides={true}
+          pagination={{
+            type: "fraction",
+          }}
+          navigation={true}
           loop={true}
           onSwiper={swiper => console.log(swiper)}
           onSlideChange={() => console.log("slide change")}
+          className={`swiper-${rand}`}
         >
           {" "}
           {props.items &&

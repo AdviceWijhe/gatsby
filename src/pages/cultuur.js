@@ -4,6 +4,7 @@ import parse from "html-react-parser"
 import Hero from "../components/hero"
 import Slideshow from "../components/Slideshow/Slideshow"
 import { useKernwaardeQuery } from "../hooks/useKernwaardeQuery"
+import { useTeamQuery } from "../hooks/useTeamQuery"
 
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
@@ -19,8 +20,10 @@ const CultuurTemplate = ({ data: { post } }) => {
     alt: post.featuredImage?.node?.alt || ``,
   }
   const { kernwaarden } = useKernwaardeQuery()
+  const { team } = useTeamQuery()
   const heroBlock = post.cultuur.blockHero
   const slideShow = post.cultuur.slideshow
+  const TeamSlideShow = post.cultuur.teamSlideshow
 
   return (
     <Layout>
@@ -42,6 +45,15 @@ const CultuurTemplate = ({ data: { post } }) => {
         layout={slideShow.layout}
         spv={slideShow.sliderPerView}
         spaceBetween={slideShow.spaceBetween}
+        title={slideShow.titel}
+      ></Slideshow>
+
+      <Slideshow
+        items={team.nodes}
+        layout={TeamSlideShow.layout}
+        spv={TeamSlideShow.sliderPerView}
+        spaceBetween={TeamSlideShow.spaceBetween}
+        title={TeamSlideShow.titel}
       ></Slideshow>
     </Layout>
   )
@@ -82,6 +94,13 @@ export const pageQuery = graphql`
           }
         }
         slideshow {
+          titel
+          layout
+          spaceBetween
+          sliderPerView
+        }
+        teamSlideshow {
+          titel
           layout
           spaceBetween
           sliderPerView

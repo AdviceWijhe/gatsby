@@ -7,9 +7,47 @@
     position: relative;
   }
 
+  &__title {
+    margin-bottom: -2rem;
+  }
+
+  .swiper-pagination-fraction {
+    bottom: auto;
+    top: 0;
+    right: 3rem;
+    left: auto;
+    width: auto;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    margin-top: 0;
+
+    &::after {
+      font-size: 1rem;
+      color: #000;
+    }
+  }
+
+  .swiper-button-next {
+    right: 5.4rem;
+  }
+
+  .swiper-button-prev {
+    right: 6.6rem;
+    left: auto;
+  }
+
   .swiper-slide {
     height: auto !important;
     align-self: stretch;
+  }
+
+  .swiper {
+    padding: 3rem 0 0 0;
   }
 
   &.CaseItem {
@@ -48,7 +86,8 @@
     }
   }
 
-  &.KernItem {
+  &.KernItem,
+  &.TeamItem {
     .swiper {
       &-slide {
         transform: scale(1);
