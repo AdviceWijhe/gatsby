@@ -12,7 +12,6 @@ import "swiper/css"
 import "swiper/css/pagination"
 import "swiper/css/navigation"
 import "./Slideshow.scss"
-import { prop } from "cheerio/lib/api/attributes"
 
 const Slideshow = props => {
   console.log(props.layout)
