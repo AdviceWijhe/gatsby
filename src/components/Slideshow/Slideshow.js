@@ -5,12 +5,14 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import CaseItem from "./views/case"
 import KernItem from "./views/kernwaarde"
 import TeamItem from "./views/team"
+import DienstItem from "./views/diensten"
 
 // Import CSS
 import "swiper/css"
 import "swiper/css/pagination"
 import "swiper/css/navigation"
 import "./Slideshow.scss"
+import { prop } from "cheerio/lib/api/attributes"
 
 const Slideshow = props => {
   console.log(props.layout)
@@ -22,6 +24,9 @@ const Slideshow = props => {
       return <KernItem item={post}></KernItem>
     } else if (props.layout === "TeamItem") {
       return <TeamItem item={post}></TeamItem>
+    }
+    else if (props.layout === "DienstItem") {
+      return <DienstItem item={post}></DienstItem>
     }
   }
 
@@ -47,18 +52,18 @@ const Slideshow = props => {
           onSwiper={swiper => console.log(swiper)}
           onSlideChange={() => console.log("slide change")}
           className={`swiper-${rand}`}
-          // breakpoints={{
-          //   // when window width is <= 999px
-          //   768: {
-          //     slidesPerView: 2,
-          //     spaceBetweenSlides: 50,
-          //   },
+        // breakpoints={{
+        //   // when window width is <= 999px
+        //   768: {
+        //     slidesPerView: 2,
+        //     spaceBetweenSlides: 50,
+        //   },
 
-          //   1366: {
-          //     slidesPerView: 2.5,
-          //     spaceBetweenSlides: 50,
-          //   },
-          // }}
+        //   1366: {
+        //     slidesPerView: 2.5,
+        //     spaceBetweenSlides: 50,
+        //   },
+        // }}
         >
           {" "}
           {props.items &&
@@ -66,7 +71,7 @@ const Slideshow = props => {
               return <SwiperSlide key={post.id}>{getLayout(post)}</SwiperSlide>
             })}{" "}
         </Swiper>
-        {props.layout === "KernItem" && (
+        {props.layout === "KernItem" || props.layout === "DienstItem" && (
           <div className="triangle triangle-arrow triangle-bottom">
             <i className="fal fa-long-arrow-down"></i>
           </div>

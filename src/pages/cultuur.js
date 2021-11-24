@@ -3,8 +3,10 @@ import { graphql } from "gatsby"
 import parse from "html-react-parser"
 import Hero from "../components/hero"
 import Slideshow from "../components/Slideshow/Slideshow"
+import ContentImage from "../components/ContentImage/ContentImage"
 import { useKernwaardeQuery } from "../hooks/useKernwaardeQuery"
 import { useTeamQuery } from "../hooks/useTeamQuery"
+import { useDienstQuery } from "../hooks/useDienstQuery"
 
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
@@ -17,9 +19,12 @@ import Seo from "../components/seo"
 const CultuurTemplate = ({ data: { post } }) => {
   const { kernwaarden } = useKernwaardeQuery()
   const { team } = useTeamQuery()
+  const { diensten } = useDienstQuery()
   const heroBlock = post.cultuur.blockHero
   const slideShow = post.cultuur.slideshow
   const TeamSlideShow = post.cultuur.teamSlideshow
+  const contentImage = post.cultuur.contentImage
+  const DienstSlideshow = post.cultuur.dienstenSlideshow
 
   return (
     <Layout>
@@ -50,6 +55,18 @@ const CultuurTemplate = ({ data: { post } }) => {
         spv={TeamSlideShow.sliderPerView}
         spaceBetween={TeamSlideShow.spaceBetween}
         title={TeamSlideShow.titel}
+      ></Slideshow>
+
+      <ContentImage
+        settings={contentImage}
+      ></ContentImage>
+
+      <Slideshow
+        items={diensten.nodes}
+        layout={DienstSlideshow.layout}
+        spv={DienstSlideshow.sliderPerView}
+        spaceBetween={DienstSlideshow.spaceBetween}
+        title={DienstSlideshow.titel}
       ></Slideshow>
     </Layout>
   )
@@ -101,6 +118,23 @@ export const pageQuery = graphql`
           spaceBetween
           sliderPerView
         }
+        contentImage {
+          title
+          content
+          image {
+            localFile {
+              childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+      }
+       dienstenSlideshow {
+        titel
+        layout
+        sliderPerView
+        spaceBetween
+      }
       }
     }
   }
