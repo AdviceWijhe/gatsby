@@ -13,19 +13,19 @@ import { useCaseQuery } from "../hooks/useCaseQuery"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const CasesTemplate = ({ data: { post } }) => {
+const DienstenTemplate = ({ data: { post } }) => {
   var { cases } = useCaseQuery()
-  const heroBlock = post.cases.blockHero
+  // const heroBlock = post.cases.blockHero
 
   return (
     <Layout>
       <Seo title={post.title} description={post.excerpt} />
       <Hero
-        title={heroBlock.title}
-        subtitle={heroBlock.subtitle}
-        content={heroBlock.content}
-        image={heroBlock.image?.localFile?.childImageSharp?.gatsbyImageData}
-        layout="noSlideshow"
+      // title={heroBlock.title}
+      // subtitle={heroBlock.subtitle}
+      // content={heroBlock.content}
+      // image={heroBlock.image?.localFile?.childImageSharp?.gatsbyImageData}
+      // layout="noSlideshow"
       />
 
       {!!post.content && (
@@ -51,8 +51,8 @@ const CasesTemplate = ({ data: { post } }) => {
 }
 
 export const pageQuery = graphql`
-  query {
-    post: wpPage(id: { eq: "cG9zdDoxMTQ=" }) {
+  query dienstenPage($id: String) {
+    post: wpPage(id: { eq: $id }) {
       id
       title
       content
@@ -71,22 +71,8 @@ export const pageQuery = graphql`
           }
         }
       }
-      cases {
-        blockHero {
-          title
-          subtitle
-          content
-          image {
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-          }
-        }
-      }
     }
   }
 `
 
-export default CasesTemplate
+export default DienstenTemplate
