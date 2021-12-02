@@ -64,11 +64,16 @@ const Slideshow = props => {
         //   },
         // }}
         >
-          {" "}
-          {props.items &&
-            props.items.map(post => {
-              return <SwiperSlide key={post.id}>{getLayout(post)}</SwiperSlide>
-            })}{" "}
+
+            {props.items &&
+              props.items.map(post => {
+                console.log(post)
+                return (
+                  post.wpParent == null ? (
+                  <SwiperSlide key={post.id}>{getLayout(post)}</SwiperSlide>
+                  ) : null
+                )
+              })}{" "}
         </Swiper>
         {props.layout === "KernItem" || props.layout === "DienstItem" && (
           <div className="triangle triangle-arrow triangle-bottom">

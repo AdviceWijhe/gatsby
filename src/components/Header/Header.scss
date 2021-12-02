@@ -6,11 +6,12 @@
 
   img {
     max-width: 100%;
-    width: 100%;
+    width: 125px;
   }
 
   @media (min-width: $breakpoint-tablet) {
     max-width: 250px;
+    width: 250px;
   }
 }
 

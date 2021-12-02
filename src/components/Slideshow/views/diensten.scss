@@ -17,16 +17,34 @@
       color: #fff;
 
       &--title {
-        font-size: 2rem;
-        font-weight: 800;
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: white;
-        color: transparent;
-        text-align: center;
+        font-size: 1.6rem;
+        font-weight: 600;
       }
 
       i {
         font-size: 2rem;
+      }
+
+      &--subItems {
+        ul {
+          li {
+            position: relative;
+            font-weight: 200;
+            padding: 5px 0;
+            padding-left: 15px;
+
+            &::before {
+              content: '';
+              position: absolute;
+              left: 0;
+              top: 50%;
+              width: 4px;
+              height: 4px;
+              border-radius: 50%;
+              background-color: #fff;
+            }
+          }
+        }
       }
     }
   }

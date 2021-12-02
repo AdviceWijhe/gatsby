@@ -45,8 +45,9 @@ const Hero = props => {
             {props.slideshow &&
               props.slideshow.map(post => {
                 const title = post.title
-
+                console.log(post)
                 return (
+                  post.wpParent == null ? (
                   <div
                     key={title}
                     className="hero__slideshow__item carousel-cell"
@@ -63,6 +64,7 @@ const Hero = props => {
                       </Link>
                     </div>
                   </div>
+                  ) : null
                 )
               })}{" "}
           </Flickity>
