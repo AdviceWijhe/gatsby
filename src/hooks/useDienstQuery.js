@@ -9,6 +9,11 @@ export const useDienstQuery = () => {
           excerpt
           uri
           id
+          wpParent {
+            node {
+              id
+            }
+          }
           featuredImage {
             node {
               localFile {

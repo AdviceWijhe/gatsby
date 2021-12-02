@@ -1,9 +1,14 @@
 import React from "react"
 import parse from "html-react-parser"
 import "./diensten.scss"
+import { useDienstQuery } from "../../../hooks/useDienstQuery"
 // import Navigation from "../Navigation/Navigation"
 
 const DienstItem = props => {
+
+  const { diensten } = useDienstQuery()
+
+  console.log(diensten)
   return (
     <div key={props.item.title} className="slideshow__item--diensten">
       <div className="slideshow__item--diensten--inner py-8 md:p-12">
@@ -13,6 +18,19 @@ const DienstItem = props => {
           </div>
           <div className="slideshow__item--diensten--inner__content--subtitle">
             {props.item.content && parse(props.item.content)}
+          </div>
+          <div className={`slideshow__item--diensten--inner__content--subItems`}>
+            <ul>
+           {diensten.nodes &&
+              diensten.nodes.map(post => {
+                console.log(post)
+                return (
+                  post.wpParent && post.wpParent.node.id === props.item.id ? (
+                  <li>{post.title}</li>
+                  ) : null
+                )
+              })}{" "}
+              </ul>
           </div>
         </div>
       </div>

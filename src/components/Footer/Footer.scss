@@ -1,6 +1,8 @@
 @import "../../css/globals/variables";
 
 .footer {
+  margin-top: 3rem;
+
   &__menu {
     ul {
       li {
@@ -41,10 +43,10 @@
 
   &-bottom {
     top: auto !important;
-    bottom: 0 !important;
+    bottom: 1rem !important;
     left: auto !important;
     transform: translateY(30%) !important;
     z-index: 3 !important;
-    right: 4rem !important;
+    right: 2rem !important;
   }
 }
