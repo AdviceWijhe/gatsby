@@ -20,7 +20,7 @@ const Footer = () => {
             de slag met je merk? Laat dan van je horen!
           </p>
         </div>
-        <div className="bg-black text-white -mr-10 p-8 lg:px-20 footer__contactInfo">
+        <div className="bg-black text-white p-8 lg:px-20 footer__contactInfo">
           <div className="triangle triangle-arrow">
             <i className="fal fa-long-arrow-down"></i>
           </div>

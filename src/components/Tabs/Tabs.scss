@@ -1,0 +1,72 @@
+@import "../../css/globals/variables";
+
+.Tabs {
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+
+  &__tabs {
+    &--tab {
+      font-size: 1.8rem;
+      font-weight: 800;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: black;
+      color: transparent;
+
+       &.active {
+         -webkit-text-stroke-color: unset;
+         color: $color-primary;
+         padding-left: 50px;
+         position: relative;
+
+         &::before {
+           content: "\f178";
+           position: absolute;
+           left: 0;
+           top: 50%;
+           transform: translateY(-50%);
+           font-family: "Font Awesome 5 Pro";
+           font-weight: 200;
+           font-size: 2rem;
+           color: $color-secondary;
+         }
+       }
+
+       &__content {
+         display: none;
+         position: relative;
+         padding: 5rem 0;
+
+         .triangle-small {
+           width: 100px;
+           height: 100px;
+           right: 1rem !important;
+           padding: 10px 15px;
+         }
+
+         &.active {
+           display: block;
+         }
+
+         ul {
+           li {
+             position: relative;
+             font-weight: 200;
+             padding: 5px 0;
+             padding-left: 15px;
+
+             &::before {
+               content: '';
+               position: absolute;
+               left: 0;
+               top: 50%;
+               width: 4px;
+               height: 4px;
+               border-radius: 50%;
+               background-color: #000;
+             }
+           }
+         }
+       }
+    }
+  }
+}
