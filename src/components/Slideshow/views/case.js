@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import "./case.scss"
 // import Navigation from "../Navigation/Navigation"
@@ -19,7 +20,7 @@ const CaseItem = props => {
           <div className="slideshow__item--case--inner__content--subtitle">
             <p>hier komt nog een subtitle</p>
           </div>
-          <i className="fal fa-long-arrow-right"></i>
+          <Link to={props.item.uri}><i className="fal fa-long-arrow-right"></i></Link>
         </div>
       </div>
     </div>
