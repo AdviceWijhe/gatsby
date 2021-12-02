@@ -16,14 +16,18 @@ exports.createPages = async gatsbyUtilities => {
   // Query our posts from the GraphQL server
   const posts = await getPosts(gatsbyUtilities)
   const pages = await getPages(gatsbyUtilities)
+  const cases = await getCases(gatsbyUtilities)
   const diensten = await getDiensten(gatsbyUtilities)
-
   // If there are no posts in WordPress, don't do anything
   if (!posts.length) {
     return
   }
 
   if (!pages.length) {
+    return
+  }
+
+  if (!cases.length) {
     return
   }
 
@@ -34,6 +38,7 @@ exports.createPages = async gatsbyUtilities => {
   // If there are posts, create pages for them
   await createIndividualBlogPostPages({ posts, gatsbyUtilities })
   await createIndividualPages({ pages, gatsbyUtilities })
+  await createIndividualCasePages({ cases, gatsbyUtilities })
   await createIndividualDienstPages({ diensten, gatsbyUtilities })
   // And a paginated archive
   await createBlogPostArchive({ posts, gatsbyUtilities })
@@ -71,7 +76,36 @@ const createIndividualBlogPostPages = async ({ posts, gatsbyUtilities }) =>
     )
   )
 
-const createIndividualDienstPages = async ({ diensten, gatsbyUtilities }) =>
+const createIndividualCasePages = async ({ cases, gatsbyUtilities }) =>
+  Promise.all(
+    cases.map(({ previous, dienst, next }) =>
+      // createPage is an action passed to createPages
+      // See https://www.gatsbyjs.com/docs/actions#createPage for more info
+      gatsbyUtilities.actions.createPage({
+        // Use the WordPress uri as the Gatsby page path
+        // This is a good idea so that internal links and menus work 👍
+        path: dienst.uri,
+
+        // use the blog post template as the page component
+        component: path.resolve(`./src/templates/case.js`),
+
+        // `context` is available in the template as a prop and
+        // as a variable in GraphQL.
+        context: {
+          // we need to add the post id here
+          // so our blog post template knows which blog post
+          // the current page is (when you open it in a browser)
+          id: dienst.id,
+
+          // We also use the next and previous id's to query them and add links!
+          previousPostId: previous ? previous.id : null,
+          nextPostId: next ? next.id : null,
+        },
+      })
+    )
+  )
+
+  const createIndividualDienstPages = async ({ diensten, gatsbyUtilities }) =>
   Promise.all(
     diensten.map(({ previous, dienst, next }) =>
       // createPage is an action passed to createPages
@@ -162,7 +196,7 @@ async function createBlogPostArchive({ posts, gatsbyUtilities }) {
   )
 }
 
-async function createDienstArchive({ posts, gatsbyUtilities }) {
+async function createCaseArchive({ posts, gatsbyUtilities }) {
   const graphqlResult = await gatsbyUtilities.graphql(/* GraphQL */ `
     {
       wp {
@@ -265,7 +299,7 @@ async function getPosts({ graphql, reporter }) {
   return graphqlResult.data.allWpPost.edges
 }
 
-async function getDiensten({ graphql, reporter }) {
+async function getCases({ graphql, reporter }) {
   const graphqlResult = await graphql(/* GraphQL */ `
     query WpCase {
       # Query all WordPress blog posts sorted by date
@@ -299,6 +333,42 @@ async function getDiensten({ graphql, reporter }) {
   }
 
   return graphqlResult.data.allWpCase.edges
+}
+
+async function getDiensten({ graphql, reporter }) {
+  const graphqlResult = await graphql(/* GraphQL */ `
+    query WpDienst {
+      # Query all WordPress blog posts sorted by date
+      allWpDienst(sort: { fields: [date], order: DESC }) {
+        edges {
+          previous {
+            id
+          }
+
+          # note: this is a GraphQL alias. It renames "node" to "post" for this query
+          # We're doing this because this "node" is a post! It makes our code more readable further down the line.
+          dienst: node {
+            id
+            uri
+          }
+
+          next {
+            id
+          }
+        }
+      }
+    }
+  `)
+
+  if (graphqlResult.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading your diensten`,
+      graphqlResult.errors
+    )
+    return
+  }
+
+  return graphqlResult.data.allWpDienst.edges
 }
 
 async function getPages({ graphql, reporter }) {

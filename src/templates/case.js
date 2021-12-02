@@ -15,7 +15,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const DienstTemplate = ({ data: { previous, post, next  } }) => {
+const CaseTemplate = ({ data: { previous, post, next  } }) => {
   console.log(post);
   const featuredImage = {
     data: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
@@ -88,15 +88,15 @@ const DienstTemplate = ({ data: { previous, post, next  } }) => {
   )
 }
 
-export default DienstTemplate
+export default CaseTemplate
 
 export const pageQuery = graphql`
-  query DienstById(
+  query CaseById(
     $id: String!
     $previousPostId: String
     $nextPostId: String
   ) {
-    post: wpDienst(id: { eq: $id }) {
+    post: wpCase(id: { eq: $id }) {
       id
       excerpt
       content
