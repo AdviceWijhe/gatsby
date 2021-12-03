@@ -125,7 +125,7 @@
   &.TeamItem {
     .swiper {
       &-slide {
-        transform: scale(1);
+        transform: scale(0.7);
         transition: 0.5s ease-in-out transform;
         transform-origin: center;
 
@@ -134,6 +134,10 @@
         &-next,
         &-duplicate-next {
           transform: scale(0.9);
+        }
+
+        &-active {
+          transform: scale(1);
         }
       }
 

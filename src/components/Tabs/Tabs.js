@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
 import parse from "html-react-parser"
 import { useDienstQuery } from "../../hooks/useDienstQuery"
 // import Navigation from "../Navigation/Navigation"

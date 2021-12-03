@@ -51,18 +51,18 @@ const Slideshow = props => {
           onSwiper={swiper => console.log(swiper)}
           onSlideChange={() => console.log("slide change")}
           className={`swiper-${rand}`}
-        // breakpoints={{
-        //   // when window width is <= 999px
-        //   768: {
-        //     slidesPerView: 2,
-        //     spaceBetweenSlides: 50,
-        //   },
+          breakpoints={{
+            // when window width is <= 999px
+            768: {
+              slidesPerView: 2,
+              spaceBetweenSlides: 0,
+            },
 
-        //   1366: {
-        //     slidesPerView: 2.5,
-        //     spaceBetweenSlides: 50,
-        //   },
-        // }}
+            1366: {
+              slidesPerView: 3,
+              spaceBetweenSlides: 0,
+            },
+          }}
         >
 
             {props.items &&
