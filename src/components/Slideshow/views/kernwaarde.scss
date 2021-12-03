@@ -1,5 +1,29 @@
 @import "../../../css/globals/variables";
 
+.slideshow {
+  &.KernItem {
+    .swiper {
+      .swiper-slide-prev {
+        @media (min-width: $breakpoint-laptop) {
+          transform: scale(0.9) translateX(30%);
+        }
+      }
+
+      .swiper-slide-active {
+        @media (min-width: $breakpoint-laptop) {
+          z-index: 10;
+        }
+      }
+
+      .swiper-slide-next {
+        @media (min-width: $breakpoint-laptop) {
+          transform: scale(0.9) translateX(-30%);
+        }
+      }
+    }
+  }
+}
+
 .slideshow__item--kernwaarde {
   background-color: $color-primary;
   height: 100%;
