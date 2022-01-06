@@ -24,6 +24,7 @@ const DienstenTemplate = ({ data: { post } }) => {
   return (
     <Layout footer={footer}>
       <Seo title={post.title} description={post.excerpt} />
+      
       <Hero
       title={heroBlock.title}
       subtitle={heroBlock.subtitle}
