@@ -19,9 +19,10 @@ const DienstenTemplate = ({ data: { post } }) => {
   const { diensten } = useDienstQuery()
   const heroBlock = post.diensten.blockHero
   const imageData = post.diensten.image
+  const footer = post.footer
 
   return (
-    <Layout>
+    <Layout footer={footer}>
       <Seo title={post.title} description={post.excerpt} />
       <Hero
       title={heroBlock.title}
@@ -87,6 +88,9 @@ export const pageQuery = graphql`
           }
         }
       }
+      footer {
+      backgroundColorTop
+    }
     }
   }
 `

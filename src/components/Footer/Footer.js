@@ -6,12 +6,22 @@ import { useFooterMenuQuery } from "../../hooks/useFooterMenuQuery"
 // Import CSS
 import "./Footer.scss"
 
-const Footer = () => {
+const Footer = (props) => {
   var menu = useFooterMenuQuery()
+  var options = props.options
+
+  function getFooterColor() {
+    var footerColor = '';
+    if(options != null) {
+      footerColor = options.backgroundColorTop;
+    }
+
+    return footerColor
+  }
   return (
     <section className={`footer`}>
       <div className="grid grid-cols-1 md:grid-cols-2 w-full">
-        <div className="py-8  lg:py-10 lg:pr-20 lg:border-t lg:border-b border-black">
+        <div className={`py-8  lg:py-10 lg:pr-20 lg:border-t lg:border-b border-black ${getFooterColor()}`}>
           <h3 className="text-2xl lg:text-4xl font-bold text-primary mb-5">
             Samen aan de slag?
           </h3>

@@ -8,6 +8,19 @@ export const useMenuQuery = () => {
           title
           description
         }
+        themeGeneralSettings {
+          socials {
+            facebook {
+              url
+            }
+            instagram {
+              url
+            }
+            linkedin {
+              url
+            }
+          }
+        }
       }
       wpMenu(name: { eq: "mainMenu" }) {
         id

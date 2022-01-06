@@ -9,7 +9,7 @@ import Logo from "../../images/logo.svg"
 import "./Header.scss"
 import FullMenu from "../FullMenu/FullMenu"
 
-const Header = ({ isHomePage }) => {
+const Header = ({ isHomePage, siteTitle }) => {
   const { wp } = useMenuQuery()
   const [openMenu, setOpenMenu] = useState(false)
 
@@ -46,9 +46,9 @@ const Header = ({ isHomePage }) => {
           <div
             className={`controls__socials flex flex-col justify-center ${classes}`}
           >
-            <i className="fab fa-facebook-f"></i>
-            <i className="fab fa-instagram"></i>
-            <i className="fab fa-linkedin-in"></i>
+            <a href={wp.themeGeneralSettings.socials.facebook.url} target="_blank" aria-label="Facebook" rel="noreferrer"><i className="fab fa-facebook-f"></i></a>
+            <a href={wp.themeGeneralSettings.socials.instagram.url} target="_blank" aria-label="instagram" rel="noreferrer"><i className="fab fa-instagram"></i></a>
+            <a href={wp.themeGeneralSettings.socials.linkedin.url} target="_blank" aria-label="linkedin" rel="noreferrer"><i className="fab fa-linkedin-in"></i></a>
           </div>
           <div className={`controls__menuButton ${classes}`}>
             <button
