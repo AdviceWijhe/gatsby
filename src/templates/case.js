@@ -23,7 +23,7 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
     alt: post.featuredImage?.node?.alt || ``,
   }
 
-  const heroBlock = post.posttype_diensten.blockHero
+  const heroBlock = post.posttype_cases.blockHero
 
   return (
     <Layout>
