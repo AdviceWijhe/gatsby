@@ -23,22 +23,32 @@ const DienstTemplate = ({ data: { previous, post, next  } }) => {
     alt: post.featuredImage?.node?.alt || ``,
   }
 
-  const heroBlock = post.posttype_diensten.blockHero
+     const heroBlock = post?.posttype_diensten?.blockHero
+
+
+    function getHero() {
+      if(heroBlock) {
+        return  <Hero
+      title={heroBlock?.title}
+      subtitle={heroBlock?.subtitle}
+      content={heroBlock?.content}
+      image={heroBlock?.image?.localFile?.childImageSharp?.gatsbyImageData}
+      layout="noSlideshow"
+      />
+      }
+    }
 
   return (
     <Layout>
       <Seo title={post.title} description={post.excerpt} />
-      <Hero
-      title={heroBlock.title}
-      subtitle={heroBlock.subtitle}
-      content={heroBlock.content}
-      image={heroBlock.image?.localFile?.childImageSharp?.gatsbyImageData}
-      layout="noSlideshow"
-      />
+
+        {getHero()}
 
 
           <section className="wrapper">
-        <div className="pageContent mt-14 lg:w-3/4">{parse(post.content)}</div>
+        {post.content &&
+          <div className="pageContent mt-14 lg:w-3/4">{parse(post.content)}</div>
+        }
       </section>
 
 
