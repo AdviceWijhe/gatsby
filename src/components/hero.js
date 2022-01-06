@@ -19,7 +19,7 @@ const Hero = props => {
   return (
     <section className={`hero ${props.layout}`}>
       <div className="container mx-auto flex flex-col">
-        <div className="hero__content lg:w-2/4 xl:w-1/3">
+        <div className="hero__content lg:w-2/4 xl:w-2/4">
           <h4 className="text-xl md:text-2xl font-medium text-secondary mb-3">
             {props.subtitle}
           </h4>
@@ -70,7 +70,7 @@ const Hero = props => {
           </Flickity>
         )}
         {props.content && (
-          <div className="hero__description">{parse(props.content)}</div>
+          <div className="hero__description lg:w-3/4">{parse(props.content)}</div>
         )}{" "}
         {/* <Link to={"/contact"}>
           <Button

@@ -21,6 +21,7 @@
 
 .red {
   position: relative;
+  border: none;
 
   &::before {
     content: '';
@@ -30,6 +31,12 @@
     position: absolute;
     background-color: $color-primary;
     height: 180%;
+
+    @media (min-width: $breakpoint-laptop) {
+      height: 100%;
+      width: 100%;
+      left: 0;
+    }
   }
 
   h3,
