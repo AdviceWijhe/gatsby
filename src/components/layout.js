@@ -3,13 +3,26 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./Header/Header"
 import Footer from "./Footer/Footer"
 
-const Layout = ({ isHomePage, children }) => {
+const Layout = ({ isHomePage, children, footer }) => {
   const { siteInfo } = useStaticQuery(graphql`
     query LayoutQuery {
       wp {
         generalSettings {
           title
           description
+        }
+        themeGeneralSettings {
+          socials {
+            facebook {
+              url
+            }
+            instagram {
+              url
+            }
+            linkedin {
+              url
+            }
+          }
         }
       }
     }
@@ -20,7 +33,7 @@ const Layout = ({ isHomePage, children }) => {
       <Header siteTitle={siteInfo}></Header>
       <main>{children}</main>
 
-      <Footer></Footer>
+      <Footer options={footer}></Footer>
     </div>
   )
 }
