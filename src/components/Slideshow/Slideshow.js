@@ -29,6 +29,12 @@ const Slideshow = props => {
     }
   }
 
+  function getTriangle() {
+    if(props.layout === "KernItem" || props.layout === "DienstItem") {
+      return <div className="triangle triangle-arrow triangle-bottom"><i className="fal fa-long-arrow-down"></i></div>
+    }
+  }
+
   var rand = Math.floor(Math.random() * 100)
   return (
     <section className={`slideshow ${props.layout}`}>
@@ -75,11 +81,7 @@ const Slideshow = props => {
                 )
               })}{" "}
         </Swiper>
-        {props.layout === "KernItem" || props.layout === "DienstItem" && (
-          <div className="triangle triangle-arrow triangle-bottom">
-            <i className="fal fa-long-arrow-down"></i>
-          </div>
-        )}
+        {getTriangle()}
       </div>
     </section>
   )
