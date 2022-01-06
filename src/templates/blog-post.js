@@ -25,7 +25,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
     <Layout>
       <Seo title={post.title} description={post.excerpt} />
 
-      <article
+      <section
         className="blog-post"
         itemScope
         itemType="http://schema.org/Article"
@@ -54,7 +54,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
         <footer>
           <Bio />
         </footer>
-      </article>
+      </section>
 
       <nav className="blog-post-nav">
         <ul

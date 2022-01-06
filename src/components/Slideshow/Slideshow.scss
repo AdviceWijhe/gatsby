@@ -88,33 +88,33 @@
   &.CaseItem {
     .swiper {
       &-slide {
-        transform: scale(0.9);
+        transform: scale(1);
         transition: 0.5s ease-in-out transform;
-        transform-origin: center;
+        transform-origin: center center;
 
         &-prev,
         &-duplicate-prev {
-          transform: scale(1);
+          transform: scale(1.05);
         }
 
         &-next,
         &-duplicate-next {
-          transform: scale(0.8) translateX(-12%);
+          transform: scale(0.95) translateX(-5%);
         }
       }
 
       &-android {
         .swiper-slide {
-          transform: scale(0.9) translateZ(0) !important;
+          transform: scale(1) translateZ(0) !important;
 
           &-prev,
           &-duplicate-prev {
-            transform: scale(1) translateZ(0) !important;
+            transform: scale(1.1) translateZ(0) !important;
           }
 
           &-next,
           &-duplicate-next {
-            transform: scale(0.8) translateX(-12%) translateZ(0) !important;
+            transform: scale(0.9) translateX(-12%) translateZ(0) !important;
           }
         }
       }

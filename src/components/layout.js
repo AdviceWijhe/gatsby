@@ -28,6 +28,8 @@ const Layout = ({ isHomePage, children, footer }) => {
     }
   `)
 
+
+
   return (
     <div className="global-wrapper" data-is-root-path={isHomePage}>
       <Header siteTitle={siteInfo}></Header>

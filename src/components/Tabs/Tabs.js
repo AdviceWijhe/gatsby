@@ -36,7 +36,7 @@ const Tabs = props => {
                 return (
                   post.wpParent == null ? (
                     <div className={`Tabs__tabs--tab__content ${activeTab === post.id ? "active" : ""}`} data-id={post.id}>
-                      <h3 className={`text-2xl font-medium`}>{post.title}</h3>
+                      <h3 className={`text-2xl font-bold lg:hidden mb-5`}>{post.title}</h3>
                       {parse(post.excerpt)}
 
                       <ul>
