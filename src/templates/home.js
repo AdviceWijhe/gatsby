@@ -23,8 +23,6 @@ const HomePageTemplate = ({ data: { post } }) => {
   const CTA = post.homepage.callToAction
   const MarqueeBlock = post.homepage.marquee
 
-  console.log("Diensten: " + diensten)
-
   return (
     <Layout>
       <Seo title={post.title} description={post.excerpt} />

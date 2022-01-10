@@ -1,6 +1,5 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import parse from "html-react-parser"
 import BlogItem from "./archives/blog"
 
 import Bio from "../components/bio"
@@ -33,7 +32,7 @@ const BlogIndex = ({
 <section className={`container mt-20`}>
         <div className={`grid grid-cols-1 md:grid-cols-2`}>
         {posts.map(post => {
-          return <BlogItem item={post} />
+          return <BlogItem key={post.id} item={post} />
         })}
         </div>
       </section>
