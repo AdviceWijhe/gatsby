@@ -7,8 +7,6 @@ import "./case.scss"
 const CaseItem = props => {
   var image =
     props.item.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData
-
-  console.log(image)
   return (
     <div key={props.item.title} className="slideshow__item--case">
       <div className="slideshow__item--case--inner">

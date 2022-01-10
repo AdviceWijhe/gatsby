@@ -1,6 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { graphql } from "gatsby"
 import parse from "html-react-parser"
 import Hero from "../components/hero"
 
@@ -12,18 +11,13 @@ import Hero from "../components/hero"
 import "../css/@wordpress/block-library/build-style/style.css"
 import "../css/@wordpress/block-library/build-style/theme.css"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const CaseTemplate = ({ data: { previous, post, next  } }) => {
-  console.log(post);
-  const featuredImage = {
-    data: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: post.featuredImage?.node?.alt || ``,
-  }
 
   const heroBlock = post.posttype_cases.blockHero
+  const specialisme = post.posttype_cases.specialisme
 
   return (
     <Layout>
@@ -33,8 +27,16 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
       subtitle={heroBlock.subtitle}
       content={heroBlock.content}
       image={heroBlock.image?.localFile?.childImageSharp?.gatsbyImageData}
-      layout="noSlideshow"
+      specialisme={specialisme}
+      layout="noSlideshow single"
+      
       />
+
+      <section>
+        {post.content &&
+          <div className="pageContent mt-14 lg:w-3/4">{parse(post.content)}</div>
+        }
+      </section>
     </Layout>
   )
 }
@@ -78,6 +80,13 @@ export const pageQuery = graphql`
                 gatsbyImageData
               }
             }
+          }
+        }
+        specialisme {
+          ... on WpDienst {
+            id
+            title
+            uri
           }
         }
       }

@@ -6,7 +6,7 @@
   align-items: center;
 
   &__image {
-    margin: 2.5rem -4.4rem 0 -4.4rem !important;
+    margin: 0 -4.4rem 0 -4.4rem !important;
 
     @media (min-width: $breakpoint-laptop) {
       margin: 2.5rem -6.4rem 0 -2rem !important;
@@ -28,6 +28,23 @@
       margin-top: 2rem;
       font-size: 2.5rem;
       line-height: 1;
+    }
+  }
+
+  &.single {
+    .hero__description {
+      margin-top: 2rem;
+      color: #000;
+      font-size: 1.1rem;
+      font-weight: 400;
+      -webkit-text-stroke-width: unset;
+      -webkit-text-stroke-color: unset;
+      line-height: 1.4;
+      order: 3;
+    }
+
+    .hero__image {
+      order: 2 !important;
     }
   }
 

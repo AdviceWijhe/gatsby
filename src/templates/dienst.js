@@ -1,6 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { graphql } from "gatsby"
 import parse from "html-react-parser"
 import Hero from "../components/hero"
 
@@ -12,16 +11,10 @@ import Hero from "../components/hero"
 import "../css/@wordpress/block-library/build-style/style.css"
 import "../css/@wordpress/block-library/build-style/theme.css"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const DienstTemplate = ({ data: { previous, post, next  } }) => {
-  console.log(post);
-  const featuredImage = {
-    data: post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData,
-    alt: post.featuredImage?.node?.alt || ``,
-  }
 
      const heroBlock = post?.posttype_diensten?.blockHero
 
@@ -33,7 +26,7 @@ const DienstTemplate = ({ data: { previous, post, next  } }) => {
       subtitle={heroBlock?.subtitle}
       content={heroBlock?.content}
       image={heroBlock?.image?.localFile?.childImageSharp?.gatsbyImageData}
-      layout="noSlideshow"
+      layout="noSlideshow single"
       />
       }
     }

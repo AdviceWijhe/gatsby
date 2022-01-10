@@ -8,7 +8,6 @@ const DienstItem = props => {
 
   const { diensten } = useDienstQuery()
 
-  console.log(diensten)
   return (
     <div key={props.item.title} className="slideshow__item--diensten">
       <div className="slideshow__item--diensten--inner py-8 md:p-12">

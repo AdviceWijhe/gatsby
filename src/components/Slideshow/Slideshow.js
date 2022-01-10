@@ -14,7 +14,6 @@ import "swiper/css/navigation"
 import "./Slideshow.scss"
 
 const Slideshow = props => {
-  console.log(props.layout)
 
   function getLayout(post) {
     if (props.layout === "CaseItem") {
@@ -54,8 +53,6 @@ const Slideshow = props => {
           }}
           navigation={true}
           loop={true}
-          onSwiper={swiper => console.log(swiper)}
-          onSlideChange={() => console.log("slide change")}
           className={`swiper-${rand}`}
           breakpoints={{
             // when window width is <= 999px
@@ -73,7 +70,6 @@ const Slideshow = props => {
 
             {props.items &&
               props.items.map(post => {
-                console.log(post)
                 return (
                   post.wpParent == null ? (
                   <SwiperSlide key={post.id}>{getLayout(post)}</SwiperSlide>
