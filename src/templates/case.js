@@ -46,15 +46,18 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
         }
       </section>
 
+      {caseImage &&
       <Image image={caseImage} />
+      }
 
       <section className={`doelstelling`}>
         <div class="lg:masonry">
           <div className={`xl:p-10`}>
-            <h3 class="text-xl mb-5">{doelstelling.titel}</h3>
-            {parse(doelstelling.content)}
+            <h3 class="text-xl mb-5">{doelstelling?.titel}</h3>
+            {parse(doelstelling?.content)}
           </div>
-        {doelstelling.images.map(post => {
+        {doelstelling.images &&
+        doelstelling.images.map(post => {
           return (
           <div class="doelstelling__image">
             <GatsbyImage
@@ -73,13 +76,13 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
       <section className={`resultaat`}>
         <div class="lg:w-3/4">
           <div>
-            <h3 class="text-xl mb-5">{resultaat.titel}</h3>
-            {parse(resultaat.content)}
+            <h3 class="text-xl mb-5">{resultaat?.titel}</h3>
+            {parse(resultaat?.content)}
           </div>
         
           <div class="doelstelling__image">
             <GatsbyImage
-              image={resultaat.image.localFile.childImageSharp.gatsbyImageData}
+              image={resultaat?.image?.localFile?.childImageSharp?.gatsbyImageData}
               alt="image"
               style={{marginBottom: 50}}
               className="doelstelling__image--image"
