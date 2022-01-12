@@ -20,7 +20,7 @@ const CaseItem = props => {
     <div
       ref={ref}
       key={props.item.title}
-      className={`slideshow__item--case archive mb-8 animate ${
+      className={`slideshow__item--case archive mb-5 lg:mb-0 animate ${
         inViewport && `isVisible`
       }`}
     >
