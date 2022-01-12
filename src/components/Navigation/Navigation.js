@@ -10,19 +10,19 @@ const Navigation = ({ menu, menuName }) => {
         {menu.map(mainItem =>
           !mainItem.parentId ? (
             <li key={mainItem.id}>
-              <AniLink to={mainItem.url} activeClassName="nav-active" >
+              <Link to={mainItem.url} activeClassName="nav-active" >
                 {mainItem.label}
                 {/* {mainItem.childItems.nodes.length !== 0 && (
                   <div className="subMenuIcon">&#8964;</div>
                 )} */}
-              </AniLink>
+              </Link>
               {mainItem.childItems.nodes.length > 0 ? (
                 <ul className="sub-menu">
                   {mainItem.childItems.nodes.map(childItem => (
                     <li key={childItem.id}>
-                      <AniLink paintDrip to={childItem.url} activeClassName="nav-active">
+                      <Link to={childItem.url} activeClassName="nav-active">
                         {childItem.label}
-                      </AniLink>
+                      </Link>
                     </li>
                   ))}
                 </ul>

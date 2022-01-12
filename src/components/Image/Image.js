@@ -6,7 +6,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import "./Image.scss"
 
 const Image = props => {
-  const image = props.image.image.localFile.childImageSharp.gatsbyImageData
+  const image = props.image?.localFile?.childImageSharp?.gatsbyImageData
 
   return (
     <section className="Image">

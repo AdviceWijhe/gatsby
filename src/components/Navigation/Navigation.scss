@@ -1,3 +1,5 @@
+@import "../../css/globals/variables";
+
 .nav-menu {
   &.mainMenu {
     > ul {
@@ -7,8 +9,9 @@
 
       > li {
         position: relative;
+        width: 100%;
 
-        a {
+        > a {
           padding: 4px 10px;
           display: flex;
           align-items: center;
@@ -17,6 +20,10 @@
           color: #fff;
           font-size: 3rem;
 
+          @media (min-width: $breakpoint-laptop) {
+            font-size: 5rem;
+          }
+
           &.nav-active {
             -webkit-text-stroke-width: 1px;
             -webkit-text-stroke-color: #fff;
@@ -24,11 +31,58 @@
           }
         }
 
+        &:hover {
+          .sub-menu {
+            opacity: 1;
+          }
+
+          > a {
+             -webkit-text-stroke-width: 1px;
+             -webkit-text-stroke-color: #fff;
+             color: transparent;
+          }
+        }
+
         .sub-menu {
-          position: absolute;
+          position: relative;
           top: 100%;
           left: 0;
-          display: none;
+          opacity: 0;
+          width: 100%;
+
+          >li {
+            display: inline-block;
+            padding: 0 25px;
+
+            >a {
+              color: #fff;
+              font-size: 1.2rem;
+              font-weight: 200;
+              position: relative;
+
+              &::after{
+                content: "";
+                left: 0;
+                width: 0;
+                height: 2px;
+                background-color: $color-secondary;
+                position: absolute;
+                bottom: -5px;
+                transition: 0.5s ease-in-out all;
+              }
+
+              &:hover {
+                &::after {
+                  width: 70%;
+                  transition: 0.5s ease-in-out all;
+                }
+              }
+            }
+          }
+
+          @media (min-width: $breakpoint-laptop) {
+            left: 100px;
+          }
         }
       }
     }
@@ -43,20 +97,39 @@
 
       > li {
         position: relative;
+        padding: 4px 10px;
 
         a {
-          padding: 4px 10px;
           display: flex;
           align-items: center;
           justify-content: flex-start;
           font-weight: 200;
           color: #fff;
           font-size: 25px;
+          position: relative;
 
           &.nav-active {
             -webkit-text-stroke-width: 1px;
             -webkit-text-stroke-color: #fff;
             color: transparent;
+          }
+
+          &::after {
+            content: "";
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: $color-secondary;
+            position: absolute;
+            bottom: -5px;
+            transition: 0.5s ease-in-out all;
+          }
+
+          &:hover{
+            &::after {
+              width: 70%;
+              transition: 0.5s ease-in-out all;
+            }
           }
         }
 
