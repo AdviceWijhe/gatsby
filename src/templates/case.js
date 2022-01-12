@@ -24,7 +24,6 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
   const doelstelling = post.posttype_cases?.doelstelling
   const resultaat = post.posttype_cases?.resultaat
 
-  console.log(doelstelling.images)
 
 
   return (
@@ -54,9 +53,11 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
         <div class="lg:masonry">
           <div className={`xl:p-10`}>
             <h3 class="text-xl mb-5">{doelstelling?.titel}</h3>
-            {parse(doelstelling?.content)}
+            {doelstelling?.content &&
+            parse(doelstelling?.content)
+            }
           </div>
-        {doelstelling.images &&
+        {doelstelling?.images &&
         doelstelling.images.map(post => {
           return (
           <div class="doelstelling__image">
@@ -77,16 +78,20 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
         <div class="lg:w-3/4">
           <div>
             <h3 class="text-xl mb-5">{resultaat?.titel}</h3>
-            {parse(resultaat?.content)}
+            {resultaat?.content &&
+            parse(resultaat?.content)
+            }
           </div>
         
           <div class="doelstelling__image">
+            {resultaat?.image &&
             <GatsbyImage
               image={resultaat?.image?.localFile?.childImageSharp?.gatsbyImageData}
               alt="image"
               style={{marginBottom: 50}}
               className="doelstelling__image--image"
             />
+            }
           </div>
         </div>
           
