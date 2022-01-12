@@ -60,11 +60,6 @@ const Slideshow = props => {
               slidesPerView: 2,
               spaceBetweenSlides: 0,
             },
-
-            1366: {
-              slidesPerView: 3,
-              spaceBetweenSlides: 0,
-            },
           }}
         >
 

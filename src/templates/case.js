@@ -2,6 +2,8 @@ import React from "react"
 import { graphql } from "gatsby"
 import parse from "html-react-parser"
 import Hero from "../components/hero"
+import Image from "../components/Image/Image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
@@ -18,6 +20,12 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
 
   const heroBlock = post.posttype_cases.blockHero
   const specialisme = post.posttype_cases.specialisme
+  const caseImage = post.posttype_cases?.caseImage
+  const doelstelling = post.posttype_cases?.doelstelling
+  const resultaat = post.posttype_cases?.resultaat
+
+  console.log(doelstelling.images)
+
 
   return (
     <Layout>
@@ -37,6 +45,52 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
           <div className="pageContent mt-14 lg:w-3/4">{parse(post.content)}</div>
         }
       </section>
+
+      <Image image={caseImage} />
+
+      <section className={`doelstelling`}>
+        <div class="lg:masonry">
+          <div className={`xl:p-10`}>
+            <h3 class="text-xl mb-5">{doelstelling.titel}</h3>
+            {parse(doelstelling.content)}
+          </div>
+        {doelstelling.images.map(post => {
+          return (
+          <div class="doelstelling__image">
+            <GatsbyImage
+              image={post.localFile.childImageSharp.gatsbyImageData}
+              alt="image"
+              style={{marginBottom: 50}}
+              className="doelstelling__image--image"
+            />
+          </div>
+          )
+        })}
+        </div>
+          
+      </section> 
+
+      <section className={`resultaat`}>
+        <div class="lg:w-3/4">
+          <div>
+            <h3 class="text-xl mb-5">{resultaat.titel}</h3>
+            {parse(resultaat.content)}
+          </div>
+        
+          <div class="doelstelling__image">
+            <GatsbyImage
+              image={resultaat.image.localFile.childImageSharp.gatsbyImageData}
+              alt="image"
+              style={{marginBottom: 50}}
+              className="doelstelling__image--image"
+            />
+          </div>
+        </div>
+          
+      </section> 
+
+
+      
     </Layout>
   )
 }
@@ -87,6 +141,35 @@ export const pageQuery = graphql`
             id
             title
             uri
+          }
+        }
+        caseImage {
+          localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+        }
+        doelstelling {
+          titel
+          content
+          images {
+          localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+        }
+        resultaat {
+          titel
+          content
+          image {
+          localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
           }
         }
       }

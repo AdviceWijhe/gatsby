@@ -20,7 +20,7 @@ const CaseItem = props => {
     <div
       ref={ref}
       key={props.item.title}
-      className={`slideshow__item--case mb-8 animate ${
+      className={`slideshow__item--case archive mb-8 animate ${
         inViewport && `isVisible`
       }`}
     >
@@ -32,7 +32,7 @@ const CaseItem = props => {
             {props.item.title}
           </div>
           <div className="slideshow__item--case--inner__content--subtitle">
-            <p>hier komt nog een subtitle</p>
+            <p>{props.item.posttype_cases.subtitle}</p>
           </div>
           <Link to={props.item.uri}><i className="fal fa-long-arrow-right"></i></Link>
         </div>

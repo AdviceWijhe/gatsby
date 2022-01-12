@@ -4,8 +4,25 @@ button {
 
 section {
   padding: 0 2.4rem !important;
-  @media (min-width: $breakpoint-tablet) {
+  @media (min-width: $breakpoint-laptop) {
     padding: 0 6.5rem !important;
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  @variants responsive {
+    .masonry {
+      column-gap: 1.5rem;
+      column-count: 2;
+    }
+
+    .break-inside {
+      break-inside: avoid;
+    }
   }
 }
 
