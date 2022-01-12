@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import { useMenuQuery } from "../../hooks/useMenuQuery"
 // import Navigation from "../Navigation/Navigation"
 import Logo from "../../images/logo.svg"
+import parse from "html-react-parser"
 
 // Import CSS
 import "./Header.scss"
@@ -17,12 +18,15 @@ const Header = ({ isHomePage, siteTitle }) => {
     setOpenMenu(!openMenu)
   }
 
-  let classes = ""
+  let classes = "";
+  let buttonText = "";
 
   if (openMenu) {
-    classes = "menuOpen"
+    classes = "menuOpen";
+    buttonText = '<i class="fal fa-times fa-2x"></i>';
   } else {
     classes = ""
+    buttonText = "MENU";
   }
 
   return (
@@ -55,7 +59,7 @@ const Header = ({ isHomePage, siteTitle }) => {
               className={`controls__menuButton__inner ${classes}`}
               onClick={toggleOpenMenu}
             >
-              <p>MENU</p>
+              <p>{parse(buttonText)}</p>
             </button>
           </div>
         </div>

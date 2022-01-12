@@ -39,7 +39,7 @@ const CasesTemplate = ({ data: { post } }) => {
         </section>
       )}
 
-      <section className={`container mt-20`}>
+      <section className={`container mt-10 md:mt-0 lg:mt-5`}>
         <div className={`grid grid-cols-1 md:grid-cols-2`}>
           {cases.nodes.map(post => {
             return <CaseItem item={post} />

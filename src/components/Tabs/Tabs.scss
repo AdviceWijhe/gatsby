@@ -47,6 +47,7 @@
 
        &.active {
          -webkit-text-stroke-color: unset;
+         -webkit-text-stroke-width: 0;
          color: $color-primary;
          padding-left: 50px;
          position: relative;
@@ -61,7 +62,7 @@
        &__content {
          display: none;
          position: relative;
-         padding: 0 1rem 5rem;
+         padding: 0 1rem 3rem;
 
          &::before {
            content: "";
@@ -90,6 +91,8 @@
          }
 
          ul {
+           margin-top: 2rem;
+
            li {
              position: relative;
              font-weight: 200;
