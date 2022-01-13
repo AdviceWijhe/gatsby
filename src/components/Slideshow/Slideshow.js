@@ -1,6 +1,7 @@
 import React from "react"
 // import Navigation from "../Navigation/Navigation"
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper"
+import { Link } from "gatsby"
 import { Swiper, SwiperSlide } from "swiper/react"
 import CaseItem from "./views/case"
 import KernItem from "./views/kernwaarde"
@@ -29,8 +30,10 @@ const Slideshow = props => {
   }
 
   function getTriangle() {
-    if(props.layout === "KernItem" || props.layout === "DienstItem") {
+    if(props.layout === "KernItem") {
       return <div className="triangle triangle-arrow triangle-bottom"><i className="fal fa-long-arrow-down"></i></div>
+    }else if(props.layout === "DienstItem") {
+      return <div className="triangle triangle-arrow triangle-bottom"><Link to="/diensten"><i className="fal fa-long-arrow-right"></i></Link></div>
     }
   }
 

@@ -23,7 +23,7 @@ const Hero = props => {
           <h4 className="text-xl md:text-2xl font-medium text-secondary mb-3">
             {props.subtitle}
           </h4>
-          <h1 className="text-4xl md:text-6xl font-black mb-10">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-black mb-10">
             {props.title}
           </h1>
         </div>

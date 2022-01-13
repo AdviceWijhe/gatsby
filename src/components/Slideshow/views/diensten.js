@@ -22,10 +22,9 @@ const DienstItem = props => {
             <ul>
            {diensten.nodes &&
               diensten.nodes.map(post => {
-                console.log(post)
                 return (
                   post.wpParent && post.wpParent.node.id === props.item.id ? (
-                  <li>{post.title}</li>
+                  <li key={post.id}>{post.title}</li>
                   ) : null
                 )
               })}{" "}

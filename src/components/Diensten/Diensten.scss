@@ -1,0 +1,44 @@
+@import "../../css/globals/variables";
+
+.com_Diensten {
+  &__Dienst {
+    &:hover {
+      color: #000;
+
+      .com_Diensten__Dienst--title {
+        color: #000;
+      }
+
+      .com_Diensten__subDienst {
+        opacity: 1;
+      }
+    }
+
+    &:nth-child(even) {
+      text-align: right;
+
+      .com_Diensten__subDienst {
+        justify-content: flex-end;
+      }
+    }
+  }
+  &__Dienst--title {
+    font-size: 7rem;
+    line-height: 1;
+    font-weight: 800;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    color: transparent;
+  }
+
+  &__subDienst {
+    display: flex;
+    opacity: 0;
+
+    li {
+      margin-right: 1rem;
+      color: $color-primary;
+      padding: 1.5rem 0;
+    }
+  }
+}

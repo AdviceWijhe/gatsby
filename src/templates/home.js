@@ -56,8 +56,8 @@ const HomePageTemplate = ({ data: { post } }) => {
 }
 
 export const pageQuery = graphql`
-  query homePageQuery($id: String) {
-    post: wpPage(id: { eq: $id }) {
+  query homePageQuery {
+    post: wpPage(id: { eq: "cG9zdDoxOQ==" }) {
       id
       content
       title

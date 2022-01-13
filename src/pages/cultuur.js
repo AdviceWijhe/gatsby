@@ -4,6 +4,7 @@ import parse from "html-react-parser"
 import Hero from "../components/hero"
 import Slideshow from "../components/Slideshow/Slideshow"
 import ContentImage from "../components/ContentImage/ContentImage"
+import Diensten from "../components/Diensten/Diensten"
 import { useKernwaardeQuery } from "../hooks/useKernwaardeQuery"
 import { useTeamQuery } from "../hooks/useTeamQuery"
 import { useDienstQuery } from "../hooks/useDienstQuery"
@@ -61,13 +62,16 @@ const CultuurTemplate = ({ data: { post } }) => {
         settings={contentImage}
       ></ContentImage>
 
-      <Slideshow
+      <div className={`lg:hidden`}><Slideshow
         items={diensten.nodes}
         layout={DienstSlideshow.layout}
         spv={DienstSlideshow.sliderPerView}
         spaceBetween={DienstSlideshow.spaceBetween}
         title={DienstSlideshow.titel}
-      ></Slideshow>
+      ></Slideshow></div>
+      <div className={`hidden lg:block`}>
+        <Diensten />
+      </div>
     </Layout>
   )
 }
