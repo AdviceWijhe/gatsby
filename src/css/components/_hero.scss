@@ -14,7 +14,6 @@
   }
 
   &__description {
-    font-size: 1.45rem;
     font-weight: 800;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
@@ -23,6 +22,7 @@
 
     p {
       margin: 0;
+      font-size: 1.35rem;
     }
 
     @media (min-width: $breakpoint-tablet) {
