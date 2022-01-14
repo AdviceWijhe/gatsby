@@ -14,7 +14,6 @@ import { useDienstQuery } from "../hooks/useDienstQuery"
 // version used by the Gatsby and @wordpress packages that causes build
 // failures.
 // @todo update this once @wordpress upgrades their postcss version
-import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const CultuurTemplate = ({ data: { post } }) => {
@@ -28,7 +27,7 @@ const CultuurTemplate = ({ data: { post } }) => {
   const DienstSlideshow = post.cultuur.dienstenSlideshow
 
   return (
-    <Layout>
+    <>
       <Seo title={post.title} description={post.excerpt} />
       <Hero
         title={heroBlock.title}
@@ -72,7 +71,7 @@ const CultuurTemplate = ({ data: { post } }) => {
       <div className={`hidden lg:block`}>
         <Diensten />
       </div>
-    </Layout>
+    </>
   )
 }
 

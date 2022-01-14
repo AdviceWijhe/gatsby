@@ -2,15 +2,26 @@
 
 .com_Diensten {
   &__Dienst {
+    transition: 0.5s ease-in-out all;
+
     &:hover {
       color: #000;
+      transition: 0.5s ease-in-out all;
+      margin-left: 2rem;
 
       .com_Diensten__Dienst--title {
         color: #000;
+        transition: 0.5s ease-in-out all;
       }
 
       .com_Diensten__subDienst {
         opacity: 1;
+        transition: 0.5s ease-in-out all;
+      }
+
+      &:nth-child(even) {
+        margin-right: 2rem;
+        margin-left: 0;
       }
     }
 
@@ -23,22 +34,26 @@
     }
   }
   &__Dienst--title {
-    font-size: 7rem;
+    font-size: 6rem;
     line-height: 1;
     font-weight: 800;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     color: transparent;
+    transition: 0.5s ease-in-out all;
   }
 
   &__subDienst {
     display: flex;
     opacity: 0;
+    transition: 0.5s ease-in-out all;
 
     li {
       margin-right: 1rem;
       color: $color-primary;
       padding: 1.5rem 0;
+      font-size: 1.2rem;
+      font-weight: 500;
     }
   }
 }

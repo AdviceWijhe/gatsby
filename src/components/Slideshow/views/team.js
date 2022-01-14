@@ -5,7 +5,7 @@ import "./case.scss"
 
 const TeamItem = props => {
   return (
-    <div key={props.item.title} className="slideshow__item--team">
+    <div key={props.item.title} className="slideshow__item--team lg:p-3">
       <div className="slideshow__item--team--inner">
         <GatsbyImage
           image={

@@ -10,7 +10,6 @@ import { useCaseQuery } from "../hooks/useCaseQuery"
 // version used by the Gatsby and @wordpress packages that causes build
 // failures.
 // @todo update this once @wordpress upgrades their postcss version
-import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const CasesTemplate = ({ data: { post } }) => {
@@ -18,7 +17,7 @@ const CasesTemplate = ({ data: { post } }) => {
   const heroBlock = post.cases.blockHero
 
   return (
-    <Layout>
+    <>
       <Seo title={post.title} description={post.excerpt} />
       <Hero
         title={heroBlock.title}
@@ -46,7 +45,7 @@ const CasesTemplate = ({ data: { post } }) => {
           })}
         </div>
       </section>
-    </Layout>
+    </>
   )
 }
 

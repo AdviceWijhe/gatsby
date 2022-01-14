@@ -31,12 +31,15 @@ const Layout = ({ isHomePage, children, footer }) => {
 
 
   return (
+    <main>
+    
     <div className="global-wrapper" data-is-root-path={isHomePage}>
       <Header siteTitle={siteInfo}></Header>
       <main>{children}</main>
 
       <Footer options={footer}></Footer>
     </div>
+    </main>
   )
 }
 
