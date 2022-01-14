@@ -49,26 +49,26 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
       }
 
       <section className={`doelstelling`}>
-        <div class="lg:masonry">
+        <div class="grid grid-cols-2 gap-4">
           <div className={`xl:p-10`}>
             <h3 class="text-2xl md:text-3xl font-bold mb-5">{doelstelling?.titel}</h3>
             {doelstelling?.content &&
             parse(doelstelling?.content)
             }
           </div>
-        {doelstelling?.images &&
-        doelstelling.images.map(post => {
-          return (
-          <div class="doelstelling__image">
-            <GatsbyImage
-              image={post.localFile.childImageSharp.gatsbyImageData}
-              alt="image"
-              style={{marginBottom: 50}}
-              className="doelstelling__image--image"
-            />
-          </div>
-          )
-        })}
+          {doelstelling?.images &&
+          doelstelling.images.map(post => {
+            return (
+            <div class="doelstelling__image">
+              <GatsbyImage
+                image={post.localFile.childImageSharp.gatsbyImageData}
+                alt="image"
+                style={{marginBottom: 50}}
+                className="doelstelling__image--image"
+              />
+            </div>
+            )
+          })}
         </div>
           
       </section> 

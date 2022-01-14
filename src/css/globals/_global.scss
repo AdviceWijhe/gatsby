@@ -3,11 +3,12 @@ button {
 }
 
 section {
-  padding: 0 2.4rem !important;
+  padding: 2rem 2.4rem;
   @media (min-width: $breakpoint-laptop) {
-    padding: 0 6.5rem !important;
+    padding: 2rem 6.5rem;
   }
 }
+
 
 @tailwind base;
 @tailwind components;

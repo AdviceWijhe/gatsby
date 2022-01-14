@@ -30,7 +30,7 @@ const Header = ({ isHomePage, siteTitle }) => {
   }
 
   return (
-    <section className="header">
+    <section className="header py-0">
       <div className="flex flex-row">
         <div className="branding">
           {isHomePage ? (

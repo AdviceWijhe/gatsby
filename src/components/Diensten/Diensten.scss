@@ -1,13 +1,21 @@
 @import "../../css/globals/variables";
 
 .com_Diensten {
+  &__inner {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
   &__Dienst {
     transition: 0.5s ease-in-out all;
 
     &:hover {
       color: #000;
       transition: 0.5s ease-in-out all;
-      margin-left: 2rem;
+      
+      @media (min-width: $breakpoint-laptop) {
+        margin-left: 2rem;
+      }
 
       .com_Diensten__Dienst--title {
         color: #000;
@@ -20,27 +28,44 @@
       }
 
       &:nth-child(even) {
-        margin-right: 2rem;
-        margin-left: 0;
+        @media (min-width: $breakpoint-laptop) {
+          margin-right: 2rem;
+          margin-left: 0;
+        }
       }
     }
 
     &:nth-child(even) {
+      @media (min-width: $breakpoint-laptop) {
       text-align: right;
 
       .com_Diensten__subDienst {
         justify-content: flex-end;
       }
+      }
     }
   }
   &__Dienst--title {
-    font-size: 6rem;
+    font-size: 2.2rem;
     line-height: 1;
     font-weight: 800;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     color: transparent;
     transition: 0.5s ease-in-out all;
+
+    @media (min-width: $breakpoint-laptop) {
+      font-size: 6rem;
+    }
+
+    .triangle {
+      right: -80px !important;
+      width: 75px;
+      height: 75px;
+      -webkit-transform: translateY(0) !important;
+      transform: translateY(0) !important;
+      padding: 8px;
+    }
   }
 
   &__subDienst {
@@ -52,8 +77,12 @@
       margin-right: 1rem;
       color: $color-primary;
       padding: 1.5rem 0;
-      font-size: 1.2rem;
+      font-size: 0.8rem;
       font-weight: 500;
+
+      @media (min-width: $breakpoint-laptop) {
+        font-size: 1.2rem
+      }
     }
   }
 }

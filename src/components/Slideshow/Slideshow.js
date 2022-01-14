@@ -1,6 +1,6 @@
 import React from "react"
 // import Navigation from "../Navigation/Navigation"
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper"
+import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Keyboard } from "swiper"
 import { Link } from "gatsby"
 import { Swiper, SwiperSlide } from "swiper/react"
 import CaseItem from "./views/case"
@@ -14,6 +14,8 @@ import "swiper/css/pagination"
 import "swiper/css/navigation"
 import "./Slideshow.scss"
 
+
+// install Swiper modules
 const Slideshow = props => {
 
   function getLayout(post) {
@@ -47,26 +49,17 @@ const Slideshow = props => {
           </h2>
         )}
         <Swiper
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
-          spaceBetween={props.spaceBetween}
-          slidesPerView={props.spv}
-          centeredSlides={true}
-          pagination={{
-            type: "fraction",
+          modules={[Navigation,EffectCoverflow, Pagination, Scrollbar, A11y, Keyboard]}
+          effect={'coverflow'} grabCursor={true} centeredSlides={true} slidesPerView={'2'} coverflowEffect={{
+          "rotate": 10,
+          "stretch": 0,
+          "depth": 100,
+          "modifier": 1,
+          "slideShadows": false,
           }}
-          navigation={true}
-          loop={true}
+          keyboard={{"enabled": true}}
           className={`swiper-${rand}`}
-          breakpoints={{
-            // when window width is <= 999px
-            768: {
-              slidesPerView: 2,
-              spaceBetweenSlides: 0,
-            },
-            1100: {
-              slidesPerView: 3,
-            }
-          }}
+          loop={true}
         >
 
             {props.items &&

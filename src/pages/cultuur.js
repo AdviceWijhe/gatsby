@@ -61,16 +61,16 @@ const CultuurTemplate = ({ data: { post } }) => {
         settings={contentImage}
       ></ContentImage>
 
-      <div className={`lg:hidden`}><Slideshow
+      {/* <div className={`lg:hidden`}><Slideshow
         items={diensten.nodes}
         layout={DienstSlideshow.layout}
         spv={DienstSlideshow.sliderPerView}
         spaceBetween={DienstSlideshow.spaceBetween}
         title={DienstSlideshow.titel}
-      ></Slideshow></div>
-      <div className={`hidden lg:block`}>
+      ></Slideshow></div> */}
+
         <Diensten />
-      </div>
+
     </>
   )
 }

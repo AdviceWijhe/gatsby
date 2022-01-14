@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 // import Navigation from "../Navigation/Navigation"
 
 // Import CSS
@@ -16,11 +16,12 @@ const Diensten = props => {
 
   return (
     <section className="com_Diensten">
+      <div className="com_Diensten__inner">
         {diensten.nodes.map(post => {
           return(
             post.wpParent === null ? (
-              <Link to={post.uri} className={`com_Diensten__Dienst block`}>
-                <h3 className={`com_Diensten__Dienst--title`}>{post.title}</h3>
+              <AniLink paintDrip key={post.id} to={post.uri} className={`com_Diensten__Dienst block relative`}>
+                <h3 className={`com_Diensten__Dienst--title relative inline`}>{post.title}<div className="triangle triangle-arrow triangle-bottom"><AniLink paintDrip  to="/diensten"><i className="fal fa-long-arrow-right"></i></AniLink></div></h3>
                 <ul className={`com_Diensten__subDienst`}>
                     {diensten.nodes &&
                       diensten.nodes.map(subDienst => {
@@ -31,10 +32,11 @@ const Diensten = props => {
                         )
                     })}{" "}
                 </ul>
-              </Link>
+              </AniLink>
             ) : null
           )
           })}
+          </div>
     </section>
   )
 }
