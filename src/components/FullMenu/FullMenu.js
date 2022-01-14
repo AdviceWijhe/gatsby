@@ -6,7 +6,7 @@ import { useTopMenuQuery } from "../../hooks/useTopMenuQuery"
 // Import CSS
 import "./FullMenu.scss"
 
-const FullMenu = props => {
+const FullMenu = (props) => {
   var { wpMenu } = useMenuQuery()
   var { topMenu } = useTopMenuQuery()
 
@@ -16,10 +16,12 @@ const FullMenu = props => {
         <Navigation
           menu={wpMenu.menuItems.nodes}
           menuName={wpMenu.name}
+          stateChanger={props.stateChanger}
         ></Navigation>
         <Navigation
           menu={topMenu.menuItems.nodes}
           menuName={topMenu.name}
+          stateChanger={props.stateChanger}
         ></Navigation>
       </div>
     </section>

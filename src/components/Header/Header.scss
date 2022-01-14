@@ -28,7 +28,8 @@
   @media (min-width: $breakpoint-laptop) {
     padding-left: 1rem;
     width: 6.5rem;
-    height: 100%;
+    height: 100vh;
+    top: 0;
   }
 
   &__socials {

@@ -12,7 +12,6 @@ import { useDienstQuery } from "../hooks/useDienstQuery"
 // version used by the Gatsby and @wordpress packages that causes build
 // failures.
 // @todo update this once @wordpress upgrades their postcss version
-import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const HomePageTemplate = ({ data: { post } }) => {
@@ -24,7 +23,7 @@ const HomePageTemplate = ({ data: { post } }) => {
   const MarqueeBlock = post.homepage.marquee
 
   return (
-    <Layout>
+    <>
       <Seo title={post.title} description={post.excerpt} />
       <Hero
         title={heroBlock.title}
@@ -51,7 +50,7 @@ const HomePageTemplate = ({ data: { post } }) => {
         link={CTA.link}
         image={CTA.image?.localFile?.childImageSharp?.gatsbyImageData}
       />
-    </Layout>
+    </>
   )
 }
 

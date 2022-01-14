@@ -140,6 +140,10 @@
         &-next,
         &-duplicate-next {
           transform: scale(0.9);
+
+          @media (min-width: $breakpoint-laptop) {
+            transform: scale(1) translateZ(0) !important;
+          }
         }
 
         &-active {
@@ -156,6 +160,10 @@
           &-next,
           &-duplicate-next {
             transform: scale(0.9) translateZ(0) !important;
+
+            @media (min-width: $breakpoint-laptop) {
+              transform: scale(1) translateZ(0) !important;
+            }
           }
         }
       }

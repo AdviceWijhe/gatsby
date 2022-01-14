@@ -61,7 +61,13 @@ module.exports = {
      * See https://www.gatsbyjs.com/docs/gatsby-image/#setting-up-gatsby-image
      * if you're curious about it.
      */
-    `gatsby-plugin-transition-link`,
+    {
+      resolve: `gatsby-plugin-transition-link`,
+      options: {
+        layout: require.resolve(`./src/components/Layout.js`),
+        injectPageProps: false,
+      }
+    },
     "gatsby-plugin-postcss",
     `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,

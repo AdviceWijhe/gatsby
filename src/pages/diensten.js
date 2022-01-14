@@ -11,7 +11,6 @@ import { useDienstQuery } from "../hooks/useDienstQuery"
 // version used by the Gatsby and @wordpress packages that causes build
 // failures.
 // @todo update this once @wordpress upgrades their postcss version
-import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const DienstenTemplate = ({ data: { post } }) => {
@@ -19,10 +18,10 @@ const DienstenTemplate = ({ data: { post } }) => {
   const { diensten } = useDienstQuery()
   const heroBlock = post.diensten.blockHero
   const imageData = post.diensten.image
-  const footer = post.footer
+  // const footer = post.footer
 
   return (
-    <Layout footer={footer}>
+    <>
       <Seo title={post.title} description={post.excerpt} />
       
       <Hero
@@ -41,7 +40,7 @@ const DienstenTemplate = ({ data: { post } }) => {
 
       <Tabs items={diensten.nodes} />
 
-    </Layout>
+    </>
   )
 }
 

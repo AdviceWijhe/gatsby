@@ -12,7 +12,6 @@ import "../css/@wordpress/block-library/build-style/style.css"
 import "../css/@wordpress/block-library/build-style/theme.css"
 
 import Bio from "../components/bio"
-import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const BlogPostTemplate = ({ data: { previous, next, post } }) => {
@@ -22,7 +21,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
   }
 
   return (
-    <Layout>
+    <>
       <Seo title={post.title} description={post.excerpt} />
 
       <section
@@ -83,7 +82,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
           </li>
         </ul>
       </nav>
-    </Layout>
+    </>
   )
 }
 

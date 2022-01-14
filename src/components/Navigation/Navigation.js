@@ -1,21 +1,21 @@
 import React from "react"
-import { Link } from "gatsby"
+import Link from 'gatsby-plugin-transition-link'
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import "./Navigation.scss"
 
-const Navigation = ({ menu, menuName }) => {
+const Navigation = ({ stateChanger, menu, menuName }) => {
   return (
     <nav className={`nav-menu ${menuName}`}>
       <ul>
         {menu.map(mainItem =>
           !mainItem.parentId ? (
             <li key={mainItem.id}>
-              <Link to={mainItem.url} activeClassName="nav-active" >
+              <AniLink paintDrip to={mainItem.url} activeClassName="nav-active" onClick={() => stateChanger(false)} >
                 {mainItem.label}
                 {/* {mainItem.childItems.nodes.length !== 0 && (
                   <div className="subMenuIcon">&#8964;</div>
                 )} */}
-              </Link>
+              </AniLink>
               {mainItem.childItems.nodes.length > 0 ? (
                 <ul className="sub-menu">
                   {mainItem.childItems.nodes.map(childItem => (

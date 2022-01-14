@@ -64,7 +64,7 @@ const Header = ({ isHomePage, siteTitle }) => {
           </div>
         </div>
       </div>
-      <FullMenu toggle={classes}></FullMenu>
+      <FullMenu toggle={classes} stateChanger={setOpenMenu}></FullMenu>
     </section>
   )
 }

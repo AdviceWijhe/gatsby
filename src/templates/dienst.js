@@ -11,7 +11,6 @@ import Hero from "../components/hero"
 import "../css/@wordpress/block-library/build-style/style.css"
 import "../css/@wordpress/block-library/build-style/theme.css"
 
-import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const DienstTemplate = ({ data: { previous, post, next  } }) => {
@@ -32,7 +31,7 @@ const DienstTemplate = ({ data: { previous, post, next  } }) => {
     }
 
   return (
-    <Layout>
+    <>
       <Seo title={post.title} description={post.excerpt} />
 
         {getHero()}
@@ -45,7 +44,7 @@ const DienstTemplate = ({ data: { previous, post, next  } }) => {
       </section>
 
 
-    </Layout>
+    </>
   )
 }
 
