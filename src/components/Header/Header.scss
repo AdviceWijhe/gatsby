@@ -1,12 +1,17 @@
 @import "../../css/globals/variables";
 
+.header {
+  position: absolute;
+  z-index: 2;
+}
+
 .branding {
-  max-width: 125px;
+  max-width: 175px;
   padding: 25px 0 35px 0;
 
   img {
     max-width: 100%;
-    width: 125px;
+    width: 175px;
   }
 
   @media (min-width: $breakpoint-tablet) {

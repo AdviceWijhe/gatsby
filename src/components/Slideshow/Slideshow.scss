@@ -92,6 +92,11 @@
   }
 
   &.CaseItem {
+    > div {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
     .swiper {
       &-slide {
         transform: scale(1);

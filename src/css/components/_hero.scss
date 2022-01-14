@@ -1,5 +1,5 @@
 .hero {
-  min-height: 50vh;
+  padding-top: 125px !important;
   position: relative;
   display: flex;
   justify-content: flex-start;
@@ -180,7 +180,7 @@
   &__svgLogo {
     position: absolute;
     right: 0;
-    top: -120px;
+    top: 0;
     width: 50%;
     z-index: -1;
 
