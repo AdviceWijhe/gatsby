@@ -20,9 +20,9 @@ const Navigation = ({ stateChanger, menu, menuName }) => {
                 <ul className="sub-menu">
                   {mainItem.childItems.nodes.map(childItem => (
                     <li key={childItem.id}>
-                      <Link to={childItem.url} activeClassName="nav-active">
+                      <AniLink paintDrip to={childItem.url} activeClassName="nav-active" onClick={() => stateChanger(false)}>
                         {childItem.label}
-                      </Link>
+                      </AniLink>
                     </li>
                   ))}
                 </ul>
