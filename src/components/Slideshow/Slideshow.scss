@@ -11,10 +11,6 @@
     padding-bottom: 50px !important;
   }
 
-  &.CaseItem {
-    padding: 0 !important;
-  }
-
   &.DienstItem {
     position: relative;
 
@@ -88,7 +84,7 @@
   }
 
   .swiper {
-    padding: 3rem 0 0 0;
+    padding: 7rem 0 0 0;
   }
 
   &.CaseItem {
@@ -96,108 +92,74 @@
       max-width: 1400px;
       margin: 0 auto;
     }
-
-    .swiper {
-      &-slide {
-        transform: scale(1);
-        transition: 0.5s ease-in-out transform;
-        transform-origin: center center;
-
-        &-prev,
-        &-duplicate-prev {
-          transform: scale(1.05);
-        }
-
-        &-next,
-        &-duplicate-next {
-          transform: scale(0.95) translateX(-5%);
-        }
-      }
-
-      &-android {
-        .swiper-slide {
-          transform: scale(1) translateZ(0) !important;
-
-          &-prev,
-          &-duplicate-prev {
-            transform: scale(1.1) translateZ(0) !important;
-          }
-
-          &-next,
-          &-duplicate-next {
-            transform: scale(0.9) translateX(-12%) translateZ(0) !important;
-          }
-        }
-      }
-    }
   }
 
-  &.KernItem,
-  &.TeamItem {
-    .swiper {
-      &-slide {
-        transform: scale(0.7);
-        transition: 0.5s ease-in-out transform;
-        transform-origin: center;
+  // &.KernItem,
+  // &.TeamItem {
+  //   .swiper {
+  //     &-slide {
+  //       transform: scale(0.7);
+  //       transition: 0.5s ease-in-out transform;
+  //       transform-origin: center;
 
-        &-prev,
-        &-duplicate-prev,
-        &-next,
-        &-duplicate-next {
-          transform: scale(0.9);
+  //       &-prev,
+  //       &-duplicate-prev,
+  //       &-next,
+  //       &-duplicate-next {
+  //         transform: scale(0.9);
 
-          @media (min-width: $breakpoint-laptop) {
-            transform: scale(1) translateZ(0) !important;
-          }
-        }
+  //         @media (min-width: $breakpoint-laptop) {
+  //           transform: scale(1) translateZ(0) !important;
+  //         }
+  //       }
 
-        &-active {
-          transform: scale(1);
-        }
-      }
+  //       &-active {
+  //         transform: scale(1);
+  //       }
+  //     }
 
-      &-android {
-        .swiper-slide {
-          transform: scale(1) translateZ(0) !important;
+  //     &-android {
+  //       .swiper-slide {
+  //         transform: scale(1) translateZ(0) !important;
 
-          &-prev,
-          &-duplicate-prev,
-          &-next,
-          &-duplicate-next {
-            transform: scale(0.9) translateZ(0) !important;
+  //         &-prev,
+  //         &-duplicate-prev,
+  //         &-next,
+  //         &-duplicate-next {
+  //           transform: scale(0.9) translateZ(0) !important;
 
-            @media (min-width: $breakpoint-laptop) {
-              transform: scale(1) translateZ(0) !important;
-            }
-          }
-        }
-      }
-    }
-  }
+  //           @media (min-width: $breakpoint-laptop) {
+  //             transform: scale(1) translateZ(0) !important;
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
-  &.KernItem {
-    @media (min-width: $breakpoint-laptop) {
-      .swiper-slide {
-        &.swiper-slide-prev,
-        &.swiper-slide-next,
-        &.swiper-slide-duplicate-next,
-        &.swiper-slide-duplicate-prev {
-          .slideshow__item--kernwaarde {
-            background-color: #fff;
-            border: 1px solid $color-primary;
+  // &.KernItem {
+  //   @media (min-width: $breakpoint-laptop) {
+  //     .swiper-slide {
+  //       &.swiper-slide-prev,
+  //       &.swiper-slide-next,
+  //       &.swiper-slide-duplicate-next,
+  //       &.swiper-slide-duplicate-prev {
+  //         .slideshow__item--kernwaarde {
+  //           background-color: #fff;
+  //           border: 1px solid $color-primary;
 
-            &--inner {
-              &__content {
-                color: $color-primary;
+  //           &--inner {
+  //             &__content {
+  //               color: $color-primary;
 
-                &--title {
-                  -webkit-text-stroke-color: $color-primary;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+  //               &--title {
+  //                 -webkit-text-stroke-color: $color-primary;
+  //               }
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 }

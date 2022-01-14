@@ -49,10 +49,19 @@
           left: 0;
           opacity: 0;
           width: 100%;
+          max-height: 0;
+
+          @media (min-width: $breakpoint-laptop) {
+            max-height: unset;
+          }
 
           >li {
-            display: inline-block;
+            display: block;
             padding: 0 25px;
+
+            @media (min-width: $breakpoint-laptop) {
+              display: inline-block;
+            }
 
             >a {
               color: #fff;
