@@ -34,6 +34,7 @@ section {
 .global-wrapper {
   &.contact {
     background-color: $color-secondary;
+    min-height: 100vh;
 
     .footer {
       .grid {

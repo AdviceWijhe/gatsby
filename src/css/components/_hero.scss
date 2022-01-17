@@ -33,6 +33,9 @@
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     color: transparent;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
 
 
     p {
@@ -208,7 +211,7 @@
     }
 
     @media (min-width: $breakpoint-tablet) {
-      width: 35%;
+      width: 30%;
     }
   }
 
@@ -223,6 +226,10 @@
       fill: transparent;
       outline: #000;
       stroke: #fff;
+    }
+
+    .container::before {
+      background-color: #fff;
     }
   }
 }
