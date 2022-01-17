@@ -25,7 +25,7 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
 
       <Hero
       title={hero?.title}
-      image={hero?.image.localFile.childImageSharp.gatsbyImageData}
+      image={hero?.image?.localFile?.childImageSharp?.gatsbyImageData}
       subtitle={hero?.subtitle}
       content={hero?.content}
       layout="noSlideshow single"
