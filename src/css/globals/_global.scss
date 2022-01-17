@@ -27,16 +27,21 @@ section {
   }
 }
 
-.tl-edges {
-  overflow-x: visible;
-}
-
 .global-wrapper {
   &.contact {
     background-color: $color-secondary;
-    min-height: 100vh;
+
+    .tl-edges {
+      overflow: visible;
+
+      .tl-wrapper {
+        min-height: 85vh;
+      }
+    }
 
     .footer {
+      padding-top: 0 !important;
+
       .grid {
         display: none;
       }

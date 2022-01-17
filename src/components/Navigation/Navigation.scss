@@ -2,8 +2,12 @@
 
 .nav-menu {
   &.mainMenu {
-    height: 75vh;
+    height: 50vh;
     padding: 3rem 0;
+
+    @media (min-width: $breakpoint-laptop) {
+      height: 75vh;
+    }
 
     > ul {
       display: flex;
@@ -39,6 +43,8 @@
         &:hover {
           .sub-menu {
             opacity: 1;
+            max-height: 200vh;
+            transition: ease-in-out 0.5s max-height, ease-in-out 0.5s opacity;
           }
 
           > a {
@@ -53,7 +59,10 @@
           left: 0;
           opacity: 0;
           width: 100%;
+          overflow: hidden;
           max-height: 0;
+          transition: ease-in-out 0.5s max-height,
+          ease-in-out 0.5s opacity;
 
           @media (min-width: $breakpoint-laptop) {
             max-height: unset;

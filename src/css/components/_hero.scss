@@ -211,7 +211,11 @@
     }
 
     @media (min-width: $breakpoint-tablet) {
-      width: 30%;
+      width: 35%;
+    }
+
+    @media (min-width: $breakpoint-laptop) {
+      width: 25%;
     }
   }
 
