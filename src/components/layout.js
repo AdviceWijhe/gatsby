@@ -2,12 +2,8 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Header from "./Header/Header"
 import Footer from "./Footer/Footer"
-import { usePageQuery } from "../hooks/usePageQuery"
 
 const Layout = ({ isHomePage, children } ) => {
-console.log(children);
-  
-
   const { siteInfo } = useStaticQuery(graphql`
     query LayoutQuery {
       wp {
@@ -31,9 +27,6 @@ console.log(children);
       }
     }
   `)
-
-    console.log(siteInfo)
-
   return (
     <main>
     

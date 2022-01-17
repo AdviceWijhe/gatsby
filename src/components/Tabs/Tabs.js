@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import parse from "html-react-parser"
 import { useDienstQuery } from "../../hooks/useDienstQuery"
 // import Navigation from "../Navigation/Navigation"
@@ -50,9 +50,9 @@ const Tabs = props => {
                         })}{" "}
                       </ul>
 
-                      <Link to={post.uri}>
+                      <AniLink to={post.uri}>
                         <div className={`triangle triangle-bottom triangle-small`}><i className="fal fa-long-arrow-right"></i></div>
-                      </Link>
+                      </AniLink>
                     </div>
                   ) : null
                 )

@@ -7,7 +7,6 @@ import ContentImage from "../components/ContentImage/ContentImage"
 import Diensten from "../components/Diensten/Diensten"
 import { useKernwaardeQuery } from "../hooks/useKernwaardeQuery"
 import { useTeamQuery } from "../hooks/useTeamQuery"
-import { useDienstQuery } from "../hooks/useDienstQuery"
 
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
@@ -19,12 +18,10 @@ import Seo from "../components/seo"
 const CultuurTemplate = ({ data: { post } }) => {
   const { kernwaarden } = useKernwaardeQuery()
   const { team } = useTeamQuery()
-  const { diensten } = useDienstQuery()
   const heroBlock = post.cultuur.blockHero
   const slideShow = post.cultuur.slideshow
   const TeamSlideShow = post.cultuur.teamSlideshow
   const contentImage = post.cultuur.contentImage
-  const DienstSlideshow = post.cultuur.dienstenSlideshow
 
   return (
     <>
@@ -60,14 +57,6 @@ const CultuurTemplate = ({ data: { post } }) => {
       <ContentImage
         settings={contentImage}
       ></ContentImage>
-
-      {/* <div className={`lg:hidden`}><Slideshow
-        items={diensten.nodes}
-        layout={DienstSlideshow.layout}
-        spv={DienstSlideshow.sliderPerView}
-        spaceBetween={DienstSlideshow.spaceBetween}
-        title={DienstSlideshow.titel}
-      ></Slideshow></div> */}
 
         <Diensten />
 

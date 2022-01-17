@@ -2,6 +2,7 @@ import React from "react"
 import { useState } from "react"
 import { Link } from "gatsby"
 import { useMenuQuery } from "../../hooks/useMenuQuery"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 // import Navigation from "../Navigation/Navigation"
 import Logo from "../../images/logo.svg"
 import parse from "html-react-parser"
@@ -36,9 +37,9 @@ const Header = ({ isHomePage, siteTitle }) => {
           {isHomePage ? (
             <img src={Logo} alt={wp.generalSettings.title} />
           ) : (
-            <Link className="header-link-home" to="/">
+            <AniLink paintDrip className="header-link-home" to="/">
               <img src={Logo} alt={wp.generalSettings.title} />
-            </Link>
+            </AniLink>
           )}
         </div>
         {/* <Navigation menu={wpMenu.menuItems.nodes} /> */}

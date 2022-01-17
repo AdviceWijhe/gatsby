@@ -29,6 +29,7 @@ const HomePageTemplate = ({ data: { post } }) => {
         title={heroBlock.title}
         subtitle={heroBlock.subtitle}
         content={heroBlock.content}
+        letters={heroBlock.letters}
         image={heroBlock.image?.localFile?.childImageSharp?.gatsbyImageData}
         slideshow={diensten.nodes}
       />
@@ -80,6 +81,7 @@ export const pageQuery = graphql`
           title
           subtitle
           content
+          letters
           image {
             localFile {
               childImageSharp {

@@ -27,6 +27,10 @@ section {
   }
 }
 
+.tl-edges {
+  overflow-x: visible;
+}
+
 .global-wrapper {
   &.contact {
     background-color: $color-secondary;
