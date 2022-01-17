@@ -15,7 +15,7 @@ const CallToAction = props => {
             <h3 className="text-l lg:text-xl">{props.subtitle}</h3>
             <h2 className="text-2xl lg:text-5xl font-bold">{props.title}</h2>
             <Link to={props.link.url} className="mt-5 block">
-              {props.link.title}
+              {props.link.title} <i class="fal fa-lg ml-3 fa-long-arrow-right"></i>
             </Link>
           </div>
         </div>

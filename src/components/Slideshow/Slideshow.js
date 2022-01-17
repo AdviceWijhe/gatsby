@@ -50,16 +50,24 @@ const Slideshow = props => {
         )}
         <Swiper
           modules={[Navigation,EffectCoverflow, Pagination, Scrollbar, A11y, Keyboard]}
-          effect={'coverflow'} grabCursor={true} centeredSlides={true} slidesPerView={'2'} coverflowEffect={{
-          "rotate": 10,
-          "stretch": 0,
-          "depth": 100,
-          "modifier": 1,
-          "slideShadows": false,
-          }}
+          grabCursor={true} centeredSlides={true} slidesPerView={'1.4'} spaceBetween={20}
           keyboard={{"enabled": true}}
           className={`swiper-${rand}`}
           loop={true}
+          breakpoints={{
+          "640": {
+            "slidesPerView": 2,
+            "spaceBetween": 20
+          },
+          "768": {
+            "slidesPerView": 3,
+            "spaceBetween": 40
+          },
+          "1024": {
+            "slidesPerView": 3,
+            "spaceBetween": 50
+          }
+}}
         >
 
             {props.items &&
