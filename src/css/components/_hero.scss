@@ -196,4 +196,18 @@
       width: 35%;
     }
   }
+
+  &.text-white {
+    .hero__content {
+      h4 {
+        color: #fff !important;
+      }
+    }
+
+    #adviceLetters {
+      fill: transparent;
+      outline: #000;
+      stroke: #fff;
+    }
+  }
 }

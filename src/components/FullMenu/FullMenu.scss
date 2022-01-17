@@ -11,10 +11,6 @@
   transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) max-height 1s;
   transition-delay: 0.5s;
 
-  .container {
-    padding-top: 8rem;
-  }
-
   &.menuOpen {
     transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) max-height 1s;
     max-height: 300vh;
