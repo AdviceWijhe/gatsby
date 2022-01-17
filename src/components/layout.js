@@ -4,23 +4,9 @@ import Header from "./Header/Header"
 import Footer from "./Footer/Footer"
 import { usePageQuery } from "../hooks/usePageQuery"
 
-const Layout = ({ isHomePage, children, data: {post} } ) => {
+const Layout = ({ isHomePage, children } ) => {
 console.log(children);
-  const pages = usePageQuery()
-  let currentPageID = getCurrentPageID(pages)
-    
-  function getCurrentPageID(pages) {
-    let pageID
-    for(let i = 0; i < pages.pages.nodes.length; i++) {
-      if(pages.pages.nodes[i].id === children.props.pageContext.id) {
-        pageID = pages.pages.nodes[i].id
-      }
-    }
-
-    return pageID
-  }
-
-
+  
 
   const { siteInfo } = useStaticQuery(graphql`
     query LayoutQuery {
@@ -51,11 +37,11 @@ console.log(children);
   return (
     <main>
     
-    <div className={`global-wrapper ${children.props.data.post?.slug}`} data-is-root-path={isHomePage}>
+    <div className={`global-wrapper ${children?.props?.data?.post?.slug}`} data-is-root-path={isHomePage}>
       <Header siteTitle={siteInfo}></Header>
       {children}
 
-      <Footer options={children.props.data.post?.footer}></Footer>
+      <Footer options={children?.props?.data?.post?.footer}></Footer>
     </div>
     </main>
   )
