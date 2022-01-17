@@ -18,10 +18,10 @@ const ContactPage = ({ data: {post} }) => {
         <div className={`container border-l`}>
         <div className={`contactInfo lg:w-2/4 text-white`}>
           <div className={`flex py-5 items-center border-b text-white`}>
-            <p className={`block mb-0 mr-10`}>Email</p> <h3 className={`text-3xl lg:text-4xl font-bold block mr-10`}>contact@advice.nl</h3> <i class="fal fa-2x fa-long-arrow-right block"></i>
+            <p className={`block mb-0 mr-10`}>Email</p> <h3 className={`text-xl lg:text-4xl font-bold block mr-10`}>contact@advice.nl</h3> <i class="fal text-xl fa-long-arrow-right block"></i>
           </div>
           <div className={`flex py-5 items-center`}>
-            <p className={`block mb-0 mr-10`}>Telefoon</p> <h3 className={`text-3xl lg:text-4xl font-bold mr-10`}>0570 52 11 52</h3> <i class="fal fa-2x fa-long-arrow-right"></i>
+            <p className={`block mb-0 mr-10`}>Telefoon</p> <h3 className={`text-xl lg:text-4xl font-bold mr-10`}>0570 52 11 52</h3> <i class="fal text-xl fa-long-arrow-right"></i>
           </div>
         </div>
 

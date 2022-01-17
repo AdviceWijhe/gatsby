@@ -49,7 +49,7 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
       }
 
       <section className={`doelstelling`}>
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid lg:grid-cols-2 gap-4">
           <div className={`xl:p-10`}>
             <h3 class="text-2xl md:text-3xl font-bold mb-5">{doelstelling?.titel}</h3>
             {doelstelling?.content &&
