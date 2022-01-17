@@ -12,8 +12,6 @@ const Diensten = props => {
 
   const diensten = useDienstQuery().diensten;
 
-  console.log(diensten);
-
   return (
     <section className="com_Diensten">
       <div className="com_Diensten__inner">

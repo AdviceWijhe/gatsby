@@ -1,8 +1,9 @@
 import React from "react"
-import { Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { GatsbyImage } from "gatsby-plugin-image"
 import parse from "html-react-parser"
 import Flickity from "react-flickity-component"
+import Letters from "./letters"
 
 const Hero = props => {
   const flickityOptions = {
@@ -15,6 +16,14 @@ const Hero = props => {
     autoPlay: true,
     fade: true,
   }
+
+  let count = 0;
+  let separatedLetters = [];
+
+  if(props.letters) {
+    separatedLetters = props?.letters?.split('')
+  }
+
 
   return (
     <section className={`hero ${props.layout} py-0`}>
@@ -42,7 +51,7 @@ const Hero = props => {
             {props.specialisme &&
               props.specialisme.map(post => {
                 return (
-                  <li className={`specialisme__item`}><Link to={post.uri}>{post.title}</Link></li>
+                  <li className={`specialisme__item`}><AniLink to={post.uri}>{post.title}</AniLink></li>
                 )
               })
             }
@@ -75,9 +84,9 @@ const Hero = props => {
                       <div className="hero__slideshow__item--excerpt font-light">
                         {parse(post.excerpt)}
                       </div>
-                      <Link to={post.uri} className="block mt-12 font-light">
+                      <AniLink to={post.uri} className="block mt-12 font-light">
                         Lees meer
-                      </Link>
+                      </AniLink>
                     </div>
                   </div>
                   ) : null
@@ -85,9 +94,22 @@ const Hero = props => {
               })}{" "}
           </Flickity>
         )}
-        {props.content && (
-          <div className="hero__description lg:w-3/4">{parse(props.content)}</div>
-        )}{" "}
+
+          <div className="hero__description lg:w-3/4">
+            {separatedLetters &&
+              separatedLetters.map(post => {
+                count++
+                return (
+                  <Letters key={count} letter={post} count={count} />
+                )
+              })
+            }
+
+            {props.content &&
+              parse(props.content)
+            }
+          </div>
+
         {/* <Link to={"/contact"}>
           <Button
             className="flex items-center justify-center rounded-md bg-black text-white"

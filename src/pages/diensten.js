@@ -17,7 +17,7 @@ const DienstenTemplate = ({ data: { post } }) => {
   // const heroBlock = post.cases.blockHero
   const { diensten } = useDienstQuery()
   const heroBlock = post.diensten.blockHero
-  const imageData = post.diensten.image
+  const imageData = post.diensten.image.image
   // const footer = post.footer
 
   return (

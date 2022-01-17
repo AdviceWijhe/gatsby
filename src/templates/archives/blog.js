@@ -8,9 +8,6 @@ const BlogItem = props => {
   const ref = useRef() // Trigger as soon as the element becomes visible
   const inViewport = useIntersection(ref, "-50px") // Trigger if 200px is visible from the element
 
-  if (inViewport) {
-    console.log("in viewport:", ref.current)
-  }
 
   let image =
     props.item.featuredImage?.node?.localFile?.childImageSharp
@@ -18,7 +15,7 @@ const BlogItem = props => {
   return (
     <div
       ref={ref}
-      key={props.item.id}
+      key={props.item.title}
       className={`blogItem mb-8 animate ${
         inViewport && `isVisible`
       }`}
