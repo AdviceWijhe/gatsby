@@ -1,6 +1,8 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import BlogItem from "./archives/blog"
+import Hero from "../components/hero"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 import Bio from "../components/bio"
 import Seo from "../components/seo"
@@ -14,6 +16,7 @@ const BlogIndex = ({
   if (!posts.length) {
     return (
       <>
+        <Hero />
         <Seo title="All posts" />
         <Bio />
         <p>
@@ -26,22 +29,28 @@ const BlogIndex = ({
 
   return (
     <>
-      <Seo title="Free Advice" />
 
-<section className={`container mt-20`}>
-        <div className={`grid grid-cols-1 md:grid-cols-2`}>
+      <Hero
+      title="Vergroot je kennis met onze blogs!"
+      subtitle="Blog"
+      content="<p>Ons vak is volop in beweging, waarover wij graag schrijven.</p>"
+      layout="noSlideshow"
+      />
+
+        <section>
+        <div className={`grid lg:grid-cols-2 gap-5`}>
         {posts.map(post => {
           return <BlogItem key={post.id} item={post} />
         })}
-        </div>
+      </div>
       </section>
       {previousPagePath && (
         <>
-          <Link to={previousPagePath}>Previous page</Link>
+          <AniLink to={previousPagePath}>Previous page</AniLink>
           <br />
         </>
       )}
-      {nextPagePath && <Link to={nextPagePath}>Next page</Link>}
+      {nextPagePath && <AniLink to={nextPagePath}>Next page</AniLink>}
     </>
   )
 }
@@ -61,7 +70,20 @@ export const pageQuery = graphql`
         date(formatString: "DD MMMM YYYY")
         title
         excerpt
+        featuredImage {
+        node {
+          localFile {
+            childImageSharp {
+                gatsbyImageData(
+                  placeholder: BLURRED
+                  aspectRatio: 1.5
+                )
+              }
+            }
+          }
+        }
+      }
       }
     }
-  }
+
 `

@@ -113,6 +113,14 @@
   }
 }
 
+.contact .controls__menuButton {
+  border-color: #fff;
+
+  .controls__menuButton__inner {
+    color: #fff;
+  }
+}
+
 @keyframes pulse {
   0% {
     transform: scale(0.95);

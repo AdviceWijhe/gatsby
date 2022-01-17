@@ -27,6 +27,18 @@ section {
   }
 }
 
+.global-wrapper {
+  &.contact {
+    background-color: $color-secondary;
+
+    .footer {
+      .grid {
+        display: none;
+      }
+    }
+  }
+}
+
 .container {
   width: 100% !important;
   max-width: 100% !important;
@@ -45,6 +57,13 @@ section {
       z-index: 1;
     }
   }
+}
+
+.text-outlined {
+  font-weight: 800;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  color: transparent;
 }
 
 .text-primary {

@@ -17,6 +17,7 @@ exports.createPages = async gatsbyUtilities => {
   const posts = await getPosts(gatsbyUtilities)
   const pages = await getPages(gatsbyUtilities)
   const cases = await getCases(gatsbyUtilities)
+  const vacatures = await getVacatures(gatsbyUtilities)
   const diensten = await getDiensten(gatsbyUtilities)
   // If there are no posts in WordPress, don't do anything
   if (!posts.length) {
@@ -24,6 +25,10 @@ exports.createPages = async gatsbyUtilities => {
   }
 
   if (!pages.length) {
+    return
+  }
+
+  if (!vacatures.length) {
     return
   }
 
@@ -39,6 +44,7 @@ exports.createPages = async gatsbyUtilities => {
   await createIndividualBlogPostPages({ posts, gatsbyUtilities })
   await createIndividualPages({ pages, gatsbyUtilities })
   await createIndividualCasePages({ cases, gatsbyUtilities })
+  await createIndividualVacaturePages({ vacatures, gatsbyUtilities })
   await createIndividualDienstPages({ diensten, gatsbyUtilities })
   // And a paginated archive
   await createBlogPostArchive({ posts, gatsbyUtilities })
@@ -96,6 +102,35 @@ const createIndividualCasePages = async ({ cases, gatsbyUtilities }) =>
           // so our blog post template knows which blog post
           // the current page is (when you open it in a browser)
           id: dienst.id,
+
+          // We also use the next and previous id's to query them and add links!
+          previousPostId: previous ? previous.id : null,
+          nextPostId: next ? next.id : null,
+        },
+      })
+    )
+  )
+
+  const createIndividualVacaturePages = async ({ vacatures, gatsbyUtilities }) =>
+  Promise.all(
+    vacatures.map(({ previous, vacature, next }) =>
+      // createPage is an action passed to createPages
+      // See https://www.gatsbyjs.com/docs/actions#createPage for more info
+      gatsbyUtilities.actions.createPage({
+        // Use the WordPress uri as the Gatsby page path
+        // This is a good idea so that internal links and menus work 👍
+        path: vacature.uri,
+
+        // use the blog post template as the page component
+        component: path.resolve(`./src/templates/vacature.js`),
+
+        // `context` is available in the template as a prop and
+        // as a variable in GraphQL.
+        context: {
+          // we need to add the post id here
+          // so our blog post template knows which blog post
+          // the current page is (when you open it in a browser)
+          id: vacature.id,
 
           // We also use the next and previous id's to query them and add links!
           previousPostId: previous ? previous.id : null,
@@ -333,6 +368,42 @@ async function getCases({ graphql, reporter }) {
   }
 
   return graphqlResult.data.allWpCase.edges
+}
+
+async function getVacatures({ graphql, reporter }) {
+  const graphqlResult = await graphql(/* GraphQL */ `
+    query WpVacature {
+      # Query all WordPress blog posts sorted by date
+      allWpVacature(sort: { fields: [date], order: DESC }) {
+        edges {
+          previous {
+            id
+          }
+
+          # note: this is a GraphQL alias. It renames "node" to "post" for this query
+          # We're doing this because this "node" is a post! It makes our code more readable further down the line.
+          vacature: node {
+            id
+            uri
+          }
+
+          next {
+            id
+          }
+        }
+      }
+    }
+  `)
+
+  if (graphqlResult.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading your diensten`,
+      graphqlResult.errors
+    )
+    return
+  }
+
+  return graphqlResult.data.allWpVacature.edges
 }
 
 async function getDiensten({ graphql, reporter }) {

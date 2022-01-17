@@ -1,9 +1,9 @@
 import { useStaticQuery, graphql } from "gatsby"
 
-export const useCaseQuery = () => {
+export const useVacatureQuery = () => {
   const data = useStaticQuery(graphql`
-    query caseQuery {
-      cases: allWpCase {
+    query vacatureQuery {
+      vacatures: allWpVacature {
         nodes {
           title
           excerpt
@@ -14,23 +14,11 @@ export const useCaseQuery = () => {
               localFile {
                 childImageSharp {
                   gatsbyImageData(
-                    aspectRatio: 0.86
+                    aspectRatio: 1.5
                   )
-                }
               }
             }
           }
-          posttype_cases {
-            archiveimage {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(
-                    aspectRatio: 1.5
-                  )
-                }
-              }
-            }
-            subtitle
           }
         }
       }

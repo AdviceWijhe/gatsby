@@ -15,7 +15,7 @@ import "../css/@wordpress/block-library/build-style/theme.css"
 import Bio from "../components/bio"
 import Seo from "../components/seo"
 
-const BlogPostTemplate = ({ data: { previous, next, post } }) => {
+const VacatureTemplate = ({ data: { previous, next, post } }) => {
   const featuredImage = post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData
   const hero = post?.postTypePosts?.blockHero
 
@@ -68,15 +68,15 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
   )
 }
 
-export default BlogPostTemplate
+export default VacatureTemplate
 
 export const pageQuery = graphql`
-  query BlogPostById(
+  query VacatureById(
     $id: String!
     $previousPostId: String
     $nextPostId: String
   ) {
-    post: wpPost(id: { eq: $id }) {
+    post: wpVacature(id: { eq: $id }) {
       id
       excerpt
       content
@@ -96,20 +96,6 @@ export const pageQuery = graphql`
           }
         }
       }
-      postTypePosts {
-      blockHero {
-        title
-        subtitle
-        content
-        image {
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-        }
-      }
-    }
     }
     previous: wpPost(id: { eq: $previousPostId }) {
       uri
