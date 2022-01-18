@@ -8,6 +8,11 @@
 
   &__Dienst {
     transition: 0.5s ease-in-out all;
+    margin-bottom: 1rem;
+
+    @media (min-width: $breakpoint-laptop) {
+      margin-bottom: 0;
+    }
 
     &:hover {
       color: #000;
@@ -53,6 +58,7 @@
     color: transparent;
     transition: 0.5s ease-in-out all;
 
+
     @media (min-width: $breakpoint-laptop) {
       font-size: 6rem;
     }
@@ -61,6 +67,8 @@
       right: -80px !important;
       width: 75px;
       height: 75px;
+      top: auto;
+      bottom: -100px;
       -webkit-transform: translateY(0) !important;
       transform: translateY(0) !important;
       padding: 8px;
@@ -68,19 +76,21 @@
   }
 
   &__subDienst {
-    display: flex;
-    opacity: 0;
-    transition: 0.5s ease-in-out all;
+    @media (min-width: $breakpoint-laptop) {
+      display: flex;
+      opacity: 0;
+      transition: 0.5s ease-in-out all;
+    }
 
     li {
       margin-right: 1rem;
       color: $color-primary;
-      padding: 1.5rem 0;
       font-size: 0.8rem;
       font-weight: 500;
 
       @media (min-width: $breakpoint-laptop) {
-        font-size: 1.2rem
+        font-size: 1.2rem;
+        padding: 1.5rem 0;
       }
     }
   }
