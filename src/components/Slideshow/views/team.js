@@ -19,7 +19,8 @@ const TeamItem = props => {
             {props.item.title}
           </div>
           <div className="slideshow__item--team--inner__content--subtitle">
-            <p>hier komt nog een subtitle</p>
+            <p className="mb-0">{props.item.postType_Team.functie}</p>
+            <p><span><a href={`${props.item.postType_Team.linkedin}`}><i class="fab fa-linkedin-in"></i></a></span><span className={`ml-3`}><a href={`mailto:${props.item.postType_Team.email}`}><i class="fal fa-envelope"></i></a></span></p>
           </div>
         </div>
       </div>

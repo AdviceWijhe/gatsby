@@ -5,6 +5,10 @@
   justify-content: flex-start;
   align-items: center;
 
+  @media (min-width: $breakpoint-laptop) {
+    padding-top: 175px !important;
+  }
+
   &__image {
     margin: 2rem -4.4rem 0 -4.4rem !important;
 
@@ -16,10 +20,11 @@
   &__letter {
     transition: cubic-bezier(0.215, 0.610, 0.355, 1) 1s all;
     font-size: 1.35rem;
+    line-height: 1.6;
 
     @media (min-width: $breakpoint-tablet) {
         font-size: 2.5rem;
-        line-height: 1;
+        line-height: 1.3;
     }
 
     &.isVisible {
@@ -46,7 +51,6 @@
     @media (min-width: $breakpoint-tablet) {
       p {
         font-size: 2.5rem;
-        line-height: 1;
       }
     }
 
@@ -57,7 +61,6 @@
     @media (min-width: $breakpoint-desktop) {
       p {
         font-size: 2.5rem;
-        line-height: 1;
       }
     }
   }
@@ -70,12 +73,10 @@
       font-weight: 400;
       -webkit-text-stroke-width: unset;
       -webkit-text-stroke-color: unset;
-      line-height: 1.4;
       order: 3;
 
       p {
         font-size: 1.1rem !important;
-        line-height: 1.4 !important;
       }
     }
 
