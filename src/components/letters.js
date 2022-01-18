@@ -1,10 +1,13 @@
 import React, { useRef } from "react"
 import useIntersection from "../hooks/useIntersection"
+import { useInView } from 'react-intersection-observer';
 // import Navigation from "../Navigation/Navigation"
 
 const Letters = props => {
   const ref = useRef() // Trigger as soon as the element becomes visible
-  const inViewport = useIntersection(ref, "-100px") // Trigger if 200px is visible from the element
+  const inViewport = useIntersection(ref, "-250px 0px") // Trigger if 200px is visible from the element
+
+  
 
   return (
     <span

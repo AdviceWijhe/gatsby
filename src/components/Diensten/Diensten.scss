@@ -14,7 +14,7 @@
       transition: 0.5s ease-in-out all;
       
       @media (min-width: $breakpoint-laptop) {
-        margin-left: 2rem;
+        transform: translateX(20px);
       }
 
       .com_Diensten__Dienst--title {
@@ -29,18 +29,17 @@
 
       &:nth-child(even) {
         @media (min-width: $breakpoint-laptop) {
-          margin-right: 2rem;
-          margin-left: 0;
+         transform: translateX(270px);
         }
       }
     }
 
     &:nth-child(even) {
       @media (min-width: $breakpoint-laptop) {
-      text-align: right;
+      transform: translateX(250px);
 
       .com_Diensten__subDienst {
-        justify-content: flex-end;
+        justify-content: flex-start;
       }
       }
     }

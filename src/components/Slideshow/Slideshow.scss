@@ -48,6 +48,10 @@
     margin-bottom: -2rem;
   }
 
+  .swiper {
+    padding-top: 3rem;
+  }
+
   .swiper-pagination-fraction {
     bottom: auto;
     top: 0;
@@ -83,8 +87,22 @@
     align-self: stretch;
   }
 
-  .swiper {
-    padding: 7rem 0 0 0;
+  &.CaseItem {
+    .swiper {
+      &-slide {
+        transition: cubic-bezier(0.86, 0, 0.07, 1) 640ms all;
+
+        &-prev {
+          transform: scale(1.05, 1.05);
+          transition: cubic-bezier(0.86, 0, 0.07, 1) 640ms all;
+        }
+
+        &-next {
+          transform: scale(0.95, 0.95);
+          transition: cubic-bezier(0.86, 0, 0.07, 1) 640ms all;
+        }
+      }
+    }
   }
 
   // &.CaseItem {

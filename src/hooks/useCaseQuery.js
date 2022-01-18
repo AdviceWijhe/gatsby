@@ -14,7 +14,7 @@ export const useCaseQuery = () => {
               localFile {
                 childImageSharp {
                   gatsbyImageData(
-                    aspectRatio: 0.86
+                    aspectRatio: 0.60
                   )
                 }
               }

@@ -61,11 +61,11 @@ const Slideshow = props => {
           },
           "768": {
             "slidesPerView": 3,
-            "spaceBetween": 40
+            "spaceBetween": 10
           },
           "1024": {
             "slidesPerView": 3,
-            "spaceBetween": 50
+            "spaceBetween": 10
           }
 }}
         >

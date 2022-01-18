@@ -18,6 +18,11 @@ export const useTeamQuery = () => {
               }
             }
           }
+          postType_Team {
+            functie
+            linkedin
+            email
+          }
         }
       }
     }
