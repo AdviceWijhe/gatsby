@@ -14,8 +14,12 @@ html {
 
 p {
   margin-bottom: 0.8rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.6;
+
+  @media (min-width: $breakpoint-laptop) {
+    font-size: 1.1rem;
+  }
 }
 
 h2 {

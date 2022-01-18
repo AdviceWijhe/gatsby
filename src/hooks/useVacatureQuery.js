@@ -14,7 +14,7 @@ export const useVacatureQuery = () => {
               localFile {
                 childImageSharp {
                   gatsbyImageData(
-                    aspectRatio: 1.5
+                    aspectRatio: 1
                   )
               }
             }

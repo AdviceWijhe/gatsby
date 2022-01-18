@@ -9,8 +9,7 @@ const Navigation = ({ stateChanger, menu, menuName }) => {
         {menu.map(mainItem =>
           !mainItem.parentId ? (
             <li key={mainItem.id}>
-              <AniLink paintDrip to={mainItem.url} 
-  duration={1.8} activeClassName="nav-active" onClick={() => stateChanger(false)} >
+              <AniLink paintDrip to={mainItem.url} activeClassName="nav-active" onClick={() => stateChanger(false)} >
                 {mainItem.label}
                 {/* {mainItem.childItems.nodes.length !== 0 && (
                   <div className="subMenuIcon">&#8964;</div>

@@ -4,6 +4,7 @@ import Header from "./Header/Header"
 import Footer from "./Footer/Footer"
 
 const Layout = ({ isHomePage, children } ) => {
+  console.log(children)
   const { siteInfo } = useStaticQuery(graphql`
     query LayoutQuery {
       wp {

@@ -7,6 +7,7 @@ import ContentImage from "../components/ContentImage/ContentImage"
 import Diensten from "../components/Diensten/Diensten"
 import { useKernwaardeQuery } from "../hooks/useKernwaardeQuery"
 import { useTeamQuery } from "../hooks/useTeamQuery"
+import Carousel from "../components/Carousel/Carousel"
 
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
@@ -38,13 +39,13 @@ const CultuurTemplate = ({ data: { post } }) => {
         <div className="pageContent mt-14">{parse(post.content)}</div>
       </section>
 
-      <Slideshow
+      <Carousel
         items={kernwaarden.nodes}
         layout={slideShow.layout}
         spv={slideShow.sliderPerView}
         spaceBetween={slideShow.spaceBetween}
         title={slideShow.titel}
-      ></Slideshow>
+      ></Carousel>
 
       <Slideshow
         items={team.nodes}

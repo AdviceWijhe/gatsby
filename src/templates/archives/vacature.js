@@ -2,6 +2,7 @@ import React, { useRef } from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import useIntersection from "../../hooks/useIntersection"
 import { Link } from "gatsby"
+import "../../css/components/content-vacature.scss"
 // import Navigation from "../Navigation/Navigation"
 
 const VacatureItem = props => {
@@ -28,10 +29,11 @@ const VacatureItem = props => {
         <GatsbyImage image={image} alt="image" />
         <div className="vacatureItem--inner__content relative">
           <div className="vacatureItem--inner__content--title mt-5">
-            <h2 className={`text-xl lg:text-3xl font-weight-bold text-outlined`}>{props.item.title}</h2>
+            <h2 className={`text-xl lg:text-5xl font-weight-bold text-outlined`}>{props.item.title}</h2>
           </div>
-          <Link to={props.item.uri} className={`triangle triangle-rotated`}><i className="fal fa-long-arrow-right"></i></Link>
+          
         </div>
+        <Link to={props.item.uri} className={`triangle triangle-rotated`}><i className="fal fa-long-arrow-right"></i></Link>
       </div>
     </div>
   )
