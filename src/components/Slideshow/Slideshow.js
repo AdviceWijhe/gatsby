@@ -50,7 +50,7 @@ const Slideshow = props => {
         )}
         <Swiper
           modules={[Navigation,EffectCoverflow, Pagination, Scrollbar, A11y, Keyboard]}
-          grabCursor={true} centeredSlides={true} slidesPerView={'1.4'} spaceBetween={20}
+          grabCursor={true} centeredSlides={true} slidesPerView={'1.2'} spaceBetween={20}
           keyboard={{"enabled": true}}
           className={`swiper-${rand}`}
           loop={true}
