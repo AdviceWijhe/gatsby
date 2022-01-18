@@ -24,7 +24,7 @@ const BlogItem = props => {
         <div className="block"></div>
         <GatsbyImage image={image} alt="image" />
         <div className="blogItem--inner__content relative">
-          <div className="blogItem--inner__content--title mt-5">
+          <div className="blogItem--inner__content--title w-3/4 mt-5">
             <h2 className={`text-xl lg:text-2xl font-weight-bold`}>{props.item.title}</h2>
           </div>
           <Link to={props.item.uri} className={`triangle triangle-rotated`}><i className="fal fa-long-arrow-right"></i></Link>

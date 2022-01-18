@@ -14,7 +14,7 @@ import Seo from "../components/seo"
 
 const CasesTemplate = ({ data: { post } }) => {
   var { vacatures } = useVacatureQuery()
-  const heroBlock = post.cases.blockHero
+  const heroBlock = post.vacatures.blockHero
 
   return (
     <>
@@ -39,7 +39,7 @@ const CasesTemplate = ({ data: { post } }) => {
       )}
 
       <section className={` mt-10 md:mt-0 lg:mt-5`}>
-        <div className={`grid grid-cols-1 md:grid-cols-2`}>
+        <div className={`grid grid-cols-1`}>
           {vacatures.nodes.map(post => {
             return <VacatureItem item={post} />
           })}
@@ -70,7 +70,7 @@ export const pageQuery = graphql`
           }
         }
       }
-      cases {
+      vacatures {
         blockHero {
           title
           subtitle
@@ -83,6 +83,9 @@ export const pageQuery = graphql`
             }
           }
         }
+      }
+      footer {
+        backgroundColorTop
       }
     }
   }

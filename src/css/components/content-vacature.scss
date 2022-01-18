@@ -1,0 +1,28 @@
+@import "../globals/variables";
+
+@media (min-width: $breakpoint-laptop) {
+  .vacatureItem {
+    &--inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      .gatsby-image-wrapper {
+        width: 20%;
+      }
+
+      &__content {
+        padding: 2rem;
+      }
+
+      .triangle {
+        left: 15%;
+        bottom: -1rem;
+        right: auto;
+        width: 75px;
+        height: 75px;
+        padding: 0 10px;
+      }
+    }
+  }
+}

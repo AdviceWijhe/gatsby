@@ -95,20 +95,24 @@ const Hero = props => {
           </Flickity>
         )}
 
-          <div className="hero__description lg:w-3/4">
-            {separatedLetters &&
-              separatedLetters.map(post => {
+          
+            {props.letters && 
+              <div className="hero__description lg:w-3/4">
+              {separatedLetters.map(post => {
                 count++
                 return (
                   <Letters key={count} letter={post} count={count} />
                 )
-              })
-            }
+              })}
+              </div>
+             }
 
             {props.content &&
-              parse(props.content)
+            <div className="hero__description lg:w-3/4">
+              {parse(props.content)}
+            </div>
             }
-          </div>
+          
 
         {/* <Link to={"/contact"}>
           <Button
