@@ -13,7 +13,7 @@ const Letters = props => {
     <span
       ref={ref}
       key={props.count}
-      className={`hero__letter animate ${
+      className={`hero__letter text-outlined animate ${
         inViewport && `isVisible`
       }`}
     >

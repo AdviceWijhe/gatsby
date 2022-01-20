@@ -90,6 +90,11 @@
     .specialisme {
       padding: 2rem 2rem 4rem;
 
+      @media (min-width: $breakpoint-desktop) {
+        width: 30%;
+      }
+      
+
       &__items {
         list-style: disc;
         padding-left: 20px;
