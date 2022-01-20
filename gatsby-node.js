@@ -48,6 +48,7 @@ exports.createPages = async gatsbyUtilities => {
   await createIndividualDienstPages({ diensten, gatsbyUtilities })
   // And a paginated archive
   await createBlogPostArchive({ posts, gatsbyUtilities })
+  await createCaseArchive({ posts, gatsbyUtilities })
 }
 
 /**
@@ -269,7 +270,7 @@ async function createCaseArchive({ posts, gatsbyUtilities }) {
         path: getPagePath(pageNumber),
 
         // use the blog post archive template as the page component
-        component: path.resolve(`./src/templates/dienst-archive.js`),
+        component: path.resolve(`./src/templates/case-archive.js`),
 
         // `context` is available in the template as a prop and
         // as a variable in GraphQL.

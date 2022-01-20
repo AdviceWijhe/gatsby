@@ -2,7 +2,7 @@ import React, { useRef } from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import "../../components/Slideshow/views/case.scss"
 import useIntersection from "../../hooks/useIntersection"
-import { Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 // import Navigation from "../Navigation/Navigation"
 
 const CaseItem = props => {
@@ -34,7 +34,7 @@ const CaseItem = props => {
           <div className="slideshow__item--case--inner__content--subtitle">
             <p>{props.item.posttype_cases.subtitle}</p>
           </div>
-          <Link to={props.item.uri}><i className="fal fa-long-arrow-right"></i></Link>
+          <AniLink paintDrip to={props.item.uri}><i className="fal fa-long-arrow-right"></i></AniLink>
         </div>
       </div>
     </div>

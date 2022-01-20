@@ -2,7 +2,9 @@ import React from "react"
 import { graphql } from "gatsby"
 import parse from "html-react-parser"
 import Hero from "../components/hero"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import Image from "../components/Image/Image"
+import Quote from "../components/Quote/Quote"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 // We're using Gutenberg so we need the block styles
@@ -22,6 +24,7 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
   const caseImage = post.posttype_cases?.caseImage
   const doelstelling = post.posttype_cases?.doelstelling
   const resultaat = post.posttype_cases?.resultaat
+  const letters = post.posttype_cases?.quote
 
 
 
@@ -48,9 +51,13 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
       <Image image={caseImage} />
       }
 
+      {letters && 
+      <Quote letters={letters}></Quote>
+      }
+
       <section className={`doelstelling`}>
         <div class="grid lg:grid-cols-2 gap-4">
-          <div className={`xl:p-10`}>
+          <div className={`xl:py-10 xl:pr-10`}>
             <h3 class="text-2xl md:text-3xl font-bold mb-5">{doelstelling?.titel}</h3>
             {doelstelling?.content &&
             parse(doelstelling?.content)
@@ -96,7 +103,35 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
           
       </section> 
 
+<section>
+        <nav className="blog-post-nav">
+          <ul
+            style={{
+              display: `flex`,
+              flexWrap: `wrap`,
+              justifyContent: `space-between`,
+              listStyle: `none`,
+              padding: 0,
+            }}
+          >
+            <li>
+              {previous && (
+                <AniLink paintDrip to={previous.uri} rel="prev">
+                  ← {parse(previous.title)}
+                </AniLink>
+              )}
+            </li>
 
+            <li>
+              {next && (
+                <AniLink paintDrip to={next.uri} rel="next">
+                  {parse(next.title)} →
+                </AniLink>
+              )}
+            </li>
+          </ul>
+        </nav>
+      </section>
       
     </>
   )
@@ -157,6 +192,7 @@ export const pageQuery = graphql`
               }
             }
         }
+        quote
         doelstelling {
           titel
           content
@@ -179,6 +215,9 @@ export const pageQuery = graphql`
             }
           }
         }
+      }
+      footer {
+        backgroundColorTop
       }
     }
     previous: wpCase(id: { eq: $previousPostId }) {
