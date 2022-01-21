@@ -3,7 +3,7 @@
 .slideshow {
   position: relative;
   @media (max-width: 767px) {
-    padding: 50px 0 !important;
+    padding: 0 0 !important;
   }
 
   @media (min-width: $breakpoint-laptop) {

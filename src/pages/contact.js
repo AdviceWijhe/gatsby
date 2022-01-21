@@ -17,12 +17,12 @@ const ContactPage = ({ data: {post} }) => {
       <section className={`section pt-0`}>
         <div className={`container border-l`}>
         <div className={`contactInfo lg:w-2/4 text-white`}>
-          <div className={`flex py-5 items-center border-b text-white`}>
+          <a href="mailto:contact@advice.nl" className={`flex flex-col lg:flex-row py-5 lg:items-center border-b text-white`}>
             <p className={`block mb-0 mr-10`}>Email</p> <h3 className={`text-xl lg:text-4xl font-bold block mr-10`}>contact@advice.nl</h3> <i class="fal text-xl fa-long-arrow-right block"></i>
-          </div>
-          <div className={`flex py-5 items-center`}>
+          </a>
+          <a href="tel:0570521152" className={`flex flex-col lg:flex-row py-5 lg:items-center`}>
             <p className={`block mb-0 mr-10`}>Telefoon</p> <h3 className={`text-xl lg:text-4xl font-bold mr-10`}>0570 52 11 52</h3> <i class="fal text-xl fa-long-arrow-right"></i>
-          </div>
+          </a>
         </div>
 
         <div className={`text-white mt-10`}>

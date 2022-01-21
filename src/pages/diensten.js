@@ -33,7 +33,7 @@ const DienstenTemplate = ({ data: { post } }) => {
       />
 
       <section className="wrapper">
-        <div className="pageContent mt-14 lg:w-3/4">{parse(post.content)}</div>
+        <div className="pageContent lg:mt-14 lg:w-3/4">{parse(post.content)}</div>
       </section>
 
       <Image image={imageData} />
