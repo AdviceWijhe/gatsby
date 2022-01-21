@@ -1,6 +1,5 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
 import parse from "html-react-parser"
 import Hero from "../components/hero"
 
@@ -12,11 +11,9 @@ import Hero from "../components/hero"
 import "../css/@wordpress/block-library/build-style/style.css"
 import "../css/@wordpress/block-library/build-style/theme.css"
 
-import Bio from "../components/bio"
 import Seo from "../components/seo"
 
 const VacatureTemplate = ({ data: { previous, next, post } }) => {
-  const featuredImage = post.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData
   const hero = post?.postTypePosts?.blockHero
 
   return (

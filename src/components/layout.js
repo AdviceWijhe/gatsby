@@ -6,7 +6,7 @@ import Footer from "./Footer/Footer"
 import CookieBanner from "./CookieBanner/CookieBanner";
 
 const Layout = ({ isHomePage, children } ) => {
-  console.log(children)
+
   const { siteInfo, wp: { seo } } = useStaticQuery(graphql`
     query LayoutQuery {
       wp {
