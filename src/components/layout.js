@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { SEOContext } from 'gatsby-plugin-wpgraphql-seo';
 import Header from "./Header/Header"
 import Footer from "./Footer/Footer"
+import CookieBanner from "./CookieBanner/CookieBanner";
 
 const Layout = ({ isHomePage, children } ) => {
   console.log(children)
@@ -105,6 +106,7 @@ const Layout = ({ isHomePage, children } ) => {
       {children}
 
       <Footer options={children?.props?.data?.post?.footer}></Footer>
+      <CookieBanner />
     </div>
     </main>
     </SEOContext.Provider>
