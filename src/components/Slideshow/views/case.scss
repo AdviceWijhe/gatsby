@@ -20,7 +20,7 @@
       left: 0;
       text-align: center;
       width: 100%;
-      padding: 1rem;
+      padding: 1.5rem;
       z-index: 2;
       color: #fff;
 
@@ -38,6 +38,7 @@
         text-transform: uppercase;
         line-height: 1;
         word-wrap: break-word;
+        margin-bottom: 1.5rem;
 
         @media (min-width: $breakpoint-tablet) {
           font-size: 2.6rem;

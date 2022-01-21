@@ -1,8 +1,13 @@
 @import "../../css/globals/variables";
 
 .Tabs {
-  padding-top: 3rem !important;
-  padding-bottom: 3rem !important;
+  padding-top: 1.5rem !important;
+  padding-bottom: 5rem !important;
+
+  @media (min-width: $breakpoint-laptop) {
+    padding-top: 3rem !important;
+
+  }
 
   &__tabs {
     @media (min-width: $breakpoint-laptop) {
@@ -10,7 +15,7 @@
     }
 
     &--content {
-      padding-top: 5rem;
+      padding-top: 2rem;
 
       @media (min-width: $breakpoint-laptop) {
         padding-top: 0;
