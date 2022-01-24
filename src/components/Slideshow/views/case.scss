@@ -177,20 +177,6 @@
   }
 }
 
-.swiper-slide-active {
-  .slideshow__item--case--inner {
-    &::before {
-      background-color: $color-secondary;
-    }
-
-    &__content {
-      &--title {
-        color: #fff;
-      }
-    }
-  }
-}
-
 .grid .slideshow__item--case {
   @media (min-width: $breakpoint-laptop) {
     padding: 0.5rem;
@@ -226,7 +212,6 @@
     }
   }
 }
-
 
 @keyframes mainBlock {
   0% {

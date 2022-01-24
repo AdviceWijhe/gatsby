@@ -32,9 +32,9 @@ const Slideshow = props => {
   }
 
   function getTriangle() {
-    if(props.layout === "KernItem") {
+    if (props.layout === "KernItem") {
       return <div className="triangle triangle-arrow triangle-bottom"><i className="fal fa-long-arrow-down"></i></div>
-    }else if(props.layout === "DienstItem") {
+    } else if (props.layout === "DienstItem") {
       return <div className="triangle triangle-arrow triangle-bottom"><AniLink to="/diensten"><i className="fal fa-long-arrow-right"></i></AniLink></div>
     }
   }
@@ -49,35 +49,36 @@ const Slideshow = props => {
           </h2>
         )}
         <Swiper
-          modules={[Navigation,EffectCoverflow, Pagination, Scrollbar, A11y, Keyboard]}
-          grabCursor={true} centeredSlides={true} slidesPerView={'1.2'} spaceBetween={20}
-          keyboard={{"enabled": true}}
+          modules={[Navigation, EffectCoverflow, Pagination, Scrollbar, A11y, Keyboard]}
+          grabCursor={true} centeredSlides={true} slidesPerView={'1.25'} spaceBetween={20}
+          keyboard={{ "enabled": true }}
           className={`swiper-${rand}`}
           loop={true}
+          navigation
           breakpoints={{
-          "640": {
-            "slidesPerView": 2,
-            "spaceBetween": 20
-          },
-          "768": {
-            "slidesPerView": 3,
-            "spaceBetween": 10
-          },
-          "1024": {
-            "slidesPerView": 3,
-            "spaceBetween": 10
-          }
-}}
+            "640": {
+              "slidesPerView": 2,
+              "spaceBetween": 20
+            },
+            "768": {
+              "slidesPerView": 3,
+              "spaceBetween": 10
+            },
+            "1024": {
+              "slidesPerView": 3,
+              "spaceBetween": 10
+            }
+          }}
         >
 
-            {props.items &&
-              props.items.map(post => {
-                return (
-                  post.wpParent == null ? (
+          {props.items &&
+            props.items.map(post => {
+              return (
+                post.wpParent == null ? (
                   <SwiperSlide key={post.id}>{getLayout(post)}</SwiperSlide>
-                  ) : null
-                )
-              })}{" "}
+                ) : null
+              )
+            })}{" "}
         </Swiper>
         {getTriangle()}
       </div>

@@ -17,7 +17,7 @@
     &:hover {
       color: #000;
       transition: 0.5s ease-in-out all;
-      
+
       @media (min-width: $breakpoint-laptop) {
         transform: translateX(20px);
       }
@@ -34,18 +34,26 @@
 
       &:nth-child(even) {
         @media (min-width: $breakpoint-laptop) {
-         transform: translateX(270px);
+          transform: translateX(170px);
+        }
+
+        @media (min-width: $breakpoint-desktop) {
+          transform: translateX(270px);
         }
       }
     }
 
     &:nth-child(even) {
       @media (min-width: $breakpoint-laptop) {
-      transform: translateX(250px);
-
-      .com_Diensten__subDienst {
-        justify-content: flex-start;
+        transform: translateX(150px);
       }
+
+      @media (min-width: $breakpoint-desktop) {
+        transform: translateX(250px);
+
+        .com_Diensten__subDienst {
+          justify-content: flex-start;
+        }
       }
     }
   }
@@ -58,8 +66,11 @@
     color: transparent;
     transition: 0.5s ease-in-out all;
 
-
     @media (min-width: $breakpoint-laptop) {
+      font-size: 4rem;
+    }
+
+    @media (min-width: $breakpoint-desktop) {
       font-size: 6rem;
     }
 
