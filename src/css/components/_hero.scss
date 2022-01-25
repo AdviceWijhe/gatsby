@@ -68,14 +68,22 @@
     .hero__description {
       margin-top: 2rem;
       color: #000;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 400;
       -webkit-text-stroke-width: unset;
       -webkit-text-stroke-color: unset;
       order: 3;
 
+       @media (min-width: $breakpoint-desktop) {
+         font-size: 1.2rem !important;
+       }
+
       p {
         font-size: 1rem !important;
+
+        @media (min-width: $breakpoint-desktop) {
+          font-size: 1.2rem !important;
+        }
       }
     }
 
@@ -91,13 +99,25 @@
       padding: 2rem 2rem 4rem;
 
       @media (min-width: $breakpoint-desktop) {
-        width: 30%;
+        width: 35%;
       }
       
 
       &__items {
         list-style: disc;
         padding-left: 20px;
+
+        li {
+          a {
+            font-weight: 500;
+            display: block;
+            padding: 2px 0;
+
+            @media (min-width: $breakpoint-desktop) {
+              font-size: 1.1rem;
+            }
+          }
+        }
       }
     }
   }

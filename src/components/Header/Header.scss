@@ -115,9 +115,21 @@
 
 .contact .controls__menuButton {
   border-color: #fff;
+  background-color: #fff;
 
   .controls__menuButton__inner {
-    color: #fff;
+    color: $color-secondary;
+  }
+}
+
+@media (min-width: $breakpoint-laptop) {
+  .contact .controls__menuButton {
+    border-color: #fff;
+    background-color: transparent;
+
+    .controls__menuButton__inner {
+      color: #fff;
+    }
   }
 }
 

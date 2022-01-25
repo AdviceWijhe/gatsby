@@ -26,6 +26,9 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
   const resultaat = post.posttype_cases?.resultaat
   const letters = post.posttype_cases?.quote
 
+  let resultImageCount = 0;
+  let doelImageCount = 0;
+
 
 
   return (
@@ -65,8 +68,9 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
           </div>
           {doelstelling?.images &&
           doelstelling.images.map(post => {
+            doelImageCount++;
             return (
-            <div class="doelstelling__image">
+            <div class={`doelstelling__image image_${doelImageCount}`}>
               <GatsbyImage
                 image={post.localFile.childImageSharp.gatsbyImageData}
                 alt="image"
@@ -81,23 +85,30 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
       </section> 
 
       <section className={`resultaat`}>
-        <div class="lg:w-3/4">
-          <div>
+        <div>
+          <div class="lg:w-3/4">
             <h3 class="text-2xl md:text-3xl font-bold mb-5">{resultaat?.titel}</h3>
             {resultaat?.content &&
             parse(resultaat?.content)
             }
           </div>
         
-          <div class="doelstelling__image">
-            {resultaat?.image &&
-            <GatsbyImage
-              image={resultaat?.image?.localFile?.childImageSharp?.gatsbyImageData}
-              alt="image"
-              style={{marginBottom: 50}}
-              className="doelstelling__image--image"
-            />
-            }
+          <div class="resultaat__image lg:mt-10">
+          {resultaat?.images &&
+          resultaat.images.map(post => {
+            resultImageCount++;
+            console.log(post.localFile.childImageSharp.gatsbyImageData);
+            return (
+            <div class={`resultaat__image image_${resultImageCount}`}>
+              <GatsbyImage
+                image={post.localFile.childImageSharp.gatsbyImageData}
+                alt="image"
+                style={{marginBottom: 50}}
+                className="resultaat__image--image"
+              />
+            </div>
+            )
+          })}
           </div>
         </div>
           
@@ -199,7 +210,11 @@ export const pageQuery = graphql`
           images {
           localFile {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData(
+                  quality: 100
+                placeholder: TRACED_SVG
+                layout: FULL_WIDTH
+                )
               }
             }
           }
@@ -207,10 +222,14 @@ export const pageQuery = graphql`
         resultaat {
           titel
           content
-          image {
+          images {
           localFile {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData(
+                  quality: 100
+                placeholder: TRACED_SVG
+                layout: FULL_WIDTH
+                )
               }
             }
           }
