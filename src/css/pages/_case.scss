@@ -1,0 +1,16 @@
+.doelstelling {
+  .grid {
+    border-left: 1px solid $color-secondary;
+    padding-left: 2rem;
+  }
+}
+
+.resultaat {
+  .image_1 {
+    margin: 0 -2.4rem;
+
+    @media (min-width: $breakpoint-tablet) {
+      margin: 0 -6.4rem;
+    }
+  }
+}
