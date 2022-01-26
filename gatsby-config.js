@@ -107,13 +107,13 @@ module.exports = {
       // See https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/?=gatsby-plugin-manifest
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter WordPress Blog`,
-        short_name: `GatsbyJS & WP`,
+        name: `Advice Creëert Impact`,
+        short_name: `Advice`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#e7000e`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/favicon.jpeg`,
       },
     },
 
