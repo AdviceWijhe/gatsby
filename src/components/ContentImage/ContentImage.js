@@ -23,7 +23,7 @@ const ContentImage = props => {
         />
         }
       <Video
-        videoSrcURL="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+        videoSrcURL="https://player.vimeo.com/video/670210100?h=88a550a0cc&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
         videoTitle="Official Music Video on YouTube"
       />
         

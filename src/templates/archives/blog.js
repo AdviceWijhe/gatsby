@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import useIntersection from "../../hooks/useIntersection"
-import { Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 // import Navigation from "../Navigation/Navigation"
 
 const BlogItem = props => {
@@ -27,7 +27,7 @@ const BlogItem = props => {
           <div className="blogItem--inner__content--title w-3/4 mt-5">
             <h2 className={`text-xl lg:text-2xl font-weight-bold`}>{props.item.title}</h2>
           </div>
-          <Link to={props.item.uri} className={`triangle triangle-rotated`}><i className="fal fa-long-arrow-right"></i></Link>
+          <AniLink paintDrip to={props.item.uri} className={`triangle triangle-rotated`}><i className="fal fa-long-arrow-right"></i></AniLink>
         </div>
       </div>
     </div>
