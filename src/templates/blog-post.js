@@ -11,14 +11,14 @@ import Hero from "../components/hero"
 import "../css/@wordpress/block-library/build-style/style.css"
 import "../css/@wordpress/block-library/build-style/theme.css"
 
-import Seo from "../components/seo"
+import Seo from 'gatsby-plugin-wpgraphql-seo';
 
 const BlogPostTemplate = ({ data: { previous, next, post } }) => {
   const hero = post?.postTypePosts?.blockHero
 
   return (
     <>
-      <Seo title={post.title} description={post.excerpt} />
+      <Seo post={post} />
 
       <Hero
       title={hero?.title}
@@ -93,6 +93,35 @@ export const pageQuery = graphql`
           }
         }
       }
+      seo {
+                title
+                metaDesc
+                focuskw
+                metaKeywords
+                metaRobotsNoindex
+                metaRobotsNofollow
+                opengraphTitle
+                opengraphDescription
+                opengraphImage {
+                    altText
+                    sourceUrl
+                    srcSet
+                }
+                twitterTitle
+                twitterDescription
+                twitterImage {
+                    altText
+                    sourceUrl
+                    srcSet
+                }
+                canonical
+                cornerstone
+                schema {
+                    articleType
+                    pageType
+                    raw
+                }
+            }
       postTypePosts {
       blockHero {
         title
