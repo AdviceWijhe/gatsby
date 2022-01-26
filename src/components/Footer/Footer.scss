@@ -98,6 +98,11 @@
   @media (min-width: $breakpoint-laptop) {
     .triangle {
       right: 30% !important;
+      bottom: 6rem !important;
     }
   }
+}
+
+.contact .footer {
+  color: #fff;
 }

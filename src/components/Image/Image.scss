@@ -5,5 +5,9 @@
 
   &__image {
     margin: 0 -2.4rem 2.4rem;
+
+    @media (min-width: $breakpoint-desktop) {
+      margin: 0 0 2.4rem;
+    }
   }
 }

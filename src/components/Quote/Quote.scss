@@ -1,2 +1,9 @@
 @import "../../css/globals/variables";
 
+.quote {
+  .hero__letter {
+    @media (min-width: $breakpoint-laptop) {
+      font-size: 3.5rem;
+    }
+  }
+}

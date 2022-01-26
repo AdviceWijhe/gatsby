@@ -28,11 +28,11 @@ const Hero = props => {
   return (
     <section className={`hero ${props.layout} py-0`}>
       <div className="container mx-auto flex flex-col">
-        <div className="hero__content lg:w-2/4 xl:w-2/4">
+        <div className="hero__content lg:w-3/4 xl:w-2/4">
           <h4 className="text-xl md:text-2xl font-medium text-secondary mb-3">
             {props.subtitle}
           </h4>
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-black mb-10">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl xl:text-7xl font-black mb-10">
             {props.title}
           </h1>
         </div>
@@ -84,7 +84,7 @@ const Hero = props => {
                       <div className="hero__slideshow__item--excerpt font-light">
                         {parse(post.excerpt)}
                       </div>
-                      <AniLink paintDrip to={post.uri} className="block mt-12 font-medium">
+                      <AniLink paintDrip to={post.uri} className="block mt-12 text-white font-medium">
                         Lees meer <i class="fal fa-lg fa-long-arrow-right"></i>
                       </AniLink>
                     </div>

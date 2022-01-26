@@ -18,7 +18,7 @@
   }
 
   &__letter {
-    transition: cubic-bezier(0.215, 0.610, 0.355, 1) 1s all;
+    transition: ease-in-out 1s all;
     font-size: 1.35rem;
     line-height: 1.6;
 
@@ -29,7 +29,7 @@
 
     &.isVisible {
       color: #000;
-      transition: cubic-bezier(0.215, 0.610, 0.355, 1) 1s all;
+      transition: ease-in-out 1s all;
     }
   }
 
@@ -54,7 +54,7 @@
     }
 
     @media (min-width: $breakpoint-laptop) {
-      margin-top: 2rem;
+      margin-top: 3rem;
     }
 
     @media (min-width: $breakpoint-desktop) {
@@ -112,6 +112,7 @@
             font-weight: 500;
             display: block;
             padding: 2px 0;
+            color: #fff;
 
             @media (min-width: $breakpoint-desktop) {
               font-size: 1.1rem;
@@ -233,7 +234,8 @@
     right: 0;
     top: 0;
     width: 50%;
-    z-index: -1;
+    z-index: 0;
+    pointer-events: none;
 
     #adviceLetters {
       fill: transparent;
@@ -242,11 +244,11 @@
     }
 
     @media (min-width: $breakpoint-tablet) {
-      width: 35%;
+      width: 40%;
     }
 
     @media (min-width: $breakpoint-laptop) {
-      width: 25%;
+      width: 30%;
     }
   }
 

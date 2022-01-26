@@ -14,7 +14,7 @@ const CallToAction = props => {
           <div className="CallToAction__title--inner bg-primary p-8 lg:p-20 text-white">
             <h3 className="text-l lg:text-xl">{props.subtitle}</h3>
             <h2 className="text-2xl lg:text-5xl font-bold">{props.title}</h2>
-            <AniLink paintDrip to={props.link.url} className="mt-5 block">
+            <AniLink paintDrip to={props.link.url} className="mt-5 block text-white">
               {props.link.title} <i class="fal fa-lg ml-3 fa-long-arrow-right"></i>
             </AniLink>
           </div>
