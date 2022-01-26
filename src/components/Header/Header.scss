@@ -51,6 +51,10 @@
         align-items: center;
         justify-content: center;
       }
+
+      &:hover {
+        color: $color-primary;
+      }
     }
 
     &.menuOpen {
@@ -148,4 +152,8 @@
     transform: scale(0.95);
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
   }
+}
+
+.contact .controls__socials i {
+  color: #fff;
 }

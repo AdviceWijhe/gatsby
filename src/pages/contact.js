@@ -20,12 +20,12 @@ const ContactPage = ({ data: {post} }) => {
           <a href="mailto:contact@advice.nl" className={`flex flex-col lg:flex-row py-5 lg:items-center border-b text-white`}>
             <p className={`block mb-0 mr-10`}>Email</p> <h3 className={`text-xl lg:text-4xl font-bold block mr-10`}>contact@advice.nl</h3> <i class="fal text-xl fa-long-arrow-right block"></i>
           </a>
-          <a href="tel:0570521152" className={`flex flex-col lg:flex-row py-5 lg:items-center`}>
+          <a href="tel:0570521152" className={`flex flex-col lg:flex-row py-5 lg:items-center text-white`}>
             <p className={`block mb-0 mr-10`}>Telefoon</p> <h3 className={`text-xl lg:text-4xl font-bold mr-10`}>0570 52 11 52</h3> <i class="fal text-xl fa-long-arrow-right"></i>
           </a>
         </div>
 
-        <div className={`text-white mt-10`}>
+        <div className={`text-white mt-10 lg:mt-24 lg:pt-10`}>
           <h3 className={`text-2xl font-bold mb-5`}>Waar kan je ons vinden?</h3>
           <p className={`mb-0`}>Villa Waterloo</p>
           <p className={`mb-0`}>Stationsweg 25</p>

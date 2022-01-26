@@ -16,6 +16,7 @@ const Quote = props => {
 
   return (
     <section className="quote">
+      <div className={`quote__inner lg:py-20`}>
      {props.letters && 
         <div className="lg:w-2/4">
         {separatedLetters.map(post => {
@@ -26,6 +27,7 @@ const Quote = props => {
         })}
         </div>
       }
+      </div>
     </section>
   )
 }

@@ -12,6 +12,10 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  color: $color-secondary;
+}
+
 p {
   margin-bottom: 0.8rem;
   font-size: 1rem;
@@ -25,13 +29,13 @@ p {
 h2 {
   font-size: 1.6rem;
   line-height: 1.2;
-  margin-bottom: 1rem;
+  margin: 2rem 0 0.5rem;
   font-weight: 700;
 }
 
 h4 {
   font-size: 1.6rem;
   line-height: 1.2;
-  margin-bottom: 1rem;
+  margin: 2rem 0 0.5rem;
   font-weight: 700;
 }

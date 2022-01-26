@@ -66,6 +66,11 @@
     color: transparent;
     transition: 0.5s ease-in-out all;
 
+    i {
+       -webkit-text-stroke-width: 0px;
+       -webkit-text-stroke-color: transparent;
+    }
+
     @media (min-width: $breakpoint-laptop) {
       font-size: 4rem;
     }

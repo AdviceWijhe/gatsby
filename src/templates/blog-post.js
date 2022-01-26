@@ -1,7 +1,11 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import parse from "html-react-parser"
 import Hero from "../components/hero"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
+import BlogItem from "./archives/blog"
+
+import { usePostQuery } from "../hooks/usePostQuery"
 
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
@@ -15,6 +19,10 @@ import Seo from 'gatsby-plugin-wpgraphql-seo';
 
 const BlogPostTemplate = ({ data: { previous, next, post } }) => {
   const hero = post?.postTypePosts?.blockHero
+
+  let { posts } = usePostQuery();
+
+  let postCount = 0;
 
   return (
     <>
@@ -33,33 +41,23 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
         )}
 
       <section>
-        <nav className="blog-post-nav">
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
-            <li>
-              {previous && (
-                <Link to={previous.uri} rel="prev">
-                  ← {parse(previous.title)}
-                </Link>
-              )}
-            </li>
+        <AniLink paintDrip to="/blog">Terug naar overzicht</AniLink>
+      </section>
 
-            <li>
-              {next && (
-                <Link to={next.uri} rel="next">
-                  {parse(next.title)} →
-                </Link>
-              )}
-            </li>
-          </ul>
-        </nav>
+      <section>
+        <p className="text-secondary"><b>Vond je dit interessant?</b> Laat je inspireren door onze andere blogs.</p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          {posts.nodes.map(otherPost => {
+            console.log(otherPost);
+            if(otherPost.id === post.id) {
+              return false;
+            }
+              postCount++
+              return postCount < 3 ? <BlogItem item={otherPost} /> : null
+              
+          }
+          )}
+          </div>
       </section>
     </>
   )

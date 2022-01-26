@@ -60,7 +60,7 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
 
       <section className={`doelstelling`}>
         <div class="grid lg:grid-cols-2 gap-4">
-          <div className={`xl:py-10 xl:pr-10`}>
+          <div className={`xl:pr-10`}>
             <h3 class="text-2xl md:text-3xl font-bold mb-5">{doelstelling?.titel}</h3>
             {doelstelling?.content &&
             parse(doelstelling?.content)
@@ -85,7 +85,7 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
       </section> 
 
       <section className={`resultaat`}>
-        <div>
+        <div className="pt-5 lg:pt-16">
           <div class="lg:w-3/4">
             <h3 class="text-2xl md:text-3xl font-bold mb-5">{resultaat?.titel}</h3>
             {resultaat?.content &&

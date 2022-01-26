@@ -6,7 +6,7 @@
     padding: 3rem 0;
 
     @media (min-width: $breakpoint-laptop) {
-      height: 75vh;
+      height: 75%;
     }
 
     > ul {
@@ -111,7 +111,14 @@
   }
 
   &.topMenu {
-    height: 25vh;
+    position: absolute;
+    bottom: 2.4rem;
+    right: 2.4rem;
+
+    @media (min-width: $breakpoint-laptop) {
+      bottom: 2.4rem;
+      right: 6.4rem;
+    }
 
     > ul {
       display: flex;

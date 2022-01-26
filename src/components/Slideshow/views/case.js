@@ -18,7 +18,7 @@ const CaseItem = props => {
           <div className="slideshow__item--case--inner__content--subtitle">
             <p>{props.item.posttype_cases.subtitle}</p>
           </div>
-          <AniLink to={props.item.uri}><i className="fal fa-long-arrow-right"></i></AniLink>
+          <AniLink to={props.item.uri} className={`text-white`}><i className="fal fa-long-arrow-right"></i></AniLink>
         </div>
       </div>
     </div>
