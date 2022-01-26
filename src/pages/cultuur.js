@@ -14,7 +14,7 @@ import Carousel from "../components/Carousel/Carousel"
 // version used by the Gatsby and @wordpress packages that causes build
 // failures.
 // @todo update this once @wordpress upgrades their postcss version
-import Seo from "../components/seo"
+import Seo from 'gatsby-plugin-wpgraphql-seo';
 
 const CultuurTemplate = ({ data: { post } }) => {
   const { kernwaarden } = useKernwaardeQuery()
@@ -26,7 +26,7 @@ const CultuurTemplate = ({ data: { post } }) => {
 
   return (
     <>
-      <Seo title={post.title} description={post.excerpt} />
+      <Seo post={post} />
       <Hero
         title={heroBlock.title}
         subtitle={heroBlock.subtitle}
@@ -86,6 +86,35 @@ export const pageQuery = graphql`
           }
         }
       }
+      seo {
+                title
+                metaDesc
+                focuskw
+                metaKeywords
+                metaRobotsNoindex
+                metaRobotsNofollow
+                opengraphTitle
+                opengraphDescription
+                opengraphImage {
+                    altText
+                    sourceUrl
+                    srcSet
+                }
+                twitterTitle
+                twitterDescription
+                twitterImage {
+                    altText
+                    sourceUrl
+                    srcSet
+                }
+                canonical
+                cornerstone
+                schema {
+                    articleType
+                    pageType
+                    raw
+                }
+            }
       cultuur {
         blockHero {
           title

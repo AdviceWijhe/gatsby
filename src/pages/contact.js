@@ -1,14 +1,14 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Seo from "../components/seo"
+import Seo from 'gatsby-plugin-wpgraphql-seo';
 import Hero from "../components/hero"
 
 const ContactPage = ({ data: {post} }) => {
 
   return (
     <>
-      <Seo title={post.title} description={post.excerpt} />
+      <Seo post={post} />
        <Hero
       title="Zullen we afspreken?"
       subtitle="Contact"
@@ -61,6 +61,35 @@ export const pageQuery = graphql`
           }
         }
       }
+      seo {
+                title
+                metaDesc
+                focuskw
+                metaKeywords
+                metaRobotsNoindex
+                metaRobotsNofollow
+                opengraphTitle
+                opengraphDescription
+                opengraphImage {
+                    altText
+                    sourceUrl
+                    srcSet
+                }
+                twitterTitle
+                twitterDescription
+                twitterImage {
+                    altText
+                    sourceUrl
+                    srcSet
+                }
+                canonical
+                cornerstone
+                schema {
+                    articleType
+                    pageType
+                    raw
+                }
+            }
     }
   }
 `

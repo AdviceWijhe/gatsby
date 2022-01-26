@@ -5,7 +5,7 @@ import Hero from "../components/hero"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 import Bio from "../components/bio"
-import Seo from "../components/seo"
+import Seo from 'gatsby-plugin-wpgraphql-seo';
 
 const BlogIndex = ({
   data,
@@ -17,7 +17,12 @@ const BlogIndex = ({
     return (
       <>
         <Hero />
-        <Seo title="All posts" />
+        <Seo
+                title="Blog Advice | Advice Creëert Impact"
+                postSchema={JSON.parse(
+                    data.wp.seo.contentTypes.post.schema.raw
+                )}
+            />
         <Bio />
         <p>
           No blog posts found. Add posts to your WordPress site and they'll
@@ -29,7 +34,12 @@ const BlogIndex = ({
 
   return (
     <>
-
+      <Seo
+                title="Blog Advice | Advice Creëert Impact"
+                postSchema={JSON.parse(
+                    data.wp.seo.contentTypes.post.schema.raw
+                )}
+            />
       <Hero
       title="Vergroot je kennis met onze blogs!"
       subtitle="Blog"
@@ -59,6 +69,30 @@ export default BlogIndex
 
 export const pageQuery = graphql`
   query WordPressPostArchive($offset: Int!, $postsPerPage: Int!) {
+    wp {
+      seo {
+        contentTypes {
+          post {
+            metaDesc
+            metaRobotsNoindex
+            schemaType
+            title
+            schema {
+                    raw
+                }
+            archive {
+                    fullHead
+                    archiveLink
+                    breadcrumbTitle
+                    hasArchive
+                    metaDesc
+                    metaRobotsNoindex
+                    title
+                }
+          }
+        }
+      }
+    }
     allWpPost(
       sort: { fields: [date], order: DESC }
       limit: $postsPerPage

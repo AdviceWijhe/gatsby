@@ -5,7 +5,7 @@ import Hero from "../components/hero"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 import Bio from "../components/bio"
-import Seo from "../components/seo"
+import Seo from 'gatsby-plugin-wpgraphql-seo';
 
 const CaseIndex = ({
   data,
@@ -16,8 +16,13 @@ const CaseIndex = ({
   if (!posts.length) {
     return (
       <>
+      <Seo
+                title="Case Advice | Advice Creëert Impact"
+                postSchema={JSON.parse(
+                    data.wp.seo.contentTypes.case.schema.raw
+                )}
+            />
         <Hero />
-        <Seo title="All posts" />
         <Bio />
         <p>
           No blog posts found. Add posts to your WordPress site and they'll
@@ -29,7 +34,12 @@ const CaseIndex = ({
 
   return (
     <>
-
+      <Seo
+                title="Case Advice | Advice Creëert Impact"
+                postSchema={JSON.parse(
+                    data.wp.seo.contentTypes.case.schema.raw
+                )}
+            />
       <Hero
       title="Een succesverhaal word je niet zomaar."
       subtitle="Cases"
@@ -59,6 +69,30 @@ export default CaseIndex
 
 export const caseQuery = graphql`
   query WordPressCaseArchive($offset: Int!, $postsPerPage: Int!) {
+      wp {
+      seo {
+        contentTypes {
+          case {
+            metaDesc
+            metaRobotsNoindex
+            schemaType
+            title
+            schema {
+                    raw
+                }
+            archive {
+                    fullHead
+                    archiveLink
+                    breadcrumbTitle
+                    hasArchive
+                    metaDesc
+                    metaRobotsNoindex
+                    title
+                }
+          }
+        }
+      }
+    }
     allWpCase(
       sort: { fields: [date], order: DESC }
       limit: $postsPerPage
