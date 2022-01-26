@@ -84,7 +84,7 @@ const Hero = props => {
                       <div className="hero__slideshow__item--excerpt font-light">
                         {parse(post.excerpt)}
                       </div>
-                      <AniLink paintDrip to={post.uri} className="block mt-12 font-light">
+                      <AniLink paintDrip to={post.uri} className="block mt-12 font-medium">
                         Lees meer <i class="fal fa-lg fa-long-arrow-right"></i>
                       </AniLink>
                     </div>
