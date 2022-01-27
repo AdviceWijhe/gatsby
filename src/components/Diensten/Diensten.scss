@@ -88,6 +88,10 @@
       -webkit-transform: translateY(0) !important;
       transform: translateY(0) !important;
       padding: 8px;
+
+      img {
+        transform: rotate(-180deg) !important;
+      }
     }
   }
 

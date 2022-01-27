@@ -15,7 +15,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import "../css/@wordpress/block-library/build-style/style.css"
 import "../css/@wordpress/block-library/build-style/theme.css"
 
-import Seo from "../components/seo"
+import Seo from 'gatsby-plugin-wpgraphql-seo';
 
 const CaseTemplate = ({ data: { previous, post, next  } }) => {
 
@@ -33,7 +33,7 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
 
   return (
     <>
-      <Seo title={post.title} description={post.excerpt} />
+      <Seo post={post} />
       <Hero
       title={heroBlock.title}
       subtitle={heroBlock.subtitle}
@@ -92,14 +92,13 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
             parse(resultaat?.content)
             }
           </div>
-        
-          <div class="resultaat__image lg:mt-10">
+          <div class="resultaat__image flex flex-wrap lg:mt-10">
           {resultaat?.images &&
           resultaat.images.map(post => {
             resultImageCount++;
             console.log(post.localFile.childImageSharp.gatsbyImageData);
             return (
-            <div class={`resultaat__image image_${resultImageCount}`}>
+            <div class={`resultaat__image--image image_${resultImageCount}`}>
               <GatsbyImage
                 image={post.localFile.childImageSharp.gatsbyImageData}
                 alt="image"
@@ -115,34 +114,14 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
       </section> 
 
 <section>
-        <nav className="blog-post-nav">
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
-            <li>
-              {previous && (
-                <AniLink paintDrip to={previous.uri} rel="prev">
-                  ← {parse(previous.title)}
-                </AniLink>
-              )}
-            </li>
+    <AniLink paintDrip to="/cases" className={`flex`}><img src={`/icons/Pijltje_blue_Lang.svg`} className="arrow arrow-small mr-2" alt="Pijl blauw" /> Terug naar overzicht</AniLink>
 
-            <li>
-              {next && (
-                <AniLink paintDrip to={next.uri} rel="next">
-                  {parse(next.title)} →
-                </AniLink>
-              )}
-            </li>
-          </ul>
-        </nav>
-      </section>
+    {next && (
+      <AniLink paintDrip to={next.uri} rel="next" className={`flex mt-3`}>
+        Volgende case <img src={`/icons/Pijltje_blue_Lang.svg`} className="arrow arrow-small arrow-right ml-2" alt="Pijl blauw" />
+      </AniLink>
+    )}
+</section>
       
     </>
   )
@@ -176,6 +155,35 @@ export const pageQuery = graphql`
           }
         }
       }
+      seo {
+                title
+                metaDesc
+                focuskw
+                metaKeywords
+                metaRobotsNoindex
+                metaRobotsNofollow
+                opengraphTitle
+                opengraphDescription
+                opengraphImage {
+                    altText
+                    sourceUrl
+                    srcSet
+                }
+                twitterTitle
+                twitterDescription
+                twitterImage {
+                    altText
+                    sourceUrl
+                    srcSet
+                }
+                canonical
+                cornerstone
+                schema {
+                    articleType
+                    pageType
+                    raw
+                }
+            }
       posttype_cases {
         blockHero {
           title
@@ -210,10 +218,8 @@ export const pageQuery = graphql`
           images {
           localFile {
               childImageSharp {
-                gatsbyImageData(
-                  quality: 100
-                placeholder: TRACED_SVG
-                layout: FULL_WIDTH
+                gatsbyImageData (
+                  aspectRatio: 1.5
                 )
               }
             }
@@ -225,10 +231,8 @@ export const pageQuery = graphql`
           images {
           localFile {
               childImageSharp {
-                gatsbyImageData(
-                  quality: 100
-                placeholder: TRACED_SVG
-                layout: FULL_WIDTH
+                gatsbyImageData (
+                  height: 1100
                 )
               }
             }

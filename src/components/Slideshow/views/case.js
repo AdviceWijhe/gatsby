@@ -9,16 +9,19 @@ const CaseItem = props => {
     props.item.featuredImage?.node?.localFile?.childImageSharp?.gatsbyImageData
   return (
     <div key={props.item.title} className="slideshow__item--case">
-      <div className="slideshow__item--case--inner">
+       <div className={`slideshow__item--case--inner`}>
+        <div className="block"></div>
         <GatsbyImage image={image} alt="image" />
         <div className="slideshow__item--case--inner__content">
           <div className="slideshow__item--case--inner__content--title">
-            {props.item.title}
+            <AniLink paintDrip to={props.item.uri} className={`text-outline`}>{props.item.title}</AniLink>
           </div>
           <div className="slideshow__item--case--inner__content--subtitle">
             <p>{props.item.posttype_cases.subtitle}</p>
           </div>
-          <AniLink to={props.item.uri} className={`text-white`}><i className="fal fa-long-arrow-right"></i></AniLink>
+          <AniLink paintDrip to={props.item.uri} className={`text-white`}>
+            <img src={`/icons/Pijltje_white_Lang.svg`} className="arrow arrow-right" alt="Pijl wit lang" />
+          </AniLink>
         </div>
       </div>
     </div>

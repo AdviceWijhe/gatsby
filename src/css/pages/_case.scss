@@ -6,11 +6,9 @@
 }
 
 .resultaat {
-  .image_1 {
-    margin: 0 -2.4rem;
-
-    @media (min-width: $breakpoint-tablet) {
-      margin: 0 -6.4rem;
+  &__image {
+    &--image {
+      margin-right: 1rem;
     }
   }
 }

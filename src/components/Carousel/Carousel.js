@@ -17,9 +17,9 @@ const Slideshow = props => {
 
   function getTriangle() {
     if (props.layout === "KernItem") {
-      return <div className="triangle triangle-arrow triangle-bottom"><i className="fal fa-long-arrow-down"></i></div>
+      return <div className="triangle triangle-arrow triangle-bottom"><img src={`/icons/Pijltje_white_Lang.svg`} className="arrow" alt="Pijl wit lang" /></div>
     } else if (props.layout === "DienstItem") {
-      return <div className="triangle triangle-arrow triangle-bottom"><AniLink to="/diensten"><i className="fal fa-long-arrow-right"></i></AniLink></div>
+      return <div className="triangle triangle-arrow triangle-bottom"><AniLink to="/diensten"><img src={`/icons/Pijltje_white_Lang.svg`} className="arrow" alt="Pijl wit lang" /></AniLink></div>
     }
   }
 
