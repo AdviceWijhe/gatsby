@@ -32,7 +32,7 @@ const Footer = (props) => {
         </div>
         <div className="bg-black text-white p-8 lg:px-20 footer__contactInfo">
           <div className="triangle triangle-arrow">
-            <i className="fal fa-long-arrow-down"></i>
+            <img src={`/icons/Pijltje_white_Lang.svg`} className="arrow" alt="Pijl wit lang" />
           </div>
           <h3 className="text-2xl lg:text-4xl font-bold">
             Contact

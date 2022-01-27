@@ -35,6 +35,7 @@
       }
 
       &--title {
+        a {
         font-size: 2rem;
         font-weight: 800;
         -webkit-text-stroke-width: 1px;
@@ -44,6 +45,7 @@
         line-height: 1;
         word-wrap: break-word;
         margin-bottom: 1.5rem;
+        display: block;
 
         @media (min-width: $breakpoint-tablet) {
           font-size: 2.6rem;
@@ -54,6 +56,7 @@
           font-size: 3.5rem;
           margin-bottom: 2rem;
         }
+      }
       }
 
       &--subtitle {
@@ -93,7 +96,9 @@
 
       &__content {
         &--title {
+          a {
           color: #fff;
+          }
         }
       }
     }

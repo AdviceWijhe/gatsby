@@ -19,7 +19,7 @@ const Diensten = props => {
           return (
             post.wpParent === null ? (
               <AniLink paintDrip key={post.id} to={post.uri} className={`com_Diensten__Dienst block relative`}>
-                <h3 className={`com_Diensten__Dienst--title relative inline`}>{post.title}<div className="triangle triangle-arrow triangle-bottom hidden lg:flex"><i className="fal fa-long-arrow-right"></i></div></h3>
+                <h3 className={`com_Diensten__Dienst--title relative inline`}>{post.title}<div className="triangle triangle-arrow triangle-bottom hidden lg:flex"><img src={`/icons/Pijltje_white_Lang.svg`} className="arrow arrow-right" alt="Pijl wit lang" /></div></h3>
                 <ul className={`com_Diensten__subDienst hidden lg:flex`}>
                   {diensten.nodes &&
                     diensten.nodes.map(subDienst => {
