@@ -9,8 +9,8 @@ const ReadMore = ({ content }) => {
   };
   return (
     <p className="text">
-      {isReadMore ? parse(text.slice(0, 700)) : parse(text)}
-      {text.length > 700 &&
+      {isReadMore ? parse(text.slice(0, 500)) : parse(text)}
+      {text.length > 500 &&
         <span onClick={toggleReadMore} className="read-or-hide">
         {isReadMore ? "Lees meer" : " Lees minder"}
         </span>
