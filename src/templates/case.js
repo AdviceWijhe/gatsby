@@ -16,6 +16,7 @@ import "../css/@wordpress/block-library/build-style/style.css"
 import "../css/@wordpress/block-library/build-style/theme.css"
 
 import Seo from 'gatsby-plugin-wpgraphql-seo';
+import ReadMore from "../components/Readmore/Readmore"
 
 const CaseTemplate = ({ data: { previous, post, next  } }) => {
 
@@ -63,7 +64,8 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
           <div className={`xl:pr-10`}>
             <h3 class="text-2xl md:text-3xl font-bold mb-5">{doelstelling?.titel}</h3>
             {doelstelling?.content &&
-            parse(doelstelling?.content)
+            <ReadMore content={doelstelling?.content}>
+            </ReadMore>
             }
           </div>
           {doelstelling?.images &&
@@ -89,7 +91,8 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
           <div class="lg:w-3/4">
             <h3 class="text-2xl md:text-3xl font-bold mb-5">{resultaat?.titel}</h3>
             {resultaat?.content &&
-            parse(resultaat?.content)
+            <ReadMore content={resultaat?.content}>
+            </ReadMore>
             }
           </div>
           <div class="resultaat__image flex flex-wrap lg:mt-10">
