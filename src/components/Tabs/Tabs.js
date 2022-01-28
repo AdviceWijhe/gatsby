@@ -20,6 +20,9 @@ const Tabs = props => {
         <div className={`Tabs__tabs`}>
           {props.items &&
               props.items.map(post => {
+                if(props.currentID === post.id) {
+                  return false
+                }
                 return (
                   post.wpParent == null ? (
                     <div key={post.id} className={`Tabs__tabs--tab ${activeTab === post.id ? "active" : ""}`} data-id={post.id} onClick={() => {onClickTab(post.id);}}>
@@ -33,6 +36,9 @@ const Tabs = props => {
         <div className={`Tabs__tabs--content`}>
           {props.items &&
               props.items.map(post => {
+                if(props.currentID === post.id) {
+                  return false
+                }
                 return (
                   post.wpParent == null ? (
                     <div key={post.title} className={`Tabs__tabs--tab__content ${activeTab === post.id ? "active" : ""}`} data-id={post.id}>

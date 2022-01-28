@@ -3,6 +3,8 @@ import { graphql } from "gatsby"
 import parse from "html-react-parser"
 import Hero from "../components/hero"
 import Diensten from "../components/Diensten/Diensten"
+import Tabs from "../components/Tabs/Tabs"
+import { useDienstQuery } from "../hooks/useDienstQuery"
 
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
@@ -16,8 +18,8 @@ import Seo from 'gatsby-plugin-wpgraphql-seo';
 
 const DienstTemplate = ({ data: { previous, post, next  } }) => {
 
-     const heroBlock = post?.posttype_diensten?.blockHero
-
+  const heroBlock = post?.posttype_diensten?.blockHero
+  const { diensten } = useDienstQuery()
 
     function getHero() {
       if(heroBlock) {
@@ -44,7 +46,8 @@ const DienstTemplate = ({ data: { previous, post, next  } }) => {
         }
       </section>
 
-        <Diensten currentID={post.id} />
+
+        <Tabs items={diensten.nodes} currentID={post.id} />
     </>
   )
 }
