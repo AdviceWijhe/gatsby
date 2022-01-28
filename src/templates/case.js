@@ -102,7 +102,7 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
               <GatsbyImage
                 image={post.localFile.childImageSharp.gatsbyImageData}
                 alt="image"
-                style={{marginBottom: 50}}
+                style={{marginBottom: 20}}
                 className="resultaat__image--image"
               />
             </div>
@@ -113,7 +113,7 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
           
       </section> 
 
-<section>
+<section class="navigation">
     <AniLink paintDrip to="/cases" className={`flex`}><img src={`/icons/Pijltje_blue_Lang.svg`} className="arrow arrow-small mr-2" alt="Pijl blauw" /> Terug naar overzicht</AniLink>
 
     {next && (

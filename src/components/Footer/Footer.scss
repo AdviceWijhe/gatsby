@@ -71,7 +71,6 @@
 
   img {
     transform: rotate(-90deg);
-    max-width: 40px;
   }
 
   @media (min-width: $breakpoint-laptop) {
@@ -100,10 +99,22 @@
 }
 
 .KernItem {
+  .triangle {
+    right: 15% !important;
+    bottom: 5% !important;
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    .triangle {
+      right: calc((100% / 2.17) / 2.5) !important;
+      bottom: 5% !important;
+    }
+  }
+
   @media (min-width: $breakpoint-laptop) {
     .triangle {
-      right: 30% !important;
-      bottom: 6rem !important;
+      right: calc((100% / 2.17) / 1.6) !important;
+      bottom: 10% !important;
     }
   }
 }
