@@ -23,7 +23,7 @@ const Tabs = props => {
                 return (
                   post.wpParent == null ? (
                     <div key={post.id} className={`Tabs__tabs--tab ${activeTab === post.id ? "active" : ""}`} data-id={post.id} onClick={() => {onClickTab(post.id);}}>
-                      {post.title}
+                      <img src={`/icons/Pijltje_blue_Lang.svg`} className="arrow arrow-right arrow-small" alt="Pijl wit lang" />{post.title}
                     </div>
                   ) : null
                 )
@@ -51,7 +51,7 @@ const Tabs = props => {
                       </ul>
 
                       <AniLink to={post.uri}>
-                        <div className={`triangle triangle-bottom triangle-small`}><i className="fal fa-long-arrow-right"></i></div>
+                        <div className={`triangle triangle-bottom triangle-small`}><img src={`/icons/Pijltje_white_Lang.svg`} className="arrow arrow-small" alt="Pijl wit lang" /></div>
                       </AniLink>
                     </div>
                   ) : null

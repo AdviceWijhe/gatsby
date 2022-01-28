@@ -64,7 +64,7 @@ const Footer = (props) => {
         </div>
       </div>
       <div className="flex items-center py-9 pr-20">
-        <i className="fal fa-long-arrow-left text-3xl text-primary mr-10 ml-2"></i>
+        <img src={`/icons/Pijltje_red_Lang.svg`} className="arrow arrow-small mr-5" alt="Pijl wit lang" />
         <p className="font-bold m-0">
           Op de hoogte blijven van ons bureau? Volg onze socials.
         </p>
