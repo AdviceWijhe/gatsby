@@ -8,7 +8,7 @@ import "./Diensten.scss"
 import { useDienstQuery } from "../../hooks/useDienstQuery"
 
 
-const Diensten = props => {
+const Diensten = (props) => {
 
   const diensten = useDienstQuery().diensten;
 
@@ -16,6 +16,9 @@ const Diensten = props => {
     <section className="com_Diensten">
       <div className="com_Diensten__inner">
         {diensten.nodes.map(post => {
+          if(props.currentID === post.id) {
+            return false;
+          }
           return (
             post.wpParent === null ? (
               <AniLink paintDrip key={post.id} to={post.uri} className={`com_Diensten__Dienst block relative`}>

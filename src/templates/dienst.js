@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import parse from "html-react-parser"
 import Hero from "../components/hero"
+import Diensten from "../components/Diensten/Diensten"
 
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
@@ -43,7 +44,7 @@ const DienstTemplate = ({ data: { previous, post, next  } }) => {
         }
       </section>
 
-
+        <Diensten currentID={post.id} />
     </>
   )
 }
