@@ -41,16 +41,16 @@ const Footer = (props) => {
           </h3>
           <div className="footer__info my-7">
             <div className="flex flex-col lg:flex-row justify-between">
-              <span className="font-medium w-1/2">
+              <span className="font-medium md:w-1/2">
                 <a href="tel:0570521152" className={`text-white`}><span className="font-light">T</span> 0570 52 11 52</a>
               </span>
-              <span className="font-medium w-1/2">
+              <span className="font-medium md:w-1/2">
                 <a  className={`text-white`} href="mailto:contact@advice.nl"><span className="font-light">E</span> contact@advice.nl</a>
               </span>
             </div>
           </div>
           <div className="footer__menu">
-            <ul className={`grid grid-cols-2`}>
+            <ul className={`grid lg:grid-cols-2`}>
               {menu.wpMenu.menuItems.nodes &&
                 menu.wpMenu.menuItems.nodes.map(post => {
                   return (

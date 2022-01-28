@@ -17,3 +17,12 @@
   padding-top: 1rem;
   padding-bottom: 3rem; 
 }
+
+.blogItem .triangle {
+  width: 100px;
+  height: 100px;
+
+  img {
+    transform: rotate(-180deg);
+  }
+}
