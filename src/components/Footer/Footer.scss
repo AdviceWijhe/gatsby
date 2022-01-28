@@ -28,7 +28,7 @@
   border: none;
 
   &::before {
-    content: '';
+    content: "";
     width: calc(100% + 4.8rem);
     left: -2.4rem;
     top: 0;
@@ -61,7 +61,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  padding: 20px;
+  padding: 25px;
   font-size: 2.2rem;
   clip-path: polygon(100% 0, 0% 100%, 100% 100%);
   position: absolute;
