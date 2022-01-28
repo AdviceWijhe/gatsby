@@ -2,7 +2,6 @@
 
 .nav-menu {
   &.mainMenu {
-    height: 50vh;
     padding: 3rem 0;
 
     @media (min-width: $breakpoint-laptop) {
@@ -70,7 +69,7 @@
 
           >li {
             display: block;
-            padding: 0 25px;
+            padding: 5px 25px;
 
             @media (min-width: $breakpoint-laptop) {
               display: inline-block;
@@ -111,20 +110,24 @@
   }
 
   &.topMenu {
-    position: absolute;
-    bottom: 2.4rem;
-    right: 2.4rem;
+    position: relative;
 
     @media (min-width: $breakpoint-laptop) {
+      position: absolute;
       bottom: 2.4rem;
+      left: auto;
       right: 6.4rem;
     }
 
     > ul {
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
+      align-items: flex-start;
       height: 100%;
+
+      @media (min-width: $breakpoint-laptop) {
+        align-items: flex-end;
+      }
 
       > li {
         position: relative;

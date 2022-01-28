@@ -27,7 +27,7 @@ const BlogItem = props => {
           <div className="blogItem--inner__content--title w-3/4 mt-5">
             <h2 className={`text-xl lg:text-2xl font-weight-bold`}>{props.item.title}</h2>
           </div>
-          <AniLink paintDrip to={props.item.uri} className={`triangle triangle-rotated`}><i className="fal fa-long-arrow-right"></i></AniLink>
+          <AniLink paintDrip to={props.item.uri} className={`triangle triangle-rotated`}><img src={`/icons/Pijltje_white_Lang.svg`} className="arrow arrow-small" alt="Pijl wit lang" /></AniLink>
         </div>
       </div>
     </div>
