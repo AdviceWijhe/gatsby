@@ -96,10 +96,15 @@
     }
 
     .specialisme {
-      padding: 2rem 2rem 4rem;
+      padding: 1rem 2rem 4rem;
+      h2 {
+        margin-bottom: 1.5rem;
+      }
 
       @media (min-width: $breakpoint-desktop) {
         width: 35%;
+        top: auto;
+        bottom: -250px;
       }
       
 
