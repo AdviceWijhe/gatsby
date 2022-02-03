@@ -23,12 +23,28 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
   const heroBlock = post.posttype_cases.blockHero
   const specialisme = post.posttype_cases.specialisme
   const caseImage = post.posttype_cases?.caseImage
+  const caseVideo = post.posttype_cases?.caseVideo
   const doelstelling = post.posttype_cases?.doelstelling
   const resultaat = post.posttype_cases?.resultaat
   const letters = post.posttype_cases?.quote
 
   let resultImageCount = 0;
   let doelImageCount = 0;
+
+  function getVideo() {
+    if(caseVideo) {
+      console.log(caseVideo)
+      return (
+      <section>
+        <div className="casePlayer">
+          <iframe src={caseVideo} frameborder="0" className={`caseFrame`} allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title={post.title}></iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+      </section>
+      )
+    }
+    return <Image image={caseImage} />
+  }
 
 
 
@@ -47,13 +63,16 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
 
       <section>
         {post.content &&
-          <div className="pageContent mt-14 lg:w-3/4">{parse(post.content)}</div>
+          <div className="pageContent mt-14 lg:w-2/4">{parse(post.content)}</div>
         }
       </section>
 
-      {caseImage &&
+      {/* {caseImage &&
       <Image image={caseImage} />
-      }
+      } */}
+
+      {getVideo()}
+
 
       {letters && 
       <Quote letters={letters}></Quote>
@@ -64,8 +83,9 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
           <div className={`xl:pr-10`}>
             <h3 class="text-2xl md:text-3xl font-bold mb-5">{doelstelling?.titel}</h3>
             {doelstelling?.content &&
-            <ReadMore content={doelstelling?.content}>
-            </ReadMore>
+            
+            parse(doelstelling?.content)
+            
             }
           </div>
           {doelstelling?.images &&
@@ -91,8 +111,7 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
           <div class="lg:w-3/4">
             <h3 class="text-2xl md:text-3xl font-bold mb-5">{resultaat?.titel}</h3>
             {resultaat?.content &&
-            <ReadMore content={resultaat?.content}>
-            </ReadMore>
+            parse(resultaat?.content)
             }
           </div>
           <div class="resultaat__image flex flex-wrap lg:mt-10">
@@ -116,11 +135,11 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
           
       </section> 
 
-<section class="navigation">
-    <AniLink paintDrip to="/cases" className={`flex`}><img src={`/icons/Pijltje_blue_Lang.svg`} className="arrow arrow-small mr-2" alt="Pijl blauw" /> Terug naar overzicht</AniLink>
+<section class="navigation flex justify-between w-full">
+    <AniLink paintDrip to="/cases" className={`flex items-center w-full`}><img src={`/icons/Pijltje_blue_Lang.svg`} className="arrow arrow-small mr-2" alt="Pijl blauw" /> Terug naar overzicht</AniLink>
 
     {next && (
-      <AniLink paintDrip to={next.uri} rel="next" className={`flex mt-3`}>
+      <AniLink paintDrip to={next.uri} rel="next" className={`flex mt-3 w-full justify-end`}>
         Volgende case <img src={`/icons/Pijltje_blue_Lang.svg`} className="arrow arrow-small arrow-right ml-2" alt="Pijl blauw" />
       </AniLink>
     )}
@@ -214,6 +233,7 @@ export const pageQuery = graphql`
               }
             }
         }
+        caseVideo
         quote
         doelstelling {
           titel
@@ -227,6 +247,7 @@ export const pageQuery = graphql`
               }
             }
           }
+          video
         }
         resultaat {
           titel

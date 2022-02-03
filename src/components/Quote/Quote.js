@@ -18,7 +18,7 @@ const Quote = props => {
     <section className="quote">
       <div className={`quote__inner lg:py-20`}>
      {props.letters && 
-        <div className="lg:w-2/4">
+        <div className="lg:w-3/4">
         {separatedLetters.map(post => {
           count++
           return (
