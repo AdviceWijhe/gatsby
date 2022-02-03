@@ -1,7 +1,18 @@
 .resultaat {
   &__image {
     &--image {
-      margin-right: 1rem;
+      &.image_2,
+      &.image_3 {
+        width: 50%;
+      }
+
+      &.image_2 {
+        padding-right: 0.5rem;
+      }
+
+       &.image_3 {
+         padding-left: 0.5rem;
+       }
     }
   }
 }

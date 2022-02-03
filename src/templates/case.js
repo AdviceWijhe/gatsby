@@ -37,13 +37,45 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
       return (
       <section>
         <div className="casePlayer">
-          <iframe src={caseVideo} frameborder="0" className={`caseFrame`} allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title={post.title}></iframe>
+          <iframe src={caseVideo} frameborder="0" className={`caseFrame`} allow="autoplay" allowFullScreen title={post.title}></iframe>
         </div>
         <script src="https://player.vimeo.com/api/player.js"></script>
       </section>
       )
     }
     return <Image image={caseImage} />
+  }
+
+  function getDoelAsset() {
+    if(doelstelling.video){
+        return (
+          <>
+            <div className="casePlayer">
+              <iframe src={caseVideo} frameborder="0" className={`caseFrame`} allow="autoplay" allowFullScreen title={post.title}></iframe>
+            </div>
+            <script src="https://player.vimeo.com/api/player.js"></script>
+          </>
+       )
+    }
+
+    return (
+      <>
+      {doelstelling?.images &&
+          doelstelling.images.map(post => {
+            doelImageCount++;
+            return (
+            <div class={`doelstelling__image image_${doelImageCount}`}>
+              <GatsbyImage
+                image={post.localFile.childImageSharp.gatsbyImageData}
+                alt="image"
+                style={{marginBottom: 50}}
+                className="doelstelling__image--image"
+              />
+            </div>
+            )
+          })}
+      </>
+    )
   }
 
 
@@ -71,7 +103,7 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
       <Image image={caseImage} />
       } */}
 
-      {getVideo()}
+      <Image image={caseImage} />
 
 
       {letters && 
@@ -79,8 +111,8 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
       }
 
       <section className={`doelstelling`}>
-        <div class="grid lg:grid-cols-2 gap-4">
-          <div className={`xl:pr-10`}>
+        <div class="flex items-center">
+          <div className={`xl:pr-10 w-full lg:w-50 pr-5 `}>
             <h3 class="text-2xl md:text-3xl font-bold mb-5">{doelstelling?.titel}</h3>
             {doelstelling?.content &&
             
@@ -88,23 +120,16 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
             
             }
           </div>
-          {doelstelling?.images &&
-          doelstelling.images.map(post => {
-            doelImageCount++;
-            return (
-            <div class={`doelstelling__image image_${doelImageCount}`}>
-              <GatsbyImage
-                image={post.localFile.childImageSharp.gatsbyImageData}
-                alt="image"
-                style={{marginBottom: 50}}
-                className="doelstelling__image--image"
-              />
-            </div>
-            )
-          })}
+          <div className="w-full lg:w-50">
+          {getDoelAsset()}
+          </div>
         </div>
           
-      </section> 
+      </section>
+
+
+      
+      {getVideo()}
 
       <section className={`resultaat`}>
         <div className="pt-5 lg:pt-16">
@@ -241,9 +266,7 @@ export const pageQuery = graphql`
           images {
           localFile {
               childImageSharp {
-                gatsbyImageData (
-                  aspectRatio: 1.5
-                )
+                gatsbyImageData
               }
             }
           }
@@ -255,9 +278,7 @@ export const pageQuery = graphql`
           images {
           localFile {
               childImageSharp {
-                gatsbyImageData (
-                  height: 1100
-                )
+                gatsbyImageData
               }
             }
           }
