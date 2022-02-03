@@ -16,7 +16,6 @@ import "../css/@wordpress/block-library/build-style/style.css"
 import "../css/@wordpress/block-library/build-style/theme.css"
 
 import Seo from 'gatsby-plugin-wpgraphql-seo';
-import ReadMore from "../components/Readmore/Readmore"
 
 const CaseTemplate = ({ data: { previous, post, next  } }) => {
 
@@ -33,11 +32,10 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
 
   function getVideo() {
     if(caseVideo) {
-      console.log(caseVideo)
       return (
       <section>
         <div className="casePlayer">
-          <iframe src={caseVideo} frameborder="0" className={`caseFrame`} allow="autoplay" allowFullScreen title={post.title}></iframe>
+          <iframe src={caseVideo} frameBorder="0" className={`caseFrame`} allow="autoplay" allowFullScreen title={post.title}></iframe>
         </div>
         <script src="https://player.vimeo.com/api/player.js"></script>
       </section>
@@ -51,7 +49,7 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
         return (
           <>
             <div className="casePlayer">
-              <iframe src={caseVideo} frameborder="0" className={`caseFrame`} allow="autoplay" allowFullScreen title={post.title}></iframe>
+              <iframe src={doelstelling.video} frameBorder="0" className={`caseFrame`} allow="autoplay" allowFullScreen title={post.title}></iframe>
             </div>
             <script src="https://player.vimeo.com/api/player.js"></script>
           </>
@@ -64,7 +62,7 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
           doelstelling.images.map(post => {
             doelImageCount++;
             return (
-            <div class={`doelstelling__image image_${doelImageCount}`}>
+            <div key={post.localFile} className={`doelstelling__image image_${doelImageCount}`}>
               <GatsbyImage
                 image={post.localFile.childImageSharp.gatsbyImageData}
                 alt="image"
@@ -111,9 +109,9 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
       }
 
       <section className={`doelstelling`}>
-        <div class="flex items-center">
+        <div className="flex flex-col lg:flex-row items-center">
           <div className={`xl:pr-10 w-full lg:w-50 pr-5 `}>
-            <h3 class="text-2xl md:text-3xl font-bold mb-5">{doelstelling?.titel}</h3>
+            <h3 className="text-2xl md:text-3xl font-bold mb-5">{doelstelling?.titel}</h3>
             {doelstelling?.content &&
             
             parse(doelstelling?.content)
@@ -133,19 +131,18 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
 
       <section className={`resultaat`}>
         <div className="pt-5 lg:pt-16">
-          <div class="lg:w-3/4">
-            <h3 class="text-2xl md:text-3xl font-bold mb-5">{resultaat?.titel}</h3>
+          <div className="lg:w-3/4">
+            <h3 className="text-2xl md:text-3xl font-bold mb-5">{resultaat?.titel}</h3>
             {resultaat?.content &&
             parse(resultaat?.content)
             }
           </div>
-          <div class="resultaat__image flex flex-wrap lg:mt-10">
+          <div className="resultaat__image flex flex-wrap lg:mt-10">
           {resultaat?.images &&
           resultaat.images.map(post => {
             resultImageCount++;
-            console.log(post.localFile.childImageSharp.gatsbyImageData);
             return (
-            <div class={`resultaat__image--image image_${resultImageCount}`}>
+            <div key={post.title} className={`resultaat__image--image image_${resultImageCount}`}>
               <GatsbyImage
                 image={post.localFile.childImageSharp.gatsbyImageData}
                 alt="image"
@@ -160,11 +157,11 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
           
       </section> 
 
-<section class="navigation flex justify-between w-full">
+<section className="navigation flex justify-between w-full">
     <AniLink paintDrip to="/cases" className={`flex items-center w-full`}><img src={`/icons/Pijltje_blue_Lang.svg`} className="arrow arrow-small mr-2" alt="Pijl blauw" /> Terug naar overzicht</AniLink>
 
     {next && (
-      <AniLink paintDrip to={next.uri} rel="next" className={`flex mt-3 w-full justify-end`}>
+      <AniLink paintDrip to={next.uri} rel="next" className={`flex w-full justify-end`}>
         Volgende case <img src={`/icons/Pijltje_blue_Lang.svg`} className="arrow arrow-small arrow-right ml-2" alt="Pijl blauw" />
       </AniLink>
     )}
