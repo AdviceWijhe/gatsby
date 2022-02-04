@@ -131,7 +131,9 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
            </div>
            <div className="grid-2">
                <div className="grid__title">
+                 {resultaat.secondtitle &&
                 <h2>{resultaat?.secondtitle}</h2>
+                 }
               </div>
               <div className="grid__content">
                 {resultaat.secondcontent &&

@@ -17,21 +17,27 @@ const Image = props => {
           <div className="w-full">
             <div className="ratio ratio--r1-1">
               <div className="ratio__content">
+                {images &&
                 <img className="ratio__image" src={images[1]?.localFile.childImageSharp.gatsbyImageData.images.fallback.src} />
+                }
               </div>
            </div>
           </div>
           <div className="w-full">
             <div className="ratio ratio--r1-1">
               <div className="ratio__content">
+                {images &&
                 <img className="ratio__image" src={images[2]?.localFile.childImageSharp.gatsbyImageData.images.fallback.src} />
+                }
               </div>
            </div>
           </div>
         </div>
         <div className={`lg:col-span-2 relative`}>
           <div className="collage__image-wrapper">
+            {images &&
           <img className="collage__image" src={images[0]?.localFile.childImageSharp.gatsbyImageData.images.fallback.src} />
+            }
           </div>
         </div>
       </div>
