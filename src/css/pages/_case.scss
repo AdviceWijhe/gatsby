@@ -2,18 +2,10 @@
   &__image {
     &--image {
       @media (min-width: $breakpoint-laptop) {
-      &.image_2,
-      &.image_3 {
+      &.image_1,
+      &.image_2 {
         width: 50%;
       }
-
-      &.image_2 {
-        padding-right: 0.5rem;
-      }
-
-       &.image_3 {
-         padding-left: 0.5rem;
-       }
       }
     }
   }
@@ -44,4 +36,12 @@
 .casePlayer {
   padding:56.25% 0 0 0;
   position:relative;
+}
+
+.grid {
+  &__title {
+    @media (min-width: $breakpoint-laptop) {
+      min-height: 3rem;
+    }
+  }
 }
