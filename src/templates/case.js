@@ -4,6 +4,8 @@ import parse from "html-react-parser"
 import Hero from "../components/hero"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import Image from "../components/Image/Image"
+import Collage from "../components/Collage/Collage"
+import TripleImages from "../components/TripleImages/TripleImages"
 import Quote from "../components/Quote/Quote"
 import { GatsbyImage } from "gatsby-plugin-image"
 
@@ -21,11 +23,12 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
 
   const heroBlock = post.posttype_cases.blockHero
   const specialisme = post.posttype_cases.specialisme
-  const caseImage = post.posttype_cases?.caseImage
+  const caseImages = post.posttype_cases?.caseImages
   const caseVideo = post.posttype_cases?.caseVideo
   const doelstelling = post.posttype_cases?.doelstelling
   const resultaat = post.posttype_cases?.resultaat
   const letters = post.posttype_cases?.quote
+  const tripleImages = post.posttype_cases.tripleimages
 
   let resultImageCount = 0;
   let doelImageCount = 0;
@@ -33,7 +36,7 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
   function getVideo() {
     if(caseVideo) {
       return (
-      <section>
+      <section className="pb-0">
         <div className="casePlayer">
           <iframe src={caseVideo} frameBorder="0" className={`caseFrame`} allow="autoplay" allowFullScreen title={post.title}></iframe>
         </div>
@@ -41,7 +44,7 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
       </section>
       )
     }
-    return <Image image={caseImage} />
+    return <Image image={resultaat?.images[3]} />
   }
 
   function getDoelAsset() {
@@ -97,65 +100,71 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
         }
       </section>
 
-      {/* {caseImage &&
-      <Image image={caseImage} />
-      } */}
-
-      <Image image={caseImage} />
-
+      <Collage images={caseImages} />
 
       {letters && 
-      <Quote letters={letters}></Quote>
+        <Quote letters={letters}></Quote>
       }
 
-      <section className={`doelstelling`}>
-        <div className="flex flex-col lg:flex-row items-center">
-          <div className={`xl:pr-10 w-full lg:w-50 pr-5 `}>
+      <section>
+        <div className={``}>
             <h3 className="text-2xl md:text-3xl font-bold mb-5">{doelstelling?.titel}</h3>
-            {doelstelling?.content &&
+          {doelstelling?.content &&
             
             parse(doelstelling?.content)
             
-            }
-          </div>
-          <div className="w-full lg:w-50">
-          {getDoelAsset()}
-          </div>
+         }
         </div>
-          
       </section>
 
+      <TripleImages images={tripleImages} />
 
-      
-      {getVideo()}
-
-      <section className={`resultaat`}>
-        <div className="pt-5 lg:pt-16">
-          <div className="lg:w-3/4">
-            <h3 className="text-2xl md:text-3xl font-bold mb-5">{resultaat?.titel}</h3>
-            {resultaat?.content &&
-            parse(resultaat?.content)
-            }
-          </div>
-          <div className="resultaat__image flex flex-wrap lg:mt-10">
+      <section>
+         <div className="grid grid-cols-1 lg:grid-cols-2">
+           <div className="grid-1 pr-10">
+              <div className="grid__title">
+                <h2>{resultaat?.titel}</h2>
+              </div>
+              <div className="grid__content">
+                {parse(resultaat?.content)}
+              </div>
+           </div>
+           <div className="grid-2">
+               <div className="grid__title">
+                 {resultaat.secondtitle &&
+                <h2>{resultaat?.secondtitle}</h2>
+                 }
+              </div>
+              <div className="grid__content">
+                {resultaat.secondcontent &&
+                parse(resultaat?.secondcontent)
+                }
+              </div>
+           </div>
+         </div>
+      </section>
+        {getVideo()}
+      <section className="pt-0">
+        <div className="resultaat__image flex flex-wrap">
           {resultaat?.images &&
           resultaat.images.map(post => {
             resultImageCount++;
+            if(resultImageCount > 2) {
+              return false;
+            }            
             return (
             <div key={post.title} className={`resultaat__image--image image_${resultImageCount}`}>
               <GatsbyImage
                 image={post.localFile.childImageSharp.gatsbyImageData}
                 alt="image"
-                style={{marginBottom: 20}}
                 className="resultaat__image--image"
               />
             </div>
             )
           })}
           </div>
-        </div>
-          
-      </section> 
+      </section>
+
 
 <section className="navigation flex justify-between w-full">
     <AniLink paintDrip to="/cases" className={`flex items-center w-full`}><img src={`/icons/Pijltje_blue_Lang.svg`} className="arrow arrow-small mr-2" alt="Pijl blauw" /> Terug naar overzicht</AniLink>
@@ -248,7 +257,7 @@ export const pageQuery = graphql`
             uri
           }
         }
-        caseImage {
+        caseImages {
           localFile {
               childImageSharp {
                 gatsbyImageData
@@ -260,18 +269,20 @@ export const pageQuery = graphql`
         doelstelling {
           titel
           content
-          images {
-          localFile {
+          video
+        }
+        tripleimages {
+           localFile {
               childImageSharp {
                 gatsbyImageData
               }
             }
-          }
-          video
         }
         resultaat {
           titel
           content
+          secondtitle
+          secondcontent
           images {
           localFile {
               childImageSharp {
