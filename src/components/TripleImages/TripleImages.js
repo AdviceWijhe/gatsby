@@ -17,7 +17,7 @@ const tripleImages = props => {
           <div className="w-full">
             <div className="ratio ratio--r1-1">
               <div className="ratio__content">
-                <img className="ratio__image" src={images[0].localFile.childImageSharp.gatsbyImageData.images.fallback.src} />
+                <img className="ratio__image" src={images[0]?.localFile.childImageSharp.gatsbyImageData.images.fallback.src} />
               </div>
            </div>
           </div>
@@ -26,7 +26,7 @@ const tripleImages = props => {
           <div className="w-full">
             <div className="ratio ratio--r1-1">
               <div className="ratio__content">
-                <img className="ratio__image" src={images[1].localFile.childImageSharp.gatsbyImageData.images.fallback.src} />
+                <img className="ratio__image" src={images[1]?.localFile.childImageSharp.gatsbyImageData.images.fallback.src} />
               </div>
            </div>
           </div>
@@ -35,7 +35,7 @@ const tripleImages = props => {
           <div className="w-full">
             <div className="ratio ratio--r1-1">
               <div className="ratio__content">
-                <img className="ratio__image" src={images[2].localFile.childImageSharp.gatsbyImageData.images.fallback.src} />
+                <img className="ratio__image" src={images[2]?.localFile.childImageSharp.gatsbyImageData.images.fallback.src} />
               </div>
            </div>
           </div>

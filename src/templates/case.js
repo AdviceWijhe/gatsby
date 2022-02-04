@@ -44,7 +44,7 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
       </section>
       )
     }
-    return <Image image={resultaat.images[3]} />
+    return <Image image={resultaat?.images[3]} />
   }
 
   function getDoelAsset() {
