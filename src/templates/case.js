@@ -107,7 +107,7 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
       }
 
       <section>
-        <div className={``}>
+        <div className={`lg:w-2/3`}>
             <h3 className="text-2xl md:text-3xl font-bold mb-5">{doelstelling?.titel}</h3>
           {doelstelling?.content &&
             
@@ -123,7 +123,7 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
          <div className="grid grid-cols-1 lg:grid-cols-2">
            <div className="grid-1 pr-10">
               <div className="grid__title">
-                <h2>{resultaat?.titel}</h2>
+                <h2 className="mt-0">{resultaat?.titel}</h2>
               </div>
               <div className="grid__content">
                 {parse(resultaat?.content)}
@@ -132,7 +132,7 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
            <div className="grid-2">
                <div className="grid__title">
                  {resultaat.secondtitle &&
-                <h2>{resultaat?.secondtitle}</h2>
+                <h2 className="mt-0">{resultaat?.secondtitle}</h2>
                  }
               </div>
               <div className="grid__content">

@@ -13,7 +13,7 @@ const Hero = props => {
     wrapAround: true,
     prevNextButtons: true,
     pageDots: false,
-    autoPlay: true,
+    autoPlay: 7000,
     fade: true,
   }
 
