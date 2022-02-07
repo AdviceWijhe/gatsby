@@ -11,7 +11,7 @@ const Image = props => {
   console.log(images)
 
   return (
-    <section className="Collage">
+    <section className="Collage pt-0">
       <div className={`grid grid-cols-1 lg:grid-cols-3`}>
         <div className={`small-images`}>
           <div className="w-full">

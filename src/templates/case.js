@@ -144,7 +144,7 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
          </div>
       </section>
         {getVideo()}
-      <section className="pt-0">
+      <section className="pt-0 pb-0">
         <div className="resultaat__image flex flex-wrap">
           {resultaat?.images &&
           resultaat.images.map(post => {
@@ -164,6 +164,10 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
           })}
           </div>
       </section>
+
+      {post.posttype_cases?.endImages &&
+        <Collage images={post.posttype_cases?.endImages} />
+      }
 
 
 <section className="navigation flex justify-between w-full">
@@ -298,6 +302,15 @@ export const pageQuery = graphql`
               }
             }
           }
+        }
+         endImages {
+          localFile {
+              childImageSharp {
+                gatsbyImageData (
+                  quality: 100
+                )
+              }
+            }
         }
       }
       footer {
