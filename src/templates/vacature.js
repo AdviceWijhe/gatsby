@@ -14,7 +14,7 @@ import "../css/@wordpress/block-library/build-style/theme.css"
 import Seo from "../components/seo"
 
 const VacatureTemplate = ({ data: { previous, next, post } }) => {
-  const hero = post?.postTypePosts?.blockHero
+  const hero = post?.postTypeVacatures?.blockHero
 
   return (
     <>
@@ -93,7 +93,25 @@ export const pageQuery = graphql`
           }
         }
       }
+      postTypeVacatures {
+        blockHero {
+          title
+          subtitle
+          content
+          image {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+        }
+      }
+      footer {
+        backgroundColorTop
+      }
     }
+    
     previous: wpPost(id: { eq: $previousPostId }) {
       uri
       title

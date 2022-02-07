@@ -2,8 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import parse from "html-react-parser"
 import Hero from "../components/hero"
-import Diensten from "../components/Diensten/Diensten"
-import Tabs from "../components/Tabs/Tabs"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { useDienstQuery } from "../hooks/useDienstQuery"
 
 // We're using Gutenberg so we need the block styles
@@ -40,14 +39,37 @@ const DienstTemplate = ({ data: { previous, post, next  } }) => {
         {getHero()}
 
 
-          <section className="wrapper">
-        {post.content &&
-          <div className="pageContent mt-14 lg:w-3/4">{parse(post.content)}</div>
-        }
+          <section className="wrapper  mt-14">
+            <div className="grid grid-cols-1 lg:grid-cols-2">
+              {post.content &&
+                <div className="pageContent lg:pr-10">{parse(post.content)}</div>
+              }
+              {post.posttype_diensten.kolom2 &&
+                <div className="pageContent">{parse(post.posttype_diensten.kolom2)}</div>
+              }
+            </div>
+
       </section>
 
+ <section className={`moreDiensten`}>
+        <p className="text-secondary"><b>Vond je dit interessant?</b> Bekijk onze andere diensten.</p>
+        {diensten &&
+          diensten.nodes.map(dienst => {
+            console.log(dienst);
+            if(dienst.wpParent != null) {
+              return false;
+            }
+            if(dienst.id === post.id ) {
+              return false;
+            }
+            return (
+            <div key={dienst.title} className={``}>
+              <h2><AniLink  className="text-outlined" to={dienst.uri}>{dienst.title}</AniLink></h2>
+            </div>
+            )
+          })}
+      </section>
 
-        <Tabs items={diensten.nodes} currentID={post.id} />
     </>
   )
 }
@@ -122,6 +144,7 @@ export const pageQuery = graphql`
             }
           }
         }
+        kolom2
       }
     }
     previous: wpCase(id: { eq: $previousPostId }) {

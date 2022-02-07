@@ -64,6 +64,14 @@
     }
   }
 
+  &.homepage {
+    .hero__content {
+      @media (min-width: $breakpoint-desktop) {
+        max-width: 50%;
+      }
+    }
+  }
+
   &.single {
     .hero__description {
       margin-top: 2rem;
@@ -75,14 +83,14 @@
       order: 3;
 
        @media (min-width: $breakpoint-desktop) {
-         font-size: 1.2rem !important;
+         font-size: 1.4rem !important;
        }
 
       p {
         font-size: 1rem !important;
 
         @media (min-width: $breakpoint-desktop) {
-          font-size: 1.2rem !important;
+          font-size: 1.4rem !important;
         }
       }
     }

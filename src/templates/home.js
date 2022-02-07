@@ -33,6 +33,7 @@ const HomePageTemplate = ({ data: { post } }) => {
         letters={heroBlock.letters}
         image={heroBlock.image?.localFile?.childImageSharp?.gatsbyImageData}
         slideshow={diensten.nodes}
+        layout="homepage"
       />
 
       <section className="wrapper">
