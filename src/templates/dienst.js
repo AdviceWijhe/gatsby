@@ -64,7 +64,7 @@ const DienstTemplate = ({ data: { previous, post, next  } }) => {
             }
             return (
             <div key={dienst.title} className={``}>
-              <h2><AniLink  className="text-outlined" to={dienst.uri}>{dienst.title}</AniLink></h2>
+              <h2><AniLink paintDrip className="text-outlined" to={dienst.uri}>{dienst.title}</AniLink></h2>
             </div>
             )
           })}
