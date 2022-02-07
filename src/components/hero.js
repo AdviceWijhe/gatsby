@@ -46,7 +46,7 @@ const Hero = props => {
         )}
         {props.specialisme && (
           <div className={`hero__slideshow specialisme`}>
-            <h2 className={`text-white relative`}>Specialisme</h2>
+            <h2 className={`text-white relative`}>Specialismen</h2>
             <ul className={`text-white relative specialisme__items`}>
             {props.specialisme &&
               props.specialisme.map(post => {
