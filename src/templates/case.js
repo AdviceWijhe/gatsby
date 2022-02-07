@@ -245,7 +245,9 @@ export const pageQuery = graphql`
           image {
             localFile {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData (
+                  quality: 100
+                )
               }
             }
           }
@@ -260,7 +262,9 @@ export const pageQuery = graphql`
         caseImages {
           localFile {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData (
+                  quality: 100
+                )
               }
             }
         }
@@ -274,7 +278,9 @@ export const pageQuery = graphql`
         tripleimages {
            localFile {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData (
+                  quality: 100
+                )
               }
             }
         }
@@ -286,7 +292,9 @@ export const pageQuery = graphql`
           images {
           localFile {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData(
+                  quality: 100
+                )
               }
             }
           }
