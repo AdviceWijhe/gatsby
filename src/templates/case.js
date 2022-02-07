@@ -6,6 +6,7 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 import Image from "../components/Image/Image"
 import Collage from "../components/Collage/Collage"
 import TripleImages from "../components/TripleImages/TripleImages"
+import DoubleImages from "../components/DoubleImages/DoubleImages"
 import Quote from "../components/Quote/Quote"
 import { GatsbyImage } from "gatsby-plugin-image"
 
@@ -22,6 +23,7 @@ import Seo from 'gatsby-plugin-wpgraphql-seo';
 const CaseTemplate = ({ data: { previous, post, next  } }) => {
 
   const heroBlock = post.posttype_cases.blockHero
+  const blocks = post.posttype_cases.blocks
   const specialisme = post.posttype_cases.specialisme
   const caseImages = post.posttype_cases?.caseImages
   const caseVideo = post.posttype_cases?.caseVideo
@@ -32,6 +34,91 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
 
   let resultImageCount = 0;
   let doelImageCount = 0;
+
+  const getBlock = (layout) => {
+    console.log(layout.fieldGroupName);
+    switch(layout.fieldGroupName) {
+    case "Case_PosttypeCases_Blocks_Collage":
+      return <Collage images={layout.collageimages} />
+
+    case "Case_PosttypeCases_Blocks_VideoOrImage":
+      if(layout.video) {
+      return (
+        <>
+      <section className="pb-0">
+        <div className="casePlayer">
+          <iframe src={layout.video} frameBorder="0" className={`caseFrame`} allow="autoplay" allowFullScreen title={post.title}></iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+        
+      </section>
+      <DoubleImages images={layout.otherImages} />
+      </>
+      )
+    }
+    return (
+      <>
+    <Image image={layout.image} />
+    <DoubleImages images={layout.otherImages} />
+    </>
+    )
+
+    case "Case_PosttypeCases_Blocks_Quote":
+      return <Quote letters={layout.content} />
+
+    case "Case_PosttypeCases_Blocks_OneColumnsContent":
+      return (
+        <section>
+        <div className={`lg:w-2/3`}>
+            <h3 className="text-2xl md:text-3xl font-bold mb-5">{layout.title}</h3>
+          {layout.content &&
+            
+            parse(layout.content)
+            
+         }
+        </div>
+      </section>
+      )
+
+    case "Case_PosttypeCases_Blocks_TwoColumnsContent":
+      return (
+      <section>
+         <div className="grid grid-cols-1 lg:grid-cols-2">
+           <div className="grid-1 pr-10">
+              <div className="grid__title">
+                <h2 className="mt-0">{layout?.column1.title}</h2>
+              </div>
+              <div className="grid__content">
+                {parse(layout?.column1.content)}
+              </div>
+           </div>
+           <div className="grid-2">
+               <div className="grid__title">
+                 {layout.column2.title &&
+                <h2 className="mt-0">{layout.column2.title}</h2>
+                 }
+              </div>
+              <div className="grid__content">
+                {layout.column2.content &&
+                parse(layout.column2.content)
+                }
+              </div>
+           </div>
+         </div>
+      </section>
+      )
+
+    case "Case_PosttypeCases_Blocks_TripleImages":
+      return <TripleImages images={layout.images} />
+      
+      
+    default:
+      return false
+  }
+
+  }
+
+
 
   function getVideo() {
     if(caseVideo) {
@@ -100,7 +187,7 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
         }
       </section>
 
-      <Collage images={caseImages} />
+      {/* <Collage images={caseImages} />
 
       {letters && 
         <Quote letters={letters}></Quote>
@@ -167,6 +254,12 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
 
       {post.posttype_cases?.endImages &&
         <Collage images={post.posttype_cases?.endImages} />
+      } */}
+
+      { blocks &&
+        blocks.map(post => {
+          return getBlock(post)}
+         )
       }
 
 
@@ -311,6 +404,69 @@ export const pageQuery = graphql`
                 )
               }
             }
+        }
+
+
+
+        blocks {
+          ... on WpCase_PosttypeCases_Blocks_Collage {
+            fieldGroupName
+            collageimages {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+          }
+          ... on WpCase_PosttypeCases_Blocks_VideoOrImage {
+            fieldGroupName
+            video
+            image {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+            otherImages {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+          }
+          ... on WpCase_PosttypeCases_Blocks_Quote {
+            content
+            fieldGroupName
+          }
+          ... on WpCase_PosttypeCases_Blocks_OneColumnsContent {
+            content
+            fieldGroupName
+            title
+          }
+          ... on WpCase_PosttypeCases_Blocks_TwoColumnsContent {
+            column1 {
+              content
+              title
+            }
+            fieldGroupName
+            column2 {
+              content
+              title
+            }
+          }
+          ... on WpCase_PosttypeCases_Blocks_TripleImages {
+            fieldGroupName
+            images {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+          }
         }
       }
       footer {
