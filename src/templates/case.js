@@ -354,66 +354,6 @@ export const pageQuery = graphql`
             uri
           }
         }
-        caseImages {
-          localFile {
-              childImageSharp {
-                gatsbyImageData (
-                  quality: 100
-                  placeholder: TRACED_SVG
-                  layout: FULL_WIDTH
-                )
-              }
-            }
-        }
-        caseVideo
-        quote
-        doelstelling {
-          titel
-          content
-          video
-        }
-        tripleimages {
-           localFile {
-              childImageSharp {
-                gatsbyImageData (
-                  quality: 100
-                  placeholder: TRACED_SVG
-                  layout: FULL_WIDTH
-                )
-              }
-            }
-        }
-        resultaat {
-          titel
-          content
-          secondtitle
-          secondcontent
-          images {
-          localFile {
-              childImageSharp {
-                gatsbyImageData(
-                  quality: 100
-                  placeholder: TRACED_SVG
-                  layout: FULL_WIDTH
-                )
-              }
-            }
-          }
-        }
-         endImages {
-          localFile {
-              childImageSharp {
-                gatsbyImageData (
-                  quality: 100
-                  placeholder: TRACED_SVG
-                  layout: FULL_WIDTH
-                )
-              }
-            }
-        }
-
-
-
         blocks {
           ... on WpCase_PosttypeCases_Blocks_Collage {
             fieldGroupName
