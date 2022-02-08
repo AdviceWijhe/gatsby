@@ -25,14 +25,10 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
   const heroBlock = post.posttype_cases.blockHero
   const blocks = post.posttype_cases.blocks
   const specialisme = post.posttype_cases.specialisme
-  const caseImages = post.posttype_cases?.caseImages
   const caseVideo = post.posttype_cases?.caseVideo
   const doelstelling = post.posttype_cases?.doelstelling
   const resultaat = post.posttype_cases?.resultaat
-  const letters = post.posttype_cases?.quote
-  const tripleImages = post.posttype_cases.tripleimages
 
-  let resultImageCount = 0;
   let doelImageCount = 0;
 
   const getBlock = (layout) => {
@@ -344,6 +340,8 @@ export const pageQuery = graphql`
               childImageSharp {
                 gatsbyImageData (
                   quality: 100
+                  placeholder: TRACED_SVG
+                  layout: FULL_WIDTH
                 )
               }
             }
@@ -361,6 +359,8 @@ export const pageQuery = graphql`
               childImageSharp {
                 gatsbyImageData (
                   quality: 100
+                  placeholder: TRACED_SVG
+                  layout: FULL_WIDTH
                 )
               }
             }
@@ -377,6 +377,8 @@ export const pageQuery = graphql`
               childImageSharp {
                 gatsbyImageData (
                   quality: 100
+                  placeholder: TRACED_SVG
+                  layout: FULL_WIDTH
                 )
               }
             }
@@ -391,6 +393,8 @@ export const pageQuery = graphql`
               childImageSharp {
                 gatsbyImageData(
                   quality: 100
+                  placeholder: TRACED_SVG
+                  layout: FULL_WIDTH
                 )
               }
             }
@@ -401,6 +405,8 @@ export const pageQuery = graphql`
               childImageSharp {
                 gatsbyImageData (
                   quality: 100
+                  placeholder: TRACED_SVG
+                  layout: FULL_WIDTH
                 )
               }
             }
@@ -414,7 +420,11 @@ export const pageQuery = graphql`
             collageimages {
               localFile {
                 childImageSharp {
-                  gatsbyImageData
+                  gatsbyImageData(
+                  quality: 100
+                  placeholder: TRACED_SVG
+                  layout: FULL_WIDTH
+                )
                 }
               }
             }
@@ -425,14 +435,22 @@ export const pageQuery = graphql`
             image {
               localFile {
                 childImageSharp {
-                  gatsbyImageData
+                  gatsbyImageData(
+                  quality: 100
+                  placeholder: TRACED_SVG
+                  layout: FULL_WIDTH
+                )
                 }
               }
             }
             otherImages {
               localFile {
                 childImageSharp {
-                  gatsbyImageData
+                  gatsbyImageData(
+                  quality: 100
+                  placeholder: TRACED_SVG
+                  layout: FULL_WIDTH
+                )
                 }
               }
             }
@@ -462,7 +480,11 @@ export const pageQuery = graphql`
             images {
               localFile {
                 childImageSharp {
-                  gatsbyImageData
+                  gatsbyImageData(
+                  quality: 100
+                  placeholder: TRACED_SVG
+                  layout: FULL_WIDTH
+                )
                 }
               }
             }
