@@ -11,6 +11,7 @@
 
   &__image {
     margin: 2rem -4.4rem 0 -4.4rem !important;
+    z-index: -1;
 
     @media (min-width: $breakpoint-laptop) {
       margin: 2.5rem -6.4rem 0 -2rem !important;

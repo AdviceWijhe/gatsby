@@ -179,7 +179,7 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
 
       <section>
         {post.content &&
-          <div className="pageContent mt-14 lg:w-2/4">{parse(post.content)}</div>
+          <div className="pageContent mt-14 lg:mb-10 lg:w-2/4">{parse(post.content)}</div>
         }
       </section>
 
