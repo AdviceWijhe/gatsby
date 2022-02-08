@@ -14,8 +14,8 @@ const Image = props => {
 
   return (
     <section className="Collage pt-0">
-      <div className={`grid grid-cols-1 lg:grid-cols-3`}>
-        <div className={`small-images`}>
+      <div className={`grid grid-cols-2 lg:grid-cols-3`}>
+        <div className={`small-images grid grid-cols-2 lg:block col-span-2 lg:col-span-1`}>
           <div className="w-full">
             <InViewMonitor
                 classNameNotInView='vis-hidden'
@@ -24,7 +24,7 @@ const Image = props => {
             <div className="ratio ratio--r1-1">
               <div className="ratio__content">
                 {images &&
-                <img className="ratio__image" src={images[1]?.localFile.childImageSharp.gatsbyImageData.images.fallback.src} />
+                <img className="ratio__image" alt="" src={images[1]?.localFile.childImageSharp.gatsbyImageData.images.fallback.src} />
                 }
               </div>
            </div>
@@ -45,10 +45,10 @@ const Image = props => {
            </InViewMonitor>
           </div>
         </div>
-        <div className={`lg:col-span-2 relative`}>
+        <div className={`col-span-2 relative`}>
           <InViewMonitor
                 classNameNotInView='vis-hidden'
-                classNameInView='animate__animated animate__fadeInUp animate__fast'
+                classNameInView='animate__animated animate__fadeInRight animate__fast'
               >
           <div className="collage__image-wrapper">
             {images &&

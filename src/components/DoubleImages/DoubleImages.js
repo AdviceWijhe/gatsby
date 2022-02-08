@@ -15,7 +15,7 @@ const DoubleImages = props => {
   }
 
   return (
-    <section className="DoubleImages">
+    <section className="DoubleImages pt-0">
       <div className={`grid grid-cols-1 lg:grid-cols-2`}>
         <div className={`small-images`}>
           <div className="w-full">
