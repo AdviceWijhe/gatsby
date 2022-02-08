@@ -4,6 +4,9 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import parse from "html-react-parser"
 import Flickity from "react-flickity-component"
 import Letters from "./letters"
+import InViewMonitor from "react-inview-monitor"
+
+import 'animate.css/animate.css';
 
 const Hero = props => {
   const flickityOptions = {
@@ -37,12 +40,16 @@ const Hero = props => {
           </h1>
         </div>
         {props.image && (
+          <InViewMonitor
+                classNameNotInView='vis-hidden'
+                classNameInView='animate__animated animate__fadeInUp hero__image'
+              >
         <GatsbyImage
           image={props.image}
           alt="image"
-          style={{ marginBottom: 50 }}
-          className="hero__image"
+          className=""
         />
+        </InViewMonitor>
         )}
         {props.specialisme && (
           <div className={`hero__slideshow specialisme`}>

@@ -41,6 +41,9 @@
 }
 
 .collage {
+  overflow: hidden;
+  position: relative;
+
   &__image-wrapper {
     height: 100vw;
     position: relative;
