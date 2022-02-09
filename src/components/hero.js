@@ -6,7 +6,6 @@ import Flickity from "react-flickity-component"
 import Letters from "./letters"
 import InViewMonitor from "react-inview-monitor"
 
-import 'animate.css/animate.css';
 
 const Hero = props => {
   const flickityOptions = {
@@ -58,7 +57,7 @@ const Hero = props => {
             {props.specialisme &&
               props.specialisme.map(post => {
                 return (
-                  <li className={`specialisme__item`}><AniLink to={post.uri}>{post.title}</AniLink></li>
+                  <li key={post.id} className={`specialisme__item`}><AniLink to={post.uri}>{post.title}</AniLink></li>
                 )
               })
             }
@@ -92,7 +91,7 @@ const Hero = props => {
                         {parse(post.excerpt)}
                       </div>
                       <AniLink paintDrip to={post.uri} className="block mt-12 text-white font-medium">
-                        Lees meer <i class="fal fa-lg fa-long-arrow-right"></i>
+                        Lees meer <i className="fal fa-lg fa-long-arrow-right"></i>
                       </AniLink>
                     </div>
                   </div>
@@ -119,16 +118,6 @@ const Hero = props => {
               {parse(props.content)}
             </div>
             }
-          
-
-        {/* <Link to={"/contact"}>
-          <Button
-            className="flex items-center justify-center rounded-md bg-black text-white"
-            type="submit"
-          >
-            Dit is een button
-          </Button>
-        </Link> */}
       </div>
       <div className="hero__svgLogo">
         <svg

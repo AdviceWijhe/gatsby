@@ -20,7 +20,7 @@ const TeamItem = props => {
           </div>
           <div className="slideshow__item--team--inner__content--subtitle">
             <p className="mb-0">{props.item.postType_Team.functie}</p>
-            <p><span><a href={`${props.item.postType_Team.linkedin}`} className={`text-dark`}><i class="fab fa-linkedin-in"></i></a></span><span className={`ml-3`}><a href={`mailto:${props.item.postType_Team.email}`} className={`text-dark`}><i class="fal fa-envelope"></i></a></span></p>
+            <p><span><a href={`${props.item.postType_Team.linkedin}`} className={`text-dark`} aria-label="Linkedin"><i className="fab fa-linkedin-in"></i></a></span><span className={`ml-3`}><a href={`mailto:${props.item.postType_Team.email}`} className={`text-dark`} aria-label="mailto"><i className="fal fa-envelope"></i></a></span></p>
           </div>
         </div>
       </div>

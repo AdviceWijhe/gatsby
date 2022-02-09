@@ -4,8 +4,9 @@ import CaseItem from "./archives/case"
 import Hero from "../components/hero"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 
-import Bio from "../components/bio"
+
 import Seo from 'gatsby-plugin-wpgraphql-seo';
+import Bio from "../components/bio"
 
 const CaseIndex = ({
   data,

@@ -8,7 +8,6 @@ import Collage from "../components/Collage/Collage"
 import TripleImages from "../components/TripleImages/TripleImages"
 import DoubleImages from "../components/DoubleImages/DoubleImages"
 import Quote from "../components/Quote/Quote"
-import { GatsbyImage } from "gatsby-plugin-image"
 
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
@@ -25,14 +24,9 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
   const heroBlock = post.posttype_cases.blockHero
   const blocks = post.posttype_cases.blocks
   const specialisme = post.posttype_cases.specialisme
-  const caseVideo = post.posttype_cases?.caseVideo
-  const doelstelling = post.posttype_cases?.doelstelling
-  const resultaat = post.posttype_cases?.resultaat
 
-  let doelImageCount = 0;
 
   const getBlock = (layout) => {
-    console.log(layout.fieldGroupName);
     switch(layout.fieldGroupName) {
     case "Case_PosttypeCases_Blocks_Collage":
       return <Collage images={layout.collageimages} />
@@ -114,56 +108,6 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
 
   }
 
-
-
-  function getVideo() {
-    if(caseVideo) {
-      return (
-      <section className="pb-0">
-        <div className="casePlayer">
-          <iframe src={caseVideo} frameBorder="0" className={`caseFrame`} allow="autoplay" allowFullScreen title={post.title}></iframe>
-        </div>
-        <script src="https://player.vimeo.com/api/player.js"></script>
-      </section>
-      )
-    }
-    return <Image image={resultaat?.images[3]} />
-  }
-
-  function getDoelAsset() {
-    if(doelstelling.video){
-        return (
-          <>
-            <div className="casePlayer">
-              <iframe src={doelstelling.video} frameBorder="0" className={`caseFrame`} allow="autoplay" allowFullScreen title={post.title}></iframe>
-            </div>
-            <script src="https://player.vimeo.com/api/player.js"></script>
-          </>
-       )
-    }
-
-    return (
-      <>
-      {doelstelling?.images &&
-          doelstelling.images.map(post => {
-            doelImageCount++;
-            return (
-            <div key={post.localFile} className={`doelstelling__image image_${doelImageCount}`}>
-              <GatsbyImage
-                image={post.localFile.childImageSharp.gatsbyImageData}
-                alt="image"
-                style={{marginBottom: 50}}
-                className="doelstelling__image--image"
-              />
-            </div>
-            )
-          })}
-      </>
-    )
-  }
-
-
-
   return (
     <>
       <Seo post={post} />
@@ -182,75 +126,6 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
           <div className="pageContent mt-14 lg:mb-10 lg:w-2/4">{parse(post.content)}</div>
         }
       </section>
-
-      {/* <Collage images={caseImages} />
-
-      {letters && 
-        <Quote letters={letters}></Quote>
-      }
-
-      <section>
-        <div className={`lg:w-2/3`}>
-            <h3 className="text-2xl md:text-3xl font-bold mb-5">{doelstelling?.titel}</h3>
-          {doelstelling?.content &&
-            
-            parse(doelstelling?.content)
-            
-         }
-        </div>
-      </section>
-
-      <TripleImages images={tripleImages} />
-
-      <section>
-         <div className="grid grid-cols-1 lg:grid-cols-2">
-           <div className="grid-1 pr-10">
-              <div className="grid__title">
-                <h2 className="mt-0">{resultaat?.titel}</h2>
-              </div>
-              <div className="grid__content">
-                {parse(resultaat?.content)}
-              </div>
-           </div>
-           <div className="grid-2">
-               <div className="grid__title">
-                 {resultaat.secondtitle &&
-                <h2 className="mt-0">{resultaat?.secondtitle}</h2>
-                 }
-              </div>
-              <div className="grid__content">
-                {resultaat.secondcontent &&
-                parse(resultaat?.secondcontent)
-                }
-              </div>
-           </div>
-         </div>
-      </section>
-        {getVideo()}
-      <section className="pt-0 pb-0">
-        <div className="resultaat__image flex flex-wrap">
-          {resultaat?.images &&
-          resultaat.images.map(post => {
-            resultImageCount++;
-            if(resultImageCount > 2) {
-              return false;
-            }            
-            return (
-            <div key={post.title} className={`resultaat__image--image image_${resultImageCount}`}>
-              <GatsbyImage
-                image={post.localFile.childImageSharp.gatsbyImageData}
-                alt="image"
-                className="resultaat__image--image"
-              />
-            </div>
-            )
-          })}
-          </div>
-      </section>
-
-      {post.posttype_cases?.endImages &&
-        <Collage images={post.posttype_cases?.endImages} />
-      } */}
 
       { blocks &&
         blocks.map(post => {
@@ -336,6 +211,7 @@ export const pageQuery = graphql`
           subtitle
           content
           image {
+            altText
             localFile {
               childImageSharp {
                 gatsbyImageData (
@@ -358,7 +234,9 @@ export const pageQuery = graphql`
           ... on WpCase_PosttypeCases_Blocks_Collage {
             fieldGroupName
             collageimages {
+              altText
               localFile {
+                
                 childImageSharp {
                   gatsbyImageData(
                   quality: 100
@@ -373,6 +251,7 @@ export const pageQuery = graphql`
             fieldGroupName
             video
             image {
+              altText
               localFile {
                 childImageSharp {
                   gatsbyImageData(
@@ -384,6 +263,7 @@ export const pageQuery = graphql`
               }
             }
             otherImages {
+              altText
               localFile {
                 childImageSharp {
                   gatsbyImageData(
@@ -418,6 +298,7 @@ export const pageQuery = graphql`
           ... on WpCase_PosttypeCases_Blocks_TripleImages {
             fieldGroupName
             images {
+              altText
               localFile {
                 childImageSharp {
                   gatsbyImageData(
