@@ -55,7 +55,6 @@ const DienstTemplate = ({ data: { previous, post, next  } }) => {
         <p className="text-secondary"><b>Vond je dit interessant?</b> Bekijk onze andere diensten.</p>
         {diensten &&
           diensten.nodes.map(dienst => {
-            console.log(dienst);
             if(dienst.wpParent != null) {
               return false;
             }

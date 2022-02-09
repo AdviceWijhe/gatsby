@@ -1,6 +1,4 @@
 import React from "react"
-import { GatsbyImage } from "gatsby-plugin-image"
-// import Navigation from "../Navigation/Navigation"
 
 // Import CSS
 import "./DoubleImages.scss"
@@ -8,7 +6,6 @@ import "./DoubleImages.scss"
 const DoubleImages = props => {
   const images = props.images;
 
-  console.log(images)
 
   if(images == null) {
     return false
@@ -22,7 +19,7 @@ const DoubleImages = props => {
             <div className="ratio ratio--r1-1">
               <div className="ratio__content">
                 {images &&
-                <img className="ratio__image" src={images[0]?.localFile.childImageSharp.gatsbyImageData.images.fallback.src} />
+                <img className="ratio__image" src={images[0]?.localFile.childImageSharp.gatsbyImageData.images.fallback.src} alt={images[0]?.altText} />
                 }
               </div>
            </div>
@@ -33,7 +30,7 @@ const DoubleImages = props => {
             <div className="ratio ratio--r1-1">
               <div className="ratio__content">
                 {images &&
-                <img className="ratio__image" src={images[1]?.localFile.childImageSharp.gatsbyImageData.images.fallback.src} />
+                <img className="ratio__image" src={images[1]?.localFile.childImageSharp.gatsbyImageData.images.fallback.src} alt={images[1]?.altText} />
 }
               </div>
            </div>

@@ -1,5 +1,4 @@
 import React from "react"
-import { GatsbyImage } from "gatsby-plugin-image"
 // import Navigation from "../Navigation/Navigation"
 
 // Import CSS
@@ -7,8 +6,6 @@ import "./TripleImages.scss"
 
 const tripleImages = props => {
   const images = props.images;
-
-  console.log(images)
 
   return (
     <section className="TripleImages">
@@ -18,7 +15,7 @@ const tripleImages = props => {
             <div className="ratio ratio--r1-1">
               <div className="ratio__content">
                 {images &&
-                <img className="ratio__image" src={images[0]?.localFile.childImageSharp.gatsbyImageData.images.fallback.src} />
+                <img className="ratio__image" src={images[0]?.localFile.childImageSharp.gatsbyImageData.images.fallback.src} alt={images[0]?.altText} />
                 }
               </div>
            </div>
@@ -29,7 +26,7 @@ const tripleImages = props => {
             <div className="ratio ratio--r1-1">
               <div className="ratio__content">
                 {images &&
-                <img className="ratio__image" src={images[1]?.localFile.childImageSharp.gatsbyImageData.images.fallback.src} />
+                <img className="ratio__image" src={images[1]?.localFile.childImageSharp.gatsbyImageData.images.fallback.src} alt={images[1]?.altText} />
 }
               </div>
            </div>
@@ -40,7 +37,7 @@ const tripleImages = props => {
             <div className="ratio ratio--r1-1">
               <div className="ratio__content">
                 {images &&
-                <img className="ratio__image" src={images[2]?.localFile.childImageSharp.gatsbyImageData.images.fallback.src} />
+                <img className="ratio__image" src={images[2]?.localFile.childImageSharp.gatsbyImageData.images.fallback.src} alt={images[2]?.altText} />
 }
               </div>
            </div>

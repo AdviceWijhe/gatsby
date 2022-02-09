@@ -1,6 +1,5 @@
 import React from "react"
 import { useState } from "react"
-import { Link } from "gatsby"
 import { useMenuQuery } from "../../hooks/useMenuQuery"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 // import Navigation from "../Navigation/Navigation"
@@ -24,7 +23,7 @@ const Header = ({ isHomePage, siteTitle }) => {
 
   if (openMenu) {
     classes = "menuOpen";
-    buttonText = '<i class="fal fa-times fa-2x"></i>';
+    buttonText = '<i className="fal fa-times fa-2x"></i>';
   } else {
     classes = ""
     buttonText = "MENU";

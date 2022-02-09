@@ -36,7 +36,7 @@ const CultuurTemplate = ({ data: { post } }) => {
       />
 
       <section className="">
-        <div className="pageContent mt-14">{parse(post.content)}</div>
+        <div className="pageContent mt-14 lg:w-2/3">{parse(post.content)}</div>
       </section>
 
       <Carousel
