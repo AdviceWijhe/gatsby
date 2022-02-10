@@ -44,7 +44,6 @@ const CaseIndex = ({
       <Hero
       title="Een succesverhaal word je niet zomaar."
       subtitle="Cases"
-      content="<p>Lees hieronder enkele succesverhalen van onze klanten!</p>"
       layout="noSlideshow"
       />
 
