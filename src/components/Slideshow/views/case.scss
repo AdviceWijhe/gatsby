@@ -77,14 +77,15 @@
 
     &::before {
       content: "";
-      height: 80%;
-      width: 100%;
-      background-color: #000;
+      height: 30%;
+      width: 50%;
+      background-color: $color-secondary;
       position: absolute;
       left: 0;
       bottom: 0;
       clip-path: polygon(0 0, 0% 100%, 100% 100%);
       z-index: 1;
+      transition: 0.5s ease-in-out all;
     }
   }
 
@@ -98,6 +99,7 @@
         &--title {
           a {
           color: #fff;
+          transition: 0.5s ease-in-out all;
           }
         }
       }
