@@ -35,7 +35,7 @@
   }
 
   &__description {
-    font-weight: 800;
+    font-weight: 700;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     color: transparent;
@@ -65,13 +65,13 @@
     }
   }
 
-  &.homepage {
-    .hero__content {
-      @media (min-width: $breakpoint-desktop) {
-        max-width: 50%;
-      }
-    }
-  }
+  // &.homepage {
+  //   .hero__content {
+  //     @media (min-width: $breakpoint-desktop) {
+  //       max-width: 50%;
+  //     }
+  //   }
+  // }
 
   &.single {
     .hero__description {

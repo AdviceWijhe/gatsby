@@ -47,11 +47,11 @@ const Collage = props => {
                 classNameNotInView='vis-hidden'
                 classNameInView='animate__animated animate__fadeInRight animate__fast'
               >
-          <div className="collage__image-wrapper">
-            {images &&
-          <img className="collage__image" src={images[0]?.localFile.childImageSharp.gatsbyImageData.images.fallback.src} alt={images[0]?.altText} />
-            }
-          </div>
+            <div className="collage__image-wrapper">
+              {images &&
+            <img className="collage__image" src={images[0]?.localFile.childImageSharp.gatsbyImageData.images.fallback.src} alt={images[0]?.altText} />
+              }
+            </div>
           </InViewMonitor>
         </div>
       </div>

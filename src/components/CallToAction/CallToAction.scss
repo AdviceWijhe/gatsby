@@ -40,7 +40,7 @@
     margin-left: -4.4rem;
     margin-right: -4.4rem;
     margin-top: -2rem;
-    mix-blend-mode: multiply;
+    z-index: 0;
 
     @media (min-width: $breakpoint-laptop) {
       margin-top: 4rem;
