@@ -9,7 +9,7 @@ const NotFoundPage = ({ data, location }) => {
   return (
     <>
       <Seo title="404: Not Found" />
-      <Hero></Hero>
+
     </>
   )
 }
