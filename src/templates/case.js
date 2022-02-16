@@ -300,13 +300,7 @@ export const pageQuery = graphql`
             images {
               altText
               localFile {
-                childImageSharp {
-                  gatsbyImageData(
-                  quality: 100
-                  placeholder: TRACED_SVG
-                  layout: FULL_WIDTH
-                )
-                }
+                url
               }
             }
           }

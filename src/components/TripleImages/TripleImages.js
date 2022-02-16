@@ -7,6 +7,8 @@ import "./TripleImages.scss"
 const tripleImages = props => {
   const images = props.images;
 
+  console.log(images[0])
+
   return (
     <section className="TripleImages">
       <div className={`grid grid-cols-1 lg:grid-cols-3`}>
@@ -15,7 +17,7 @@ const tripleImages = props => {
             <div className="ratio ratio--r1-1">
               <div className="ratio__content">
                 {images &&
-                <img className="ratio__image" src={images[0]?.localFile.childImageSharp.gatsbyImageData.images.fallback.src} alt={images[0]?.altText} />
+                <img className="ratio__image" src={images[0]?.localFile.url} alt={images[0]?.altText} />
                 }
               </div>
            </div>
@@ -26,7 +28,7 @@ const tripleImages = props => {
             <div className="ratio ratio--r1-1">
               <div className="ratio__content">
                 {images &&
-                <img className="ratio__image" src={images[1]?.localFile.childImageSharp.gatsbyImageData.images.fallback.src} alt={images[1]?.altText} />
+                <img className="ratio__image" src={images[1]?.localFile.url} alt={images[1]?.altText} />
 }
               </div>
            </div>
@@ -37,7 +39,7 @@ const tripleImages = props => {
             <div className="ratio ratio--r1-1">
               <div className="ratio__content">
                 {images &&
-                <img className="ratio__image" src={images[2]?.localFile.childImageSharp.gatsbyImageData.images.fallback.src} alt={images[2]?.altText} />
+                <img className="ratio__image" src={images[2]?.localFile.url} alt={images[2]?.altText} />
 }
               </div>
            </div>
