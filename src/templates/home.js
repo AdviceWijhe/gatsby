@@ -32,7 +32,7 @@ const HomePageTemplate = ({ data: { post } }) => {
         content={heroBlock.content}
         letters={heroBlock.letters}
         image={heroBlock.image?.localFile?.childImageSharp?.gatsbyImageData}
-        // slideshow={diensten.nodes}
+        slideshow={diensten.nodes}
         layout="homepage"
       />
 

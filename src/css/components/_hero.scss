@@ -5,17 +5,30 @@
   justify-content: flex-start;
   align-items: center;
 
-  @media (min-width: $breakpoint-laptop) {
-    padding-top: 175px !important;
-  }
-
   &__image {
     margin: 2rem -4.4rem 0 -4.4rem !important;
     z-index: -1;
 
     @media (min-width: $breakpoint-laptop) {
-      margin: 2.5rem -6.4rem 0 -2rem !important;
+      margin: -9.5rem -6.4rem 0 -2rem !important;
+      order: 2;
     }
+  }
+
+  &__content {
+    h1 {
+      strong {
+        font-weight: 800;
+      }
+    }
+
+    h4 {
+      margin-top: 0;
+    }
+
+     @media (min-width: $breakpoint-laptop) {
+        order: -1;
+     }
   }
 
   &__letter {
@@ -43,6 +56,9 @@
     visibility: visible;
     z-index: 2;
 
+    @media (min-width: $breakpoint-laptop) {
+      order: 3;
+    }
 
     p {
       font-size: 1.35rem;
@@ -55,7 +71,7 @@
     }
 
     @media (min-width: $breakpoint-laptop) {
-      margin-top: 3rem;
+      margin-top: 4rem;
     }
 
     @media (min-width: $breakpoint-desktop) {
@@ -142,12 +158,20 @@
   }
 
   &__slideshow {
-    margin-right: -4.4rem;
-    margin-left: -2rem;
     padding: 1rem 1rem 1rem 2rem;
-    margin-top: -4rem;
-    margin-bottom: 2rem;
     position: relative;
+    margin-left: -2rem;
+    margin-right: -10rem;
+    margin-top: -3.5rem;
+    margin-bottom: 3.5rem;
+    width: calc(100% + 5rem);
+
+    @media (min-width: $breakpoint-laptop) {
+      order: 1;
+      margin-right: -6.4rem;
+      margin-left: 6.5rem;
+      margin-top: 12rem;
+    }
 
     &::before {
       content: "";
@@ -167,6 +191,7 @@
 
       &--title {
         margin-bottom: 25px;
+        margin-top: 0;
       }
 
       &--inner {
@@ -200,21 +225,21 @@
       }
     }
 
-    @media (min-width: $breakpoint-laptop) {
-      position: absolute;
-      top: 200px;
-      right: 0;
-      width: 45%;
-      margin: 0;
-    }
+    // @media (min-width: $breakpoint-laptop) {
+    //   position: absolute;
+    //   top: 200px;
+    //   right: 0;
+    //   width: 45%;
+    //   margin: 0;
+    // }
 
-    @media (min-width: $breakpoint-desktop) {
-      position: absolute;
-      top: 150px;
-      right: 2rem;
-      width: 45%;
-      margin: 0;
-    }
+    // @media (min-width: $breakpoint-desktop) {
+    //   position: absolute;
+    //   top: 150px;
+    //   right: 2rem;
+    //   width: 45%;
+    //   margin: 0;
+    // }
   }
 
   > .container {
@@ -254,6 +279,7 @@
     width: 50%;
     z-index: 0;
     pointer-events: none;
+    opacity: 0.5;
 
     #adviceLetters {
       fill: transparent;

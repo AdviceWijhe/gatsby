@@ -19,14 +19,21 @@
       bottom: 0;
       left: 0;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       width: 100%;
       padding: 1.5rem;
       z-index: 2;
       color: #fff;
 
+      img {
+        width: 50px;
+      }
+
       @media (min-width: $breakpoint-tablet) {
         text-align: left;
-        padding: 4rem;
+        padding: 1.5rem;
       }
 
       @media (min-width: $breakpoint-desktop) {
@@ -36,7 +43,7 @@
 
       &--title {
         a {
-        font-size: 1.75rem;
+        font-size: 2.5rem;
         font-weight: 800;
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: white;
@@ -48,21 +55,28 @@
         display: block;
 
         @media (min-width: $breakpoint-tablet) {
-          font-size: 2.6rem;
+          font-size: 2.2rem;
           margin-bottom: 2rem;
         }
 
         @media (min-width: $breakpoint-laptop) {
-          font-size: 3.5rem;
+          font-size: 2.6rem;
           margin-bottom: 2rem;
         }
       }
       }
 
       &--subtitle {
+        font-weight: 500;
+
+        p {
+          font-size: 1.2rem;
+        }
+
         @media (min-width: $breakpoint-tablet) {
           font-size: 1.4rem;
-          margin-bottom: 3rem;
+          margin-bottom: 1.5rem;
+          width: 85%;
         }
       }
 
@@ -77,9 +91,9 @@
 
     &::before {
       content: "";
-      height: 30%;
-      width: 50%;
-      background-color: $color-secondary;
+      height: 75%;
+      width: 100%;
+      background-color: #000;
       position: absolute;
       left: 0;
       bottom: 0;

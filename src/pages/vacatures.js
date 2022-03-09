@@ -14,18 +14,18 @@ import Seo from 'gatsby-plugin-wpgraphql-seo';
 
 const VacatureTemplate = ({ data: { post } }) => {
   var { vacatures } = useVacatureQuery()
-  const heroBlock = post.vacatures.blockHero
+  // const heroBlock = post.vacatures.blockHero
 
   return (
     <>
-      <Seo post={post} />
-      <Hero
+      {/* <Seo post={post} /> */}
+      {/* <Hero
         title={heroBlock.title}
         subtitle={heroBlock.subtitle}
         content={heroBlock.content}
         image={heroBlock.image?.localFile?.childImageSharp?.gatsbyImageData}
         layout="noSlideshow"
-      />
+      /> */}
 
       {!!post.content && (
         <section itemProp="articleBody">

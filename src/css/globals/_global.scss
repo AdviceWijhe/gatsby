@@ -31,8 +31,6 @@ section {
     background-color: $color-secondary;
 
     .tl-edges {
-      overflow: visible;
-
       .tl-wrapper {
         min-height: 85vh;
       }
@@ -115,7 +113,7 @@ a.text-outlined:hover {
     top: 0;
     left: 0;
     background-color: $color-primary;
-    background-blend-mode: multiply;
+    mix-blend-mode: multiply;
   }
 }
 
@@ -126,7 +124,7 @@ a.text-outlined:hover {
 }
 
 .arrow {
-  max-width: 40px;
+  max-width: 30px;
 }
 
 .vis-hidden {
