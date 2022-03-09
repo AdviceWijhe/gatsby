@@ -5,6 +5,10 @@
   justify-content: flex-start;
   align-items: center;
 
+  &_dienstenSlider {
+    margin: 0 -2rem;
+  }
+
   &__image {
     margin: 2rem -4.4rem 0 -4.4rem !important;
     z-index: -1;
