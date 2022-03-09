@@ -9,6 +9,27 @@ section {
   }
 }
 
+.btn {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+
+  &-link {
+    padding: 0;
+    position: relative;
+    display: flex !important;
+    align-items: center;
+
+    &::after {
+      content: "\f178";
+      font-family: "Font Awesome 5 Pro";
+      font-weight: 200;
+      margin-left: 1rem;
+      font-size: 1.7rem;
+      line-height: 1;
+    }
+  }
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -162,10 +183,12 @@ a.text-outlined:hover {
   content: "\f061";
   font-family: "Font Awesome 5 Pro";
   font-weight: 200;
+  font-size: 1.4rem !important;
 }
 .swiper .swiper-button-prev:after,
 .swiper .swiper-rtl .swiper-button-next:after {
   content: "\f060";
   font-family: "Font Awesome 5 Pro";
   font-weight: 200;
+  font-size: 1.4rem !important;
 }

@@ -59,16 +59,18 @@ var rand = Math.floor(Math.random() * 100)
                       <div class="image xl:w-2/3" style={{backgroundImage: `url(${post.featuredImage.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src})`}}>
                         
                       </div>
-                      <div class="content xl:w-1/3 bg-primary p-8 lg:p-12 pt-20 lg:pt-16 text-white">
+                      <div class="content xl:w-1/3 bg-primary p-8 lg:p-12 pt-20 lg:pt-16 text-white flex items-center">
+                        <div class="content__inner" >
                          <h2 className="hero__slideshow__item--title text-2xl lg:text-3xl font-bold relative">
                         {title}
                       </h2>
                       <div className="hero__slideshow__item--excerpt font-light relative">
                         {parse(post.excerpt)}
                       </div>
-                      <AniLink paintDrip to={post.uri} className="block mt-12 text-white font-medium relative">
-                        Lees meer <i className="fal fa-lg fa-long-arrow-right"></i>
+                      <AniLink paintDrip to={post.uri} className="mt-12 text-white font-medium relative btn btn-link">
+                        Lees meer
                       </AniLink>
+                      </div>
                       </div>
                     </div>
                   </SwiperSlide>

@@ -10,7 +10,7 @@ const ContentImage = props => {
   const image = props.settings.image?.localFile?.childImageSharp?.gatsbyImageData
 
   return (
-    <section className="contentimage">
+    <section className="contentimage pb-0">
       <div className="container container-line">
         <div className={`contentimage-title text-2xl md:text-4xl lg:text-5xl font-bold mb-5`}>{props.settings.title}</div>
         <div className="mb-10">{props.settings.content}</div>
