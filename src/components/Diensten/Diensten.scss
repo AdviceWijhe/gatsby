@@ -31,31 +31,9 @@
         opacity: 1;
         transition: 0.5s ease-in-out all;
       }
-
-      &:nth-child(even) {
-        @media (min-width: $breakpoint-laptop) {
-          transform: translateX(170px);
-        }
-
-        @media (min-width: $breakpoint-desktop) {
-          transform: translateX(270px);
-        }
-      }
     }
 
-    &:nth-child(even) {
-      @media (min-width: $breakpoint-laptop) {
-        transform: translateX(150px);
-      }
-
-      @media (min-width: $breakpoint-desktop) {
-        transform: translateX(250px);
-
-        .com_Diensten__subDienst {
-          justify-content: flex-start;
-        }
-      }
-    }
+    
   }
   &__Dienst--title {
     font-size: 1.6rem;
@@ -76,7 +54,7 @@
     }
 
     @media (min-width: $breakpoint-desktop) {
-      font-size: 6rem;
+      font-size: 5rem;
     }
 
     .triangle {

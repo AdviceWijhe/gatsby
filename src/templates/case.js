@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import parse from "html-react-parser"
-import Hero from "../components/hero"
+import CaseHero from "../components/caseHero"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import Image from "../components/Image/Image"
 import Collage from "../components/Collage/Collage"
@@ -111,7 +111,7 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
   return (
     <>
       <Seo post={post} />
-      <Hero
+      <CaseHero
       title={heroBlock.title}
       subtitle={heroBlock.subtitle}
       content={heroBlock.content}

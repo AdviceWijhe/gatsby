@@ -2,22 +2,18 @@ import React from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { GatsbyImage } from "gatsby-plugin-image"
 import parse from "html-react-parser"
-import Flickity from "react-flickity-component"
+import { Navigation, Pagination, Scrollbar, A11y, EffectFade, Keyboard } from "swiper"
+import { Swiper, SwiperSlide } from "swiper/react"
 import Letters from "./letters"
 import InViewMonitor from "react-inview-monitor"
 
+import "swiper/css"
+import "swiper/css/pagination"
+import 'swiper/css/effect-fade';
+import "swiper/css/navigation"
 
-const Hero = props => {
-  const flickityOptions = {
-    initialIndex: 1,
-    cellAlign: "left",
-    contain: true,
-    wrapAround: true,
-    prevNextButtons: true,
-    pageDots: false,
-    autoPlay: false,
-    fade: true,
-  }
+
+const CaseHero = props => {
 
   let count = 0;
   let separatedLetters = [];
@@ -27,12 +23,12 @@ const Hero = props => {
   }
 
   // const shuffledArray = props.slideshow.sort((a, b) => 0.5 - Math.random());
-
+var rand = Math.floor(Math.random() * 100)
 
   return (
     <section className={`hero ${props.layout} py-0`}>
-      <div className="container mx-auto flex flex-wrap flex-col">
-        <div className="hero__content lg:w-2/4 xl:w-2/4">
+      <div className="container mx-auto flex flex-wrap justify-between flex-col">
+        <div className="hero__content lg:w-2/4">
           <h4 className="text-xl md:text-2xl font-medium text-secondary mb-3">
             {props.subtitle}
           </h4>
@@ -41,60 +37,36 @@ const Hero = props => {
           </h1>
         </div>
 
-        {props.image && (
-          // <InViewMonitor
-          //       classNameNotInView='vis-hidden'
-          //       classNameInView='animate__animated animate__fadeInUp'
-          //     >
-        <GatsbyImage
-          image={props.image}
-          alt="image"
-          className="hero__image"
-        />
-        // </InViewMonitor>
-        )}
-
-          {props.slideshow && (
-          <Flickity
-            className={"hero__slideshow w-full lg:w-2/4"} // default ''
-            elementType={"div"} // default 'div'
-            options={flickityOptions} // takes flickity options {}
-            disableImagesLoaded={false} // default false
-            reloadOnUpdate // default false
-            static // default false
-          >
-            {props.slideshow &&
-              props.slideshow.map(post => {
-                const title = post.title
-                return (
-                  post.wpParent == null ? (
-                  <div
-                    key={title}
-                    className="hero__slideshow__item carousel-cell"
-                  >
-                    <div className="hero__slideshow__item--inner lg:p-4">
-                      <h2 className="hero__slideshow__item--title text-2xl lg:text-3xl font-bold">
-                        {title}
-                      </h2>
-                      <div className="hero__slideshow__item--excerpt font-light">
-                        {parse(post.excerpt)}
-                      </div>
-                      <AniLink paintDrip to={post.uri} className="block mt-12 text-white font-medium">
-                        Lees meer <i className="fal fa-lg fa-long-arrow-right"></i>
-                      </AniLink>
-                    </div>
-                  </div>
-                  ) : null
-                )
-              })}{" "}
-          </Flickity>
-        )}
-
-        
-
-        
-
+        <div class="hero__specials hero_dienstenSlider">
           
+                    <div className="hero__slideshow__item--inner flex flex-col xl:flex-row">
+                      <div class="image xl:w-2/3" style={{backgroundImage: `url(${props.image.images.fallback.src})`}}>
+                        
+                      </div>
+                      <div class="content xl:w-1/3 bg-primary p-8 lg:p-12 pt-20 lg:pt-16 text-white flex items-center">
+                        <div class="content__inner" >
+                         <h2 className="hero__slideshow__item--title text-2xl lg:text-3xl font-bold relative">
+                        Specialismen
+                      </h2>
+                      <div className="hero__slideshow__item--excerpt font-light relative">
+                        {props.specialisme && (
+                            <ul className={`text-white relative specialisme__items`}>
+                            {props.specialisme &&
+                              props.specialisme.map(post => {
+                                return (
+                                  <li key={post.id} className={`specialisme__item`}><AniLink to={post.uri}>{post.title}</AniLink></li>
+                                )
+                              })
+                            }
+                            </ul>
+                        )}
+                      </div>
+                      </div>
+                      </div>
+                    </div>
+                 </div>
+  
+
             {props.letters && 
               <div className="hero__description lg:w-3/4">
               {separatedLetters.map(post => {
@@ -107,7 +79,7 @@ const Hero = props => {
              }
 
             {props.content &&
-            <div className="hero__description lg:w-2/4">
+            <div className="hero__description lg:w-3/4">
               {parse(props.content)}
             </div>
             }
@@ -169,4 +141,4 @@ const Hero = props => {
   )
 }
 
-export default Hero
+export default CaseHero
