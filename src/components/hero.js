@@ -15,7 +15,7 @@ const Hero = props => {
     wrapAround: true,
     prevNextButtons: true,
     pageDots: false,
-    autoPlay: 7000,
+    autoPlay: false,
     fade: true,
   }
 
@@ -26,48 +26,37 @@ const Hero = props => {
     separatedLetters = props?.letters?.split('')
   }
 
+  // const shuffledArray = props.slideshow.sort((a, b) => 0.5 - Math.random());
+
 
   return (
     <section className={`hero ${props.layout} py-0`}>
-      <div className="container mx-auto flex flex-col">
-        <div className="hero__content lg:w-2/3 xl:w-2/3">
+      <div className="container mx-auto flex flex-wrap justify-between">
+        <div className="hero__content lg:w-2/4 xl:w-1/3">
           <h4 className="text-xl md:text-2xl font-medium text-secondary mb-3">
             {props.subtitle}
           </h4>
-          <h1 className="text-3xl sm:text-4xl md:text-6xl xl:text-6xl font-extrabold mb-10">
+          <h1 className="text-4xl sm:text-4xl md:text-6xl xl:text-6xl font-extrabold mb-10">
             {parse(props.title)}
           </h1>
         </div>
+
         {props.image && (
-          <InViewMonitor
-                classNameNotInView='vis-hidden'
-                classNameInView='animate__animated animate__fadeInUp hero__image'
-              >
+          // <InViewMonitor
+          //       classNameNotInView='vis-hidden'
+          //       classNameInView='animate__animated animate__fadeInUp'
+          //     >
         <GatsbyImage
           image={props.image}
           alt="image"
-          className=""
+          className="hero__image"
         />
-        </InViewMonitor>
-        )}
-        {props.specialisme && (
-          <div className={`hero__slideshow specialisme`}>
-            <h2 className={`text-white relative`}>Specialismen</h2>
-            <ul className={`text-white relative specialisme__items`}>
-            {props.specialisme &&
-              props.specialisme.map(post => {
-                return (
-                  <li key={post.id} className={`specialisme__item`}><AniLink to={post.uri}>{post.title}</AniLink></li>
-                )
-              })
-            }
-            </ul>
-          </div>
+        // </InViewMonitor>
         )}
 
-        {props.slideshow && (
+          {props.slideshow && (
           <Flickity
-            className={"hero__slideshow"} // default ''
+            className={"hero__slideshow w-full lg:w-2/4"} // default ''
             elementType={"div"} // default 'div'
             options={flickityOptions} // takes flickity options {}
             disableImagesLoaded={false} // default false
@@ -83,8 +72,8 @@ const Hero = props => {
                     key={title}
                     className="hero__slideshow__item carousel-cell"
                   >
-                    <div className="hero__slideshow__item--inner lg:p-8 lg:pr-20">
-                      <h2 className="hero__slideshow__item--title text-2xl lg:text-4xl font-bold">
+                    <div className="hero__slideshow__item--inner lg:p-4">
+                      <h2 className="hero__slideshow__item--title text-2xl lg:text-3xl font-bold">
                         {title}
                       </h2>
                       <div className="hero__slideshow__item--excerpt font-light">
@@ -100,6 +89,23 @@ const Hero = props => {
               })}{" "}
           </Flickity>
         )}
+
+        {props.specialisme && (
+          <div className={`hero__slideshow specialisme`}>
+            <h2 className={`text-white relative`}>Specialismen</h2>
+            <ul className={`text-white relative specialisme__items`}>
+            {props.specialisme &&
+              props.specialisme.map(post => {
+                return (
+                  <li key={post.id} className={`specialisme__item`}><AniLink to={post.uri}>{post.title}</AniLink></li>
+                )
+              })
+            }
+            </ul>
+          </div>
+        )}
+
+        
 
           
             {props.letters && 

@@ -50,24 +50,34 @@ const Footer = (props) => {
             </div>
           </div>
           <div className="footer__menu">
-            <ul className={`grid lg:grid-cols-2`}>
-              {menu.wpMenu.menuItems.nodes &&
-                menu.wpMenu.menuItems.nodes.map(post => {
-                  return (
-                    <li key={post.id}>
-                      <Link className={`text-white`} to={post.url}>{post.label}</Link>
-                    </li>
-                  )
-                })}{" "}
-            </ul>
+            <p class="text-white">
+              Villa Waterloo <br/>
+              Stationsweg 25 <br/>
+              8131 DG Wijhe
+            </p>
           </div>
         </div>
       </div>
-      <div className="flex items-center py-9 pr-20">
+      <div className="flex lg:items-center pt-9 pb-3  flex-col-reverse lg:flex-row">
+        <div class="lg:w-1/2 flex items-center">
         <img src={`/icons/Pijltje_red_Lang.svg`} className="arrow arrow-small mr-5" alt="Pijl wit lang" />
         <p className="font-bold m-0">
           Op de hoogte blijven van ons bureau? Volg onze socials.
         </p>
+        </div>
+        <div class="lg:w-1/2 footer__disclaimer mb-8 lg:mb-0">
+          <ul className={`flex lg:justify-end`}>
+              {menu.wpMenu.menuItems.nodes &&
+                menu.wpMenu.menuItems.nodes.map(post => {
+                  return (
+                    <li key={post.id}>
+                      <Link className={``} to={post.url}>{post.label}</Link>
+                    </li>
+                  )
+                })}{" "}
+            </ul>
+          
+          </div>
       </div>
     </section>
   )
