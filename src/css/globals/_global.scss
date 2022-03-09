@@ -156,3 +156,16 @@ a.text-outlined:hover {
     }
   }
 }
+
+.swiper .swiper-button-next:after,
+.swiper .swiper-rtl .swiper-button-prev:after {
+  content: "\f061";
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 200;
+}
+.swiper .swiper-button-prev:after,
+.swiper .swiper-rtl .swiper-button-next:after {
+  content: "\f060";
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 200;
+}

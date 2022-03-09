@@ -34,6 +34,7 @@
       @media (min-width: $breakpoint-tablet) {
         text-align: left;
         padding: 1.5rem;
+        align-items: start;
       }
 
       @media (min-width: $breakpoint-desktop) {
@@ -76,7 +77,7 @@
         @media (min-width: $breakpoint-tablet) {
           font-size: 1.4rem;
           margin-bottom: 1.5rem;
-          width: 85%;
+          width: 95%;
         }
       }
 

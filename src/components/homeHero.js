@@ -2,22 +2,18 @@ import React from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { GatsbyImage } from "gatsby-plugin-image"
 import parse from "html-react-parser"
-import Flickity from "react-flickity-component"
+import { Navigation, Pagination, Scrollbar, A11y, EffectFade, Keyboard } from "swiper"
+import { Swiper, SwiperSlide } from "swiper/react"
 import Letters from "./letters"
 import InViewMonitor from "react-inview-monitor"
 
+import "swiper/css"
+import "swiper/css/pagination"
+import 'swiper/css/effect-fade';
+import "swiper/css/navigation"
+
 
 const HomeHero = props => {
-  const flickityOptions = {
-    initialIndex: 1,
-    cellAlign: "left",
-    contain: true,
-    wrapAround: true,
-    prevNextButtons: true,
-    pageDots: false,
-    autoPlay: false,
-    fade: true,
-  }
 
   let count = 0;
   let separatedLetters = [];
@@ -27,12 +23,12 @@ const HomeHero = props => {
   }
 
   // const shuffledArray = props.slideshow.sort((a, b) => 0.5 - Math.random());
-
+var rand = Math.floor(Math.random() * 100)
 
   return (
     <section className={`hero ${props.layout} py-0`}>
       <div className="container mx-auto flex flex-wrap justify-between">
-        <div className="hero__content lg:w-2/4 xl:w-1/3">
+        <div className="hero__content lg:w-2/4">
           <h4 className="text-xl md:text-2xl font-medium text-secondary mb-3">
             {props.subtitle}
           </h4>
@@ -42,33 +38,28 @@ const HomeHero = props => {
         </div>
 
           {props.slideshow && (
-          <Flickity
-            className={"hero_dienstenSlider  w-full"} // default ''
-            elementType={"div"} // default 'div'
-            options={flickityOptions} // takes flickity options {}
-            disableImagesLoaded={false} // default false
-            reloadOnUpdate // default false
-            static // default false
-          >
+          <Swiper
+          modules={[Navigation, EffectFade, Pagination, Scrollbar, A11y, Keyboard]}
+          grabCursor={true} centeredSlides={true} slidesPerView={'1'} spaceBetween={20}
+          effect={'fade'}
+          keyboard={{ "enabled": true }}
+          className={`swiper-${rand} hero_dienstenSlider`}
+          loop={true}
+          navigation
+          autoHeight={true}
+        >
             {props.slideshow &&
               props.slideshow.map(post => {
                 const title = post.title
                 console.log(post);
                 return (
                   post.wpParent == null ? (
-                  <div
-                    key={title}
-                    className="carousel-cell"
-                  >
-                    <div className="hero__slideshow__item--inner flex">
-                      <div class="image lg:w-2/3">
-                        <GatsbyImage
-                          image={post.featuredImage.node.localFile.childImageSharp.gatsbyImageData}
-                          alt="image"
-                          className=""
-                        />
+                  <SwiperSlide key={post.id}>
+                    <div className="hero__slideshow__item--inner flex flex-col xl:flex-row">
+                      <div class="image xl:w-2/3" style={{backgroundImage: `url(${post.featuredImage.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src})`}}>
+                        
                       </div>
-                      <div class="content lg:w-1/3 bg-primary p-8 text-white">
+                      <div class="content xl:w-1/3 bg-primary p-8 lg:p-12 pt-20 lg:pt-16 text-white">
                          <h2 className="hero__slideshow__item--title text-2xl lg:text-3xl font-bold relative">
                         {title}
                       </h2>
@@ -80,11 +71,11 @@ const HomeHero = props => {
                       </AniLink>
                       </div>
                     </div>
-                  </div>
+                  </SwiperSlide>
                   ) : null
                 )
               })}{" "}
-          </Flickity>
+          </Swiper>
         )}
 
             {props.letters && 

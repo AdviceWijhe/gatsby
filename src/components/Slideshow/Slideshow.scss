@@ -117,7 +117,7 @@
         &-next {
           transform: scale(0.90, 0.90) translateX(-2.5rem);
           transition: cubic-bezier(0.86, 0, 0.07, 1) 640ms all;
-          transition-delay: 0.4s;
+          transition-delay: 0.2s;
 
            @media (min-width: $breakpoint-laptop) {
              transform: scale(0.90, 0.90) translateX(1rem);

@@ -6,7 +6,63 @@
   align-items: center;
 
   &_dienstenSlider {
-    margin: 0 -2rem;
+    margin: 0 -2rem !important;
+    margin-bottom: 4rem !important;
+
+    @media (min-width: $breakpoint-desktop) {
+      margin-bottom: 0 !important;
+    }
+
+    .image {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      height: 250px;
+
+      @media (min-width: $breakpoint-desktop) {
+       height: unset;
+      }
+
+      .content {
+        h2 {
+          min-height: 3rem;
+        }
+      }
+    }
+
+    .swiper-button-prev,
+    .swiper-rtl .swiper-button-next {
+      top: 300px;
+      left: 2rem;
+
+      &::after {
+        color: #fff;
+        font-size: 1.4rem;
+      }
+
+      @media (min-width: $breakpoint-desktop) {
+        left: auto;
+        right: calc(30% - 2.3rem);
+        top: 4rem;
+      }
+    }
+
+    .swiper-button-next,
+    .swiper-rtl .swiper-button-prev {
+      top: 300px;
+      left: 4rem;
+
+      &::after {
+        color: #fff;
+        font-size: 1.4rem;
+      }
+
+       @media (min-width: $breakpoint-desktop) {
+         left: auto;
+         right: calc(30% - 4.8rem);
+         top: 4rem;
+       }
+    }
   }
 
   &__image {
@@ -14,7 +70,8 @@
     z-index: -1;
 
     @media (min-width: $breakpoint-laptop) {
-      margin: -9.5rem -6.4rem 0 -2rem !important;
+      margin: 0 -2rem !important;
+      width: 80%;
       order: 2;
     }
   }
@@ -273,6 +330,12 @@
     .hero__description {
       order: 2;
       margin-bottom: 1rem;
+      margin-top: 0;
+      line-height: 1.2;
+
+      p {
+        line-height: 1.2;
+      }
     }
   }
 
