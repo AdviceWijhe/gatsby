@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import parse from "html-react-parser"
 import Hero from "../components/hero"
+import HomeHero from "../components/homeHero"
 import MarqueeSlide from "../components/Marquee/Marquee"
 import Slideshow from "../components/Slideshow/Slideshow"
 import CallToAction from "../components/CallToAction/CallToAction"
@@ -26,7 +27,7 @@ const HomePageTemplate = ({ data: { post } }) => {
   return (
     <>
       <Seo post={post} />
-      <Hero
+      <HomeHero
         title={heroBlock.title}
         subtitle={heroBlock.subtitle}
         content={heroBlock.content}
