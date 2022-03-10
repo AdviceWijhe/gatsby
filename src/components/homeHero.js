@@ -44,10 +44,37 @@ var rand = Math.floor(Math.random() * 100)
           effect={'fade'}
           keyboard={{ "enabled": true }}
           className={`swiper-${rand} hero_dienstenSlider`}
-          loop={true}
-          navigation
+          loop={false}
+          navigation={{
+            prevEl: '.prev',
+            nextEl: '.next',
+          }}
           autoHeight={true}
+          onSwiper={(swiper) => {
+            console.log(swiper)
+            const pageTotal = swiper.slides.length;
+            const pageNumber = swiper.activeIndex + 1;
+            const pageTotalEl = document.querySelector('.pageTotal');
+            const pageNumberEl = document.querySelector('.pageNumber');
+
+            pageTotalEl.innerHTML = pageTotal;
+            pageNumberEl.innerHTML = pageNumber;
+          }}
+
+          onSlideChange={(swiper) => {
+            const pageNumberEl = document.querySelector('.pageNumber');
+            const pageNumber = swiper.activeIndex + 1;
+
+            pageNumberEl.innerHTML = pageNumber;
+          }}
         >
+            <div className="swiper__controls flex items-center justify-between lg:w-1/3">
+              <div className="swiper__navigation flex">
+                <div className="prev"><i class="fal fa-arrow-left"></i></div>
+                <div className="next"><i class="fal fa-arrow-right"></i></div>
+              </div>
+              <span className="pageCount"><span className="pageNumber"></span> / <span className="pageTotal"></span></span>
+            </div>
             {props.slideshow &&
               props.slideshow.map(post => {
                 const title = post.title

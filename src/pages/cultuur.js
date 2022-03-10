@@ -4,6 +4,7 @@ import parse from "html-react-parser"
 import Hero from "../components/hero"
 import Slideshow from "../components/Slideshow/Slideshow"
 import ContentImage from "../components/ContentImage/ContentImage"
+import MarqueeSlide from "../components/Marquee/Marquee"
 import Diensten from "../components/Diensten/Diensten"
 import { useKernwaardeQuery } from "../hooks/useKernwaardeQuery"
 import { useTeamQuery } from "../hooks/useTeamQuery"
@@ -23,6 +24,7 @@ const CultuurTemplate = ({ data: { post } }) => {
   const slideShow = post.cultuur.slideshow
   const TeamSlideShow = post.cultuur.teamSlideshow
   const contentImage = post.cultuur.contentImage
+  const MarqueeBlock = post.cultuur.marquee
 
   return (
     <>
@@ -38,6 +40,8 @@ const CultuurTemplate = ({ data: { post } }) => {
       <section className="">
         <div className="pageContent mt-14 lg:w-2/3">{parse(post.content)}</div>
       </section>
+
+       <MarqueeSlide text={MarqueeBlock.text} />
 
       <Carousel
         items={kernwaarden.nodes}
@@ -127,6 +131,9 @@ export const pageQuery = graphql`
               }
             }
           }
+        }
+        marquee {
+          text
         }
         slideshow {
           titel

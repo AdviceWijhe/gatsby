@@ -32,7 +32,7 @@ const Hero = props => {
   return (
     <section className={`hero ${props.layout} py-0`}>
       <div className="container mx-auto flex flex-wrap flex-col">
-        <div className="hero__content lg:w-2/4 xl:w-2/4">
+        <div className="hero__content lg:w-2/3 xl:w-2/4">
           <h4 className="text-xl md:text-2xl font-medium text-secondary mb-3">
             {props.subtitle}
           </h4>
@@ -107,7 +107,7 @@ const Hero = props => {
              }
 
             {props.content &&
-            <div className="hero__description lg:w-2/4">
+            <div className="hero__description lg:w-3/4">
               {parse(props.content)}
             </div>
             }

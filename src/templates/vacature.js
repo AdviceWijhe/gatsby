@@ -27,11 +27,18 @@ const VacatureTemplate = ({ data: { previous, next, post } }) => {
       content={hero?.content}
       layout="noSlideshow single"
       />
-
+<section className={`lg:w-3/4`} itemProp="articleBody">
         {!!post.content && (
-          <section className={`lg:w-3/4`} itemProp="articleBody">{parse(post.content)}</section>
+          parse(post.content)
         )}
 
+        <div className="container container-line mt-16">
+            {
+              parse(post.postTypeVacatures.wijBieden)
+            }
+        
+        </div>
+</section>
       <section>
         <nav className="blog-post-nav">
           <ul
@@ -106,6 +113,7 @@ export const pageQuery = graphql`
             }
           }
         }
+        wijBieden
       }
       footer {
         backgroundColorTop

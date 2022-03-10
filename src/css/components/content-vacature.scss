@@ -1,28 +1,61 @@
 @import "../globals/variables";
 
-@media (min-width: $breakpoint-laptop) {
   .vacatureItem {
     &--inner {
       position: relative;
-      display: flex;
-      align-items: center;
-
-      .gatsby-image-wrapper {
-        width: 20%;
-      }
 
       &__content {
-        padding: 2rem;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column;
+          padding: 0;
+          margin: 0;
+
+          @media (min-width: $breakpoint-laptop) {
+            flex-direction: row;
+          }
+
+          li {
+            color: $color-primary;
+            font-weight: 500;
+            display: block;
+            
+            @media (min-width: $breakpoint-laptop) {
+              padding: 0 10px 0 0;
+            }
+          }
+        }
+
+        &--title {
+          h2 {
+            margin-top: 0;
+          }
+          a {
+            color: transparent;
+          }
+
+          &:hover {
+            a {
+              color: #000;
+            }
+          }
+        }
       }
 
       .triangle {
-        left: 15%;
         bottom: -1rem;
-        right: auto;
         width: 75px;
         height: 75px;
-        padding: 0 10px;
+        padding: 10px;
+
+        img {
+          transform: rotate(180deg);
+        }
       }
     }
   }
-}
