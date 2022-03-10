@@ -1,5 +1,5 @@
 .hero {
-  padding-top: 125px !important;
+  padding-top: 175px !important;
   position: relative;
   display: flex;
   justify-content: flex-start;
@@ -43,7 +43,8 @@
       }
 
       @media (min-width: $breakpoint-laptop) {
-        left: calc(66.6666% + 3rem);
+        left: 66.6666%;
+        padding: 0 3rem;
         top: 4rem;
       }
 

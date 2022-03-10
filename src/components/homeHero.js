@@ -68,12 +68,12 @@ var rand = Math.floor(Math.random() * 100)
             pageNumberEl.innerHTML = pageNumber;
           }}
         >
-            <div className="swiper__controls flex items-center">
+            <div className="swiper__controls flex items-center justify-between lg:w-1/3">
               <div className="swiper__navigation flex">
                 <div className="prev"><i class="fal fa-arrow-left"></i></div>
                 <div className="next"><i class="fal fa-arrow-right"></i></div>
               </div>
-              <span className="pageCount ml-6"><span className="pageNumber"></span> / <span className="pageTotal"></span></span>
+              <span className="pageCount"><span className="pageNumber"></span> / <span className="pageTotal"></span></span>
             </div>
             {props.slideshow &&
               props.slideshow.map(post => {

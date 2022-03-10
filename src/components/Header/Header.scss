@@ -4,20 +4,22 @@
   position: absolute;
   z-index: 2;
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .branding {
-  max-width: 175px;
-  padding: 25px 0 35px 0;
+  max-width: 50px;
+  padding: 0;
 
   img {
     max-width: 100%;
-    width: 175px;
+    width: 100px;
   }
 
   @media (min-width: $breakpoint-tablet) {
-    max-width: 250px;
-    width: 250px;
+    max-width: 150px;
+    width: 150px;
   }
 }
 
