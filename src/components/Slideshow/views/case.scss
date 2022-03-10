@@ -42,6 +42,11 @@
         padding: 2rem;
       }
 
+       @media (min-width: $breakpoint-bigDesktop) {
+         text-align: left;
+         padding: 4rem;
+       }
+
       &--title {
         a {
         font-size: 2.5rem;
@@ -166,10 +171,12 @@
       text-align: left;
 
       &--title {
-        font-size: 2rem;
+        a {
+          font-size: 2rem;
 
-        @media (min-width: $breakpoint-laptop) {
-          font-size: 3rem;
+          @media (min-width: $breakpoint-desktop) {
+            font-size: 4rem;
+          }
         }
       }
 
@@ -206,7 +213,7 @@
 
 .grid .slideshow__item--case {
   @media (min-width: $breakpoint-laptop) {
-    padding: 0.5rem;
+    padding: 0;
     margin-bottom: 0 !important;
   }
 
@@ -216,8 +223,7 @@
 
       &--title {
         @media (min-width: $breakpoint-laptop) {
-          font-size: 6rem;
-          word-wrap: break-word;
+          font-size: 8rem;
         }
       }
 

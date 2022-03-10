@@ -19,6 +19,9 @@
 .blogItem .triangle {
   width: 100px;
   height: 100px;
+  top: auto;
+  bottom: 0;
+  transform: translateY(3rem) translateX(-1rem) rotate(0deg);
 
   img {
     transform: rotate(-180deg);
