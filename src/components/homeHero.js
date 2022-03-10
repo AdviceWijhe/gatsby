@@ -68,7 +68,7 @@ var rand = Math.floor(Math.random() * 100)
             pageNumberEl.innerHTML = pageNumber;
           }}
         >
-            <div className="swiper__controls flex items-center justify-between lg:w-1/3">
+            <div className="swiper__controls flex items-center justify-between w-full lg:w-1/3">
               <div className="swiper__navigation flex">
                 <div className="prev"><i class="fal fa-arrow-left"></i></div>
                 <div className="next"><i class="fal fa-arrow-right"></i></div>

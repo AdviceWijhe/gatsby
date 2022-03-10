@@ -60,6 +60,16 @@ section {
     .footer {
       padding-top: 0 !important;
 
+      &__disclaimer {
+        ul {
+          li {
+            a {
+              color: #fff;
+            }
+          }
+        }
+      }
+
       .grid {
         display: none;
       }
@@ -139,9 +149,13 @@ a.text-outlined:hover {
 }
 
 .lead {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     margin-bottom: 1.8rem;
     font-weight: 300;
+
+    @media (min-width: $breakpoint-laptop) {
+      font-size: 1.4rem;
+    }
 }
 
 .arrow {
