@@ -220,6 +220,7 @@
   &--inner {
     &__content {
       width: 84%;
+      align-items: flex-start;
 
       &--title {
         @media (min-width: $breakpoint-laptop) {

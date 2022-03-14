@@ -1,11 +1,9 @@
 import React from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
-import { GatsbyImage } from "gatsby-plugin-image"
 import parse from "html-react-parser"
 import { Navigation, Pagination, Scrollbar, A11y, EffectFade, Keyboard } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import Letters from "./letters"
-import InViewMonitor from "react-inview-monitor"
 
 import "swiper/css"
 import "swiper/css/pagination"
@@ -32,7 +30,7 @@ var rand = Math.floor(Math.random() * 100)
           <h4 className="text-xl md:text-2xl font-medium text-secondary mb-3">
             {props.subtitle}
           </h4>
-          <h1 className="text-4xl sm:text-4xl md:text-6xl xl:text-6xl font-extrabold mb-10">
+          <h1 className="text-3xl sm:text-3xl md:text-6xl xl:text-6xl font-extrabold mb-10">
             {parse(props.title)}
           </h1>
         </div>
@@ -51,7 +49,6 @@ var rand = Math.floor(Math.random() * 100)
           }}
           autoHeight={true}
           onSwiper={(swiper) => {
-            console.log(swiper)
             const pageTotal = swiper.slides.length;
             const pageNumber = swiper.activeIndex + 1;
             const pageTotalEl = document.querySelector('.pageTotal');
@@ -70,24 +67,23 @@ var rand = Math.floor(Math.random() * 100)
         >
             <div className="swiper__controls flex items-center justify-between w-full lg:w-1/3">
               <div className="swiper__navigation flex">
-                <div className="prev"><i class="fal fa-arrow-left"></i></div>
-                <div className="next"><i class="fal fa-arrow-right"></i></div>
+                <div className="prev"><i className="fal fa-arrow-left"></i></div>
+                <div className="next"><i className="fal fa-arrow-right"></i></div>
               </div>
               <span className="pageCount"><span className="pageNumber"></span> / <span className="pageTotal"></span></span>
             </div>
             {props.slideshow &&
               props.slideshow.map(post => {
                 const title = post.title
-                console.log(post);
                 return (
                   post.wpParent == null ? (
                   <SwiperSlide key={post.id}>
                     <div className="hero__slideshow__item--inner flex flex-col xl:flex-row">
-                      <div class="image xl:w-2/3" style={{backgroundImage: `url(${post.featuredImage.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src})`}}>
+                      <div className="image xl:w-2/3" style={{backgroundImage: `url(${post.featuredImage.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src})`}}>
                         
                       </div>
-                      <div class="content xl:w-1/3 bg-primary p-8 lg:p-12 pt-20 lg:pt-16 text-white flex items-center">
-                        <div class="content__inner" >
+                      <div className="content xl:w-1/3 bg-primary p-8 lg:p-12 pt-20 lg:pt-16 text-white flex items-center">
+                        <div className="content__inner" >
                          <h2 className="hero__slideshow__item--title text-2xl lg:text-3xl font-bold relative">
                         {title}
                       </h2>

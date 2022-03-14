@@ -1,14 +1,17 @@
 import React from "react"
 import { graphql } from "gatsby"
 import parse from "html-react-parser"
-import Hero from "../components/hero"
 import Slideshow from "../components/Slideshow/Slideshow"
-import ContentImage from "../components/ContentImage/ContentImage"
+import Carousel from "../components/Carousel/Carousel"
+import Hero from "../components/hero"
 import MarqueeSlide from "../components/Marquee/Marquee"
+
+import ContentImage from "../components/ContentImage/ContentImage"
 import Diensten from "../components/Diensten/Diensten"
+
 import { useKernwaardeQuery } from "../hooks/useKernwaardeQuery"
 import { useTeamQuery } from "../hooks/useTeamQuery"
-import Carousel from "../components/Carousel/Carousel"
+
 
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS

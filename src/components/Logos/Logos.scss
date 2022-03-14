@@ -1,0 +1,13 @@
+@import "../../css/globals/variables";
+
+.Image {
+  padding-top: 50px !important;
+
+  &__image {
+    margin: 0 -2.4rem 2.4rem;
+
+    @media (min-width: $breakpoint-desktop) {
+      margin: 0 0 2.4rem;
+    }
+  }
+}

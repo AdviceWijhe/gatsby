@@ -7,7 +7,6 @@ import "./TripleImages.scss"
 const tripleImages = props => {
   const images = props.images;
 
-  console.log(images[0])
 
   return (
     <section className="TripleImages">

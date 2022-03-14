@@ -1,11 +1,7 @@
 import React from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
-import { GatsbyImage } from "gatsby-plugin-image"
 import parse from "html-react-parser"
-import { Navigation, Pagination, Scrollbar, A11y, EffectFade, Keyboard } from "swiper"
-import { Swiper, SwiperSlide } from "swiper/react"
 import Letters from "./letters"
-import InViewMonitor from "react-inview-monitor"
 
 import "swiper/css"
 import "swiper/css/pagination"
@@ -22,8 +18,6 @@ const CaseHero = props => {
     separatedLetters = props?.letters?.split('')
   }
 
-  // const shuffledArray = props.slideshow.sort((a, b) => 0.5 - Math.random());
-var rand = Math.floor(Math.random() * 100)
 
   return (
     <section className={`hero ${props.layout} py-0`}>
@@ -37,14 +31,14 @@ var rand = Math.floor(Math.random() * 100)
           </h1>
         </div>
 
-        <div class="hero__specials hero_dienstenSlider">
+        <div className="hero__specials hero_dienstenSlider">
           
                     <div className="hero__slideshow__item--inner flex flex-col xl:flex-row">
-                      <div class="image xl:w-2/3" style={{backgroundImage: `url(${props.image.images.fallback.src})`}}>
+                      <div className="image xl:w-2/3" style={{backgroundImage: `url(${props.image.images.fallback.src})`}}>
                         
                       </div>
-                      <div class="content xl:w-1/3 bg-primary p-8 lg:p-12 pt-20 lg:pt-16 text-white flex items-center">
-                        <div class="content__inner" >
+                      <div className="content xl:w-1/3 bg-primary p-8 lg:p-12 pt-20 lg:pt-16 text-white flex items-center">
+                        <div className="content__inner" >
                          <h2 className="hero__slideshow__item--title text-2xl lg:text-3xl font-bold relative">
                         Specialismen
                       </h2>
