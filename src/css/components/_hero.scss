@@ -372,12 +372,16 @@
     
 
     .hero__description {
-      margin-bottom: 1rem;
       margin-top: 0;
       line-height: 1.2;
 
+      @media (min-width: $breakpoint-tablet) {
+        margin-bottom: 1rem;
+      }
+
       p {
         line-height: 1.2;
+        margin-bottom: 0;
       }
     }
 

@@ -48,12 +48,11 @@ const BlogPostTemplate = ({ data: { previous, next, post } }) => {
         <p className="text-secondary"><b>Vond je dit interessant?</b> Laat je inspireren door onze andere blogs.</p>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           {posts.nodes.map(otherPost => {
-            console.log(otherPost);
             if(otherPost.id === post.id) {
               return false;
             }
               postCount++
-              return postCount < 3 ? <BlogItem item={otherPost} /> : null
+              return postCount < 3 ? <BlogItem key={otherPost.id} item={otherPost} /> : null
               
           }
           )}

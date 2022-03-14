@@ -17,12 +17,19 @@
 }
 
 .blogItem .triangle {
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   top: auto;
-  padding: 20px 15px;
+  padding: 13px 10px;
   bottom: 0;
-  transform: translateY(3rem) translateX(-1rem) rotate(0deg);
+  transform: translateY(3rem) translateX(-0.5rem) rotate(0deg);
+
+  @media (min-width: $breakpoint-laptop) {
+    width: 100px;
+    height: 100px;
+    padding: 20px 15px;
+    transform: translateY(3rem) translateX(-1rem) rotate(0deg);
+  }
 
   img {
     transform: rotate(-180deg);

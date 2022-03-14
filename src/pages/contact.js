@@ -18,11 +18,11 @@ const ContactPage = ({ data: {post} }) => {
         <div className={`container border-l`}>
         <div className={`contactInfo lg:w-2/4 text-white`}>
           
-          <a href="tel:0570521152" className={`flex flex-col lg:flex-row py-5 lg:items-center border-b text-white`}>
-            <h3 className={`text-xl lg:text-4xl font-bold mr-10`}>0570 52 11 52</h3> <i class="fal text-xl fa-long-arrow-right"></i>
+          <a href="tel:0570521152" className={`flex  py-5 lg:items-center border-b text-white`}>
+            <h3 className={`text-xl lg:text-4xl font-bold mr-10`}>0570 52 11 52</h3> <i className="fal text-xl fa-long-arrow-right"></i>
           </a>
-          <a href="mailto:contact@advice.nl" className={`flex flex-col lg:flex-row py-5 lg:items-center text-white`}>
-            <h3 className={`text-xl lg:text-4xl font-bold block mr-10`}>contact@advice.nl</h3> <i class="fal text-xl fa-long-arrow-right block"></i>
+          <a href="mailto:contact@advice.nl" className={`flex  py-5 lg:items-center text-white`}>
+            <h3 className={`text-xl lg:text-4xl font-bold block mr-10`}>contact@advice.nl</h3> <i className="fal text-xl fa-long-arrow-right block"></i>
           </a>
         </div>
 

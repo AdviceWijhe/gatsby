@@ -14,7 +14,7 @@ const Diensten = (props) => {
 
   return (
     <section className="com_Diensten pt-0">
-      <div class="container container-line">
+      <div className="container container-line">
       <div className="com_Diensten__inner pt-8 lg:pt-16">
         {diensten.nodes.map(post => {
           if(props.currentID === post.id) {

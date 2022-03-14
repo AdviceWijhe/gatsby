@@ -15,7 +15,7 @@ const BlogItem = props => {
   return (
     <div
       ref={ref}
-      key={props.item.title}
+      key={props.item.id}
       className={`blogItem mb-8 animate ${
         inViewport && `isVisible`
       }`}

@@ -1,7 +1,6 @@
 import React, { useRef } from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import useIntersection from "../../hooks/useIntersection"
-import { Link } from "gatsby"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import "../../css/components/content-vacature.scss"
 // import Navigation from "../Navigation/Navigation"
@@ -10,9 +9,6 @@ const VacatureItem = props => {
   const ref = useRef() // Trigger as soon as the element becomes visible
   const inViewport = useIntersection(ref, "-50px") // Trigger if 200px is visible from the element
 
-  if (inViewport) {
-    console.log("in viewport:", ref.current)
-  }
 
   let image =
     props.item.featuredImage?.node?.localFile?.childImageSharp
