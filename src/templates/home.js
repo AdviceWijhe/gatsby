@@ -23,11 +23,15 @@ const HomePageTemplate = ({ data: { post } }) => {
   const CTA = post.homepage.callToAction
   const MarqueeBlock = post.homepage.marquee
 
+  const titles = post.homepage.blockHero.titles
+  var randomTitle = titles[Math.floor(Math.random()*titles.length)];
+
+
   return (
     <>
       <Seo post={post} />
       <HomeHero
-        title={heroBlock.title}
+        title={randomTitle.title}
         subtitle={heroBlock.subtitle}
         content={heroBlock.content}
         letters={heroBlock.letters}
@@ -110,6 +114,9 @@ export const pageQuery = graphql`
       homepage {
         blockHero {
           title
+          titles {
+            title
+          }
           subtitle
           content
           letters
