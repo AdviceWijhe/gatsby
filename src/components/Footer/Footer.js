@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { useFooterMenuQuery } from "../../hooks/useFooterMenuQuery"
+import parse from "html-react-parser"
 // import Navigation from "../Navigation/Navigation"
 
 // Import CSS
@@ -18,17 +19,49 @@ const Footer = (props) => {
 
     return footerColor
   }
-  return (
-    <section className={`footer`}>
-      <div className="grid grid-cols-1 md:grid-cols-2 w-full">
-        <div className={`py-8 sm:px-5  lg:py-10 lg:pr-20 lg:pl-10 lg:border-t lg:border-b border-black ${getFooterColor()}`}>
-          <h3 className="text-2xl lg:text-4xl font-bold text-primary mb-5">
+
+  function getCTA() {
+    console.log(options);
+    if(options != null) {
+    if(options.title) {
+      return (
+        <>
+        <h3 className="text-2xl lg:text-4xl font-bold text-primary mb-5">{options.title}</h3>
+        {parse(options.content)}
+        </>
+      )
+    }else {
+      return (
+        <>
+        <h3 className="text-2xl lg:text-4xl font-bold text-primary mb-5">
             Samen aan de slag?
           </h3>
           <p>
             Heb je een project of een samenwerking in gedachten? Of wil jij aan
             de slag met je merk? Laat dan van je horen!
           </p>
+        </>
+      )
+    }
+  }else {
+      return (
+        <>
+        <h3 className="text-2xl lg:text-4xl font-bold text-primary mb-5">
+            Samen aan de slag?
+          </h3>
+          <p>
+            Heb je een project of een samenwerking in gedachten? Of wil jij aan
+            de slag met je merk? Laat dan van je horen!
+          </p>
+        </>
+      )
+    }
+  }
+  return (
+    <section className={`footer`}>
+      <div className="grid grid-cols-1 md:grid-cols-2 w-full">
+        <div className={`py-8 sm:px-5  lg:py-10 lg:pr-20 lg:pl-10 lg:border-t lg:border-b border-black ${getFooterColor()}`}>
+          {getCTA()}
         </div>
         <div className="bg-black text-white p-8 lg:px-20 footer__contactInfo">
           <div className="triangle triangle-arrow">

@@ -145,6 +145,11 @@ export const pageQuery = graphql`
         }
         kolom2
       }
+       footer {
+      backgroundColorTop
+      title
+      content
+    }
     }
     previous: wpCase(id: { eq: $previousPostId }) {
       uri

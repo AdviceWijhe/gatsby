@@ -42,9 +42,9 @@ const BlogIndex = ({
             />
       <Hero
       title="Vergroot je kennis met onze blogs!"
-      subtitle="Blog"
+      subtitle="Blogs"
       content="<p>Ons vak is volop in beweging, waarover wij graag schrijven.</p>"
-      layout="noSlideshow"
+      layout="noSlideshow single"
       />
 
         <section>

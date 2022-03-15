@@ -48,8 +48,8 @@ const VacatureIndex = ({
       layout="noSlideshow"
       />
 
-        <section>
-        <div className={`grid`}>
+        <section class="pt-0">
+        <div className={`container container-line vacatures`}>
         {posts.map(post => {
           return <VacatureItem key={post.id} item={post} />
         })}

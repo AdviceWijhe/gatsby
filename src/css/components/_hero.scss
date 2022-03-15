@@ -4,6 +4,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  overflow: visible;
 
   @media (min-width: $breakpoint-tablet) {
     padding-top: 175px !important;

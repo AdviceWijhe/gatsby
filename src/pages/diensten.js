@@ -111,7 +111,9 @@ export const pageQuery = graphql`
           image {
             localFile {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData(
+                  quality: 100
+                )
               }
             }
           }
@@ -119,6 +121,8 @@ export const pageQuery = graphql`
       }
       footer {
       backgroundColorTop
+      title
+      content
     }
     }
   }

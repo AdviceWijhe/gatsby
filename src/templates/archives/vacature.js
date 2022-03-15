@@ -25,13 +25,12 @@ const VacatureItem = props => {
       }`}
     >
       <div className={`vacatureItem--inner flex items-stretch flex-col lg:flex-row`}>
-        <div className="vacatureItem--inner__image lg:w-1/4 relative">
+        {/* <div className="vacatureItem--inner__image lg:w-1/4 relative">
         <GatsbyImage image={image} alt="image" />
-         {/* <Link to={props.item.uri} className={`triangle triangle-rotated`}><i className="fal fa-long-arrow-right"></i></Link> */}
 
-                            <AniLink paintDrip to={props.item.uri} className={`triangle triangle-rotated`}><img src={`/icons/Pijltje_white_Lang.svg`} className="arrow arrow-small" alt="Pijl wit lang" /></AniLink>
+        <AniLink paintDrip to={props.item.uri} className={`triangle triangle-rotated`}><img src={`/icons/Pijltje_white_Lang.svg`} className="arrow arrow-small" alt="Pijl wit lang" /></AniLink>
 
-        </div>
+        </div> */}
         <div className="vacatureItem--inner__content lg:w-3/4">
           <div className="vacatureItem--inner__content--title lg:mt-5">
             <h2 className={`text-3xl lg:text-5xl font-weight-bold text-outlined`}><AniLink paintDrip to={props.item.uri}>{props.item.title}</AniLink></h2>

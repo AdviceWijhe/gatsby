@@ -152,6 +152,11 @@ export const pageQuery = graphql`
           sliderPerView
         }
       }
+       footer {
+      backgroundColorTop
+      title
+      content
+    }
     }
   }
 `
