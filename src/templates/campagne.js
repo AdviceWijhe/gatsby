@@ -1,12 +1,11 @@
 import React from "react"
-import parse from "html-react-parser"
 import { graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
 import Hero from "../components/hero"
 import Quote from "../components/Quote/Quote"
 import Collage from "../components/Collage/Collage"
 import Logos from "../components/Logos/Logos"
 import TripleImages from "../components/TripleImages/TripleImages"
+import Switch from "../components/Switch/Switch"
 
 
 const CampagneTemplate = (data) => {
@@ -24,21 +23,9 @@ const CampagneTemplate = (data) => {
       />
 
     case "Page_Campagnepages_Blocks_Switch":
+      console.log(layout.image)
       return(
-        <section className="switch">
-          <div className="switch__inner flex flex-col lg:flex-row-reverse items-center">
-            <div className="switch__image w-full lg:w-1/3">
-              <GatsbyImage
-                  image={layout.image.localFile.childImageSharp.gatsbyImageData}
-                  alt="image"
-                  className="Image__image"
-                />
-            </div>
-            <div className="switch__content w-full lg:w-2/3 lg:pr-16">
-              {parse(layout.content)}
-            </div>
-          </div>
-        </section>
+        <Switch data={layout}></Switch>
       )
     case "Page_Campagnepages_Blocks_Quote":
       return <Quote letters={layout.quote}></Quote>
