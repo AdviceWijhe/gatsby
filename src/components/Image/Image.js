@@ -13,7 +13,7 @@ const Image = props => {
         <GatsbyImage
           image={image}
           alt="image"
-          className="Image__image"
+          className="Image__image lg:w-3/4"
         />
     </section>
   )
