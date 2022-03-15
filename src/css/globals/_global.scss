@@ -47,11 +47,17 @@ section {
   }
 }
 
+.tl-edges {
+  overflow: unset;
+}
+
 .global-wrapper {
   &.contact {
     background-color: $color-secondary;
 
     .tl-edges {
+      overflow-x: hidden;
+
       .tl-wrapper {
         min-height: 92vh;
       }

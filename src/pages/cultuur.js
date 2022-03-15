@@ -66,7 +66,7 @@ const CultuurTemplate = ({ data: { post } }) => {
         settings={contentImage}
       ></ContentImage>
 
-        <Diensten />
+        {/* <Diensten /> */}
 
     </>
   )
@@ -156,7 +156,9 @@ export const pageQuery = graphql`
           image {
             localFile {
               childImageSharp {
-              gatsbyImageData
+              gatsbyImageData(
+                quality: 100
+              )
             }
           }
         }
@@ -168,6 +170,11 @@ export const pageQuery = graphql`
         spaceBetween
       }
       }
+      footer {
+      backgroundColorTop
+      title
+      content
+    }
     }
   }
 `

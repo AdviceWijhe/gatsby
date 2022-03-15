@@ -128,6 +128,11 @@ query campaignById(
           }
         }
               title
+               footer {
+      backgroundColorTop
+      title
+      content
+    }
       }
 }
 `
