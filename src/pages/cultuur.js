@@ -54,6 +54,10 @@ const CultuurTemplate = ({ data: { post } }) => {
         title={slideShow.titel}
       ></Carousel>
 
+      <ContentImage
+        settings={contentImage}
+      ></ContentImage>
+
       <Slideshow
         items={team.nodes}
         layout={TeamSlideShow.layout}
@@ -62,9 +66,7 @@ const CultuurTemplate = ({ data: { post } }) => {
         title={TeamSlideShow.titel}
       ></Slideshow>
 
-      <ContentImage
-        settings={contentImage}
-      ></ContentImage>
+      
 
         {/* <Diensten /> */}
 
