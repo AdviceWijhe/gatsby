@@ -35,11 +35,11 @@ const VacatureItem = props => {
           <div className="vacatureItem--inner__content--title lg:mt-5">
             <h2 className={`text-3xl lg:text-5xl font-weight-bold text-outlined`}><AniLink paintDrip to={props.item.uri}>{props.item.title}</AniLink></h2>
 
-            <ul className={`vacatureItem__diensten`}>
+            {/* <ul className={`vacatureItem__diensten`}>
               {diensten.map(post => {
                 return <li key={post.id}>{post.title}</li>
               })}
-            </ul>
+            </ul> */}
           </div>
           
         </div>

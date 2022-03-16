@@ -36,7 +36,7 @@ const DienstenTemplate = ({ data: { post } }) => {
         <div className="pageContent lg:mt-14 lg:w-3/4">{parse(post.content)}</div>
       </section>
 
-      <Image image={imageData} />
+      {/* <Image image={imageData} /> */}
 
       <Tabs items={diensten.nodes} />
 
