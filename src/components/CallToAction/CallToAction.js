@@ -1,7 +1,6 @@
 import React from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { GatsbyImage } from "gatsby-plugin-image"
-// import Navigation from "../Navigation/Navigation"
 
 // Import CSS
 import "./CallToAction.scss"

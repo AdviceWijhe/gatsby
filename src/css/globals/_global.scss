@@ -49,6 +49,14 @@ section {
 
 .tl-edges {
   overflow: unset;
+
+  .tl-wrapper {
+    padding-bottom: 3rem !important;
+
+     @media (min-width: $breakpoint-laptop) {
+      padding-bottom: 6rem !important;
+     }
+  }
 }
 
 .global-wrapper {

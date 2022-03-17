@@ -2,7 +2,6 @@ import React from "react"
 import { graphql } from "gatsby"
 import parse from "html-react-parser"
 import Hero from "../components/hero"
-import Image from "../components/Image/Image"
 import Tabs from "../components/Tabs/Tabs"
 import { useDienstQuery } from "../hooks/useDienstQuery"
 
@@ -14,11 +13,8 @@ import { useDienstQuery } from "../hooks/useDienstQuery"
 import Seo from 'gatsby-plugin-wpgraphql-seo';
 
 const DienstenTemplate = ({ data: { post } }) => {
-  // const heroBlock = post.cases.blockHero
   const { diensten } = useDienstQuery()
   const heroBlock = post.diensten.blockHero
-  const imageData = post.diensten.image.image
-  // const footer = post.footer
 
   return (
     <>
