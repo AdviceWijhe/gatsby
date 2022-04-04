@@ -12,7 +12,7 @@ const Logos = props => {
   return (
     <section className="logos py-8 lg:py-16">
       <div className="container container-line">
-        <div className="logos__content">
+        <div className="logos__content lg:w-2/3">
           <h2>{props.title}</h2>
           {parse(props.content)}
         </div>
