@@ -97,6 +97,7 @@ const Layout = ({ isHomePage, children } ) => {
       }
     }
   `)
+  console.log(children);
   return (
     <SEOContext.Provider value={{ global: seo }}>
     <main>
@@ -105,7 +106,22 @@ const Layout = ({ isHomePage, children } ) => {
       <Header siteTitle={siteInfo}></Header>
       {children}
 
+      {children?.props?.data?.post != null && (
       <Footer options={children?.props?.data?.post?.footer}></Footer>
+      )}
+      {children?.props?.data?.wpPage != null && (
+      <Footer options={children?.props?.data?.wpPage?.footer}></Footer>
+      )}
+      {children?.props?.data?.allWpCase != null && (
+      <Footer options={children?.props?.data?.wpPage?.footer}></Footer>
+      )}
+      {children?.props?.data?.allWpPost != null && (
+      <Footer options={children?.props?.data?.wpPage?.footer}></Footer>
+      )}
+
+      {children?.props?.data?.allWpVacature != null && (
+      <Footer options={children?.props?.data?.wpPage?.footer}></Footer>
+      )}
       <CookieBanner />
     </div>
     </main>
