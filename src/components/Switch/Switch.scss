@@ -7,7 +7,26 @@
   }
 
   ul {
-    list-style-type: disc;
-    padding-left: 20px;
+    list-style-type: none;
+    padding-left: 25px;
+
+    li {
+      padding-top: 2px;
+      padding-left: 7px;
+      padding-bottom: 2px;
+      position: relative;
+
+      &::before {
+        content: "\f111";
+        color: #000;
+        font-family: "Font Awesome 5 Pro";
+        font-weight: 800;
+        position: absolute;
+        left: -17px;
+        top: 12px;
+        line-height: 1;
+        font-size: 0.4rem;
+      }
+    }
   }
 }

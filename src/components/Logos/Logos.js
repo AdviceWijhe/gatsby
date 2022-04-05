@@ -10,7 +10,7 @@ const Logos = props => {
   const images = props.images;
 
   return (
-    <section className="logos py-8 lg:py-16">
+    <section className="logos">
       <div className="container container-line">
         <div className="logos__content lg:w-2/3">
           <h2>{props.title}</h2>
