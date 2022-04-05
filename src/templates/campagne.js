@@ -7,6 +7,8 @@ import Logos from "../components/Logos/Logos"
 import TripleImages from "../components/TripleImages/TripleImages"
 import Switch from "../components/Switch/Switch"
 
+import Seo from 'gatsby-plugin-wpgraphql-seo';
+
 
 const CampagneTemplate = (data) => {
   const blocks = data.data.wpPage.campagnePages.blocks;
@@ -44,6 +46,7 @@ const CampagneTemplate = (data) => {
 
   return (
     <>
+    <Seo post={data.data.wpPage} />
     { blocks &&
         blocks.map(post => {
 
@@ -64,6 +67,35 @@ query campaignById(
     $id: String!
   ) {
     wpPage(id: { eq: $id }) {
+      seo {
+                title
+                metaDesc
+                focuskw
+                metaKeywords
+                metaRobotsNoindex
+                metaRobotsNofollow
+                opengraphTitle
+                opengraphDescription
+                opengraphImage {
+                    altText
+                    sourceUrl
+                    srcSet
+                }
+                twitterTitle
+                twitterDescription
+                twitterImage {
+                    altText
+                    sourceUrl
+                    srcSet
+                }
+                canonical
+                cornerstone
+                schema {
+                    articleType
+                    pageType
+                    raw
+                }
+            }
         campagnePages {
           blocks {
             ... on WpPage_Campagnepages_Blocks_Hero {
