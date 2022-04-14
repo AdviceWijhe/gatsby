@@ -1,8 +1,11 @@
-import React, { useRef } from "react"
-import { GatsbyImage } from "gatsby-plugin-image"
 import "../../components/Slideshow/views/case.scss"
-import useIntersection from "../../hooks/useIntersection"
+
+import React, { useRef } from "react"
+
 import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { GatsbyImage } from "gatsby-plugin-image"
+import useIntersection from "../../hooks/useIntersection"
+
 // import Navigation from "../Navigation/Navigation"
 
 const CaseItem = props => {

@@ -1,14 +1,16 @@
-import React from "react"
-// import Navigation from "../Navigation/Navigation"
-import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Keyboard } from "swiper"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
-import { Swiper, SwiperSlide } from "swiper/react"
-import KernItem from "../Slideshow/views/kernwaarde"
-
 // Import CSS
 import "swiper/css"
 import "swiper/css/pagination"
 import "swiper/css/navigation"
+
+// import Navigation from "../Navigation/Navigation"
+import { A11y, EffectCoverflow, Keyboard, Navigation, Pagination, Scrollbar } from "swiper"
+import { Swiper, SwiperSlide } from "swiper/react"
+
+import AniLink from "gatsby-plugin-transition-link/AniLink"
+import KernItem from "../Slideshow/views/kernwaarde"
+import React from "react"
+
 // import "./Slideshow.scss"
 
 

@@ -1,7 +1,7 @@
-import React from "react"
-
 // Import CSS
 import "./Video.scss"
+
+import React from "react"
 
 const Video = ({ videoSrcURL, videoTitle, ...props }) => {
   return (

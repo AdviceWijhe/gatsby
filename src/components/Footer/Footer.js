@@ -1,11 +1,12 @@
-import React from "react"
-import { Link } from "gatsby"
-import { useFooterMenuQuery } from "../../hooks/useFooterMenuQuery"
-import parse from "html-react-parser"
-// import Navigation from "../Navigation/Navigation"
-
 // Import CSS
 import "./Footer.scss"
+
+import { Link } from "gatsby"
+import React from "react"
+import parse from "html-react-parser"
+import { useFooterMenuQuery } from "../../hooks/useFooterMenuQuery"
+// import Navigation from "../Navigation/Navigation"
+
 
 const Footer = (props) => {
   var menu = useFooterMenuQuery()

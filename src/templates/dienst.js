@@ -1,10 +1,3 @@
-import React from "react"
-import { graphql } from "gatsby"
-import parse from "html-react-parser"
-import Hero from "../components/hero"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
-import { useDienstQuery } from "../hooks/useDienstQuery"
-
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
 // version used by the Gatsby and @wordpress packages that causes build
@@ -13,7 +6,13 @@ import { useDienstQuery } from "../hooks/useDienstQuery"
 import "../css/@wordpress/block-library/build-style/style.css"
 import "../css/@wordpress/block-library/build-style/theme.css"
 
+import AniLink from "gatsby-plugin-transition-link/AniLink"
+import Hero from "../components/hero"
+import React from "react"
 import Seo from 'gatsby-plugin-wpgraphql-seo';
+import { graphql } from "gatsby"
+import parse from "html-react-parser"
+import { useDienstQuery } from "../hooks/useDienstQuery"
 
 const DienstTemplate = ({ data: { previous, post, next  } }) => {
 

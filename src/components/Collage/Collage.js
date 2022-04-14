@@ -1,9 +1,10 @@
-import React from "react"
-import InViewMonitor from "react-inview-monitor"
-// import Navigation from "../Navigation/Navigation"
-
 // Import CSS
 import "./Collage.scss"
+
+import InViewMonitor from "react-inview-monitor"
+import React from "react"
+// import Navigation from "../Navigation/Navigation"
+
 
 const Collage = props => {
   const images = props.images;

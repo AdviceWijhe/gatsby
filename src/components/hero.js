@@ -1,11 +1,10 @@
-import React from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
-import { GatsbyImage } from "gatsby-plugin-image"
-import parse from "html-react-parser"
 import Flickity from "react-flickity-component"
-import Letters from "./letters"
+import { GatsbyImage } from "gatsby-plugin-image"
 import InViewMonitor from "react-inview-monitor"
-
+import Letters from "./letters"
+import React from "react"
+import parse from "html-react-parser"
 
 const Hero = props => {
   const flickityOptions = {
@@ -42,16 +41,16 @@ const Hero = props => {
         </div>
 
         {props.image && (
-          // <InViewMonitor
-          //       classNameNotInView='vis-hidden'
-          //       classNameInView='animate__animated animate__fadeInUp'
-          //     >
+          <InViewMonitor
+                classNameNotInView='vis-hidden'
+                classNameInView='animate__animated animate__fadeInUp'
+              >
         <GatsbyImage
           image={props.image}
           alt="image"
           className="hero__image"
         />
-        // </InViewMonitor>
+        </InViewMonitor>
         )}
 
           {props.slideshow && (

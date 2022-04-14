@@ -1,7 +1,9 @@
 import React, { useRef } from "react"
+
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { GatsbyImage } from "gatsby-plugin-image"
 import useIntersection from "../../hooks/useIntersection"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+
 // import Navigation from "../Navigation/Navigation"
 
 const BlogItem = props => {

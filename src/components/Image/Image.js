@@ -1,9 +1,10 @@
-import React from "react"
-import { GatsbyImage } from "gatsby-plugin-image"
-// import Navigation from "../Navigation/Navigation"
-
 // Import CSS
 import "./Image.scss"
+
+import { GatsbyImage } from "gatsby-plugin-image"
+import React from "react"
+// import Navigation from "../Navigation/Navigation"
+
 
 const Image = props => {
   const image = props.image?.localFile?.childImageSharp?.gatsbyImageData

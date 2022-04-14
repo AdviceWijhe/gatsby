@@ -1,9 +1,11 @@
-import React from "react"
-import Letters from "../letters"
-// import Navigation from "../Navigation/Navigation"
-
 // Import CSS
 import "./Quote.scss"
+
+import Letters from "../letters"
+import React from "react"
+
+// import Navigation from "../Navigation/Navigation"
+
 
 const Quote = props => {
 

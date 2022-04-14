@@ -1,11 +1,10 @@
-import React from "react"
-import { graphql } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
+import Bio from "../components/bio"
 import BlogItem from "./archives/blog"
 import Hero from "../components/hero"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
-
-import Bio from "../components/bio"
+import React from "react"
 import Seo from 'gatsby-plugin-wpgraphql-seo';
+import { graphql } from "gatsby"
 
 const BlogIndex = ({
   data,

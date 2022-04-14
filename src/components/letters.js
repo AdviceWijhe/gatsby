@@ -1,4 +1,5 @@
 import React, { useRef } from "react"
+
 import useIntersection from "../hooks/useIntersection"
 
 const Letters = props => {

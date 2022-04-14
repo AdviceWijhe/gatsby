@@ -1,14 +1,3 @@
-import React from "react"
-import { graphql } from "gatsby"
-import parse from "html-react-parser"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
-import CaseHero from "../components/caseHero"
-import Image from "../components/Image/Image"
-import Collage from "../components/Collage/Collage"
-import TripleImages from "../components/TripleImages/TripleImages"
-import DoubleImages from "../components/DoubleImages/DoubleImages"
-import Quote from "../components/Quote/Quote"
-
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
 // version used by the Gatsby and @wordpress packages that causes build
@@ -17,7 +6,17 @@ import Quote from "../components/Quote/Quote"
 import "../css/@wordpress/block-library/build-style/style.css"
 import "../css/@wordpress/block-library/build-style/theme.css"
 
+import AniLink from "gatsby-plugin-transition-link/AniLink"
+import CaseHero from "../components/caseHero"
+import Collage from "../components/Collage/Collage"
+import DoubleImages from "../components/DoubleImages/DoubleImages"
+import Image from "../components/Image/Image"
+import Quote from "../components/Quote/Quote"
+import React from "react"
 import Seo from 'gatsby-plugin-wpgraphql-seo';
+import TripleImages from "../components/TripleImages/TripleImages"
+import { graphql } from "gatsby"
+import parse from "html-react-parser"
 
 const CaseTemplate = ({ data: { previous, post, next  } }) => {
 

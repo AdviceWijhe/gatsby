@@ -1,10 +1,11 @@
-import React from "react"
+// Import CSS
+import "./Logos.scss"
+
 import { GatsbyImage } from "gatsby-plugin-image"
+import React from "react"
 import parse from "html-react-parser"
 // import Navigation from "../Navigation/Navigation"
 
-// Import CSS
-import "./Logos.scss"
 
 const Logos = props => {
   const images = props.images;

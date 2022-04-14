@@ -1,12 +1,10 @@
-import React from "react"
-import { graphql } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
+import Bio from "../components/bio"
 import CaseItem from "./archives/case"
 import Hero from "../components/hero"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
-
-
+import React from "react"
 import Seo from 'gatsby-plugin-wpgraphql-seo';
-import Bio from "../components/bio"
+import { graphql } from "gatsby"
 
 const CaseIndex = ({
   data,

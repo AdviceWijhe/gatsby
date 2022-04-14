@@ -1,6 +1,7 @@
-import React from "react"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
 import "./Navigation.scss"
+
+import AniLink from "gatsby-plugin-transition-link/AniLink"
+import React from "react"
 
 const Navigation = ({ stateChanger, menu, menuName }) => {
   return (

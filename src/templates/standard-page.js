@@ -1,8 +1,3 @@
-import React from "react"
-import { graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
-import parse from "html-react-parser"
-
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
 // version used by the Gatsby and @wordpress packages that causes build
@@ -10,7 +5,12 @@ import parse from "html-react-parser"
 // @todo update this once @wordpress upgrades their postcss version
 import "../css/@wordpress/block-library/build-style/style.css"
 import "../css/@wordpress/block-library/build-style/theme.css"
+
+import { GatsbyImage } from "gatsby-plugin-image"
+import React from "react"
 import Seo from "../components/seo"
+import { graphql } from "gatsby"
+import parse from "html-react-parser"
 
 const BlogPostTemplate = ({ data: { previous, next, post } }) => {
   const featuredImage = {

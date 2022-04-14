@@ -1,8 +1,10 @@
-import React from "react"
-// import Navigation from "../Navigation/Navigation"
-
 // Import CSS
 import "./TripleImages.scss"
+
+import React from "react"
+
+// import Navigation from "../Navigation/Navigation"
+
 
 const tripleImages = props => {
   const images = props.images;

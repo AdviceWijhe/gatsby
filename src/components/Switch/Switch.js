@@ -1,13 +1,13 @@
-import React from "react"
-import parse from "html-react-parser"
-import { GatsbyImage } from "gatsby-plugin-image"
-// import Navigation from "../Navigation/Navigation"
-
 // Import CSS
 import "./Switch.scss"
 
+import React from "react"
+import parse from "html-react-parser"
+
+// import Navigation from "../Navigation/Navigation"
+
+
 const Switch = props => {
-  const image = props.image?.localFile?.childImageSharp?.gatsbyImageData
 
   return (
     <section className="switch">

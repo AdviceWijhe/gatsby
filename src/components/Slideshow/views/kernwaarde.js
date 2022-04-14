@@ -1,6 +1,8 @@
+import "./kernwaarde.scss"
+
 import React from "react"
 import parse from "html-react-parser"
-import "./kernwaarde.scss"
+
 // import Navigation from "../Navigation/Navigation"
 
 const KernItem = props => {
