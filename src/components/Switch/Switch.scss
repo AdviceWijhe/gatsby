@@ -5,6 +5,11 @@
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
+    padding-top: 50%;
+
+    @media (min-width: $breakpoint-tablet) {
+      padding-top: 0;
+    }
   }
 
   ul {
