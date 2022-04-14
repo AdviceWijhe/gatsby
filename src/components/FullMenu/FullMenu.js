@@ -1,10 +1,10 @@
-import React from "react"
-import Navigation from "../Navigation/Navigation"
-import { useMenuQuery } from "../../hooks/useMenuQuery"
-import { useTopMenuQuery } from "../../hooks/useTopMenuQuery"
-
 // Import CSS
 import "./FullMenu.scss"
+
+import Navigation from "../Navigation/Navigation"
+import React from "react"
+import { useMenuQuery } from "../../hooks/useMenuQuery"
+import { useTopMenuQuery } from "../../hooks/useTopMenuQuery"
 
 const FullMenu = (props) => {
   var { wpMenu } = useMenuQuery()

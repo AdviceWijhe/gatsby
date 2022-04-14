@@ -1,9 +1,10 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import { SEOContext } from 'gatsby-plugin-wpgraphql-seo';
-import Header from "./Header/Header"
-import Footer from "./Footer/Footer"
+import { graphql, useStaticQuery } from "gatsby"
+
 import CookieBanner from "./CookieBanner/CookieBanner";
+import Footer from "./Footer/Footer"
+import Header from "./Header/Header"
+import React from "react"
+import { SEOContext } from 'gatsby-plugin-wpgraphql-seo';
 
 const Layout = ({ isHomePage, children } ) => {
 

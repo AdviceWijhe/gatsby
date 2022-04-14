@@ -1,16 +1,15 @@
-import React from "react"
-import { graphql } from "gatsby"
-import parse from "html-react-parser"
 import Hero from "../components/hero"
-import Tabs from "../components/Tabs/Tabs"
-import { useDienstQuery } from "../hooks/useDienstQuery"
-
+import React from "react"
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
 // version used by the Gatsby and @wordpress packages that causes build
 // failures.
 // @todo update this once @wordpress upgrades their postcss version
 import Seo from 'gatsby-plugin-wpgraphql-seo';
+import Tabs from "../components/Tabs/Tabs"
+import { graphql } from "gatsby"
+import parse from "html-react-parser"
+import { useDienstQuery } from "../hooks/useDienstQuery"
 
 const DienstenTemplate = ({ data: { post } }) => {
   const { diensten } = useDienstQuery()

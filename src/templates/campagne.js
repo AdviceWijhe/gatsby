@@ -1,14 +1,12 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Hero from "../components/hero"
-import Quote from "../components/Quote/Quote"
 import Collage from "../components/Collage/Collage"
+import Hero from "../components/hero"
 import Logos from "../components/Logos/Logos"
-import TripleImages from "../components/TripleImages/TripleImages"
-import Switch from "../components/Switch/Switch"
-
+import Quote from "../components/Quote/Quote"
+import React from "react"
 import Seo from 'gatsby-plugin-wpgraphql-seo';
-
+import Switch from "../components/Switch/Switch"
+import TripleImages from "../components/TripleImages/TripleImages"
+import { graphql } from "gatsby"
 
 const CampagneTemplate = (data) => {
   const blocks = data.data.wpPage.campagnePages.blocks;

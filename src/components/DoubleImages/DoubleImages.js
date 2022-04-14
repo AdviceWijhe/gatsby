@@ -1,7 +1,7 @@
-import React from "react"
-
 // Import CSS
 import "./DoubleImages.scss"
+
+import React from "react"
 
 const DoubleImages = props => {
   const images = props.images;

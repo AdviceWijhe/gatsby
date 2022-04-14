@@ -1,11 +1,11 @@
-import React from 'react'
-import CookieConsent, {Cookies} from "react-cookie-consent";
-import { useLocation } from "@reach/router" // this helps tracking the location
-import { initializeAndTrack } from 'gatsby-plugin-gdpr-cookies'
-import cookieImage from "../../images/cookie_rotated.png"
-
 import './CookieBanner.scss'
 
+import CookieConsent, {Cookies} from "react-cookie-consent";
+
+import React from 'react'
+import cookieImage from "../../images/cookie_rotated.png"
+import { initializeAndTrack } from 'gatsby-plugin-gdpr-cookies'
+import { useLocation } from "@reach/router" // this helps tracking the location
 
 const CookieBanner = () => {
   const location = useLocation()

@@ -1,15 +1,15 @@
-import React from "react"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
-import parse from "html-react-parser"
-import { Navigation, Pagination, Scrollbar, A11y, EffectFade, Keyboard } from "swiper"
-import { Swiper, SwiperSlide } from "swiper/react"
-import Letters from "./letters"
-
 import "swiper/css"
 import "swiper/css/pagination"
 import 'swiper/css/effect-fade';
 import "swiper/css/navigation"
 
+import { A11y, EffectFade, Keyboard, Navigation, Pagination, Scrollbar } from "swiper"
+import { Swiper, SwiperSlide } from "swiper/react"
+
+import AniLink from "gatsby-plugin-transition-link/AniLink"
+import Letters from "./letters"
+import React from "react"
+import parse from "html-react-parser"
 
 const HomeHero = props => {
 

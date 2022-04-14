@@ -1,14 +1,14 @@
-import React from "react"
-import { useState } from "react"
-import { useMenuQuery } from "../../hooks/useMenuQuery"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
-// import Navigation from "../Navigation/Navigation"
-import Logo from "../../images/logo.svg"
-import parse from "html-react-parser"
-
 // Import CSS
 import "./Header.scss"
+
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import FullMenu from "../FullMenu/FullMenu"
+// import Navigation from "../Navigation/Navigation"
+import Logo from "../../images/logo.svg"
+import React from "react"
+import parse from "html-react-parser"
+import { useMenuQuery } from "../../hooks/useMenuQuery"
+import { useState } from "react"
 
 const Header = ({ isHomePage, siteTitle }) => {
   const { wp } = useMenuQuery()

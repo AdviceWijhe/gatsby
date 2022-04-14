@@ -1,11 +1,12 @@
-import React from "react"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
-// import Navigation from "../Navigation/Navigation"
-
 // Import CSS
 import "./Diensten.scss"
 
+import AniLink from "gatsby-plugin-transition-link/AniLink"
+import React from "react"
 import { useDienstQuery } from "../../hooks/useDienstQuery"
+// import Navigation from "../Navigation/Navigation"
+
+
 
 
 const Diensten = (props) => {

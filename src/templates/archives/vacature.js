@@ -1,20 +1,15 @@
-import React, { useRef } from "react"
-import { GatsbyImage } from "gatsby-plugin-image"
-import useIntersection from "../../hooks/useIntersection"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
 import "../../css/components/content-vacature.scss"
+
+import React, { useRef } from "react"
+
+import AniLink from "gatsby-plugin-transition-link/AniLink"
+import useIntersection from "../../hooks/useIntersection"
+
 // import Navigation from "../Navigation/Navigation"
 
 const VacatureItem = props => {
   const ref = useRef() // Trigger as soon as the element becomes visible
   const inViewport = useIntersection(ref, "-50px") // Trigger if 200px is visible from the element
-
-
-  let image =
-    props.item.featuredImage?.node?.localFile?.childImageSharp
-      ?.gatsbyImageData
-
-  const diensten = props.item.postTypeVacatures.diensten
 
   return (
     <div

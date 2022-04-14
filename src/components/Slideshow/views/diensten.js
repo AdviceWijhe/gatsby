@@ -1,7 +1,9 @@
+import "./diensten.scss"
+
 import React from "react"
 import parse from "html-react-parser"
-import "./diensten.scss"
 import { useDienstQuery } from "../../../hooks/useDienstQuery"
+
 // import Navigation from "../Navigation/Navigation"
 
 const DienstItem = props => {

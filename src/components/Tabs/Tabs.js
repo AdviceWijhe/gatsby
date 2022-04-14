@@ -1,11 +1,14 @@
+// Import CSS
+import "./Tabs.scss"
+
 import React, { useState } from "react"
+
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import parse from "html-react-parser"
 import { useDienstQuery } from "../../hooks/useDienstQuery"
+
 // import Navigation from "../Navigation/Navigation"
 
-// Import CSS
-import "./Tabs.scss"
 
 const Tabs = props => {
   const { diensten } = useDienstQuery()
@@ -25,7 +28,7 @@ const Tabs = props => {
                 }
                 return (
                   post.wpParent == null ? (
-                    <div key={post.id} className={`Tabs__tabs--tab ${activeTab === post.id ? "active" : ""}`} data-id={post.id} onClick={() => {onClickTab(post.id);}}>
+                    <div key={post.id} className={`Tabs__tabs--tab ${activeTab === post.id ? "active" : ""}`} data-id={post.id} onClick={() => {onClickTab(post.id);}} onKeyDown={() => {console.log('goi')}} role="button">
                       <img src={`/icons/Pijltje_blue_Lang.svg`} className="arrow arrow-right arrow-small" alt="Pijl wit lang" />{post.title}
                     </div>
                   ) : null

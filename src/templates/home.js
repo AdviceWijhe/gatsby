@@ -1,12 +1,7 @@
-import React from "react"
-import { graphql } from "gatsby"
-import parse from "html-react-parser"
-import Slideshow from "../components/Slideshow/Slideshow"
+import CallToAction from "../components/CallToAction/CallToAction"
 import HomeHero from "../components/homeHero"
 import MarqueeSlide from "../components/Marquee/Marquee"
-import CallToAction from "../components/CallToAction/CallToAction"
-import { useCaseQuery } from "../hooks/useCaseQuery"
-import { useDienstQuery } from "../hooks/useDienstQuery"
+import React from "react"
 // We're using Gutenberg so we need the block styles
 // these are copied into this project due to a conflict in the postCSS
 // version used by the Gatsby and @wordpress packages that causes build
@@ -14,6 +9,11 @@ import { useDienstQuery } from "../hooks/useDienstQuery"
 // @todo update this once @wordpress upgrades their postcss version
 // import Seo from "../components/seo"
 import Seo from 'gatsby-plugin-wpgraphql-seo';
+import Slideshow from "../components/Slideshow/Slideshow"
+import { graphql } from "gatsby"
+import parse from "html-react-parser"
+import { useCaseQuery } from "../hooks/useCaseQuery"
+import { useDienstQuery } from "../hooks/useDienstQuery"
 
 const HomePageTemplate = ({ data: { post } }) => {
   const { cases } = useCaseQuery()

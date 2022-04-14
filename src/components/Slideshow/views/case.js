@@ -1,7 +1,9 @@
-import React from "react"
+import "./case.scss"
+
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { GatsbyImage } from "gatsby-plugin-image"
-import "./case.scss"
+import React from "react"
+
 // import Navigation from "../Navigation/Navigation"
 
 const CaseItem = props => {

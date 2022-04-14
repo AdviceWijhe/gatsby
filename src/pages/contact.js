@@ -1,8 +1,7 @@
-import React from "react"
-import { graphql } from "gatsby"
-
-import Seo from 'gatsby-plugin-wpgraphql-seo';
 import Hero from "../components/hero"
+import React from "react"
+import Seo from 'gatsby-plugin-wpgraphql-seo';
+import { graphql } from "gatsby"
 
 const ContactPage = ({ data: {post} }) => {
 
