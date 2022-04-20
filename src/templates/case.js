@@ -8,104 +8,18 @@ import "../css/@wordpress/block-library/build-style/theme.css"
 
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import CaseHero from "../components/caseHero"
-import Collage from "../components/Collage/Collage"
-import DoubleImages from "../components/DoubleImages/DoubleImages"
-import Image from "../components/Image/Image"
-import Quote from "../components/Quote/Quote"
 import React from "react"
 import Seo from 'gatsby-plugin-wpgraphql-seo';
-import TripleImages from "../components/TripleImages/TripleImages"
 import { graphql } from "gatsby"
 import parse from "html-react-parser"
+import Flexible from "../components/Flexible/Flexible"
 
 const CaseTemplate = ({ data: { previous, post, next  } }) => {
 
   const heroBlock = post.posttype_cases.blockHero
-  const blocks = post.posttype_cases.blocks
+  const blocks = post.flexible?.blocks
   const specialisme = post.posttype_cases.specialisme
 
-
-  const getBlock = (layout) => {
-    switch(layout.fieldGroupName) {
-    case "Case_PosttypeCases_Blocks_Collage":
-      return <Collage images={layout.collageimages} />
-
-    case "Case_PosttypeCases_Blocks_VideoOrImage":
-      if(layout.video) {
-      return (
-        <>
-      <section className="pb-0">
-        <div className="casePlayer">
-          <iframe src={layout.video} frameBorder="0" className={`caseFrame`} allow="autoplay" allowFullScreen title={post.title}></iframe>
-        </div>
-        <script src="https://player.vimeo.com/api/player.js"></script>
-        
-      </section>
-      <DoubleImages images={layout.otherImages} />
-      </>
-      )
-    }
-    return (
-      <>
-    <Image image={layout.image} />
-    <DoubleImages images={layout.otherImages} />
-    </>
-    )
-
-    case "Case_PosttypeCases_Blocks_Quote":
-      return <Quote letters={layout.content} />
-
-    case "Case_PosttypeCases_Blocks_OneColumnsContent":
-      return (
-        <section>
-        <div className={`lg:w-2/3`}>
-            <h3 className="text-2xl md:text-3xl font-bold mb-5">{layout.title}</h3>
-          {layout.content &&
-            
-            parse(layout.content)
-            
-         }
-        </div>
-      </section>
-      )
-
-    case "Case_PosttypeCases_Blocks_TwoColumnsContent":
-      return (
-      <section>
-         <div className="grid grid-cols-1 lg:grid-cols-2">
-           <div className="grid-1 pr-10">
-              <div className="grid__title">
-                <h2 className="mt-0">{layout?.column1.title}</h2>
-              </div>
-              <div className="grid__content">
-                {parse(layout?.column1.content)}
-              </div>
-           </div>
-           <div className="grid-2">
-               <div className="grid__title">
-                 {layout.column2.title &&
-                <h2 className="mt-0">{layout.column2.title}</h2>
-                 }
-              </div>
-              <div className="grid__content">
-                {layout.column2.content &&
-                parse(layout.column2.content)
-                }
-              </div>
-           </div>
-         </div>
-      </section>
-      )
-
-    case "Case_PosttypeCases_Blocks_TripleImages":
-      return <TripleImages images={layout.images} />
-      
-      
-    default:
-      return false
-  }
-
-  }
 
   return (
     <>
@@ -126,10 +40,10 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
         }
       </section>
 
-      { blocks &&
-        blocks.map(post => {
-          return getBlock(post)}
-         )
+    { blocks &&
+            blocks.map(post => {
+              return <Flexible data={post} posttype="Case"/>}
+            )
       }
 
 
@@ -204,33 +118,9 @@ export const pageQuery = graphql`
                     raw
                 }
             }
-      posttype_cases {
-        blockHero {
-          title
-          subtitle
-          content
-          image {
-            altText
-            localFile {
-              childImageSharp {
-                gatsbyImageData (
-                  quality: 100
-                  placeholder: TRACED_SVG
-                  layout: FULL_WIDTH
-                )
-              }
-            }
-          }
-        }
-        specialisme {
-          ... on WpDienst {
-            id
-            title
-            uri
-          }
-        }
+      flexible {
         blocks {
-          ... on WpCase_PosttypeCases_Blocks_Collage {
+          ... on WpCase_Flexible_Blocks_Collage {
             fieldGroupName
             collageimages {
               altText
@@ -246,7 +136,7 @@ export const pageQuery = graphql`
               }
             }
           }
-          ... on WpCase_PosttypeCases_Blocks_VideoOrImage {
+          ... on WpCase_Flexible_Blocks_VideoOrImage {
             fieldGroupName
             video
             image {
@@ -274,16 +164,16 @@ export const pageQuery = graphql`
               }
             }
           }
-          ... on WpCase_PosttypeCases_Blocks_Quote {
+          ... on WpCase_Flexible_Blocks_Quote {
             content
             fieldGroupName
           }
-          ... on WpCase_PosttypeCases_Blocks_OneColumnsContent {
+          ... on WpCase_Flexible_Blocks_OneColumnsContent {
             content
             fieldGroupName
             title
           }
-          ... on WpCase_PosttypeCases_Blocks_TwoColumnsContent {
+          ... on WpCase_Flexible_Blocks_TwoColumnsContent {
             column1 {
               content
               title
@@ -294,7 +184,7 @@ export const pageQuery = graphql`
               title
             }
           }
-          ... on WpCase_PosttypeCases_Blocks_TripleImages {
+          ... on WpCase_Flexible_Blocks_TripleImages {
             fieldGroupName
             images {
               altText
@@ -302,6 +192,32 @@ export const pageQuery = graphql`
                 url
               }
             }
+          }
+        }
+      }
+      posttype_cases {
+        blockHero {
+          title
+          subtitle
+          content
+          image {
+            altText
+            localFile {
+              childImageSharp {
+                gatsbyImageData (
+                  quality: 100
+                  placeholder: TRACED_SVG
+                  layout: FULL_WIDTH
+                )
+              }
+            }
+          }
+        }
+        specialisme {
+          ... on WpDienst {
+            id
+            title
+            uri
           }
         }
       }

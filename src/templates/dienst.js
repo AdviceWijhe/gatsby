@@ -13,10 +13,12 @@ import Seo from 'gatsby-plugin-wpgraphql-seo';
 import { graphql } from "gatsby"
 import parse from "html-react-parser"
 import { useDienstQuery } from "../hooks/useDienstQuery"
+import Flexible from "../components/Flexible/Flexible"
 
 const DienstTemplate = ({ data: { previous, post, next  } }) => {
 
   const heroBlock = post?.posttype_diensten?.blockHero
+  const blocks = post.flexible?.blocks
   const { diensten } = useDienstQuery()
 
     function getHero() {
@@ -49,6 +51,12 @@ const DienstTemplate = ({ data: { previous, post, next  } }) => {
             </div>
 
       </section>
+
+      { blocks &&
+            blocks.map(post => {
+              return <Flexible data={post} posttype="Dienst" />}
+            )
+      }
 
  <section className={`moreDiensten`}>
         <p className="text-secondary"><b>Vond je dit interessant?</b> Bekijk onze andere diensten.</p>
@@ -128,6 +136,83 @@ export const pageQuery = graphql`
                     pageType
                     raw
                 }
+            }
+            flexible {
+              blocks {
+                ... on WpDienst_Flexible_Blocks_Collage {
+                  fieldGroupName
+                  collageimages {
+                    altText
+                    localFile {
+                      
+                      childImageSharp {
+                        gatsbyImageData(
+                        quality: 100
+                        placeholder: TRACED_SVG
+                        layout: FULL_WIDTH
+                      )
+                      }
+                    }
+                  }
+                }
+                ... on WpDienst_Flexible_Blocks_VideoOrImage {
+                  fieldGroupName
+                  video
+                  image {
+                    altText
+                    localFile {
+                      childImageSharp {
+                        gatsbyImageData(
+                        quality: 100
+                        placeholder: TRACED_SVG
+                        layout: FULL_WIDTH
+                      )
+                      }
+                    }
+                  }
+                  otherImages {
+                    altText
+                    localFile {
+                      childImageSharp {
+                        gatsbyImageData(
+                        quality: 100
+                        placeholder: TRACED_SVG
+                        layout: FULL_WIDTH
+                      )
+                      }
+                    }
+                  }
+                }
+                ... on WpDienst_Flexible_Blocks_Quote {
+                  content
+                  fieldGroupName
+                }
+                ... on WpDienst_Flexible_Blocks_OneColumnsContent {
+                  content
+                  fieldGroupName
+                  title
+                }
+                ... on WpDienst_Flexible_Blocks_TwoColumnsContent {
+                  column1 {
+                    content
+                    title
+                  }
+                  fieldGroupName
+                  column2 {
+                    content
+                    title
+                  }
+                }
+                ... on WpDienst_Flexible_Blocks_TripleImages {
+                  fieldGroupName
+                  images {
+                    altText
+                    localFile {
+                      url
+                    }
+                  }
+                }
+              }
             }
       posttype_diensten {
         blockHero {
