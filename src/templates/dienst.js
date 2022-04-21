@@ -7,19 +7,20 @@ import "../css/@wordpress/block-library/build-style/style.css"
 import "../css/@wordpress/block-library/build-style/theme.css"
 
 import AniLink from "gatsby-plugin-transition-link/AniLink"
+import Flexible from "../components/Flexible/Flexible"
 import Hero from "../components/hero"
 import React from "react"
 import Seo from 'gatsby-plugin-wpgraphql-seo';
 import { graphql } from "gatsby"
 import parse from "html-react-parser"
 import { useDienstQuery } from "../hooks/useDienstQuery"
-import Flexible from "../components/Flexible/Flexible"
 
 const DienstTemplate = ({ data: { previous, post, next  } }) => {
 
   const heroBlock = post?.posttype_diensten?.blockHero
   const blocks = post.flexible?.blocks
   const { diensten } = useDienstQuery()
+
 
     function getHero() {
       if(heroBlock) {
@@ -31,6 +32,23 @@ const DienstTemplate = ({ data: { previous, post, next  } }) => {
       layout="noSlideshow single"
       />
       }
+    }
+
+    function hasSubDienst() {
+      let hasSub = false;
+      
+      diensten.nodes.map(dienst => {
+        if(dienst.wpParent?.node.id === post.id) {
+
+          hasSub = true;
+        }
+      })
+
+      if(hasSub) {
+        return  <p className="text-secondary"><b>Vond je dit interessant?</b> Bekijk onze andere diensten.</p>
+      }
+
+      return <AniLink paintDrip to={post.wpParent.node.uri} className={`flex items-center w-full`}><img src={`/icons/Pijltje_blue_Lang.svg`} className="arrow arrow-small mr-2" alt="Pijl blauw" /> Terug naar {post.wpParent.node.title}</AniLink>
     }
 
   return (
@@ -61,13 +79,18 @@ const DienstTemplate = ({ data: { previous, post, next  } }) => {
       }
 
  <section className={`moreDiensten`}>
-        <p className="text-secondary"><b>Vond je dit interessant?</b> Bekijk onze andere diensten.</p>
+        { hasSubDienst() }
         {diensten &&
           diensten.nodes.map(dienst => {
-            if(dienst.wpParent != null) {
+            console.log(dienst)
+            if(dienst.wpParent == null) {
               return false;
             }
+          
             if(dienst.id === post.id ) {
+              return false;
+            }
+            if(dienst.wpParent.node.id !== post.id) {
               return false;
             }
             return (
@@ -92,6 +115,15 @@ export const pageQuery = graphql`
   ) {
     post: wpDienst(id: { eq: $id }) {
       id
+      wpParent {
+        node {
+          uri
+          slug
+          ... on WpDienst {
+            title
+          }
+        }
+      }
       excerpt
       content
       title
