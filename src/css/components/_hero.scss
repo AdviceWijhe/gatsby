@@ -192,13 +192,17 @@
     }
   }
 
-  // &.homepage {
-  //   .hero__content {
-  //     @media (min-width: $breakpoint-desktop) {
-  //       max-width: 50%;
-  //     }
-  //   }
-  // }
+  &.homepage {
+    .hero__MainTitle {
+      display: none;
+      opacity: 0;
+
+      &.active {
+        display: block;
+        opacity: 1;
+      }
+    }
+  }
 
   &.single {
     .hero__description {

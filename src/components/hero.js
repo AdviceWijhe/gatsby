@@ -41,16 +41,16 @@ const Hero = props => {
         </div>
 
         {props.image && (
-          <InViewMonitor
-                classNameNotInView='vis-hidden'
-                classNameInView='animate__animated animate__fadeInUp'
-              >
+          // <InViewMonitor
+          //       classNameNotInView='vis-hidden'
+          //       classNameInView='animate__animated animate__fadeInUp'
+          //     >
         <GatsbyImage
           image={props.image}
           alt="image"
           className="hero__image"
         />
-        </InViewMonitor>
+        // </InViewMonitor>
         )}
 
           {props.slideshow && (

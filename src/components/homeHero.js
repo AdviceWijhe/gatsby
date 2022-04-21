@@ -27,10 +27,19 @@ var rand = Math.floor(Math.random() * 100)
     <section className={`hero ${props.layout} py-0`}>
       <div className="container mx-auto flex flex-wrap justify-between">
         <div className="hero__content lg:w-2/4">
-          <h4 className="text-xl md:text-2xl font-medium text-secondary mb-3">
+          <h4 className="text-xl hero__title md:text-2xl font-medium text-secondary mb-3">
             {props.subtitle}
           </h4>
-          <h1 className="text-3xl sm:text-3xl md:text-6xl xl:text-6xl font-extrabold mb-10">
+          <h1 className="text-3xl hero__MainTitle active sm:text-3xl md:text-6xl xl:text-6xl font-extrabold mb-10" title-count="1">
+            {parse(props.title)}
+          </h1>
+          <h1 className="text-3xl hero__MainTitle sm:text-3xl md:text-6xl xl:text-6xl font-extrabold mb-10" title-count="2">
+            {parse(props.title)}
+          </h1>
+          <h1 className="text-3xl hero__MainTitle sm:text-3xl md:text-6xl xl:text-6xl font-extrabold mb-10" title-count="3">
+            {parse(props.title)}
+          </h1>
+          <h1 className="text-3xl hero__MainTitle sm:text-3xl md:text-6xl xl:text-6xl font-extrabold mb-10" title-count="4">
             {parse(props.title)}
           </h1>
         </div>
@@ -61,6 +70,15 @@ var rand = Math.floor(Math.random() * 100)
           onSlideChange={(swiper) => {
             const pageNumberEl = document.querySelector('.pageNumber');
             const pageNumber = swiper.activeIndex + 1;
+            const heroTitels = document.querySelectorAll('.hero__MainTitle');
+
+           for(let i = 0; i < heroTitels.length; i++) {
+              heroTitels[i].classList.remove('active');
+
+              if(heroTitels[i].getAttribute('title-count') == pageNumber) {
+                heroTitels[i].classList.add('active');
+              }
+            }
 
             pageNumberEl.innerHTML = pageNumber;
           }}
