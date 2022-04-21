@@ -1,6 +1,7 @@
 import Collage from "../components/Collage/Collage"
 import Hero from "../components/hero"
 import Logos from "../components/Logos/Logos"
+import MarqueeSlide from "../components/Marquee/Marquee"
 import Quote from "../components/Quote/Quote"
 import React from "react"
 import Seo from 'gatsby-plugin-wpgraphql-seo';
@@ -36,6 +37,8 @@ const CampagneTemplate = (data) => {
       return <Logos images={layout.logos} title={layout.title} content={layout.content}></Logos>
     case "Page_Campagnepages_Blocks_TripleImages":
       return <TripleImages images={layout.images}></TripleImages>
+    case "Page_Campagnepages_Blocks_Marquee":
+      return <MarqueeSlide text={layout.text} />
     default:
       return false
   }
@@ -155,6 +158,10 @@ query campaignById(
             altText
             }
         }
+        ... on WpPage_Campagnepages_Blocks_Marquee {
+            fieldGroupName
+            text
+          }
           }
         }
               title
