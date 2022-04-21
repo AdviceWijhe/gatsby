@@ -40,17 +40,19 @@ const DienstTemplate = ({ data: { previous, post, next  } }) => {
         {getHero()}
 
 
+        {post.content &&
           <section className="wrapper  mt-14">
             <div className="grid grid-cols-1 lg:grid-cols-2">
-              {post.content &&
+              
                 <div className="pageContent lg:pr-10">{parse(post.content)}</div>
-              }
+              
               {post.posttype_diensten.kolom2 &&
                 <div className="pageContent">{parse(post.posttype_diensten.kolom2)}</div>
               }
             </div>
 
       </section>
+      }
 
       { blocks &&
             blocks.map(post => {
