@@ -26,21 +26,21 @@ var rand = Math.floor(Math.random() * 100)
   return (
     <section className={`hero ${props.layout} py-0`}>
       <div className="container mx-auto flex flex-wrap justify-between">
-        <div className="hero__content w-full lg:w-2/4 xl:w-2/4 2xl:w-1/3">
+        <div className="hero__content w-full lg:w-2/4 xl:w-2/4 2xl:w-2/4">
           <h4 className="text-xl hero__title md:text-2xl font-medium text-secondary mb-3">
             {props.subtitle}
           </h4>
-          <h1 className="text-3xl hero__MainTitle active sm:text-3xl md:text-6xl xl:text-6xl font-extrabold mb-10" title-count="1">
-            Hoe creëer je een sterker merk in de markt?
+          <h1 className="text-3xl hero__MainTitle active sm:text-3xl md:text-6xl xl:text-6xl font-black mb-10" title-count="1">
+            Hoe creëer je <br/> een sterker merk<br /> in de markt?
           </h1>
-          <h1 className="text-3xl hero__MainTitle sm:text-3xl md:text-6xl xl:text-6xl font-extrabold mb-10" title-count="2">
-            Hoe zet jij jouw merk in de spotlights? 
+          <h1 className="text-3xl hero__MainTitle sm:text-3xl md:text-6xl xl:text-6xl font-black mb-10" title-count="2">
+            Hoe zet je <br />jouw merk in <br />de spotlights? 
           </h1>
-          <h1 className="text-3xl hero__MainTitle sm:text-3xl md:text-6xl xl:text-6xl font-extrabold mb-10" title-count="3">
+          <h1 className="text-3xl hero__MainTitle sm:text-3xl md:text-6xl xl:text-6xl font-black mb-10" title-count="3">
             {parse(props.title)}
           </h1>
-          <h1 className="text-3xl hero__MainTitle sm:text-3xl md:text-6xl xl:text-6xl font-extrabold mb-10" title-count="4">
-            Hoe creëer jij online impact?
+          <h1 className="text-3xl hero__MainTitle sm:text-3xl md:text-6xl xl:text-6xl font-black mb-10" title-count="4">
+            Hoe creëer jij<br/> online impact?
           </h1>
         </div>
 
