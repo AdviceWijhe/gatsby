@@ -18,7 +18,7 @@ import { useDienstQuery } from "../hooks/useDienstQuery"
 const DienstTemplate = ({ data: { previous, post, next  } }) => {
 
   const heroBlock = post?.posttype_diensten?.blockHero
-  const blocks = post.flexible?.blocks
+  const blocks = post.flexible?.flexibleblocks
   const { diensten } = useDienstQuery()
 
 
@@ -172,8 +172,8 @@ export const pageQuery = graphql`
                 }
             }
             flexible {
-              blocks {
-                ... on WpDienst_Flexible_Blocks_Collage {
+              flexibleblocks {
+                ... on WpDienst_Flexible_Flexibleblocks_Collage {
                   fieldGroupName
                   collageimages {
                     altText
@@ -189,7 +189,7 @@ export const pageQuery = graphql`
                     }
                   }
                 }
-                ... on WpDienst_Flexible_Blocks_VideoOrImage {
+                ... on WpDienst_Flexible_Flexibleblocks_VideoOrImage {
                   fieldGroupName
                   video
                   image {
@@ -217,16 +217,16 @@ export const pageQuery = graphql`
                     }
                   }
                 }
-                ... on WpDienst_Flexible_Blocks_Quote {
+                ... on WpDienst_Flexible_Flexibleblocks_Quote {
                   content
                   fieldGroupName
                 }
-                ... on WpDienst_Flexible_Blocks_OneColumnsContent {
+                ... on WpDienst_Flexible_Flexibleblocks_OneColumnsContent {
                   content
                   fieldGroupName
                   title
                 }
-                ... on WpDienst_Flexible_Blocks_TwoColumnsContent {
+                ... on WpDienst_Flexible_Flexibleblocks_TwoColumnsContent {
                   column1 {
                     content
                     title
@@ -237,7 +237,7 @@ export const pageQuery = graphql`
                     title
                   }
                 }
-                ... on WpDienst_Flexible_Blocks_TripleImages {
+                ... on WpDienst_Flexible_Flexibleblocks_TripleImages {
                   fieldGroupName
                   images {
                     altText
