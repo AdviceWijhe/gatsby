@@ -1,0 +1,12 @@
+@import "../../css/globals/variables";
+
+.TekstWithVideo {
+  video {
+    margin-bottom: 2rem;
+
+    @media (min-width: $breakpoint-laptop) {
+      max-width: 500px;
+      margin-bottom: 0;
+    }
+  }
+}

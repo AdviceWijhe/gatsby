@@ -113,7 +113,7 @@ module.exports = {
         short_name: `Advice`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#e7000e`,
+        theme_color: `#ffffff`,
         display: `minimal-ui`,
         icon: `content/assets/favicon.jpeg`,
       },

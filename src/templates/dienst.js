@@ -246,6 +246,14 @@ export const pageQuery = graphql`
                     }
                   }
                 }
+                ... on WpDienst_Flexible_Flexibleblocks_Tekstwithimage {
+                  content
+                  fieldGroupName
+                  titel
+                  movie {
+                    mediaItemUrl
+                  }
+                }
               }
             }
       posttype_diensten {
