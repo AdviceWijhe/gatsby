@@ -26,7 +26,7 @@ var rand = Math.floor(Math.random() * 100)
   return (
     <section className={`hero ${props.layout} py-0`}>
       <div className="container mx-auto flex flex-wrap justify-between">
-        <div className="hero__content lg:w-2/4 xl:w-1/3">
+        <div className="hero__content w-full lg:w-2/4 xl:w-1/3">
           <h4 className="text-xl hero__title md:text-2xl font-medium text-secondary mb-3">
             {props.subtitle}
           </h4>

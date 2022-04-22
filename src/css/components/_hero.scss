@@ -208,8 +208,12 @@
     }
 
     .hero__content {
-      min-height: 300px;
+      min-height: 210px;
       position: relative;
+
+      @media (min-width: $breakpoint-laptop) {
+        min-height: 300px;
+      }
     }
   }
 
