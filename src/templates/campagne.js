@@ -107,7 +107,11 @@ query campaignById(
               image {
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(
+                      quality: 100
+                      placeholder: TRACED_SVG
+                      layout: FULL_WIDTH
+                    )
                   }
                 }
               }

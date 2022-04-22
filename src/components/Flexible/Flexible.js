@@ -8,6 +8,7 @@ import InViewMonitor from "react-inview-monitor"
 import OneColumnsContent from "../OneColumnsContent/OneColumnsContent"
 import Quote from "../Quote/Quote"
 import React from "react"
+import TekstWithVideo from "../TekstWithVideo/TekstWithVideo"
 import TripleImages from "../TripleImages/TripleImages"
 import TwoColumnsContent from "../TwoColumnsContent/TwoColumnsContent"
 import parse from "html-react-parser"
@@ -61,6 +62,9 @@ const Flexible = props => {
 
     case posttype + "_Flexible_Flexibleblocks_TripleImages":
       return <TripleImages images={layout.images} />
+      
+    case posttype + "_Flexible_Flexibleblocks_Tekstwithimage":
+      return <TekstWithVideo video={layout.movie} content={layout.content} titel={layout.titel} />
       
       
     default:
