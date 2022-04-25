@@ -48,7 +48,7 @@ const DienstTemplate = ({ data: { previous, post, next  } }) => {
         return  <p className="text-secondary"><b>Vond je dit interessant?</b> Bekijk onze andere diensten.</p>
       }
 
-      return <AniLink paintDrip to={post.wpParent.node.uri} className={`flex items-center w-full`}><img src={`/icons/Pijltje_blue_Lang.svg`} className="arrow arrow-small mr-2" alt="Pijl blauw" /> Terug naar {post.wpParent.node.title}</AniLink>
+      return <AniLink cover bg="#00f" duration={2} to={post.wpParent.node.uri} className={`flex items-center w-full`}><img src={`/icons/Pijltje_blue_Lang.svg`} className="arrow arrow-small mr-2" alt="Pijl blauw" /> Terug naar {post.wpParent.node.title}</AniLink>
     }
 
   return (
@@ -95,7 +95,7 @@ const DienstTemplate = ({ data: { previous, post, next  } }) => {
             }
             return (
             <div key={dienst.title} className={``}>
-              <h2><AniLink paintDrip className="text-outlined" to={dienst.uri}>{dienst.title}</AniLink></h2>
+              <h2><AniLink cover bg="#00f" duration={2} className="text-outlined" to={dienst.uri}>{dienst.title}</AniLink></h2>
             </div>
             )
           })}

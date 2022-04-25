@@ -11,7 +11,12 @@ const FullMenu = (props) => {
   var { topMenu } = useTopMenuQuery()
 
   return (
-    <section className={`fullMenu bg-primary ${props.toggle} py-0`}>
+    <section className={`fullMenu ${props.toggle} py-0`}>
+      <div className={`fullMenu__backgrounds`}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
       <div className="container">
         <Navigation
           menu={wpMenu.menuItems.nodes}

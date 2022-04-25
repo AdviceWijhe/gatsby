@@ -59,7 +59,7 @@ const Tabs = props => {
                         })}{" "}
                       </ul>
 
-                      <AniLink to={post.uri}>
+                      <AniLink cover bg="#00f" duration={2} to={post.uri}>
                         <div className={`triangle triangle-bottom triangle-small`}><img src={`/icons/Pijltje_white_Lang.svg`} className="arrow arrow-small" alt="Pijl wit lang" /></div>
                       </AniLink>
                     </div>

@@ -36,7 +36,7 @@ const Header = ({ isHomePage, siteTitle }) => {
           {isHomePage ? (
             <img src={Logo} alt={wp.generalSettings.title} />
           ) : (
-            <AniLink paintDrip className="header-link-home" to="/">
+            <AniLink cover bg="#00f" duration={2} className="header-link-home" to="/">
               <img src={Logo} alt={wp.generalSettings.title} />
             </AniLink>
           )}

@@ -118,7 +118,7 @@ var rand = Math.floor(Math.random() * 100)
                       <div className="hero__slideshow__item--excerpt font-light relative">
                         {parse(post.excerpt)}
                       </div>
-                      <AniLink paintDrip to={post.uri} className="mt-12 text-white font-medium relative btn btn-link">
+                      <AniLink cover bg="#00f" duration={2} to={post.uri} className="mt-12 text-white font-medium relative btn btn-link">
                         Lees meer
                       </AniLink>
                       </div>
