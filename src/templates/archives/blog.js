@@ -26,7 +26,7 @@ const BlogItem = props => {
         <div className="block"></div>
         <div className="blogItem__image relative">
         <GatsbyImage image={image} alt="image" />
-                  <AniLink paintDrip to={props.item.uri} className={`triangle triangle-rotated`}><img src={`/icons/Pijltje_white_Lang.svg`} className="arrow arrow-small" alt="Pijl wit lang" /></AniLink>
+                  <AniLink cover bg="#00f" duration={2} to={props.item.uri} className={`triangle triangle-rotated`}><img src={`/icons/Pijltje_white_Lang.svg`} className="arrow arrow-small" alt="Pijl wit lang" /></AniLink>
         </div>
         <div className="blogItem--inner__content relative">
           <div className="blogItem--inner__content--title w-3/4 mt-5">

@@ -55,11 +55,11 @@ const VacatureIndex = ({
       </section>
       {previousPagePath && (
         <>
-          <AniLink to={previousPagePath}>Previous page</AniLink>
+          <AniLink cover bg="#00f" duration={2} to={previousPagePath}>Previous page</AniLink>
           <br />
         </>
       )}
-      {nextPagePath && <AniLink to={nextPagePath}>Next page</AniLink>}
+      {nextPagePath && <AniLink cover bg="#00f" duration={2} to={nextPagePath}>Next page</AniLink>}
     </>
   )
 }

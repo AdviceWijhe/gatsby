@@ -21,7 +21,7 @@ const Slideshow = props => {
     if (props.layout === "KernItem") {
       return <div className="triangle triangle-arrow triangle-bottom"><img src={`/icons/Pijltje_white_Lang.svg`} className="arrow" alt="Pijl wit lang" /></div>
     } else if (props.layout === "DienstItem") {
-      return <div className="triangle triangle-arrow triangle-bottom"><AniLink to="/diensten"><img src={`/icons/Pijltje_white_Lang.svg`} className="arrow" alt="Pijl wit lang" /></AniLink></div>
+      return <div className="triangle triangle-arrow triangle-bottom"><AniLink cover bg="#00f" duration={2} to="/diensten"><img src={`/icons/Pijltje_white_Lang.svg`} className="arrow" alt="Pijl wit lang" /></AniLink></div>
     }
   }
 

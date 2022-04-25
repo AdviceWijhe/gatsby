@@ -28,7 +28,7 @@ const VacatureItem = props => {
         </div> */}
         <div className="vacatureItem--inner__content lg:w-3/4">
           <div className="vacatureItem--inner__content--title lg:mt-5">
-            <h2 className={`text-3xl lg:text-5xl font-weight-bold text-outlined`}><AniLink paintDrip to={props.item.uri}>{props.item.title}</AniLink></h2>
+            <h2 className={`text-3xl lg:text-5xl font-weight-bold text-outlined`}><AniLink cover bg="#00f" duration={2} to={props.item.uri}>{props.item.title}</AniLink></h2>
 
             {/* <ul className={`vacatureItem__diensten`}>
               {diensten.map(post => {

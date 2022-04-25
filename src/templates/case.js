@@ -48,10 +48,10 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
 
 
 <section className="navigation flex justify-between w-full">
-    <AniLink paintDrip to="/cases" className={`flex items-center w-full`}><img src={`/icons/Pijltje_blue_Lang.svg`} className="arrow arrow-small mr-2" alt="Pijl blauw" /> Terug naar overzicht</AniLink>
+    <AniLink cover bg="#00f" duration={2} to="/cases" className={`flex items-center w-full`}><img src={`/icons/Pijltje_blue_Lang.svg`} className="arrow arrow-small mr-2" alt="Pijl blauw" /> Terug naar overzicht</AniLink>
 
     {next && (
-      <AniLink paintDrip to={next.uri} rel="next" className={`flex w-full justify-end`}>
+      <AniLink cover bg="#00f" duration={2} to={next.uri} rel="next" className={`flex w-full justify-end`}>
         Volgende case <img src={`/icons/Pijltje_blue_Lang.svg`} className="arrow arrow-small arrow-right ml-2" alt="Pijl blauw" />
       </AniLink>
     )}

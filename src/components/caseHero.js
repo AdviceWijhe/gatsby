@@ -47,7 +47,7 @@ const CaseHero = props => {
                             {props.specialisme &&
                               props.specialisme.map(post => {
                                 return (
-                                  <li key={post.id} className={`specialisme__item`}><AniLink to={post.uri}>{post.title}</AniLink></li>
+                                  <li key={post.id} className={`specialisme__item`}><AniLink cover bg="#00f" duration={2} to={post.uri}>{post.title}</AniLink></li>
                                 )
                               })
                             }
