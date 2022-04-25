@@ -3,12 +3,13 @@ import { graphql, useStaticQuery } from "gatsby"
 import CookieBanner from "./CookieBanner/CookieBanner";
 import Footer from "./Footer/Footer"
 import Header from "./Header/Header"
+import Popup from "./Popup/Popup";
 import React from "react"
 import { SEOContext } from 'gatsby-plugin-wpgraphql-seo';
 
 const Layout = ({ isHomePage, children } ) => {
 
-  const { siteInfo, wp: { seo } } = useStaticQuery(graphql`
+  const { siteInfo, wp: { seo, themeGeneralSettings } } = useStaticQuery(graphql`
     query LayoutQuery {
       wp {
         generalSettings {
@@ -93,12 +94,16 @@ const Layout = ({ isHomePage, children } ) => {
             linkedin {
               url
             }
+            adres
+            postcode
+            email
+            telefoon
           }
         }
       }
     }
   `)
-  console.log(children);
+  console.log(themeGeneralSettings);
   return (
     <SEOContext.Provider value={{ global: seo }}>
     <main>
@@ -126,6 +131,7 @@ const Layout = ({ isHomePage, children } ) => {
       <CookieBanner />
     </div>
     </main>
+    <Popup data={themeGeneralSettings} />
     </SEOContext.Provider>
   )
 }

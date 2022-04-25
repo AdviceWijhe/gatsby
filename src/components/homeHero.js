@@ -37,10 +37,10 @@ var rand = Math.floor(Math.random() * 100)
             Hoe zet je <br />jouw merk in <br />de spotlights? 
           </h1>
           <h1 className="text-3xl hero__MainTitle sm:text-3xl md:text-6xl xl:text-6xl font-black mb-10" title-count="3">
-            {parse(props.title)}
+            Hoe creëer<br /> jij het optimale <br /> resultaat online?
           </h1>
           <h1 className="text-3xl hero__MainTitle sm:text-3xl md:text-6xl xl:text-6xl font-black mb-10" title-count="4">
-            Hoe creëer jij<br/> online impact?
+            Hoe creëer jij<br/> online impact <br />met jouw merk?
           </h1>
         </div>
 
