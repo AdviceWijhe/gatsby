@@ -93,7 +93,7 @@ var rand = Math.floor(Math.random() * 100)
             pageNumberEl.innerHTML = pageNumber;
           }}
         >
-            <div className="swiper__controls flex items-center justify-between w-full lg:w-1/3">
+            <div className="swiper__controls flex items-center justify-between w-full xl:w-1/3">
               <div className="swiper__navigation flex">
                 <div className="prev"><i className="fal fa-arrow-left"></i></div>
                 <div className="next"><i className="fal fa-arrow-right"></i></div>
@@ -110,7 +110,7 @@ var rand = Math.floor(Math.random() * 100)
                       <div className="image xl:w-2/3" style={{backgroundImage: `url(${post.featuredImage.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src})`}}>
                         
                       </div>
-                      <div className="content xl:w-1/3 bg-primary p-8 lg:p-12 pt-20 lg:pt-16 text-white flex items-center">
+                      <div className="content xl:w-1/3 bg-primary p-8 lg:p-12 pt-20 lg:pt-24 text-white flex items-center">
                         <div className="content__inner" >
                          <h2 className="hero__slideshow__item--title text-2xl lg:text-3xl font-bold relative">
                         {title}
@@ -118,7 +118,7 @@ var rand = Math.floor(Math.random() * 100)
                       <div className="hero__slideshow__item--excerpt font-light relative">
                         {parse(post.excerpt)}
                       </div>
-                      <AniLink cover bg="#00f" duration={2} to={post.uri} className="mt-12 text-white font-medium relative btn btn-link">
+                      <AniLink cover bg="#00f" duration={2} to={post.uri} className="mt-10 text-white font-medium relative btn btn-link">
                         Lees meer
                       </AniLink>
                       </div>
