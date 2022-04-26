@@ -43,12 +43,12 @@
       left: 0;
       padding: 0 2rem;
 
-      @media (min-width: $breakpoint-tablet) {
-        padding: 0 3rem;
+      @media (min-width: $breakpoint-laptop) {
         top: 300px;
+        padding: 0 3rem;
       }
 
-      @media (min-width: $breakpoint-laptop) {
+      @media (min-width: $breakpoint-desktop) {
         left: 66.6666%;
         padding: 0 3rem;
         top: 4rem;
