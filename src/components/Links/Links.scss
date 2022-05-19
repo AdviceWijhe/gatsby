@@ -1,1 +1,17 @@
 @import "../../css/globals/variables";
+
+.subLink {
+  &__list {
+    flex-wrap: wrap;
+    li {
+      padding: 0 5px;
+      &::before {
+        display: none;
+      }
+
+      a {
+        color: $color-primary;
+      }
+    }
+  }
+}
