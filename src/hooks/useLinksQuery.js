@@ -15,6 +15,17 @@ export const useLinksQuery = () => {
               slug
             }
           }
+          postTypeLinks {
+            url {
+              url
+            }
+            subLinks {
+              link {
+                title
+                url
+              }
+            }
+          }
           wpParent {
             node {
               id
@@ -31,7 +42,7 @@ export const useLinksQuery = () => {
           }
         }
       }
-      allWpCategory {
+      allWpCategory(filter: {id: {nin: "dGVybTox"}}) {
         nodes {
           id
           name
