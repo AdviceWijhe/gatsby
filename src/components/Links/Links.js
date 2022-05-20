@@ -15,16 +15,10 @@ const Links = props => {
   return (
     <section className="Links">
 
-      {data.allWpCategory.nodes &&
-            data.allWpCategory.nodes.map(post => {
-              return (
-                post.count ? (
-                  <div>
-                    <h3 className={`text-3xl font-bold text-outlined`}>{parse(post.name)}</h3>
+     
                   {data.links.nodes &&
                   data.links.nodes.map(link => {
                     return (
-                      link.categories.nodes[0].id == post.id ? (
                       <div className={`mb-4`}>
                         <a href={link.postTypeLinks.url.url} className={`text-xl font-bold`}>{parse(link.title)}</a>
                         <ul className={`subLink__list flex`}>
@@ -37,15 +31,9 @@ const Links = props => {
                           }
                         </ul>
                       </div>
-                      ) : null
                     )
                   })
                 }
-                </div>
-                  
-                ) : null
-              )
-            })}{" "}
 
     </section>
   )
