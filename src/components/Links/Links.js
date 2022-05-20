@@ -19,7 +19,7 @@ const Links = props => {
                   {data.links.nodes &&
                   data.links.nodes.map(link => {
                     return (
-                      <div className={`mb-4`}>
+                      <div className={`mb-2`}>
                         <a href={link.postTypeLinks.url.url} className={`text-lg`}>{parse(link.title)}</a>
                         <ul className={`subLink__list flex`}>
                           {link.postTypeLinks.subLinks &&
