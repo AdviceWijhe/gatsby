@@ -3,8 +3,12 @@
 .subLink {
   &__list {
     flex-wrap: wrap;
+    flex-direction: column;
+    padding-left: 10px !important;
+    list-style-type: none;
+    padding-inline-start: 0;
     li {
-      padding: 0 5px;
+      line-height: 1.4;
       &::before {
         display: none;
       }

@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 export const useLinksQuery = () => {
   const data = useStaticQuery(graphql`
     query linksQuery {
-      links: allWpLink(sort: {order: ASC, fields: date}) {
+      links: allWpLink(sort: {order: DESC, fields: date}) {
         nodes {
           title
           uri
