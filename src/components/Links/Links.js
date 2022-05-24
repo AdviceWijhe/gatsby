@@ -19,8 +19,8 @@ const Links = props => {
                   {data.links.nodes &&
                   data.links.nodes.map(link => {
                     return (
-                      <div className={`mb-2`}>
-                        <a href={link.postTypeLinks.url.url} className={`text-lg`}>{parse(link.title)}</a>
+                      <div className={`py-4 Links__item`}>
+                        <span class="flex items-start"><img src={`/icons/Pijltje_red_Lang.svg`} className="arrow rotate arrow-small mr-3 mt-1" alt="Pijl wit lang" /><a href={link.postTypeLinks.url.url} className={`text-lg`}>{parse(link.title)}</a></span>
                         <ul className={`subLink__list flex`}>
                           {link.postTypeLinks.subLinks &&
                             link.postTypeLinks.subLinks.map(subLink => {
