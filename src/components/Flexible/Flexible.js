@@ -1,17 +1,15 @@
 // Import CSS
-import "./Flexible.scss"
+// import "./Flexible.scss"
 
 import Collage from "../Collage/Collage"
 import DoubleImages from "../DoubleImages/DoubleImages"
 import Image from "../Image/Image"
-import InViewMonitor from "react-inview-monitor"
 import OneColumnsContent from "../OneColumnsContent/OneColumnsContent"
 import Quote from "../Quote/Quote"
 import React from "react"
 import TekstWithVideo from "../TekstWithVideo/TekstWithVideo"
 import TripleImages from "../TripleImages/TripleImages"
 import TwoColumnsContent from "../TwoColumnsContent/TwoColumnsContent"
-import parse from "html-react-parser"
 
 // import Navigation from "../Navigation/Navigation"
 

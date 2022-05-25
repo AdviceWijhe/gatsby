@@ -1,5 +1,5 @@
 // Import CSS
-import "./DoubleImages.scss"
+// import "./DoubleImages.scss"
 
 import React from "react"
 

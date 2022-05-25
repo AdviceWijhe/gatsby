@@ -1,4 +1,4 @@
-@import "../../css/globals/variables";
+// @import "../../css/globals/variables";
 
 .slideshow {
   position: relative;
@@ -214,3 +214,7 @@
     }
   }
 }
+
+@import "./views/case.scss";
+@import "./views/diensten.scss";
+@import "./views/kernwaarde.scss";

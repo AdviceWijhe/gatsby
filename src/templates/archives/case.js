@@ -1,4 +1,4 @@
-import "../../components/Slideshow/views/case.scss"
+// import "../../components/Slideshow/views/case.scss"
 
 import React, { useRef } from "react"
 

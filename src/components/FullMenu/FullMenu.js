@@ -1,5 +1,5 @@
 // Import CSS
-import "./FullMenu.scss"
+// import "./FullMenu.scss"
 
 import Navigation from "../Navigation/Navigation"
 import React from "react"

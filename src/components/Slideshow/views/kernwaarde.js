@@ -1,4 +1,4 @@
-import "./kernwaarde.scss"
+// import "./kernwaarde.scss"
 
 import React from "react"
 import parse from "html-react-parser"

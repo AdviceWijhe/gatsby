@@ -1,7 +1,6 @@
 // Import CSS
-import "./TekstWithVideo.scss"
+// import "./TekstWithVideo.scss"
 
-import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 import parse from "html-react-parser"
 

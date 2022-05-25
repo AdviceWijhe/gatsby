@@ -1,5 +1,5 @@
 // Import CSS
-import "./Collage.scss"
+// import "./Collage.scss"
 
 import InViewMonitor from "react-inview-monitor"
 import React from "react"

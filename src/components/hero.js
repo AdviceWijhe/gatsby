@@ -1,7 +1,6 @@
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import Flickity from "react-flickity-component"
 import { GatsbyImage } from "gatsby-plugin-image"
-import InViewMonitor from "react-inview-monitor"
 import Letters from "./letters"
 import React from "react"
 import parse from "html-react-parser"

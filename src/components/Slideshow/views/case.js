@@ -1,4 +1,4 @@
-import "./case.scss"
+// import "./case.scss"
 
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { GatsbyImage } from "gatsby-plugin-image"

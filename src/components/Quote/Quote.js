@@ -1,5 +1,5 @@
 // Import CSS
-import "./Quote.scss"
+// import "./Quote.scss"
 
 import Letters from "../letters"
 import React from "react"

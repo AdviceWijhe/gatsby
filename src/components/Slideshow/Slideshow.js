@@ -2,7 +2,6 @@
 import "swiper/css"
 import "swiper/css/pagination"
 import "swiper/css/navigation"
-import "./Slideshow.scss"
 
 // import Navigation from "../Navigation/Navigation"
 import { A11y, EffectCoverflow, Keyboard, Navigation, Pagination, Scrollbar } from "swiper"
@@ -14,6 +13,9 @@ import DienstItem from "./views/diensten"
 import KernItem from "./views/kernwaarde"
 import React from "react"
 import TeamItem from "./views/team"
+// import "./Slideshow.scss"
+
+
 
 // install Swiper modules
 const Slideshow = props => {

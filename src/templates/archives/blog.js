@@ -30,7 +30,7 @@ const BlogItem = props => {
         </div>
         <div className="blogItem--inner__content relative">
           <div className="blogItem--inner__content--title w-3/4 mt-5">
-            <h2 className={`text-xl lg:text-2xl font-weight-bold mt-0`}>{props.item.title}</h2>
+            <AniLink cover bg="#00f" duration={2} to={props.item.uri} class="text-black"><h2 className={`text-xl lg:text-2xl font-weight-bold mt-0`}>{props.item.title}</h2></AniLink>
           </div>
         </div>
       </div>

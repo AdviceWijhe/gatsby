@@ -1,5 +1,5 @@
 // Import CSS
-import "./Footer.scss"
+// import "./Footer.scss"
 
 import { Link } from "gatsby"
 import React from "react"

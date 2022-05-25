@@ -85,7 +85,7 @@ var rand = Math.floor(Math.random() * 100)
            for(let i = 0; i < heroTitels.length; i++) {
               heroTitels[i].classList.remove('active');
 
-              if(heroTitels[i].getAttribute('title-count') == pageNumber) {
+              if(heroTitels[i].getAttribute('title-count') === pageNumber) {
                 heroTitels[i].classList.add('active');
               }
             }
@@ -104,7 +104,7 @@ var rand = Math.floor(Math.random() * 100)
               props.slideshow.map(post => {
                 const title = post.title
                 return (
-                  post.wpParent == null ? (
+                  post.wpParent === null ? (
                   <SwiperSlide key={post.id}>
                     <div className="hero__slideshow__item--inner flex flex-col xl:flex-row">
                       <div className="image xl:w-2/3" style={{backgroundImage: `url(${post.featuredImage.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src})`}}>
