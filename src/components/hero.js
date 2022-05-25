@@ -1,7 +1,6 @@
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import Flickity from "react-flickity-component"
 import { GatsbyImage } from "gatsby-plugin-image"
-import InViewMonitor from "react-inview-monitor"
 import Letters from "./letters"
 import React from "react"
 import parse from "html-react-parser"
@@ -41,16 +40,16 @@ const Hero = props => {
         </div>
 
         {props.image && (
-          <InViewMonitor
-                classNameNotInView='vis-hidden'
-                classNameInView='animate__animated animate__fadeInUp'
-              >
+          // <InViewMonitor
+          //       classNameNotInView='vis-hidden'
+          //       classNameInView='animate__animated animate__fadeInUp'
+          //     >
         <GatsbyImage
           image={props.image}
           alt="image"
           className="hero__image"
         />
-        </InViewMonitor>
+        // </InViewMonitor>
         )}
 
           {props.slideshow && (
@@ -78,7 +77,7 @@ const Hero = props => {
                       <div className="hero__slideshow__item--excerpt font-light">
                         {parse(post.excerpt)}
                       </div>
-                      <AniLink paintDrip to={post.uri} className="block mt-12 text-white font-medium">
+                      <AniLink cover bg="#00f" duration={2} to={post.uri} className="block mt-12 text-white font-medium">
                         Lees meer <i className="fal fa-lg fa-long-arrow-right"></i>
                       </AniLink>
                     </div>

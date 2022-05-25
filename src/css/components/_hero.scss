@@ -43,12 +43,12 @@
       left: 0;
       padding: 0 2rem;
 
-      @media (min-width: $breakpoint-tablet) {
-        padding: 0 3rem;
+      @media (min-width: $breakpoint-laptop) {
         top: 300px;
+        padding: 0 3rem;
       }
 
-      @media (min-width: $breakpoint-laptop) {
+      @media (min-width: $breakpoint-desktop) {
         left: 66.6666%;
         padding: 0 3rem;
         top: 4rem;
@@ -192,13 +192,30 @@
     }
   }
 
-  // &.homepage {
-  //   .hero__content {
-  //     @media (min-width: $breakpoint-desktop) {
-  //       max-width: 50%;
-  //     }
-  //   }
-  // }
+  &.homepage {
+    .hero__MainTitle {
+      opacity: 0;
+      position: absolute;
+      transform: translateX(-100px);
+      transition: 0.3s ease-in-out opacity, 0.3s ease-in-out transform;
+
+      &.active {
+        opacity: 1;
+        transform: translateX(0);
+        transition: 0.3s ease-in-out opacity, 0.75s ease-in-out transform;
+        transition-delay: 0.1s;
+      }
+    }
+
+    .hero__content {
+      min-height: 210px;
+      position: relative;
+
+      @media (min-width: $breakpoint-laptop) {
+        min-height: 300px;
+      }
+    }
+  }
 
   &.single {
     .hero__description {

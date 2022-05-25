@@ -1,16 +1,16 @@
 // Import CSS
-import "./Flexible.scss"
+// import "./Flexible.scss"
 
-import InViewMonitor from "react-inview-monitor"
-import React from "react"
 import Collage from "../Collage/Collage"
 import DoubleImages from "../DoubleImages/DoubleImages"
 import Image from "../Image/Image"
-import Quote from "../Quote/Quote"
-import parse from "html-react-parser"
-import TripleImages from "../TripleImages/TripleImages"
 import OneColumnsContent from "../OneColumnsContent/OneColumnsContent"
+import Quote from "../Quote/Quote"
+import React from "react"
+import TekstWithVideo from "../TekstWithVideo/TekstWithVideo"
+import TripleImages from "../TripleImages/TripleImages"
 import TwoColumnsContent from "../TwoColumnsContent/TwoColumnsContent"
+
 // import Navigation from "../Navigation/Navigation"
 
 
@@ -19,10 +19,10 @@ const Flexible = props => {
   const getBlock = (layout, posttype) => {
     console.log(layout)
     switch(layout.fieldGroupName) {
-    case posttype + "_Flexible_Blocks_Collage":
+    case posttype + "_Flexible_Flexibleblocks_Collage":
       return <Collage images={layout.collageimages} />
 
-    case posttype + "_Flexible_Blocks_VideoOrImage":
+    case posttype + "_Flexible_Flexibleblocks_VideoOrImage":
       if(layout.video) {
       return (
         <>
@@ -44,22 +44,25 @@ const Flexible = props => {
     </>
     )
 
-    case posttype + "_Flexible_Blocks_Quote":
+    case posttype + "_Flexible_Flexibleblocks_Quote":
       return <Quote letters={layout.content} />
 
-    case posttype + "_Flexible_Blocks_OneColumnsContent":
+    case posttype + "_Flexible_Flexibleblocks_OneColumnsContent":
       return (
         <OneColumnsContent title={layout.title} content={layout.content}/>
       )
 
-    case posttype + "_Flexible_Blocks_TwoColumnsContent":
+    case posttype + "_Flexible_Flexibleblocks_TwoColumnsContent":
       return (
 
       <TwoColumnsContent title1={layout.column1.title} content1={layout.column1.content} title2={layout.column2.title} content2={layout.column2.content} />
       )
 
-    case posttype + "_Flexible_Blocks_TripleImages":
+    case posttype + "_Flexible_Flexibleblocks_TripleImages":
       return <TripleImages images={layout.images} />
+      
+    case posttype + "_Flexible_Flexibleblocks_Tekstwithimage":
+      return <TekstWithVideo video={layout.movie} content={layout.content} titel={layout.titel} />
       
       
     default:

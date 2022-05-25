@@ -1,5 +1,5 @@
 // Import CSS
-import "./CallToAction.scss"
+// import "./CallToAction.scss"
 
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { GatsbyImage } from "gatsby-plugin-image"
@@ -19,7 +19,7 @@ const CallToAction = props => {
           <div className="CallToAction__title--inner p-10 lg:w-2/3 lg:p-20 text-white">
             <h3 className="text-xl lg:text-2xl font-medium">{props.subtitle}</h3>
             <h2 className="text-3xl lg:text-6xl font-extrabold">{props.title}</h2>
-            <AniLink paintDrip to={props.link.url} className="mt-5 btn btn-link text-white">
+            <AniLink cover bg="#00f" duration={2} to={props.link.url} className="mt-5 btn btn-link text-white">
               {props.link.title}
             </AniLink>
           </div>

@@ -1,4 +1,4 @@
-import './CookieBanner.scss'
+// import './CookieBanner.scss'
 
 import CookieConsent, {Cookies} from "react-cookie-consent";
 

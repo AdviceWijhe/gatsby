@@ -1,4 +1,4 @@
-import "../../components/Slideshow/views/case.scss"
+// import "../../components/Slideshow/views/case.scss"
 
 import React, { useRef } from "react"
 
@@ -28,12 +28,12 @@ const CaseItem = props => {
         <GatsbyImage image={image} alt="image" />
         <div className="slideshow__item--case--inner__content">
           <div className="slideshow__item--case--inner__content--title">
-            <AniLink paintDrip to={props.item.uri} className={`text-outline`}>{props.item.title}</AniLink>
+            <AniLink cover bg="#00f" duration={2} to={props.item.uri} className={`text-outline`}>{props.item.title}</AniLink>
           </div>
           <div className="slideshow__item--case--inner__content--subtitle">
             <p>{props.item.posttype_cases.subtitle}</p>
           </div>
-          <AniLink paintDrip to={props.item.uri} className={`text-white`}>
+          <AniLink cover bg="#00f" duration={2} to={props.item.uri} className={`text-white`}>
             <img src={`/icons/Pijltje_white_Lang.svg`} className="arrow arrow-right" alt="Pijl wit lang" />
           </AniLink>
         </div>

@@ -1,0 +1,46 @@
+// @import "../../css/globals/variables";
+
+.subLink {
+  &__list {
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-left: 10px !important;
+    list-style-type: none;
+    padding-inline-start: 0;
+    
+    li {
+      line-height: 1;
+      padding: 5px 0;
+      &::before {
+        display: none;
+      }
+
+      a {
+        color: $color-primary;
+      }
+    }
+  }
+}
+
+.Links {
+  &__item {
+    position: relative;
+    &::after {
+      content: "";
+      width: 100%;
+      height: 1px;
+      background-color: rgba(0, 0, 0, 0.1);
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+
+    .rotate {
+      transform: rotate(180deg);
+    }
+
+    a {
+      color: #000;
+    }
+  }
+}

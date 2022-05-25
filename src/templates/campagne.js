@@ -1,6 +1,8 @@
 import Collage from "../components/Collage/Collage"
 import Hero from "../components/hero"
+import Links from "../components/Links/Links"
 import Logos from "../components/Logos/Logos"
+import MarqueeSlide from "../components/Marquee/Marquee"
 import Quote from "../components/Quote/Quote"
 import React from "react"
 import Seo from 'gatsby-plugin-wpgraphql-seo';
@@ -15,7 +17,7 @@ const CampagneTemplate = (data) => {
     switch(layout.fieldGroupName) {
     case "Page_Campagnepages_Blocks_Hero":
       return <Hero 
-      image={layout.image.localFile.childImageSharp.gatsbyImageData} 
+      image={layout.image?.localFile?.childImageSharp.gatsbyImageData} 
       title={layout.title}
       subtitle={layout.subtitle}
       content={layout.content}
@@ -36,6 +38,10 @@ const CampagneTemplate = (data) => {
       return <Logos images={layout.logos} title={layout.title} content={layout.content}></Logos>
     case "Page_Campagnepages_Blocks_TripleImages":
       return <TripleImages images={layout.images}></TripleImages>
+    case "Page_Campagnepages_Blocks_Marquee":
+      return <MarqueeSlide text={layout.text} />
+    case "Page_Campagnepages_Blocks_Links":
+      return <Links links={layout.text} />
     default:
       return false
   }
@@ -104,7 +110,11 @@ query campaignById(
               image {
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(
+                      quality: 100
+                      placeholder: TRACED_SVG
+                      layout: FULL_WIDTH
+                    )
                   }
                 }
               }
@@ -155,6 +165,14 @@ query campaignById(
             altText
             }
         }
+        ... on WpPage_Campagnepages_Blocks_Marquee {
+            fieldGroupName
+            text
+          }
+          ... on WpPage_Campagnepages_Blocks_Links {
+            fieldGroupName
+            titel
+          }
           }
         }
               title

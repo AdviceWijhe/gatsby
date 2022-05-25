@@ -6,11 +6,11 @@
 import "../css/@wordpress/block-library/build-style/style.css"
 import "../css/@wordpress/block-library/build-style/theme.css"
 
-import { Link, graphql } from "gatsby"
-
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import Hero from "../components/hero"
 import React from "react"
 import Seo from "../components/seo"
+import { graphql } from "gatsby"
 import parse from "html-react-parser"
 
 const VacatureTemplate = ({ data: { previous, next, post } }) => {
@@ -52,17 +52,17 @@ const VacatureTemplate = ({ data: { previous, next, post } }) => {
           >
             <li>
               {previous && (
-                <Link to={previous.uri} rel="prev">
+                <AniLink cover bg="#00f" duration={2} to={previous.uri} rel="prev">
                   ← {parse(previous.title)}
-                </Link>
+                </AniLink>
               )}
             </li>
 
             <li>
               {next && (
-                <Link to={next.uri} rel="next">
+                <AniLink cover bg="#00f" duration={2} to={next.uri} rel="next">
                   {parse(next.title)} →
-                </Link>
+                </AniLink>
               )}
             </li>
           </ul>

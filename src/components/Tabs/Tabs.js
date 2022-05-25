@@ -1,5 +1,5 @@
 // Import CSS
-import "./Tabs.scss"
+// import "./Tabs.scss"
 
 import React, { useState } from "react"
 
@@ -48,7 +48,7 @@ const Tabs = props => {
                       <h3 className={`text-2xl font-bold lg:hidden mb-5`}>{post.title}</h3>
                       {parse(post.excerpt)}
 
-                      <ul>
+                      {/* <ul>
                     {diensten.nodes &&
                         diensten.nodes.map(dienst => {
                           return (
@@ -57,9 +57,13 @@ const Tabs = props => {
                             ) : null
                           )
                         })}{" "}
-                      </ul>
+                      </ul> */}
 
-                      <AniLink to={post.uri}>
+                       <AniLink cover bg="#00f" duration={2} to={post.uri} rel="next" className={`flex w-full justify-start mt-5`}>
+                        Lees verder <img src={`/icons/Pijltje_blue_Lang.svg`} className="arrow arrow-small arrow-right ml-2" alt="Pijl blauw" />
+                      </AniLink>
+
+                      <AniLink cover bg="#00f" duration={2} to={post.uri}>
                         <div className={`triangle triangle-bottom triangle-small`}><img src={`/icons/Pijltje_white_Lang.svg`} className="arrow arrow-small" alt="Pijl wit lang" /></div>
                       </AniLink>
                     </div>

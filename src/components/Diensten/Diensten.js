@@ -1,9 +1,10 @@
 // Import CSS
-import "./Diensten.scss"
+// import "./Diensten.scss"
 
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import React from "react"
 import { useDienstQuery } from "../../hooks/useDienstQuery"
+
 // import Navigation from "../Navigation/Navigation"
 
 
@@ -23,7 +24,7 @@ const Diensten = (props) => {
           }
           return (
             post.wpParent === null ? (
-              <AniLink paintDrip key={post.id} to={post.uri} className={`com_Diensten__Dienst block relative`}>
+              <AniLink cover bg="#00f" duration={2} key={post.id} to={post.uri} className={`com_Diensten__Dienst block relative`}>
                 <h3 className={`com_Diensten__Dienst--title relative inline`}>{post.title}
                 {/* <div className="triangle triangle-arrow triangle-bottom hidden lg:flex"><img src={`/icons/Pijltje_white_Lang.svg`} className="arrow arrow-right arrow-small" alt="Pijl wit lang" /></div> */}
                 </h3>

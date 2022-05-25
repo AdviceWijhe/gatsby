@@ -1,5 +1,5 @@
 // Import CSS
-import "./Marquee.scss"
+// import "./Marquee.scss"
 
 import Marquee from "react-fast-marquee"
 import React from "react"
@@ -11,7 +11,7 @@ import parse from "html-react-parser"
 const MarqueeSlide = props => {
   return (
     <section className="marquee">
-      <Marquee gradient="false" speed="100">
+      <Marquee gradient="false" speed="300">
         {parse(props.text)}
       </Marquee>
     </section>

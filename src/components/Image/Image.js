@@ -1,5 +1,5 @@
 // Import CSS
-import "./Image.scss"
+// import "./Image.scss"
 
 import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"

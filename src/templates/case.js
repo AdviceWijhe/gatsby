@@ -8,16 +8,16 @@ import "../css/@wordpress/block-library/build-style/theme.css"
 
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import CaseHero from "../components/caseHero"
+import Flexible from "../components/Flexible/Flexible"
 import React from "react"
 import Seo from 'gatsby-plugin-wpgraphql-seo';
 import { graphql } from "gatsby"
 import parse from "html-react-parser"
-import Flexible from "../components/Flexible/Flexible"
 
 const CaseTemplate = ({ data: { previous, post, next  } }) => {
 
   const heroBlock = post.posttype_cases.blockHero
-  const blocks = post.flexible?.blocks
+  const blocks = post.flexible?.flexibleblocks
   const specialisme = post.posttype_cases.specialisme
 
 
@@ -48,10 +48,10 @@ const CaseTemplate = ({ data: { previous, post, next  } }) => {
 
 
 <section className="navigation flex justify-between w-full">
-    <AniLink paintDrip to="/cases" className={`flex items-center w-full`}><img src={`/icons/Pijltje_blue_Lang.svg`} className="arrow arrow-small mr-2" alt="Pijl blauw" /> Terug naar overzicht</AniLink>
+    <AniLink cover bg="#00f" duration={2} to="/cases" className={`flex items-center w-full`}><img src={`/icons/Pijltje_blue_Lang.svg`} className="arrow arrow-small mr-2" alt="Pijl blauw" /> Terug naar overzicht</AniLink>
 
     {next && (
-      <AniLink paintDrip to={next.uri} rel="next" className={`flex w-full justify-end`}>
+      <AniLink cover bg="#00f" duration={2} to={next.uri} rel="next" className={`flex w-full justify-end`}>
         Volgende case <img src={`/icons/Pijltje_blue_Lang.svg`} className="arrow arrow-small arrow-right ml-2" alt="Pijl blauw" />
       </AniLink>
     )}
@@ -119,8 +119,8 @@ export const pageQuery = graphql`
                 }
             }
       flexible {
-        blocks {
-          ... on WpCase_Flexible_Blocks_Collage {
+        flexibleblocks {
+          ... on WpCase_Flexible_Flexibleblocks_Collage {
             fieldGroupName
             collageimages {
               altText
@@ -136,7 +136,7 @@ export const pageQuery = graphql`
               }
             }
           }
-          ... on WpCase_Flexible_Blocks_VideoOrImage {
+          ... on WpCase_Flexible_Flexibleblocks_VideoOrImage {
             fieldGroupName
             video
             image {
@@ -164,16 +164,16 @@ export const pageQuery = graphql`
               }
             }
           }
-          ... on WpCase_Flexible_Blocks_Quote {
+          ... on WpCase_Flexible_Flexibleblocks_Quote {
             content
             fieldGroupName
           }
-          ... on WpCase_Flexible_Blocks_OneColumnsContent {
+          ... on WpCase_Flexible_Flexibleblocks_OneColumnsContent {
             content
             fieldGroupName
             title
           }
-          ... on WpCase_Flexible_Blocks_TwoColumnsContent {
+          ... on WpCase_Flexible_Flexibleblocks_TwoColumnsContent {
             column1 {
               content
               title
@@ -184,7 +184,7 @@ export const pageQuery = graphql`
               title
             }
           }
-          ... on WpCase_Flexible_Blocks_TripleImages {
+          ... on WpCase_Flexible_Flexibleblocks_TripleImages {
             fieldGroupName
             images {
               altText

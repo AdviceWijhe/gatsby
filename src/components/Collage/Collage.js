@@ -1,14 +1,15 @@
 // Import CSS
-import "./Collage.scss"
+// import "./Collage.scss"
 
 import InViewMonitor from "react-inview-monitor"
 import React from "react"
+
 // import Navigation from "../Navigation/Navigation"
 
 
 const Collage = props => {
   const images = props.images;
-
+  console.log(images);
 
   return (
     <section className="Collage pt-0">

@@ -3,7 +3,7 @@ import "swiper/css/pagination"
 import 'swiper/css/effect-fade';
 import "swiper/css/navigation"
 
-import { A11y, EffectFade, Keyboard, Navigation, Pagination, Scrollbar } from "swiper"
+import { A11y, EffectCreative, EffectFade, Keyboard, Navigation, Pagination, Scrollbar } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 
 import AniLink from "gatsby-plugin-transition-link/AniLink"
@@ -26,20 +26,39 @@ var rand = Math.floor(Math.random() * 100)
   return (
     <section className={`hero ${props.layout} py-0`}>
       <div className="container mx-auto flex flex-wrap justify-between">
-        <div className="hero__content lg:w-2/4">
-          <h4 className="text-xl md:text-2xl font-medium text-secondary mb-3">
+        <div className="hero__content w-full lg:w-2/4 xl:w-2/4 2xl:w-2/4">
+          <h4 className="text-xl hero__title md:text-2xl font-medium text-secondary mb-3">
             {props.subtitle}
           </h4>
-          <h1 className="text-3xl sm:text-3xl md:text-6xl xl:text-6xl font-extrabold mb-10">
-            {parse(props.title)}
+          <h1 className="text-3xl hero__MainTitle active sm:text-3xl md:text-6xl xl:text-6xl font-black mb-10" title-count="1">
+            Hoe creëer je <br/> een sterker merk<br /> in de markt?
+          </h1>
+          <h1 className="text-3xl hero__MainTitle sm:text-3xl md:text-6xl xl:text-6xl font-black mb-10" title-count="2">
+            Hoe zet je <br />jouw merk in <br />de spotlights? 
+          </h1>
+          <h1 className="text-3xl hero__MainTitle sm:text-3xl md:text-6xl xl:text-6xl font-black mb-10" title-count="3">
+            Hoe creëer<br /> jij het optimale <br /> resultaat online?
+          </h1>
+          <h1 className="text-3xl hero__MainTitle sm:text-3xl md:text-6xl xl:text-6xl font-black mb-10" title-count="4">
+            Hoe creëer jij<br/> online impact <br />met jouw merk?
           </h1>
         </div>
 
           {props.slideshow && (
           <Swiper
-          modules={[Navigation, EffectFade, Pagination, Scrollbar, A11y, Keyboard]}
+          modules={[Navigation, EffectFade, Pagination, Scrollbar, A11y, Keyboard, EffectCreative]}
           grabCursor={true} centeredSlides={true} slidesPerView={'1'} spaceBetween={20}
-          effect={'fade'}
+          effect={`creative`}
+          creativeEffect={{
+            prev: {
+            shadow: false,
+            translate: ["-20%", 0, -1],
+          },
+          next: {
+            translate: ["100%", 0, 0],
+          },
+          }}
+          speed={750}
           keyboard={{ "enabled": true }}
           className={`swiper-${rand} hero_dienstenSlider`}
           loop={false}
@@ -61,11 +80,20 @@ var rand = Math.floor(Math.random() * 100)
           onSlideChange={(swiper) => {
             const pageNumberEl = document.querySelector('.pageNumber');
             const pageNumber = swiper.activeIndex + 1;
+            const heroTitels = document.querySelectorAll('.hero__MainTitle');
+
+           for(let i = 0; i < heroTitels.length; i++) {
+              heroTitels[i].classList.remove('active');
+
+              if(heroTitels[i].getAttribute('title-count') === pageNumber) {
+                heroTitels[i].classList.add('active');
+              }
+            }
 
             pageNumberEl.innerHTML = pageNumber;
           }}
         >
-            <div className="swiper__controls flex items-center justify-between w-full lg:w-1/3">
+            <div className="swiper__controls flex items-center justify-between w-full xl:w-1/3">
               <div className="swiper__navigation flex">
                 <div className="prev"><i className="fal fa-arrow-left"></i></div>
                 <div className="next"><i className="fal fa-arrow-right"></i></div>
@@ -76,13 +104,13 @@ var rand = Math.floor(Math.random() * 100)
               props.slideshow.map(post => {
                 const title = post.title
                 return (
-                  post.wpParent == null ? (
+                  post.wpParent === null ? (
                   <SwiperSlide key={post.id}>
                     <div className="hero__slideshow__item--inner flex flex-col xl:flex-row">
                       <div className="image xl:w-2/3" style={{backgroundImage: `url(${post.featuredImage.node.localFile.childImageSharp.gatsbyImageData.images.fallback.src})`}}>
                         
                       </div>
-                      <div className="content xl:w-1/3 bg-primary p-8 lg:p-12 pt-20 lg:pt-16 text-white flex items-center">
+                      <div className="content xl:w-1/3 bg-primary p-8 lg:p-12 pt-20 lg:pt-24 text-white flex items-center">
                         <div className="content__inner" >
                          <h2 className="hero__slideshow__item--title text-2xl lg:text-3xl font-bold relative">
                         {title}
@@ -90,7 +118,7 @@ var rand = Math.floor(Math.random() * 100)
                       <div className="hero__slideshow__item--excerpt font-light relative">
                         {parse(post.excerpt)}
                       </div>
-                      <AniLink paintDrip to={post.uri} className="mt-12 text-white font-medium relative btn btn-link">
+                      <AniLink cover bg="#00f" duration={2} to={post.uri} className="mt-10 text-white font-medium relative btn btn-link">
                         Lees meer
                       </AniLink>
                       </div>

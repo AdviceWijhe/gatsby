@@ -1,5 +1,5 @@
 // Import CSS
-import "./TwoColumnsContent.scss"
+// import "./TwoColumnsContent.scss"
 
 import React from "react"
 import parse from "html-react-parser"
@@ -13,11 +13,13 @@ const TwoColumnsContent = props => {
     <section className={`TwoColumnsContent`}>
         <div className="grid grid-cols-1 lg:grid-cols-2">
            <div className="grid-1 pr-10">
+             {props.title1 &&
               <div className="grid__title">
-                {props.title1 &&
+                
                 <h2 className="mt-0">{props.title1}</h2>
-                }
+                
               </div>
+              }
               <div className="grid__content">
                 {props.content1 &&
                 parse(props.content1)
@@ -25,11 +27,13 @@ const TwoColumnsContent = props => {
               </div>
            </div>
            <div className="grid-2">
+             {props.title2 &&
                <div className="grid__title">
-                 {props.title2 &&
+                 
                 <h2 className="mt-0">{props.title2}</h2>
-                 }
+                 
               </div>
+              }
               <div className="grid__content">
                 {props.content2 &&
                 parse(props.content2)
