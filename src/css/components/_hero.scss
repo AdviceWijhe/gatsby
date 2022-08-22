@@ -153,7 +153,7 @@
     }
 
     &.isVisible {
-      color: #000;
+      color: #222;
       transition: ease-in-out 1s all;
     }
   }
@@ -161,7 +161,7 @@
   &__description {
     font-weight: 700;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-color: #222;
     color: transparent;
     opacity: 1;
     visibility: visible;

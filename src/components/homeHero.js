@@ -82,10 +82,11 @@ var rand = Math.floor(Math.random() * 100)
             const pageNumber = swiper.activeIndex + 1;
             const heroTitels = document.querySelectorAll('.hero__MainTitle');
 
+
            for(let i = 0; i < heroTitels.length; i++) {
               heroTitels[i].classList.remove('active');
 
-              if(heroTitels[i].getAttribute('title-count') === pageNumber) {
+              if(parseInt(heroTitels[i].getAttribute('title-count')) === pageNumber) {
                 heroTitels[i].classList.add('active');
               }
             }

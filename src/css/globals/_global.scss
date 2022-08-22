@@ -22,6 +22,10 @@ nav {
   }
 }
 
+.bg-black {
+  background-color: #222 !important;
+}
+
 .pageContent {
   max-width: 1200px;
 }
@@ -165,7 +169,7 @@ ul.small-list {
 .text-outlined {
   font-weight: 800;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-color: #222;
   color: transparent;
 }
 
