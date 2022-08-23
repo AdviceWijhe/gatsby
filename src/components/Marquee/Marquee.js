@@ -1,5 +1,5 @@
 // Import CSS
-import "./Marquee.scss"
+// import "./Marquee.scss"
 
 import Marquee from "react-fast-marquee"
 import React from "react"

@@ -1,4 +1,4 @@
-@import "../../css/globals/variables";
+// @import "../../css/globals/variables";
 
 .Tabs {
   padding-top: 1.5rem !important;
@@ -120,18 +120,16 @@
             position: relative;
             font-weight: 200;
             padding: 5px 0;
-            padding-left: 15px;
-
-            &::before {
-              content: "";
-              position: absolute;
-              left: 0;
-              top: 50%;
-              width: 4px;
-              height: 4px;
-              border-radius: 50%;
-              background-color: #000;
-            }
+            // &::before {
+            //   content: "";
+            //   position: absolute;
+            //   left: 0;
+            //   top: 50%;
+            //   width: 4px;
+            //   height: 4px;
+            //   border-radius: 50%;
+            //   background-color: #000;
+            // }
           }
         }
       }

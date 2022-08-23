@@ -6,6 +6,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 500;
+  color: #222;
 }
 
 * {
@@ -21,6 +22,10 @@ p {
   margin-bottom: 0.8rem;
   font-size: 1rem;
   line-height: 1.75;
+
+  a {
+    text-decoration: underline;
+  }
 }
 
 h2 {

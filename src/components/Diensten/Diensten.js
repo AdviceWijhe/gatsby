@@ -1,5 +1,5 @@
 // Import CSS
-import "./Diensten.scss"
+// import "./Diensten.scss"
 
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import React from "react"

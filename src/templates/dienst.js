@@ -42,6 +42,7 @@ const DienstTemplate = ({ data: { previous, post, next  } }) => {
 
           hasSub = true;
         }
+
       })
 
       if(hasSub) {

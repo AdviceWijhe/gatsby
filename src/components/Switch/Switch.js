@@ -1,5 +1,5 @@
 // Import CSS
-import "./Switch.scss"
+// import "./Switch.scss"
 
 import React from "react"
 import parse from "html-react-parser"

@@ -1,4 +1,4 @@
-@import "../../css/globals/variables";
+// @import "../../css/globals/variables";
 
 .fullMenu {
   position: fixed !important;
@@ -14,6 +14,7 @@
   display: flex;
   overflow: hidden;
   align-items: center;
+  pointer-events: none;
 
   &__backgrounds {
     position: absolute;
@@ -50,6 +51,7 @@
   &.menuOpen {
     transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) max-height 1s;
     max-height: 300vh;
+    pointer-events: all;
 
     .fullMenu__backgrounds {
       > div {

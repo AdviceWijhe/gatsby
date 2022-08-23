@@ -1,4 +1,5 @@
 import CallToAction from "../components/CallToAction/CallToAction"
+import Flexible from "../components/Flexible/Flexible"
 import HomeHero from "../components/homeHero"
 import MarqueeSlide from "../components/Marquee/Marquee"
 import React from "react"
@@ -22,6 +23,7 @@ const HomePageTemplate = ({ data: { post } }) => {
   const slideShow = post.homepage.slideshow
   const CTA = post.homepage.callToAction
   const MarqueeBlock = post.homepage.marquee
+  const blocks = post.flexible?.flexibleblocks
 
   const titles = post.homepage.blockHero.titles
   var randomTitle = titles[Math.floor(Math.random()*titles.length)];
@@ -57,6 +59,12 @@ const HomePageTemplate = ({ data: { post } }) => {
         link={CTA.link}
         image={CTA.image?.localFile?.childImageSharp?.gatsbyImageData}
       />
+
+      { blocks &&
+            blocks.map(post => {
+              return <Flexible data={post} posttype="Page"/>}
+            )
+      }
     </>
   )
 }
@@ -150,6 +158,83 @@ export const pageQuery = graphql`
           layout
           spaceBetween
           sliderPerView
+        }
+      }
+      flexible {
+        flexibleblocks {
+          ... on WpPage_Flexible_Flexibleblocks_Collage {
+            fieldGroupName
+            collageimages {
+              altText
+              localFile {
+                
+                childImageSharp {
+                  gatsbyImageData(
+                  quality: 100
+                  placeholder: TRACED_SVG
+                  layout: FULL_WIDTH
+                )
+                }
+              }
+            }
+          }
+          ... on WpPage_Flexible_Flexibleblocks_VideoOrImage {
+            fieldGroupName
+            video
+            image {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(
+                  quality: 100
+                  placeholder: TRACED_SVG
+                  layout: FULL_WIDTH
+                )
+                }
+              }
+            }
+            otherImages {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(
+                  quality: 100
+                  placeholder: TRACED_SVG
+                  layout: FULL_WIDTH
+                )
+                }
+              }
+            }
+          }
+          ... on WpPage_Flexible_Flexibleblocks_Quote {
+            content
+            fieldGroupName
+          }
+          ... on WpPage_Flexible_Flexibleblocks_OneColumnsContent {
+            content
+            fieldGroupName
+            title
+          }
+          ... on WpPage_Flexible_Flexibleblocks_TwoColumnsContent {
+            column1 {
+              content
+              title
+            }
+            fieldGroupName
+            column2 {
+              content
+              title
+            }
+          }
+          ... on WpPage_Flexible_Flexibleblocks_TripleImages {
+            fieldGroupName
+            images {
+              altText
+              localFile {
+                url
+              }
+            }
+          }
         }
       }
        footer {

@@ -1,10 +1,10 @@
-@import "../../css/globals/variables";
+// @import "../../css/globals/variables";
 
 .marquee {
   font-size: 4rem;
   font-weight: 800;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-color: #222;
   color: transparent;
   overflow: hidden;
   padding: 25px 0 !important;
@@ -19,7 +19,7 @@
   }
 
   span:nth-child(even) {
-    color: #000;
+    color: #222;
   }
 
   .overlay {

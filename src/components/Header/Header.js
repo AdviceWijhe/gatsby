@@ -1,5 +1,5 @@
 // Import CSS
-import "./Header.scss"
+// import "./Header.scss"
 
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import FullMenu from "../FullMenu/FullMenu"

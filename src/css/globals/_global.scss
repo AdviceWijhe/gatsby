@@ -1,3 +1,5 @@
+
+
 button {
   padding: 0.225rem 0.5rem;
 }
@@ -11,6 +13,7 @@ main section {
 
 nav {
   ul {
+    list-style-type: none !important;
     li {
       &::before {
         display: none;
@@ -19,32 +22,44 @@ nav {
   }
 }
 
+.bg-black {
+  background-color: #222 !important;
+}
+
+.pageContent {
+  max-width: 1200px;
+}
+
 .footer {
-  ul li {
+  ul {
+    list-style-type: none !important;
+    li {
     &::before {
       display: none;
     }
   }
 }
+}
 
 ul {
   padding-left: 30px !important;
+  list-style-type: disc !important;
 
   li {
     position: relative;
     font-size: 1.2rem;
     line-height: 1.8;
 
-    &::before {
-      content: "\f192";
-      position: absolute;
-      left: -30px;
-      top: 0;
-      font-family: "Font Awesome 5 Pro";
-      font-weight: 200;
-      font-size: 1.2rem;
-      color: $color-secondary;
-    }
+    // &::before {
+    //   content: "\f192";
+    //   position: absolute;
+    //   left: -30px;
+    //   top: 0;
+    //   font-family: "Font Awesome 5 Pro";
+    //   font-weight: 200;
+    //   font-size: 1.2rem;
+    //   color: $color-secondary;
+    // }
   }
 }
 
@@ -61,7 +76,7 @@ ul.small-list {
 
 .btn {
   padding: 1rem 2rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
 
   &-link {
     padding: 0;
@@ -76,23 +91,6 @@ ul.small-list {
       margin-left: 1rem;
       font-size: 1.7rem;
       line-height: 1;
-    }
-  }
-}
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer utilities {
-  @variants responsive {
-    .masonry {
-      column-gap: 1.5rem;
-      column-count: 2;
-    }
-
-    .break-inside {
-      break-inside: avoid;
     }
   }
 }
@@ -171,7 +169,7 @@ ul.small-list {
 .text-outlined {
   font-weight: 800;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-color: #222;
   color: transparent;
 }
 

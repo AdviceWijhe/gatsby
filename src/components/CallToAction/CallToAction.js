@@ -1,5 +1,5 @@
 // Import CSS
-import "./CallToAction.scss"
+// import "./CallToAction.scss"
 
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { GatsbyImage } from "gatsby-plugin-image"

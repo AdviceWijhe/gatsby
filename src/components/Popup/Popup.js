@@ -1,9 +1,7 @@
 // Import CSS
-import "./Popup.scss"
+// import "./Popup.scss"
 
-import React, { useEffect, useState }  from "react"
-
-import KUTE from 'kute.js'
+import React, { useState }  from "react"
 
 // import Navigation from "../Navigation/Navigation"
 

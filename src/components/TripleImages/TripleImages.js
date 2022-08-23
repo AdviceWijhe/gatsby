@@ -1,5 +1,5 @@
 // Import CSS
-import "./TripleImages.scss"
+// import "./TripleImages.scss"
 
 import React from "react"
 

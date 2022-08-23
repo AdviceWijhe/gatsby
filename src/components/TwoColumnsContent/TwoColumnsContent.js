@@ -1,5 +1,5 @@
 // Import CSS
-import "./TwoColumnsContent.scss"
+// import "./TwoColumnsContent.scss"
 
 import React from "react"
 import parse from "html-react-parser"
