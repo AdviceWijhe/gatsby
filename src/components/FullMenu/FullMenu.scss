@@ -10,10 +10,9 @@
   z-index: 4;
   transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) max-height 1s;
   transition-delay: 3s;
-  padding-top: 3rem;
+  padding-top: 1rem;
   display: flex;
   overflow: hidden;
-  align-items: center;
   pointer-events: none;
 
   &__backgrounds {
