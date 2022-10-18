@@ -9,6 +9,7 @@ import Seo from 'gatsby-plugin-wpgraphql-seo';
 import Switch from "../components/Switch/Switch"
 import TripleImages from "../components/TripleImages/TripleImages"
 import { graphql } from "gatsby"
+import parse from "html-react-parser"
 
 const CampagneTemplate = (data) => {
   const blocks = data.data.wpPage.campagnePages.blocks;
@@ -62,6 +63,15 @@ const CampagneTemplate = (data) => {
         }
          )
       }
+      {data.data.wpPage.content &&
+        <section>
+        <div className="container">
+          <div className={`lg:w-2/3`}>
+      {parse(data.data.wpPage.content)}
+      </div>
+      </div>
+        </section>
+      }
     </>
   )
 }
@@ -71,6 +81,7 @@ query campaignById(
     $id: String!
   ) {
     wpPage(id: { eq: $id }) {
+      content
       seo {
                 title
                 metaDesc

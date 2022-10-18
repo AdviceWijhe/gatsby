@@ -94,7 +94,7 @@ const Hero = props => {
 
           
             {props.letters && 
-              <div className="hero__description lg:w-3/4">
+              <div className="hero__description lg:w-3/4 xl:w-2/4">
               {separatedLetters.map(post => {
                 count++
                 return (
@@ -105,7 +105,7 @@ const Hero = props => {
              }
 
             {props.content &&
-            <div className="hero__description lg:w-3/4">
+            <div className="hero__description lg:w-3/4 xl:w-2/4">
               {parse(props.content)}
             </div>
             }
