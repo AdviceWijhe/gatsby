@@ -20,8 +20,26 @@ const Hero = props => {
   let count = 0;
   let separatedLetters = [];
 
-  if(props.letters) {
+  if (props.letters) {
     separatedLetters = props?.letters?.split('')
+  }
+
+  const getImage = (image) => {
+    console.log(typeof image);
+    if (typeof image === 'string') {
+      console.log(image);
+      return (
+        <img className="hero__image" src={image} alt="test" />
+      );
+    } else {
+      return (
+        <GatsbyImage
+          image={image}
+          alt="image"
+          className="hero__image"
+        />
+      )
+    }
   }
 
   // const shuffledArray = props.slideshow.sort((a, b) => 0.5 - Math.random());
@@ -39,20 +57,21 @@ const Hero = props => {
           </h1>
         </div>
 
-        {props.image && (
+        {/* {props.image && (
           // <InViewMonitor
           //       classNameNotInView='vis-hidden'
           //       classNameInView='animate__animated animate__fadeInUp'
           //     >
-        <GatsbyImage
-          image={props.image}
-          alt="image"
-          className="hero__image"
-        />
-        // </InViewMonitor>
-        )}
+          
 
-          {props.slideshow && (
+          <img className="hero__image" src={props.image} alt="image" />
+
+          // </InViewMonitor>
+        )} */}
+
+        {getImage(props.image)}
+
+        {props.slideshow && (
           <Flickity
             className={"hero__slideshow w-full lg:w-2/4"} // default ''
             elementType={"div"} // default 'div'
@@ -66,49 +85,49 @@ const Hero = props => {
                 const title = post.title
                 return (
                   post.wpParent == null ? (
-                  <div
-                    key={title}
-                    className="hero__slideshow__item carousel-cell"
-                  >
-                    <div className="hero__slideshow__item--inner lg:p-4">
-                      <h2 className="hero__slideshow__item--title text-2xl lg:text-3xl font-bold">
-                        {title}
-                      </h2>
-                      <div className="hero__slideshow__item--excerpt font-light">
-                        {parse(post.excerpt)}
+                    <div
+                      key={title}
+                      className="hero__slideshow__item carousel-cell"
+                    >
+                      <div className="hero__slideshow__item--inner lg:p-4">
+                        <h2 className="hero__slideshow__item--title text-2xl lg:text-3xl font-bold">
+                          {title}
+                        </h2>
+                        <div className="hero__slideshow__item--excerpt font-light">
+                          {parse(post.excerpt)}
+                        </div>
+                        <AniLink cover bg="#00f" duration={2} to={post.uri} className="block mt-12 text-white font-medium">
+                          Lees meer <i className="fal fa-lg fa-long-arrow-right"></i>
+                        </AniLink>
                       </div>
-                      <AniLink cover bg="#00f" duration={2} to={post.uri} className="block mt-12 text-white font-medium">
-                        Lees meer <i className="fal fa-lg fa-long-arrow-right"></i>
-                      </AniLink>
                     </div>
-                  </div>
                   ) : null
                 )
               })}{" "}
           </Flickity>
         )}
 
-        
 
-        
 
-          
-            {props.letters && 
-              <div className="hero__description lg:w-3/4 xl:w-2/4">
-              {separatedLetters.map(post => {
-                count++
-                return (
-                  <Letters key={count} letter={post} count={count} />
-                )
-              })}
-              </div>
-             }
 
-            {props.content &&
-            <div className="hero__description lg:w-3/4 xl:w-2/4">
-              {parse(props.content)}
-            </div>
-            }
+
+
+        {props.letters &&
+          <div className="hero__description lg:w-3/4 xl:w-2/4">
+            {separatedLetters.map(post => {
+              count++
+              return (
+                <Letters key={count} letter={post} count={count} />
+              )
+            })}
+          </div>
+        }
+
+        {props.content &&
+          <div className="hero__description lg:w-3/4 xl:w-2/4">
+            {parse(props.content)}
+          </div>
+        }
       </div>
       <div className="hero__svgLogo">
         <svg

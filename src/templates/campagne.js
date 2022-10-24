@@ -15,61 +15,63 @@ const CampagneTemplate = (data) => {
   const blocks = data.data.wpPage.campagnePages.blocks;
 
   const getBlock = (layout) => {
-    switch(layout.fieldGroupName) {
-    case "Page_Campagnepages_Blocks_Hero":
-      return <Hero 
-      image={layout.image?.localFile?.childImageSharp.gatsbyImageData} 
-      title={layout.title}
-      subtitle={layout.subtitle}
-      content={layout.content}
-      layout="noSlideshow single"
-      />
+    console.log(layout);
+    switch (layout.fieldGroupName) {
 
-    case "Page_Campagnepages_Blocks_Switch":
-      console.log(layout.image)
-      return(
-        <Switch data={layout}></Switch>
-      )
-    case "Page_Campagnepages_Blocks_Quote":
-      return <Quote letters={layout.quote}></Quote>
+      case "Page_Campagnepages_Blocks_Hero":
+        return <Hero
+          image={layout.image?.localFile?.url}
+          title={layout.title}
+          subtitle={layout.subtitle}
+          content={layout.content}
+          layout="noSlideshow single"
+        />
 
-    case "Page_Campagnepages_Blocks_Collage":
+      case "Page_Campagnepages_Blocks_Switch":
+        console.log(layout.image)
+        return (
+          <Switch data={layout}></Switch>
+        )
+      case "Page_Campagnepages_Blocks_Quote":
+        return <Quote letters={layout.quote}></Quote>
+
+      case "Page_Campagnepages_Blocks_Collage":
         return <Collage images={layout.images}></Collage>
-    case "Page_Campagnepages_Blocks_Logos":
-      return <Logos images={layout.logos} title={layout.title} content={layout.content}></Logos>
-    case "Page_Campagnepages_Blocks_TripleImages":
-      return <TripleImages images={layout.images}></TripleImages>
-    case "Page_Campagnepages_Blocks_Marquee":
-      return <MarqueeSlide text={layout.text} />
-    case "Page_Campagnepages_Blocks_Links":
-      return <Links links={layout.text} />
-    default:
-      return false
+      case "Page_Campagnepages_Blocks_Logos":
+        return <Logos images={layout.logos} title={layout.title} content={layout.content}></Logos>
+      case "Page_Campagnepages_Blocks_TripleImages":
+        return <TripleImages images={layout.images}></TripleImages>
+      case "Page_Campagnepages_Blocks_Marquee":
+        return <MarqueeSlide text={layout.text} />
+      case "Page_Campagnepages_Blocks_Links":
+        return <Links links={layout.text} />
+      default:
+        return false
+    }
   }
-}
 
 
   return (
     <>
-    <Seo post={data.data.wpPage} />
-    { blocks &&
+      <Seo post={data.data.wpPage} />
+      {blocks &&
         blocks.map(post => {
 
           return (
             < >
-            {getBlock(post)}
+              {getBlock(post)}
             </>
           )
         }
-         )
+        )
       }
       {data.data.wpPage.content &&
         <section>
-        <div className="container">
-          <div className={`lg:w-2/3`}>
-      {parse(data.data.wpPage.content)}
-      </div>
-      </div>
+          <div className="container">
+            <div className={`lg:w-2/3`}>
+              {parse(data.data.wpPage.content)}
+            </div>
+          </div>
         </section>
       }
     </>
@@ -120,6 +122,7 @@ query campaignById(
               content
               image {
                 localFile {
+                  url
                   childImageSharp {
                     gatsbyImageData(
                       quality: 100
@@ -135,6 +138,7 @@ query campaignById(
               fieldGroupName
               image {
                 localFile {
+                  url
                   childImageSharp {
                     gatsbyImageData
                   }
