@@ -6,6 +6,8 @@
  *
  */
 
+const siteUrl = process.env.URL || `https://advice.nl`
+
 module.exports = {
   /**
    * Adding plugins to this array adds them to your Gatsby site.
@@ -14,6 +16,69 @@ module.exports = {
    * If you need any more you can search here: https://www.gatsbyjs.com/plugins/
    */
   plugins: [
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        query: `
+        {
+          allSitePage {
+            nodes {
+              path
+            }
+          }
+          allWpContentNode(filter: {nodeType: {in: ["Post", "Page", "Case", "Dienst", "Vacature"]}}){
+            nodes {
+              ... on WpPost {
+                uri
+                modifiedGmt
+              }
+              ... on WpPage {
+                uri
+                modifiedGmt
+              }
+               ... on WpDienst {
+                uri
+                modifiedGmt
+              }
+              ... on WpCase {
+                uri
+                modifiedGmt
+              }
+              ... on WpVacature {
+                uri
+                modifiedGmt
+              }
+            }
+          }
+        }
+      `,
+        resolveSiteUrl: () => siteUrl,
+        resolvePages: ({
+          allSitePage: { nodes: allPages },
+          allWpContentNode: { nodes: allWpNodes },
+        }) => {
+          const wpNodeMap = allWpNodes.reduce((acc, node) => {
+            const { uri } = node
+            acc[uri] = node
+
+            return acc
+          }, {})
+
+          return allPages.map(page => {
+            return { ...page, ...wpNodeMap[page.path] }
+          })
+        },
+        serialize: ({ path, modifiedGmt }) => {
+          return {
+            url: path,
+            lastmod: modifiedGmt,
+          }
+        },
+      },
+    },
+
+
+
     {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
@@ -98,6 +163,8 @@ module.exports = {
         layout: require.resolve(`./src/components/layout.js`),
       }
     },
+
+    
     "gatsby-plugin-postcss",
     `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
