@@ -12,6 +12,21 @@
     }
   }
 
+  svg {
+    animation: rotate 1s infinite linear;
+  }
+  
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(359deg);
+    }
+  }
+
   ul {
     list-style-type: none;
     padding-left: 25px;
