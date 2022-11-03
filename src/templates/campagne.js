@@ -136,6 +136,7 @@ query campaignById(
             ... on WpPage_Campagnepages_Blocks_Switch {
               content
               fieldGroupName
+              button
               image {
                 localFile {
                   url
