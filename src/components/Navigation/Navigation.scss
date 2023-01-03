@@ -13,12 +13,12 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      justify-content: space-between;
       height: 100%;
 
       > li {
         position: relative;
-        width: 100%;
+        width: auto;
+        display: inline-block;
 
         &::before {
           display: none;
@@ -26,13 +26,30 @@
 
         &:nth-child(1) {
           @media (min-width: $breakpoint-laptop) {
-            margin-bottom: 38.8px;
+            // margin-bottom: 20px;
+          }
+        }
+
+        &:nth-child(2) {
+          &::after {
+            content: '3';
+            width: 25px;
+            height: 25px;
+            background-color: $color-secondary;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            right: -12.5px;
+            top: 12.5px;
           }
         }
 
         &:nth-child(3) {
           @media (min-width: $breakpoint-laptop) {
-            margin-bottom: 38.8px;
+            // margin-bottom: 20px;
           }
         }
 
@@ -46,7 +63,7 @@
           font-size: 3rem;
 
           @media (min-width: $breakpoint-laptop) {
-            font-size: 4.5rem;
+            font-size: 3.5rem;
           }
 
           &.nav-active {
