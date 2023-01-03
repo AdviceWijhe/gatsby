@@ -8,8 +8,8 @@
 
   &__vacatures {
     position: absolute;
-    right: 0;
-    top: 10%;
+    right: -30px;
+    top: 13.5%;
     z-index: 22;
     width: 175px;
 
@@ -140,6 +140,7 @@
   }
 
   &__content {
+    margin-bottom: 1rem;
     h1 {
       strong {
         font-weight: 800;
