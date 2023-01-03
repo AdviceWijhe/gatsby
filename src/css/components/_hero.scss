@@ -6,6 +6,20 @@
   align-items: center;
   overflow: visible;
 
+  &__vacatures {
+    position: absolute;
+    right: 0;
+    top: 10%;
+    z-index: 22;
+    width: 175px;
+
+    @media (min-width: $breakpoint-desktop) {
+      right: 28%;
+      top: 10%;
+      width: 291px;
+    }
+  }
+
   @media (min-width: $breakpoint-tablet) {
     padding-top: 175px !important;
   }

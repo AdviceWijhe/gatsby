@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import Letters from "./letters"
 import React from "react"
+import Vacature from "../images/vacature.png"
 import parse from "html-react-parser"
 
 const HomeHero = props => {
@@ -26,6 +27,10 @@ var rand = Math.floor(Math.random() * 100)
   return (
     <section className={`hero ${props.layout} py-0`}>
       <div className="container mx-auto flex flex-wrap justify-between">
+        <AniLink cover bg="#00f" duration={2} to="vacatures">
+                        <img src={Vacature} className="hero__vacatures" alt="vacature button" />
+                      </AniLink>
+        
         <div className="hero__content w-full lg:w-2/4 xl:w-2/4 2xl:w-2/4">
           <h4 className="text-xl hero__title md:text-2xl font-medium text-secondary mb-3">
             {props.subtitle}
