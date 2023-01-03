@@ -27,9 +27,9 @@ var rand = Math.floor(Math.random() * 100)
   return (
     <section className={`hero ${props.layout} py-0`}>
       <div className="container mx-auto flex flex-wrap justify-between">
-        <AniLink cover bg="#00f" duration={2} to="vacatures" className="hero__vacatures">
-                        <img src={Vacature} className="" alt="vacature button" />
-                      </AniLink>
+        <a href="vacatures" className="hero__vacatures">
+          <img src={Vacature} className="" alt="vacature button" />
+        </a>
         
         <div className="hero__content w-full lg:w-2/4 xl:w-2/4 2xl:w-2/4">
           <h4 className="text-xl hero__title md:text-2xl font-medium text-secondary mb-3">
