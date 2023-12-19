@@ -76,7 +76,7 @@ const Footer = (props) => {
           <div className="footer__info my-7">
             <div className="flex flex-col lg:flex-row justify-between">
               <span className="font-bold md:w-1/2">
-                <a href="tel:0570521152" className={`text-white`}><span className="font-light">T</span> 0570 52 11 52</a>
+                <a href="tel:0570521152" className={`text-white`}><span className="font-light">T</span> 085 029 0100</a>
               </span>
               <span className="font-bold md:w-1/2">
                 <a  className={`text-white`} href="mailto:contact@advice.nl"><span className="font-light">E</span> contact@advice.nl</a>
@@ -85,9 +85,8 @@ const Footer = (props) => {
           </div>
           <div className="footer__menu">
             <p className="text-white">
-              Villa Waterloo <br/>
-              Stationsweg 25 <br/>
-              8131 DG Wijhe
+              Hanzelaan 351 <br/>
+              8017 JM Zwolle
             </p>
           </div>
         </div>

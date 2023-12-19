@@ -18,7 +18,7 @@ const ContactPage = ({ data: {post} }) => {
         <div className={`contactInfo lg:w-2/4 text-white`}>
           
           <a href="tel:0570521152" className={`flex  py-5 lg:items-center border-b text-white`}>
-            <h3 className={`text-xl lg:text-4xl font-bold mr-10`}>0570 52 11 52</h3> <i className="fal text-xl fa-long-arrow-right"></i>
+            <h3 className={`text-xl lg:text-4xl font-bold mr-10`}>085 029 0100</h3> <i className="fal text-xl fa-long-arrow-right"></i>
           </a>
           <a href="mailto:contact@advice.nl" className={`flex  py-5 lg:items-center text-white`}>
             <h3 className={`text-xl lg:text-4xl font-bold block mr-10`}>contact@advice.nl</h3> <i className="fal text-xl fa-long-arrow-right block"></i>
@@ -27,9 +27,10 @@ const ContactPage = ({ data: {post} }) => {
 
         <div className={`text-white mt-10 lg:mt-24 lg:pt-10`}>
           <h3 className={`text-2xl font-bold mb-5`}>Waar kan je ons vinden?</h3>
-          <p className={`mb-0`}>Villa Waterloo</p>
-          <p className={`mb-0`}>Stationsweg 25</p>
-          <p className={`mb-0`}>8131 DG Wijhe</p>
+
+          <p className={`mb-0`}>Hanzelaan 351</p>
+            <p className={`mb-0`}>8017 JM Zwolle</p>
+     
         </div>
         </div>
       </section>
