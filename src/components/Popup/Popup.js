@@ -68,7 +68,6 @@ const Popup = props => {
             </div>
 
             <div className={`popup__content__inner__info`}>
-              <h3 className={`text-md font-bold mb-0`}>Villa Waterloo</h3>
               <p className="mb-0">{adres}</p>
               <p>{postcode}</p>
             </div>
