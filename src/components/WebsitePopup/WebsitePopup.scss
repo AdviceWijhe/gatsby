@@ -1,0 +1,214 @@
+// @import "../../css/globals/variables";
+
+.popupOutside {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 10;
+  display: none;
+
+  &.open {
+    display: block;
+  }
+}
+
+.btn {
+
+  &-advice {
+    background-color: #E3FF00;
+    margin-top: 1rem;
+    display: inline-block;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    font-family: "Sora", sans-serif;
+    user-select: none;
+    // background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 1.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    * {
+      display: inline-block;
+    }
+
+    img {
+      margin-left: 0.5rem;
+    }
+
+    // &:after {
+    //   content: "\e09f";
+    //   font-family: "Font Awesome 5 Pro";
+    //   font-weight: 500;
+    //   margin-left: 0.6rem;
+    //   font-size: 1.2rem
+    // }
+  }
+}
+
+.WebsitePopup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  display: none;
+  width: 40%;
+  min-width: 350px;
+
+  @media (min-width: $breakpoint-laptop) {
+    min-width: 1000px;
+  }
+
+  border-radius: 1.25rem;
+
+  &.open {
+    display: block;
+  }
+
+  &__icon {
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    width: 80px;
+    height: 80px;
+    background-color: $color-secondary;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 0.75rem;
+    box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+
+    i {
+      font-size: 1.7rem;
+      color: #fff;
+    }
+
+    svg {
+      width: 25px;
+      height: 25px;
+
+      path {
+        fill: #fff;
+      }
+    }
+  }
+
+  .textCircle {
+    position: absolute;
+    right: 1rem;
+    bottom: 3rem;
+    width: 100px;
+
+    @media (min-width: $breakpoint-laptop) {
+      right: 3rem;
+      bottom: 3rem;
+      width: 125px;
+    }
+  }
+
+  &__content {
+    padding: 2.5rem;
+    border-radius: 1.25rem;
+    background-color: #141414;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.2);
+    // transform: scale(0);
+    transform-origin: bottom right;
+    transition: 0.5s ease-in-out right, 0.5s ease-in-out opacity;
+
+    @media (min-width: $breakpoint-laptop) {
+      padding: 4rem 6rem 4rem 4rem;
+    }
+
+    .popupLogo {
+      width: 175px;
+
+      @media (min-width: $breakpoint-laptop) {
+        width: 250px;
+      }
+    }
+
+    .close {
+      cursor: pointer;
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      color: #F4F3F0;
+    }
+
+    .content {
+      padding: 3rem 0;
+      color: #F4F3F0;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-family: "Sora", sans-serif;
+      font-style: normal;
+      font-weight: 200;
+      line-height: 120%;
+      letter-spacing: -0.17813rem;
+    }
+
+    p {
+      font-family: "Sora", sans-serif;
+      font-size: 1.1rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+      letter-spacing: -0.05813rem;
+
+      @media (min-width: $breakpoint-laptop) {
+        font-size: 1.9375rem;
+      }
+    }
+
+    h3 {
+      color: $color-primary;
+    }
+
+    a {
+      color: #000;
+    }
+
+    &__inner {
+      &__socials {
+        display: flex;
+        align-items: flex-end;
+
+        a {
+          color: #000;
+          font-size: 1.3rem;
+          letter-spacing: 10px;
+        }
+      }
+    }
+
+    svg {
+      width: 75%;
+      fill: transparent;
+      stroke: $color-secondary;
+      position: absolute;
+      top: -25px;
+      right: 0;
+      opacity: 0.3;
+      z-index: 0;
+      pointer-events: none;
+    }
+  }
+}

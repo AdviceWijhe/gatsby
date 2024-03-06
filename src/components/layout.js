@@ -6,6 +6,7 @@ import Header from "./Header/Header"
 import Popup from "./Popup/Popup";
 import React from "react"
 import { SEOContext } from 'gatsby-plugin-wpgraphql-seo';
+import WebsitePopup from "./WebsitePopup/WebsitePopup";
 
 const Layout = ({ isHomePage, children } ) => {
 
@@ -131,7 +132,8 @@ const Layout = ({ isHomePage, children } ) => {
       <CookieBanner />
     </div>
     </main>
-    <Popup data={themeGeneralSettings} />
+      <Popup data={themeGeneralSettings} />
+       <WebsitePopup  />
     </SEOContext.Provider>
   )
 }

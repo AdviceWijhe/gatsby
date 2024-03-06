@@ -1,4 +1,5 @@
 @import "https://pro.fontawesome.com/releases/v5.15.4/css/all.css";
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
 @import "https://unpkg.com/flickity@2/dist/flickity.min.css";
 @import 'animate.css';
 @import "./globals/variables";
@@ -22,6 +23,7 @@
 @import "../components/Logos/Logos.scss";
 @import "../components/Marquee/Marquee.scss";
 @import "../components/Popup/Popup.scss";
+@import "../components/WebsitePopup/WebsitePopup.scss";
 @import "../components/Slideshow/Slideshow.scss";
 @import "../components/Switch/Switch.scss";
 @import "../components/Tabs/Tabs.scss";
