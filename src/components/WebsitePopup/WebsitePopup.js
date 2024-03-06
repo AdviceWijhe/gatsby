@@ -81,7 +81,7 @@ const WebsitePopup = props => {
           </div>
           
 
-          <a class="btn btn-advice" target="_blank" href="https://creatiefdigitaalbureau.nl">bekijk de huisstijl <img src={rightUp} alt="" /></a>
+          <a class="btn btn-advice" target="_blank" href="https://creatiefdigitaalbureau.nl">bekijk de branding <img src={rightUp} alt="" /></a>
           <img className="mb-5 textCircle" src={textCircle} alt="vacature button" />
         </div>
 
