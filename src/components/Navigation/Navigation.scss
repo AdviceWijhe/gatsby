@@ -9,13 +9,13 @@
       padding: 3rem 0;
     }
 
-    > ul {
+    >ul {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       height: 100%;
 
-      > li {
+      >li {
         position: relative;
         width: auto;
         display: inline-block;
@@ -32,7 +32,7 @@
 
         &:nth-child(2) {
           &::after {
-            content: '2';
+            content: '3';
             width: 25px;
             height: 25px;
             background-color: $color-secondary;
@@ -53,7 +53,7 @@
           }
         }
 
-        > a {
+        >a {
           padding: 4px 10px;
           display: flex;
           align-items: center;
@@ -80,7 +80,7 @@
             transition: ease-in-out 0.5s max-height, ease-in-out 0.5s opacity;
           }
 
-          > a {
+          >a {
             -webkit-text-stroke-width: 1px;
             -webkit-text-stroke-color: #fff;
             color: transparent;
@@ -100,7 +100,7 @@
             max-height: unset;
           }
 
-          > li {
+          >li {
             display: block;
             padding: 5px 25px;
 
@@ -112,7 +112,7 @@
               display: inline-block;
             }
 
-            > a {
+            >a {
               color: #fff;
               font-size: 1.2rem;
               font-weight: 200;
@@ -156,7 +156,7 @@
       right: 6.4rem;
     }
 
-    > ul {
+    >ul {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -166,7 +166,7 @@
         align-items: flex-end;
       }
 
-      > li {
+      >li {
         position: relative;
         padding: 4px 10px;
 
