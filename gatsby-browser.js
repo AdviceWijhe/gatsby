@@ -8,5 +8,12 @@ import "./src/css/normalize.css"
 import './src/styles/global.css'
 // custom CSS styles
 import './src/css/main.scss'
+import './src/css/fonts.css';
+
+import $ from 'jquery';
+
+window.jQuery = $;
+window.$ = $;
+
 
 // import "./src/css/style.css"

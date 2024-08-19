@@ -7,9 +7,18 @@ import Popup from "./Popup/Popup";
 import React from "react"
 import { SEOContext } from 'gatsby-plugin-wpgraphql-seo';
 import WebsitePopup from "./WebsitePopup/WebsitePopup";
+import { useLocation } from '@reach/router';
 
-const Layout = ({ isHomePage, children } ) => {
+const Layout = ({ isHomePage, children }) => {
+  
+  const location = useLocation();
+  const isHome = location.pathname === '/';
 
+  let homepageClass = '';
+
+  if (isHome) {
+    homepageClass = 'homepage';
+  }
   const { siteInfo, wp: { seo, themeGeneralSettings } } = useStaticQuery(graphql`
     query LayoutQuery {
       wp {
@@ -107,13 +116,13 @@ const Layout = ({ isHomePage, children } ) => {
   console.log(themeGeneralSettings);
   return (
     <SEOContext.Provider value={{ global: seo }}>
-    <main>
+      <main className={ homepageClass }>
     
     <div className={`global-wrapper ${children?.props?.data?.post?.slug}`} data-is-root-path={isHomePage}>
-      <Header siteTitle={siteInfo}></Header>
+      {!isHome && <Header siteTitle={siteInfo}></Header>}
       {children}
 
-      {children?.props?.data?.post != null && (
+      {children?.props?.data?.post != null && !isHome && (
       <Footer options={children?.props?.data?.post?.footer}></Footer>
       )}
       {children?.props?.data?.wpPage != null && (
@@ -132,8 +141,8 @@ const Layout = ({ isHomePage, children } ) => {
       <CookieBanner />
     </div>
     </main>
-      <Popup data={themeGeneralSettings} />
-       <WebsitePopup  />
+      {!isHome && <Popup data={themeGeneralSettings} />}
+ 
     </SEOContext.Provider>
   )
 }

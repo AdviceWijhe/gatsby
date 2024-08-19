@@ -77,7 +77,12 @@ module.exports = {
       },
     },
 
-
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint: 'https://creatiefdigitaalbureau.us12.list-manage.com/subscribe/post?u=d765cf7fc1c37887eb72e144e&id=76dffca02b&f_id=00b6d5e8f0', // Add your Mailchimp endpoint here
+      },
+    },
 
     {
       resolve: `gatsby-plugin-gdpr-cookies`,
