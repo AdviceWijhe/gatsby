@@ -141,41 +141,41 @@ const HomePageTemplate = ({ data: { post } }) => {
             <p className="md:w-1/3">Waarin wij excelleren? We zetten onze vakgebieden voor je uiteen. Zo weet je precies wat je van ons mag verwachten.  </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
-              <div className="dienst bg-white rounded-2xl">
+              <a href="/diensten/strategie/" className="dienst bg-white rounded-2xl text-dark">
                 <div className="dienst__image p-6 md:px-12 xl:px-20 2xl:px-24 md:py-16 xl:py-24 2xl:py-28">
                   <img src={strategie} className="w-20 md:w-34 lg:w-64" alt="Advice Strategie"/>
                 </div>
                 <div className="dienst__title p-8">
                   <h5>Strategie</h5>
                 </div>
-              </div>
+              </a>
 
-              <div className="dienst bg-white rounded-2xl">
+              <a href="/diensten/concept-creatie/" className="dienst bg-white rounded-2xl text-dark">
                 <div className="dienst__image p-6 md:px-12 xl:px-20 2xl:px-24 md:py-16 xl:py-24 2xl:py-28">
                   <img src={branding} className="w-20 md:w-34 lg:w-64" alt="Advice Strategie"/>
                 </div>
                 <div className="dienst__title p-8">
                   <h5>Branding</h5>
                 </div>
-              </div>
+              </a>
 
-              <div className="dienst bg-white rounded-2xl">
+              <a href="/diensten/webdevelopment/" className="dienst bg-white rounded-2xl text-dark">
                 <div className="dienst__image p-6 md:px-12 xl:px-20 2xl:px-24 md:py-16 xl:py-24 2xl:py-28">
                   <img src={digitaal} className="w-20 md:w-34 lg:w-64" alt="Advice Strategie"/>
                 </div>
                 <div className="dienst__title p-8">
                   <h5>Digitaal</h5>
                 </div>
-              </div>
+              </a>
 
-              <div className="dienst bg-white rounded-2xl">
+              <a href="/diensten/online-marketing/" className="dienst bg-white rounded-2xl text-dark">
                 <div className="dienst__image p-6 md:px-12 xl:px-20 2xl:px-24 md:py-16 xl:py-24 2xl:py-28">
                   <img src={marketing} className="w-20 md:w-34 lg:w-64" alt="Advice Strategie"/>
                 </div>
                 <div className="dienst__title p-8">
                   <h5>Marketing</h5>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
       </div>
